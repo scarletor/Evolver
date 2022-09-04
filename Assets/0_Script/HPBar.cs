@@ -7,7 +7,7 @@ public class HPBar : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
 
@@ -15,7 +15,7 @@ public class HPBar : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        gameObject.transform.LookAt(camera.transform);
+        transform.rotation = Camera.main.transform.rotation;
 
 
 

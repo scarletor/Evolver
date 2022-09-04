@@ -18,7 +18,7 @@ public class CreatureBase : MonoBehaviour
 
 
 
-    public virtual void MoveToPosition()
+    public virtual void MoveToPosition(GameObject pos)
     {
 
     }

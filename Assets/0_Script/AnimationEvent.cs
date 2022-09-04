@@ -6,7 +6,7 @@ public class AnimationEvent : MonoBehaviour
 {
 
     public PlayerController parent;
-    public PetController parentPet;
+    public PetBase parentPet;
     public void FinishAttackMeleePlayer()
     {
         parent.FinishAttackMeleeAnimEvent();

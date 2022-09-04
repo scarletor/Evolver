@@ -25,7 +25,25 @@ public class PlayerCollider : MonoBehaviour
             if (other.gameObject.transform.root.name.Contains("#_2_Pet"))
             {
                 Debug.LogError("PET");
-                other.gameObject.transform.root.GetComponent<PetController>().isOwned = true;
+                other.gameObject.transform.root.GetComponent<PetBase>().isOwned = true;
+            }
+
+
+        }
+
+        Debug.LogError(gameObject.name);
+
+
+        if (gameObject.name.Contains("#GroundCheck")) //expand
+        {
+            Debug.LogError(gameObject.name);
+            if (other.gameObject.name.Contains("#_ExpandCollider"))//expand
+            {
+                other.transform.parent.gameObject.GetComponent<ExpandGround>().Expand();
+                other.transform.parent.gameObject.SetActive(false);
+
+                Debug.LogError(gameObject.name);
+
             }
 
 
@@ -33,9 +51,10 @@ public class PlayerCollider : MonoBehaviour
 
 
 
+
     }
 
-    public PetController pet;
+    public PetBase pet;
 
     public void OnTriggerStay(Collider other)
     {
@@ -79,8 +98,6 @@ public class PlayerCollider : MonoBehaviour
             {
                 parent._targetRange = null;
                 parent._anim.SetBool("hasTarget", false);
-                parent.pet._petTarget = null;
-                parent.pet._animation.SetBool("hasTarget", false);
 
             }
 
