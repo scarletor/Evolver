@@ -2,13 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Sirenix.OdinInspector;
+using DG.Tweening;
 
 public class PlayerController : CreatureBase
 {
+    [SerializeField]
+    public static PlayerController ins;
+    private void Awake()
+    {
+        ins = this;
+        Debug.LogError("RUN ME 1");
+    }
 
-
-
-    public PetController pet;
+    public PetBase pet;
 
     private void FixedUpdate()
     {
@@ -17,6 +23,7 @@ public class PlayerController : CreatureBase
         ListenInput();
     }
 
+    public GameObject camera;
     public VariableJoystick _joystick;
     public Rigidbody _rigid;
     public bool canMove;
@@ -37,10 +44,24 @@ public class PlayerController : CreatureBase
             dir.z = dir.y;
             dir.y = 0;
             dir = dir * speedMove * Time.fixedDeltaTime;
-            gameObject.transform.position += dir;
 
-            gameObject.transform.rotation = Quaternion.LookRotation(dir);
-            Debug.LogError(33);
+
+            //gameObject.transform.position += dir;
+            //gameObject.transform.rotation = Quaternion.LookRotation(dir);
+
+
+            Vector3 forward = dir;
+            Debug.DrawRay(transform.position, forward, Color.green);
+
+
+            Vector3 forward2 = Quaternion.Euler(0, camera.transform.localEulerAngles.y, 0) * forward;
+
+            Debug.DrawRay(transform.position, forward2, Color.red);
+
+            gameObject.transform.position += forward2;
+            gameObject.transform.rotation = Quaternion.LookRotation(forward2);
+
+
         }
         else
         {
@@ -48,6 +69,26 @@ public class PlayerController : CreatureBase
         }
 
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     public bool isMoving;
 
@@ -76,11 +117,9 @@ public class PlayerController : CreatureBase
 
             case characterStateEnum.move:
                 _anim.SetBool("isMoving", true);
-                Debug.LogError("MOVEING");
                 break;
             case characterStateEnum.idle:
                 _anim.SetBool("isMoving", false);
-                Debug.LogError("IDLEE");
 
                 break;
             case characterStateEnum.attackRange:
@@ -100,7 +139,6 @@ public class PlayerController : CreatureBase
 
             case characterStateEnum.attackMelee:
                 _targetMelee = target;
-                Debug.LogError(target);
                 AttackMelee();
 
                 break;

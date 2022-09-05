@@ -13,7 +13,7 @@ public class Enemy_Spider : EnemyBase
     // Update is called once per frame
     void FixedUpdate()
     {
-        Wandering();
+        Wandering3();
     }
 
 
@@ -25,7 +25,7 @@ public class Enemy_Spider : EnemyBase
     public GameObject pos1, pos2, pos3, pos;
     public float moveSpeed, rotateSpeed;
     public float distanceStopPos;
-    public void Wandering()
+    public void Wandering3()
     {
         if (canMove == false) return;
         if (pos == null) return;
@@ -43,9 +43,11 @@ public class Enemy_Spider : EnemyBase
         _anim.SetBool("Move", true);
         _anim.SetBool("Idle", false);
 
-
+        Debug.LogError(Vector3.Distance(gameObject.transform.position, pos.transform.position));
         if (Vector3.Distance(gameObject.transform.position, pos.transform.position) < distanceStopPos)
         {
+            Debug.LogError("2222");
+
             canMove = false;
             _anim.SetBool("Idle", true);
             _anim.SetBool("Move", false);

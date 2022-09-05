@@ -46,7 +46,6 @@ public class EnemyBase : CreatureBase
             transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
             _anim.SetBool(AttackStr, false);
             _anim.SetBool(IdleStr, true);
-
         }
         else //attack
         {
@@ -66,7 +65,7 @@ public class EnemyBase : CreatureBase
     public Animator _anim;
     public float rdMove1, rdMove2, rdTime1, rdTime2;
     [Button]
-    public void Wandering()
+    public virtual void Wandering()
     {
         if (isDie) return;
         if (_target == null) return;
@@ -117,11 +116,10 @@ public class EnemyBase : CreatureBase
     }
 
 
-    public void MoveToPosition(GameObject pos)
+    public override void MoveToPosition(GameObject pos)
     {
 
 
-        base.MoveToPosition();
     }
 
 
