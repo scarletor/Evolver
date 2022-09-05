@@ -117,7 +117,7 @@ public class EnemyBase : CreatureBase
     }
 
 
-    public override void MoveToPosition()
+    public void MoveToPosition(GameObject pos)
     {
 
 
@@ -148,7 +148,7 @@ public class EnemyBase : CreatureBase
                 _anim.SetBool(IdleStr, true);
                 _anim.SetBool(AttackStr, false);
                 FaceToPos(startPos.transform.position);
-                MoveToPosition(startPos.transform.position);
+                MoveToPosition(startPos);
                 Debug.LogError("BACK");
 
 
