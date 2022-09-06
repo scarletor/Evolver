@@ -7,16 +7,12 @@ public class SingeObject : MonoBehaviour
 {
 
 
-    [SerializeField]
-    private float maxDirChangePerSec = 0.1f;
 
     [SerializeField]
     private float moveSpeed = 2f;
 
-    // Maximum radius for to find flock neighbours
     [SerializeField]
-    private float maxFlockRadius = 10f;
-
+    private float speedLookAt = 3;
 
 
     // Update is called once per frame
@@ -26,38 +22,32 @@ public class SingeObject : MonoBehaviour
     }
     public GameObject cubeTest;
 
+    public GameObject start, end;
 
     public List<GameObject> cubeList;
     private void MoveStrait()
     {
         transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
-        Debug.DrawLine(gameObject.transform.position, gameObject.transform.GetChild(1).transform.position, Color.green);
+        Debug.DrawLine(end.transform.position, transform.position, Color.green);
 
-
-        Debug.DrawLine(cubeList[0].transform.position, cubeList[1].transform.position);
-        Debug.DrawLine(cubeList[2].transform.position, cubeList[3].transform.position);
-
-
-        Debug.DrawLine(cubeList[4].transform.position, cubeList[5].transform.position);
-        Debug.DrawLine(cubeList[6].transform.position, cubeList[7].transform.position);
-
-        var a1 = (cubeList[0].transform.position + cubeList[2].transform.position+cubeList[4].transform.position+cubeList[6].transform.position)/4 ;
-        var a2 = (cubeList[1].transform.position + cubeList[3].transform.position+cubeList[5].transform.position +cubeList[7].transform.position)/4 ;
-
-        Debug.DrawLine(a1,a2);
-
+        if (canLookat)
+        {
+            Vector3 relativePos = Caculator.ins.endGo.transform.position - transform.position;
+            Quaternion toRotation = Quaternion.LookRotation(relativePos);
+            transform.rotation = Quaternion.Lerp(transform.rotation, toRotation, speedLookAt * Time.deltaTime);
+        }
     }
 
-
+    public bool canLookat;
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.LogError("TRIGGER");
+        canLookat = true;
+        Debug.LogError(other.gameObject);
+        if (Caculator.ins.startPosList.Contains(start) == false)
+            Caculator.ins.startPosList.Add(start);
+        if (Caculator.ins.endPosList.Contains(end) == false)
+            Caculator.ins.endPosList.Add(end);
     }
-
-
-
-
-
 
 }
