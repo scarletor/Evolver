@@ -132,6 +132,7 @@ public class PlayerController : CreatureBase
             case characterStateEnum.die:
                 _anim.SetBool("isDie", true);
                 _anim.SetTrigger("die");
+                Rebird();
                 isDie = true;
                 break;
             case characterStateEnum.fly:
@@ -145,11 +146,30 @@ public class PlayerController : CreatureBase
         }
 
         _playerState = state;
-
-
-
-
     }
+
+
+    public void Rebird()
+    {
+        Utils.ins.DelayCall(3,() => {
+            isDie = false;
+            _curHP = _maxHP;
+            UpdateHealthBar();
+            _anim.SetBool("isDie", false);
+            _anim.Play("Idle");
+            ChangeState(characterStateEnum.idle);
+        });
+    }
+
+
+
+
+
+
+
+
+
+
 
 
     public GameObject sword, gun, _targetMelee, _targetRange;

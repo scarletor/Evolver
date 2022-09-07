@@ -25,14 +25,25 @@ public class Pet_Vekol : PetBase
     public GameObject target1;
     public void BeamControl()
     {
-        target1 = base._petTarget;
+        target1 = PlayerController.ins._targetRange;
         if (target1 == null)
         {
             muzzle1.gameObject.SetActive(false);
             impact1.gameObject.SetActive(false);
             beam1.gameObject.SetActive(false);
+            Debug.LogError("NO TARGET");
             return;
         }
+        if (target1.transform.parent.GetComponent<EnemyBase>().isDie)
+        {
+            muzzle1.gameObject.SetActive(false);
+            impact1.gameObject.SetActive(false);
+            beam1.gameObject.SetActive(false);
+            Debug.LogError("NO TARGET");
+            return;
+        }
+
+
 
 
         //RaycastHit[] hits;
@@ -91,7 +102,7 @@ public class Pet_Vekol : PetBase
             _petTarget = null;
             return;
         }
-
+        if (isOwned == false) return;
 
         transform.LookAt(_petTarget.transform);
         SetState(PetStateEnum.attackLaser);

@@ -39,12 +39,18 @@ public class PlayerCollider : MonoBehaviour
             Debug.LogError(gameObject.name);
             if (other.gameObject.name.Contains("#_ExpandCollider"))//expand
             {
-                other.transform.parent.gameObject.GetComponent<ExpandGround>().Expand();
-                other.transform.parent.gameObject.SetActive(false);
+                other.transform.parent.gameObject.GetComponent<ExpandGround>().Expand(other.transform.parent.gameObject);
 
                 Debug.LogError(gameObject.name);
-
             }
+
+            if (other.gameObject.name.Contains("#_4"))//gold
+            {
+                other.gameObject.SetActive(false);
+                UIManager.ins.gold++;
+            }
+
+
 
 
         }

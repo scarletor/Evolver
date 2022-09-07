@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using TMPro;
 public class ExpandGround : MonoBehaviour
 {
 
@@ -18,19 +19,49 @@ public class ExpandGround : MonoBehaviour
 
 
     public GameObject expandGround;
-    public float valueToExpand;
+    public int tileToExpand, goldToExpand;
 
 
-    public void Expand()
+    public void Expand(GameObject expandSign)
     {
-        expandGround.gameObject.SetActive(true);
-        expandGround.transform.localScale = Vector3.zero;
-        expandGround.transform.DOScale(1, 1);
+        if (UIManager.ins.tileUnlocked >= tileToExpand && expandType == ExpandGroundEnum.tile)
+        {
+            expandGround.gameObject.SetActive(true);
+            expandGround.transform.localScale = Vector3.zero;
+            expandGround.transform.DOScale(1, 1);
+            UIManager.ins.tileUnlocked++;
+            UIManager.ins.tileUnlocked -= tileToExpand;
+            expandSign.SetActive(false);
+        }
+
+        if (UIManager.ins.gold >= goldToExpand && expandType == ExpandGroundEnum.gold)
+        {
+            expandGround.gameObject.SetActive(true);
+            expandGround.transform.localScale = Vector3.zero;
+            expandGround.transform.DOScale(1, 1);
+            UIManager.ins.tileUnlocked++;
+            UIManager.ins.gold -= goldToExpand;
+            expandSign.SetActive(false);
+        }
+
+
+
+    }
+
+    public TextMeshPro text;
+    public ExpandGroundEnum expandType;
+    private void Start()
+    {
+        if (expandType == ExpandGroundEnum.gold) text.text = "" + goldToExpand;
+        if (expandType == ExpandGroundEnum.tile) text.text = "" + tileToExpand;
     }
 
 
 
-
-
-
+}
+public enum ExpandGroundEnum
+{
+    none,
+    gold,
+    tile
 }
