@@ -15,7 +15,7 @@ public class EnemyBase : CreatureBase
     // Update is called once per frame
     public GameObject rigged;
 
-
+    public GameObject gold;
     private void Start()
     {
         InvokeRepeating("Wandering2", 1, 5);
@@ -93,13 +93,10 @@ public class EnemyBase : CreatureBase
     [Button]
     public void Wandering2()
     {
-        Debug.LogError("11");
 
         if (_target)
             if (_target.transform.root.gameObject.GetComponent<PlayerController>().isDie == false) return;
         if (isDie) return;
-        Debug.LogError("11");
-        Debug.LogError("11");
 
         var delay = 0.5f;
         var rot = Random.RandomRange(0, 360);
@@ -122,7 +119,7 @@ public class EnemyBase : CreatureBase
 
     }
 
-
+    public List<CapsuleCollider> _myCollider;
     public bool isDie;
     public EnemyState _state;
     [Button]
@@ -140,7 +137,11 @@ public class EnemyBase : CreatureBase
             case EnemyState.MoveToTarget:
                 break;
             case EnemyState.Die:
-                _anim.SetTrigger(DieStr);
+                _anim.SetBool(DieStr, true);
+                curHPBar.transform.parent.gameObject.SetActive(false);
+                var newGold = Instantiate(gold);
+                gold.transform.position = gameObject.transform.position;
+                gold.transform.position = new Vector3(gold.transform.position.x, 0, gold.transform.position.z);
                 break;
             case EnemyState.BackToStartPos:
                 _anim.SetBool(IdleStr, true);
@@ -211,11 +212,11 @@ public class EnemyBase : CreatureBase
     }
 
 
-
+    GameObject basePos;
     public void StopAttackPlayerAndWandering()
     {
         ChangeState(EnemyState.Idle);
-
+        Wandering2();
     }
 
     public GameObject startPos;

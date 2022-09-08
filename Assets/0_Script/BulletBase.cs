@@ -14,7 +14,7 @@ public class BulletBase : MonoBehaviour
 
     public float speed, damage;
     public GameObject impactParticle;
-
+    public TextFloatingEff textEff;
 
     private void FixedUpdate()
     {
@@ -32,6 +32,11 @@ public class BulletBase : MonoBehaviour
             newMuzzle.transform.position = gameObject.transform.position;
 
             other.gameObject.transform.root.GetComponent<EnemyBase>().TakeDamage();
+
+
+            var newTextEff = Instantiate(textEff);
+            newTextEff.transform.position = transform.position;
+            newTextEff.SetValue("" + 10);
 
             Destroy(this.gameObject);
 

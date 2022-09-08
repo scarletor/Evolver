@@ -42,3 +42,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Sprite In Game
+    uniqueID: 40951401
+    locked: 0
+  - name: UI In Game
+    uniqueID: 3628488275
+    locked: 0
+  - name: New Layer 3
+    uniqueID: 1664599645
+    locked: 0
