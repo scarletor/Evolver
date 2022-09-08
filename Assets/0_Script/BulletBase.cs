@@ -31,12 +31,12 @@ public class BulletBase : MonoBehaviour
             var newMuzzle = Instantiate(impactParticle);
             newMuzzle.transform.position = gameObject.transform.position;
 
-            other.gameObject.transform.root.GetComponent<EnemyBase>().TakeDamage();
+            other.gameObject.transform.root.GetComponent<EnemyBase>().TakeDamage(damage);
 
 
             var newTextEff = Instantiate(textEff);
             newTextEff.transform.position = transform.position;
-            newTextEff.SetValue("" + 10);
+            newTextEff.SetValue("" + damage);
 
             Destroy(this.gameObject);
 

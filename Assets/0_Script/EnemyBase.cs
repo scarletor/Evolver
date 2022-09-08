@@ -19,6 +19,7 @@ public class EnemyBase : CreatureBase
     private void Start()
     {
         InvokeRepeating("Wandering2", 1, 5);
+        curHPBar.transform.parent.GetComponent<HPBar>().hpText.text = "" + curHP;
     }
     void Update()
     {
@@ -183,7 +184,8 @@ public class EnemyBase : CreatureBase
         if (curHP <= 0)
         {
 
-            curHPBar.transform.localScale = new Vector3(0, 0.5f, 1);
+            curHPBar.transform.localScale = new Vector3(0, 1.5f, 1);
+            curHPBar.transform.parent.GetComponent<HPBar>().hpText.text = "" + curHP;
 
             ChangeState(EnemyState.Die);
             return;
@@ -192,14 +194,15 @@ public class EnemyBase : CreatureBase
         var scale = -100f;
         if (curHP != 0) scale = _curHP / _maxHP;
 
-        curHPBar.transform.localScale = new Vector3(scale, 0.5f, 1);
+        curHPBar.transform.parent.GetComponent<HPBar>().hpText.text = "" + curHP;
+        curHPBar.transform.localScale = new Vector3(scale, 1.5f, 1);
     }
-    public void TakeDamage()
+    public void TakeDamage(float damage)
     {
         if (curHP <= 0)
         {
             isDie = true;
-            curHPBar.transform.localScale = new Vector3(0, 0.5f, 1);
+            curHPBar.transform.localScale = new Vector3(0, 1.5f, 1);
 
             ChangeState(EnemyState.Die);
             return;
@@ -208,7 +211,7 @@ public class EnemyBase : CreatureBase
         if (isDie) return;
         Debug.LogError("IS DIE" + isDie + "TAKE DAMAGE");
         _anim.SetTrigger("TakeDamage");
-        curHP--;
+        curHP -= damage;
     }
 
 

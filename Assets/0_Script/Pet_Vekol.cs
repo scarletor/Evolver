@@ -105,7 +105,7 @@ public class Pet_Vekol : PetBase
         if (isOwned == false) return;
 
         transform.LookAt(_petTarget.transform);
-        SetState(PetStateEnum.attackLaser);
+        ChangeState(PetStateEnum.attackLaser);
 
     }
 

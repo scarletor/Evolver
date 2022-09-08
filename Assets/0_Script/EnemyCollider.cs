@@ -4,13 +4,6 @@ using UnityEngine;
 
 public class EnemyCollider : MonoBehaviour
 {
-
-
-
-
-
-
-
     public EnemyBase enemy;
 
     private void OnTriggerEnter(Collider other)
@@ -21,12 +14,6 @@ public class EnemyCollider : MonoBehaviour
             enemy._target = other.gameObject.transform.root.gameObject;
         }
     }
-
-
-
-
-
-
 
 }
 

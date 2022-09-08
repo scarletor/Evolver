@@ -55,14 +55,14 @@ public class PetBase : CreatureBase
             if (Vector3.Distance(player.transform.position, gameObject.transform.position) < 1)
             {
                 canFollowPlayer = false;
-                SetState(PetStateEnum.idle);
+                ChangeState(PetStateEnum.idle);
             }
 
         }
     }
     public PetStateEnum petState;
     public Animator _animation;
-    public void SetState(PetStateEnum state)
+    public void ChangeState(PetStateEnum state)
     {
         switch (state)
         {
@@ -125,7 +125,7 @@ public class PetBase : CreatureBase
         if (_petTarget.transform.root.GetComponent<EnemyBase>().isDie == true)
         {
             _petTarget = null;
-            SetState(PetStateEnum.idle);
+            ChangeState(PetStateEnum.idle);
             return;
         }
 
@@ -136,11 +136,11 @@ public class PetBase : CreatureBase
 
             if (gameObject.name.Contains("Vekol"))
             {
-                SetState(PetStateEnum.attackRange);
+                ChangeState(PetStateEnum.attackRange);
             }
             else
             {
-                SetState(PetStateEnum.attackMelee);
+                ChangeState(PetStateEnum.attackMelee);
             }
         }
         else
@@ -155,7 +155,7 @@ public class PetBase : CreatureBase
     public void MoveTo(GameObject target)
     {
         Debug.LogError("PET MOVE");
-        SetState(PetStateEnum.move);
+        ChangeState(PetStateEnum.move);
         transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
 
         //slowly lookat
@@ -179,7 +179,7 @@ public class PetBase : CreatureBase
             _animation.SetBool("hasTarget", true);
         }
         if (petState == PetStateEnum.move) return;
-        SetState(PetStateEnum.attackMelee);
+        ChangeState(PetStateEnum.attackMelee);
 
     }
 
@@ -220,6 +220,91 @@ public class PetBase : CreatureBase
         attackRange,
         followPlayer,
         attackLaser,
+        die
+    }
+
+
+
+
+
+
+
+
+
+
+
+    public bool isDie;
+
+    [SerializeField] private float _curHP, _maxHP;
+    public float curHP
+    {
+        get
+        {
+            return _curHP;
+        }
+        set
+        {
+            _curHP = value;
+            UpdateHealthBar();
+        }
 
     }
+
+    public GameObject curHPBar;
+    public void UpdateHealthBar()
+    {
+        if (curHP <= 0)
+        {
+
+            curHPBar.transform.localScale = new Vector3(0, 0.5f, 1);
+            curHPBar.transform.parent.GetComponent<HPBar>().hpText.text = "" + 0;
+            ChangeState(PetStateEnum.die);
+            return;
+        }
+
+        var scale = -100f;
+        if (curHP != 0) scale = _curHP / _maxHP;
+
+        curHPBar.transform.localScale = new Vector3(scale, 1.5f, 1);
+        curHPBar.transform.parent.GetComponent<HPBar>().hpText.text = "" + curHP;
+    }
+    public void TakeDamage()
+    {
+        if (curHP <= 0)
+        {
+            isDie = true;
+            curHPBar.transform.localScale = new Vector3(0, 1.5f, 1);
+
+            ChangeState(PetStateEnum.die);
+            return;
+        }
+
+        if (isDie) return;
+        Debug.LogError("IS DIE" + isDie + "TAKE DAMAGE");
+        _animation.SetTrigger("TakeDamage");
+        curHP -= 10;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
