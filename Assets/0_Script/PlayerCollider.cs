@@ -51,9 +51,24 @@ public class PlayerCollider : MonoBehaviour
             }
 
 
+            if (other.gameObject.name.Contains("#_5_GroundObject_Dungeon"))//dungeon
+            {
+                UIManager.ins.ShowGoDungeonPanel();
+            }
+            if (other.gameObject.name.Contains("#_5_GroundObject_Lab"))//lab
+            {
+                UIManager.ins.ShowLabOpenUI();
+            }
+
+
 
 
         }
+
+
+
+
+
 
 
 
@@ -74,8 +89,25 @@ public class PlayerCollider : MonoBehaviour
             }
 
         }
-    }
 
+
+
+
+        if (gameObject.name.Contains("#GroundCheck")) //expand
+        {
+            if (other.gameObject.name.Contains("#_5_GroundObject_Fountain")) //regen
+            {
+
+                timeStayInFountain += Time.deltaTime;
+                if (timeStayInFountain - 1 > 0)
+                {
+                    timeStayInFountain = 0;
+                    parent.GetHealedByFountain();
+                }
+            }
+        }
+    }
+    public float timeStayInFountain;
 
 
 
@@ -106,11 +138,22 @@ public class PlayerCollider : MonoBehaviour
                 parent._anim.SetBool("hasTarget", false);
 
             }
-
-
-
         }
 
+
+
+
+        if (gameObject.name.Contains("#GroundCheck")) //expand
+        {
+            if (other.gameObject.name.Contains("#_5_GroundObject_Dungeon"))//dungeon
+            {
+                UIManager.ins.CloseDungeonPanel();
+            }
+            if (other.gameObject.name.Contains("#_5_GroundObject_Lab"))//lab
+            {
+                UIManager.ins.CloseLabOpenUI();
+            }
+        }
     }
 
 

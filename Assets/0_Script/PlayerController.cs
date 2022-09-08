@@ -14,9 +14,15 @@ public class PlayerController : CreatureBase
         Debug.LogError("RUN ME 1");
     }
 
+
+    private void Start()
+    {
+        UpdateHealthBar();
+        InvokeRepeating("SelfRegenarate", 1, 1);
+    }
     public PetBase pet;
 
-    private void FixedUpdate()
+    private void LateUpdate()
     {
         if (isDie) return;
         MoveByJoyStick();
@@ -151,7 +157,8 @@ public class PlayerController : CreatureBase
 
     public void Rebird()
     {
-        Utils.ins.DelayCall(3,() => {
+        Utils.ins.DelayCall(3, () =>
+        {
             isDie = false;
             _curHP = _maxHP;
             UpdateHealthBar();
@@ -275,7 +282,6 @@ public class PlayerController : CreatureBase
 
     }
 
-
     public GameObject curHPBar;
     public void UpdateHealthBar()
     {
@@ -283,7 +289,7 @@ public class PlayerController : CreatureBase
         {
 
             curHPBar.transform.localScale = new Vector3(0, 0.5f, 1);
-
+            curHPBar.transform.parent.GetComponent<HPBar>().hpText.text = "" + 0;
             ChangeState(characterStateEnum.die);
             return;
         }
@@ -291,14 +297,15 @@ public class PlayerController : CreatureBase
         var scale = -100f;
         if (curHP != 0) scale = _curHP / _maxHP;
 
-        curHPBar.transform.localScale = new Vector3(scale, 0.5f, 1);
+        curHPBar.transform.localScale = new Vector3(scale, 1.5f, 1);
+        curHPBar.transform.parent.GetComponent<HPBar>().hpText.text = "" + curHP;
     }
     public void TakeDamage()
     {
         if (curHP <= 0)
         {
             isDie = true;
-            curHPBar.transform.localScale = new Vector3(0, 0.5f, 1);
+            curHPBar.transform.localScale = new Vector3(0, 1.5f, 1);
 
             ChangeState(characterStateEnum.die);
             return;
@@ -307,10 +314,30 @@ public class PlayerController : CreatureBase
         if (isDie) return;
         Debug.LogError("IS DIE" + isDie + "TAKE DAMAGE");
         _anim.SetTrigger("TakeDamage");
-        curHP--;
+        curHP -= 10;
     }
 
 
+
+
+    public void SelfRegenarate()
+    {
+        if (_curHP < _maxHP && isDie == false)
+            curHP++;
+    }
+
+    public void GetHealedByFountain()
+    {
+        if (_curHP < _maxHP - 10 && isDie == false)
+        {
+            curHP += 10;
+        }
+        else if (_curHP > _maxHP - 10 && isDie == false)
+        {
+            curHP = _maxHP;
+        }
+
+    }
 
 
 

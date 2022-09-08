@@ -74,5 +74,43 @@ public class UIManager : MonoBehaviour
 
 
 
+    public GameObject dungeonPanel;
+    public void ShowGoDungeonPanel()
+    {
+        dungeonPanel.SetActive(true);
+    }
+
+    public void CloseDungeonPanel()
+    {
+        dungeonPanel.SetActive(false);
+    }
+    public void OpenDungeon()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Dungeon");
+    }
+
+
+
+
+    public GameObject labOpenUI;
+    public void ShowLabOpenUI()
+    {
+        labOpenUI.SetActive(true);
+    }
+
+    public void CloseLabOpenUI()
+    {
+        labOpenUI.SetActive(false);
+    }
+    public void OpenLabScene()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Lab");
+    }
+
+
+
+
+
+
 
 }
