@@ -30,7 +30,7 @@ public class UIManager_Lab : MonoBehaviour
 
 
 
-    public GameObject drone1, drone2, particle1, boomParticle, guardParticle;
+    public GameObject drone1, drone2, particle1,particle2, boomParticle, guardParticle;
     public Animator _anim;
 
     public void Upgrade()
@@ -69,6 +69,52 @@ public class UIManager_Lab : MonoBehaviour
             }).SetEase(Ease.Linear);
                 ;
         }).SetEase(Ease.Linear);
+
+
+
+
+
+        drone2.transform.DORotate(new Vector3(0, 40, 0), 1).OnComplete(() =>
+        {
+            drone2.transform.DORotate(new Vector3(25, 40, 0), 1).OnComplete(() =>
+            {
+                particle2.gameObject.SetActive(true);
+                Utils.ins.DelayCall(4, () =>
+                {
+                    particle2.gameObject.SetActive(false);
+
+                    Utils.ins.DelayCall(2, () =>
+                    {
+                        drone2.transform.DORotate(new Vector3(0, 40, 0), 1).SetEase(Ease.Linear);
+                    });
+
+                    Utils.ins.DelayCall(3, () =>
+                    {
+                        drone2.transform.DORotate(Vector3.zero, 1).SetEase(Ease.Linear);
+                    });
+
+
+                });
+            }).SetEase(Ease.Linear);
+            ;
+        }).SetEase(Ease.Linear);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 
 
