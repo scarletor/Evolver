@@ -4716,6 +4716,10 @@ MonoBehaviour:
   petState: 0
   _animation: {fileID: 1383667429}
   rangeStopMoveToEnemy: 3
+  isDie: 0
+  _curHP: 0
+  _maxHP: 0
+  curHPBar: {fileID: 0}
   beam1: {fileID: 567224662}
   beam2: {fileID: 0}
   muzzle1: {fileID: 1702830735}
@@ -5725,6 +5729,10 @@ MonoBehaviour:
   petState: 0
   _animation: {fileID: 0}
   rangeStopMoveToEnemy: 0
+  isDie: 0
+  _curHP: 0
+  _maxHP: 0
+  curHPBar: {fileID: 0}
   beam1: {fileID: 860649047}
   beam2: {fileID: 0}
   muzzle1: {fileID: 96162567}
@@ -9210,6 +9218,10 @@ MonoBehaviour:
   petState: 0
   _animation: {fileID: 0}
   rangeStopMoveToEnemy: 0
+  isDie: 0
+  _curHP: 0
+  _maxHP: 0
+  curHPBar: {fileID: 0}
   beam1: {fileID: 933671331}
   beam2: {fileID: 0}
   muzzle1: {fileID: 238334503}
@@ -9243,6 +9255,10 @@ MonoBehaviour:
   petState: 0
   _animation: {fileID: 584810916}
   rangeStopMoveToEnemy: 3
+  isDie: 0
+  _curHP: 0
+  _maxHP: 0
+  curHPBar: {fileID: 0}
   beam1: {fileID: 829536761}
   beam2: {fileID: 0}
   muzzle1: {fileID: 1921122760}
@@ -10500,6 +10516,10 @@ MonoBehaviour:
   petState: 0
   _animation: {fileID: 976204318}
   rangeStopMoveToEnemy: 3
+  isDie: 0
+  _curHP: 0
+  _maxHP: 0
+  curHPBar: {fileID: 0}
   beam1: {fileID: 1717137747}
   beam2: {fileID: 0}
   muzzle1: {fileID: 132321154}
@@ -17294,6 +17314,10 @@ MonoBehaviour:
   petState: 0
   _animation: {fileID: 108115461}
   rangeStopMoveToEnemy: 3
+  isDie: 0
+  _curHP: 0
+  _maxHP: 0
+  curHPBar: {fileID: 0}
   beam1: {fileID: 860649047}
   beam2: {fileID: 0}
   muzzle1: {fileID: 96162567}
@@ -17362,6 +17386,10 @@ MonoBehaviour:
   petState: 0
   _animation: {fileID: 1635911429}
   rangeStopMoveToEnemy: 3
+  isDie: 0
+  _curHP: 0
+  _maxHP: 0
+  curHPBar: {fileID: 0}
   beam1: {fileID: 163330940}
   beam2: {fileID: 0}
   muzzle1: {fileID: 1328476618}
@@ -18838,6 +18866,10 @@ MonoBehaviour:
   petState: 0
   _animation: {fileID: 0}
   rangeStopMoveToEnemy: 0
+  isDie: 0
+  _curHP: 0
+  _maxHP: 0
+  curHPBar: {fileID: 0}
   beam1: {fileID: 2125676799}
   beam2: {fileID: 0}
   muzzle1: {fileID: 538901408}
@@ -20386,6 +20418,10 @@ MonoBehaviour:
   petState: 0
   _animation: {fileID: 0}
   rangeStopMoveToEnemy: 0
+  isDie: 0
+  _curHP: 0
+  _maxHP: 0
+  curHPBar: {fileID: 0}
   beam1: {fileID: 829536761}
   beam2: {fileID: 0}
   muzzle1: {fileID: 1921122760}
@@ -21344,6 +21380,10 @@ MonoBehaviour:
   petState: 0
   _animation: {fileID: 0}
   rangeStopMoveToEnemy: 0
+  isDie: 0
+  _curHP: 0
+  _maxHP: 0
+  curHPBar: {fileID: 0}
   beam1: {fileID: 192512891}
   beam2: {fileID: 0}
   muzzle1: {fileID: 2110568526}
@@ -25748,7 +25788,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh109840
+  m_Name: pb_Mesh391856
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -29053,6 +29093,10 @@ MonoBehaviour:
   petState: 0
   _animation: {fileID: 0}
   rangeStopMoveToEnemy: 0
+  isDie: 0
+  _curHP: 0
+  _maxHP: 0
+  curHPBar: {fileID: 0}
   beam1: {fileID: 1717137747}
   beam2: {fileID: 0}
   muzzle1: {fileID: 132321154}
@@ -30592,6 +30636,10 @@ MonoBehaviour:
   petState: 0
   _animation: {fileID: 656566278}
   rangeStopMoveToEnemy: 3
+  isDie: 0
+  _curHP: 0
+  _maxHP: 0
+  curHPBar: {fileID: 0}
   beam1: {fileID: 192512891}
   beam2: {fileID: 0}
   muzzle1: {fileID: 2110568526}
@@ -32247,6 +32295,10 @@ MonoBehaviour:
   petState: 0
   _animation: {fileID: 0}
   rangeStopMoveToEnemy: 0
+  isDie: 0
+  _curHP: 0
+  _maxHP: 0
+  curHPBar: {fileID: 0}
   beam1: {fileID: 567224662}
   beam2: {fileID: 0}
   muzzle1: {fileID: 1702830735}
@@ -36528,6 +36580,10 @@ MonoBehaviour:
   petState: 0
   _animation: {fileID: 0}
   rangeStopMoveToEnemy: 0
+  isDie: 0
+  _curHP: 0
+  _maxHP: 0
+  curHPBar: {fileID: 0}
   beam1: {fileID: 163330940}
   beam2: {fileID: 0}
   muzzle1: {fileID: 1328476618}
@@ -40272,6 +40328,10 @@ MonoBehaviour:
   petState: 0
   _animation: {fileID: 204042687}
   rangeStopMoveToEnemy: 3
+  isDie: 0
+  _curHP: 0
+  _maxHP: 0
+  curHPBar: {fileID: 0}
   beam1: {fileID: 933671331}
   beam2: {fileID: 0}
   muzzle1: {fileID: 238334503}
@@ -43735,6 +43795,10 @@ MonoBehaviour:
   petState: 0
   _animation: {fileID: 0}
   rangeStopMoveToEnemy: 0
+  isDie: 0
+  _curHP: 0
+  _maxHP: 0
+  curHPBar: {fileID: 0}
   beam1: {fileID: 1285180183}
   beam2: {fileID: 0}
   muzzle1: {fileID: 1624940959}
@@ -43989,6 +44053,10 @@ MonoBehaviour:
   petState: 0
   _animation: {fileID: 2079913168}
   rangeStopMoveToEnemy: 3
+  isDie: 0
+  _curHP: 0
+  _maxHP: 0
+  curHPBar: {fileID: 0}
   beam1: {fileID: 1285180183}
   beam2: {fileID: 0}
   muzzle1: {fileID: 1624940959}
@@ -44059,6 +44127,10 @@ MonoBehaviour:
   petState: 0
   _animation: {fileID: 505883803}
   rangeStopMoveToEnemy: 3
+  isDie: 0
+  _curHP: 0
+  _maxHP: 0
+  curHPBar: {fileID: 0}
   beam1: {fileID: 2125676799}
   beam2: {fileID: 0}
   muzzle1: {fileID: 538901408}
@@ -44172,6 +44244,10 @@ MonoBehaviour:
   petState: 1
   _animation: {fileID: 1240208956}
   rangeStopMoveToEnemy: 2
+  isDie: 0
+  _curHP: 0
+  _maxHP: 0
+  curHPBar: {fileID: 0}
 --- !u!4 &35677433305082393
 Transform:
   m_ObjectHideFlags: 0
@@ -57661,6 +57737,10 @@ MonoBehaviour:
   petState: 1
   _animation: {fileID: 3271594970832964904}
   rangeStopMoveToEnemy: 2
+  isDie: 0
+  _curHP: 0
+  _maxHP: 0
+  curHPBar: {fileID: 0}
 --- !u!1 &8996590134835802980
 GameObject:
   m_ObjectHideFlags: 0
