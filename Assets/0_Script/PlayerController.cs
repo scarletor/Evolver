@@ -43,6 +43,8 @@ public class PlayerController : CreatureBase
 
         _rigid.velocity = Vector3.zero;
         _rigid.angularVelocity = Vector3.zero;
+
+
         Vector3 dir = _joystick.Direction;
         if (dir != Vector3.zero)
         {
