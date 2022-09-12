@@ -15,10 +15,21 @@ public class PetBase : CreatureBase
         baseName = gameObject.name;
         player = PlayerController.ins;
         curHPBar.transform.parent.GetComponent<HPBar>().hpText.text = "" + curHP;
-
-
-
+        SetupForScene();
     }
+
+
+
+    public void SetupForScene()
+    {
+        if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "Lab")
+        {
+            curHPBar.transform.parent.gameObject.SetActive(false);
+            Destroy(this);
+        }
+    }
+
+
     string baseName;
     public bool isOwned;
     // Update is called once per frame
@@ -58,7 +69,7 @@ public class PetBase : CreatureBase
         {
             if (_petTarget == null)
                 MoveTo(player.gameObject);
-            if (Vector3.Distance(player.transform.position, gameObject.transform.position) < distanceFollow*0.6f)
+            if (Vector3.Distance(player.transform.position, gameObject.transform.position) < distanceFollow * 0.6f)
             {
                 canFollowPlayer = false;
                 ChangeState(PetStateEnum.idle);
@@ -100,7 +111,7 @@ public class PetBase : CreatureBase
                 break;
 
             case PetStateEnum.attackRange:
-                _animation.SetBool("petAttackRange",true);
+                _animation.SetBool("petAttackRange", true);
                 _animation.SetBool("Move", false);
                 _animation.SetBool("Idle", false);
 
@@ -119,7 +130,7 @@ public class PetBase : CreatureBase
                 _animation.SetBool("AttackLaser", true);
                 _animation.SetBool("Die", true);
                 curHPBar.transform.parent.gameObject.SetActive(false);
-                
+
                 break;
         }
 
