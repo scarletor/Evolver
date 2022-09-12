@@ -41,16 +41,74 @@ public class AnimationEvent : MonoBehaviour
     public void EnemyBatLordAttack()
     {
         //enemy.ChangeState(EnemyBase.EnemyState.Move);
-        Debug.LogError("ATTACL");
-        if (enemy._target.transform.root.GetComponent<PlayerController>().isDie == true)
+        if (enemy._target == null) return;
+        if (enemy._target.transform.root.GetComponent<PlayerController>() != null)
         {
-            Debug.LogError("PLAYER DIE");
-            enemy.StopAttackPlayerAndWandering();
-            return;
+            if (enemy._target.transform.root.GetComponent<PlayerController>().isDie == true)
+            {
+                Debug.LogError("PLAYER DIE");
+                enemy.SetState(EnemyBase.EnemyState.BackToStartPos);
+                return;
+            }
+            enemy._target.transform.root.GetComponent<PlayerController>().TakeDamage(enemy.damage);
         }
 
-        enemy._target.transform.root.GetComponent<PlayerController>().TakeDamage();
+        if (enemy._target.transform.root.GetComponent<PetBase>() != null)
+        {
+            if (enemy._target.transform.root.GetComponent<PetBase>().isDie == true)
+            {
+                Debug.LogError("PET DIE");
+
+                enemy.targetList.Remove(enemy._target);
+
+
+
+
+                return;
+            }
+            Debug.LogError("BATLORD attack" +enemy.gameObject.name);
+
+            enemy._target.transform.root.GetComponent<PetBase>().TakeDamage(enemy.damage);
+        }
     }
 
+
+    public void EnemySkeletonAttack()
+    {
+     
+
+
+        if (enemy._target == null) return;
+        if (enemy._target.transform.root.GetComponent<PlayerController>() != null)
+        {
+            if (enemy._target.transform.root.GetComponent<PlayerController>().isDie == true)
+            {
+                if(enemy.targetList.Count==0)
+                enemy.SetState(EnemyBase.EnemyState.BackToStartPos);
+                enemy.RemoveTarget(PlayerController.ins.gameObject);
+                return;
+            }
+            enemy._target.transform.root.GetComponent<PlayerController>().TakeDamage(enemy.damage);
+        }
+
+        if (enemy._target.transform.root.GetComponent<PetBase>() != null)
+        {
+            if (enemy._target.transform.root.GetComponent<PetBase>().isDie == true)
+            {
+                enemy.RemoveTarget(enemy._target);
+                return;
+            }
+
+            enemy._target.transform.root.GetComponent<PetBase>().TakeDamage(enemy.damage);
+        }
+
+
+
+    }
+
+    public void PetDragonAttackRangeFinish()
+    {
+        parentPet.OnPetPlayAttackRangeAnim();
+    }
 
 }

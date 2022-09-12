@@ -78,7 +78,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 12
   damage: 12
-  impactParticle: {fileID: 5709848764791906551, guid: 2a575d5cf887a044b9012c4f7cc05e83, type: 3}
+  impactParticle: {fileID: 0}
   textEff: {fileID: 1446896413864019894, guid: f1c6884aee0e35c418545ddff3e74645, type: 3}
 --- !u!1001 &8635998398187837946
 PrefabInstance:

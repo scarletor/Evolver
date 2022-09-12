@@ -11,7 +11,6 @@ public class PlayerController : CreatureBase
     private void Awake()
     {
         ins = this;
-        Debug.LogError("RUN ME 1");
     }
 
 
@@ -62,7 +61,7 @@ public class PlayerController : CreatureBase
             Debug.DrawRay(transform.position, forward, Color.green);
 
 
-            Vector3 forward2 = Quaternion.Euler(0, camera.transform.localEulerAngles.y, 0) * forward;
+            Vector3 forward2 = Quaternion.Euler(0, CameraFollow.ins.transform.localEulerAngles.y, 0) * forward;
 
             Debug.DrawRay(transform.position, forward2, Color.red);
 
@@ -128,11 +127,18 @@ public class PlayerController : CreatureBase
                 break;
             case characterStateEnum.idle:
                 _anim.SetBool("isMoving", false);
+                _anim.SetBool("hasTarget", false);
+                _anim.SetBool("Idle", true);
+                _anim.SetBool("attackRange", false);
 
                 break;
             case characterStateEnum.attackRange:
                 _targetRange = target;
                 _anim.SetBool("hasTarget", true);
+                _anim.SetBool("AttackRange", true);
+
+
+
                 AttackRange();
 
 
@@ -183,13 +189,30 @@ public class PlayerController : CreatureBase
 
     public GameObject sword, gun, _targetMelee, _targetRange;
     public bool isAttackingMelee;
-    public override void AttackMelee()
+    public void AttackMelee()
     {
         if (_targetMelee == null) return;
+        if (_targetMelee.GetComponent<EnemyBase>().isDie == true)
+        {
+            _targetMelee = null;
+            TargetDie();
+            return;
+        } 
         _anim.SetTrigger("attackMelee");
+
         isAttackingMelee = true;
         sword.gameObject.SetActive(true);
         gun.gameObject.SetActive(false);
+        _targetRange.gameObject.transform.root.GetComponent<EnemyBase>().TakeDamage(meleeDamage,gameObject);
+
+
+
+        var newTextEff = Instantiate(Utils.ins.textEffWhite);
+        newTextEff.transform.position = _targetRange.transform.position;
+        newTextEff.SetValue("" + meleeDamage);
+
+
+
 
     }
 
@@ -211,19 +234,26 @@ public class PlayerController : CreatureBase
         transform.LookAt(pos);
     }
 
+    public void TargetDie()
+    {
+        Debug.LogError("TARGET DIE");
+        _anim.SetBool("attackRange", false);
+        _anim.SetBool("isMoving", false);
+        _anim.SetBool("hasTarget", false);
+        _anim.Play("meleeLayer_NoAnim");
 
-
+    }
+ 
 
 
     public GameObject yellowMuzzle, yellowBullet, yellowImpact, muzzlePos, arrow;
-    public override void AttackRange()
+    public void AttackRange()
     {
         if (isAttackingMelee == true) return;
         if (_targetRange == null) return;
-        if (_targetRange.transform.parent.GetComponent<EnemyBase>().isDie)
+        if (_targetRange.transform.GetComponent<EnemyBase>().isDie)
         {
-            _anim.SetBool("attackRange", false);
-            _anim.SetBool("hasTarget", false);
+            TargetDie();
             return;
         }
 
@@ -245,22 +275,39 @@ public class PlayerController : CreatureBase
     {
         if (isAttackingMelee == true) return;
         if (_targetRange == null) return;
-        if (_targetRange.transform.parent.GetComponent<EnemyBase>().isDie) return;
+        if (_targetRange.transform.GetComponent<EnemyBase>().isDie) return;
 
 
         var newBullet = Instantiate(yellowBullet);
         newBullet.transform.position = muzzlePos.transform.position;
+        newBullet.GetComponent<BulletBase>().owner = gameObject;
+
 
         var posLook = _targetRange.transform.position;
-        posLook.y = 0;
-        newBullet.transform.LookAt(_targetRange.transform.parent.position + new Vector3(Random.Range(-.2f, .2f), Random.Range(-.2f, -.2f)));
+        posLook.y = 1.2f;
+        newBullet.transform.LookAt(posLook + new Vector3(Random.Range(-.2f, .2f), Random.Range(-.2f, -.2f)));
 
-        var newMuzzle = Instantiate(yellowMuzzle);
-        newMuzzle.transform.position = newBullet.transform.position;
-        newMuzzle.transform.rotation = newBullet.transform.rotation;
+        //var newMuzzle = Instantiate(yellowMuzzle);
+        //newMuzzle.transform.position = newBullet.transform.position;
+        //newMuzzle.transform.rotation = newBullet.transform.rotation;
+    }
+
+    public bool CanAttackTarget()
+    {
+        if (_targetRange == null) return false;
+        if (_targetRange.gameObject.GetComponent<EnemyBase>().isDie)
+        {
+            _targetRange = null;
+            ChangeState(characterStateEnum.idle);
+            return false;
+        }
+        return true;
     }
     public void FinishAttackRange()
     {
+        if (CanAttackTarget() == false) return;
+
+
         ChangeState(characterStateEnum.attackRange);
         arrow.SetActive(false);
     }
@@ -302,7 +349,7 @@ public class PlayerController : CreatureBase
         curHPBar.transform.localScale = new Vector3(scale, 1.5f, 1);
         curHPBar.transform.parent.GetComponent<HPBar>().hpText.text = "" + curHP;
     }
-    public void TakeDamage()
+    public void TakeDamage(float damage)
     {
         if (curHP <= 0)
         {
@@ -314,9 +361,13 @@ public class PlayerController : CreatureBase
         }
 
         if (isDie) return;
-        Debug.LogError("IS DIE" + isDie + "TAKE DAMAGE");
+
+        var newTextEff = Instantiate(Utils.ins.textEffRed);
+        newTextEff.transform.position = transform.position;
+        newTextEff.SetValue("" + damage);
+
         _anim.SetTrigger("TakeDamage");
-        curHP -= 10;
+        curHP -= damage;
     }
 
 

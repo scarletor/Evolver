@@ -8,9 +8,11 @@ public class EnemyCollider : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.transform.root.name.Contains("Player"))
+        if (enemy.isDie) return;
+        if (other.gameObject.name.Contains("#PlayerCheck"))
         {
             Debug.LogError("PLAYER TOUCH ME");
+            enemy.FoundPlayer();
             enemy._target = other.gameObject.transform.root.gameObject;
         }
     }

@@ -12,45 +12,64 @@ public class EnemyBase : CreatureBase
     const string AttackStr = "Attack";
     const string DieStr = "Die";
 
+    string baseName;
     // Update is called once per frame
     public GameObject rigged;
-
-    public GameObject gold;
-    private void Start()
+    public bool isFlying;
+    public void Start()
     {
-        InvokeRepeating("Wandering2", 1, 5);
         curHPBar.transform.parent.GetComponent<HPBar>().hpText.text = "" + curHP;
+        Rigidbody rb = gameObject.GetComponent<Rigidbody>();
+        rb.centerOfMass = Vector3.zero;
+        rb.inertiaTensorRotation = Quaternion.identity;
+        startPos = transform.position;
+        baseName = name;
+
+
+        InvokeRepeating("CheckTargetIntervals", 1, .3f);
     }
+
     void Update()
     {
-        if (canAttack == false) return;
-        if (isDie) return;
-
-        MoveToPlayer();
+        MoveToEnemy();
     }
-    public bool canAttack;
     public float distanceStopMove;
-    public void MoveToPlayer()
+    public void MoveToEnemy()
     {
 
         if (_target == null) return;
-        if (_target.transform.root.GetComponent<PlayerController>().isDie == true) return;
+        if (isDie == true) return;
+        if (_target.transform.root.GetComponent<PlayerController>() != null)
+            if (_target.transform.root.GetComponent<PlayerController>().isDie == true)
+            {
+                _target = null;
+                RemoveTarget(PlayerController.ins.gameObject);
+                if (targetList.Count == 0)
+                    SetState(EnemyState.BackToStartPos);
 
+                if (GetComponent<Enemy_Skeleton>() != null)
+                    GetComponent<Enemy_Skeleton>().canMove = true;
+                return;
+            }
+
+
+
+        Debug.LogError(gameObject.name + "___found player");
 
 
 
         if (Vector3.Distance(gameObject.transform.position, _target.transform.position) > distanceStopMove)  //move to player
         {
             var posLook = _target.transform.position;
-            posLook.y = 1.2f;
+            if (isFlying) posLook.y = 1.2f;
             gameObject.transform.LookAt(posLook);
             transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
-            _anim.SetBool(AttackStr, false);
-            _anim.SetBool(IdleStr, true);
+            SetState(EnemyState.MoveToPlayer);
+
         }
         else //attack
         {
-            _anim.SetBool(AttackStr, true);
+            SetState(EnemyState.Attack);
         }
 
 
@@ -79,7 +98,7 @@ public class EnemyBase : CreatureBase
 
         transform.DOMove(posToMove, moveTime);
         FaceToPos(posToMove);
-        ChangeState(EnemyState.Idle);
+        SetState(EnemyState.Idle);
     }
 
     public void FaceToPos(Vector3 pos)
@@ -107,25 +126,23 @@ public class EnemyBase : CreatureBase
         {
             if (_target) return;
             transform.DOMove(font.transform.position, 2);
-            ChangeState(EnemyState.Idle);
+            SetState(EnemyState.Idle);
         });
 
 
     }
 
 
-    public override void MoveToPosition(GameObject pos)
-    {
 
 
-    }
+    public GameObject wanderingPosList;
 
-    public List<CapsuleCollider> _myCollider;
     public bool isDie;
     public EnemyState _state;
     [Button]
-    public void ChangeState(EnemyState state)
+    public void SetState(EnemyState state)
     {
+        if (isDie) return;
         switch (state)
         {
             case EnemyState.Idle:
@@ -134,32 +151,82 @@ public class EnemyBase : CreatureBase
                 break;
             case EnemyState.Attack:
                 _anim.SetBool(AttackStr, true);
+                _anim.SetBool(IdleStr, false);
+                _anim.SetBool("Move", false);
+                _anim.SetBool("TakeDamage", false);
                 break;
-            case EnemyState.MoveToTarget:
+            case EnemyState.MoveToPlayer:
+                _anim.SetBool(AttackStr, false);
+                _anim.SetBool(IdleStr, false);
+                _anim.SetBool("Move", true);
                 break;
             case EnemyState.Die:
+                isDie = true;
                 _anim.SetBool(DieStr, true);
                 curHPBar.transform.parent.gameObject.SetActive(false);
-                var newGold = Instantiate(gold);
-                gold.transform.position = gameObject.transform.position;
-                gold.transform.position = new Vector3(gold.transform.position.x, 0, gold.transform.position.z);
+                gameObject.GetComponent<CapsuleCollider>().enabled = false;
+
+                var newGold = Instantiate(Utils.ins.gold);
+                newGold.transform.position = gameObject.transform.position;
+                newGold.transform.position = new Vector3(newGold.transform.position.x, 0, newGold.transform.position.z);
                 break;
             case EnemyState.BackToStartPos:
-                _anim.SetBool(IdleStr, true);
+                _anim.SetBool(IdleStr, false);
+                _anim.SetBool("Move", true);
                 _anim.SetBool(AttackStr, false);
-                FaceToPos(startPos.transform.position);
                 MoveToPosition(startPos);
-                Debug.LogError("BACK");
+                break;
+
+
+            case EnemyState.Watching:
 
 
                 break;
         }
-
-
-
         _state = state;
+        name = baseName + "_#_" + state;
 
     }
+
+    public GameObject watchingPosList;
+    public void FoundPlayer()
+    {
+        _anim.CrossFade("Move", .1f);
+        _target = PlayerController.ins.gameObject;
+
+    }
+
+    public void MoveToPosition(Vector3 pos)
+    {
+        //slowly lookat noupdate
+        GameObject temp = new GameObject();
+        temp.transform.position = pos;
+        var _direction = (temp.transform.position - transform.position).normalized;
+        var rot = Quaternion.LookRotation(_direction);
+        transform.DORotateQuaternion(rot, 1);
+
+        //move to pos noupdate
+        var distance = Vector3.Distance(transform.position, startPos);
+        var time = distance / moveSpeed;
+        transform.DOMove(pos, time).OnComplete(() =>
+        {
+            if (gameObject.name.Contains("Skeleton"))
+                SetState(EnemyState.Watching);
+
+        });
+        _target = null;
+    }
+
+
+
+
+
+
+
+
+
+
+
 
 
     [SerializeField] private float _curHP, _maxHP;
@@ -183,11 +250,10 @@ public class EnemyBase : CreatureBase
     {
         if (curHP <= 0)
         {
-
             curHPBar.transform.localScale = new Vector3(0, 1.5f, 1);
             curHPBar.transform.parent.GetComponent<HPBar>().hpText.text = "" + curHP;
 
-            ChangeState(EnemyState.Die);
+            SetState(EnemyState.Die);
             return;
         }
 
@@ -197,37 +263,71 @@ public class EnemyBase : CreatureBase
         curHPBar.transform.parent.GetComponent<HPBar>().hpText.text = "" + curHP;
         curHPBar.transform.localScale = new Vector3(scale, 1.5f, 1);
     }
-    public void TakeDamage(float damage)
+    public void TakeDamage(float damage, GameObject dealer)
     {
         if (curHP <= 0)
         {
             isDie = true;
             curHPBar.transform.localScale = new Vector3(0, 1.5f, 1);
 
-            ChangeState(EnemyState.Die);
+            SetState(EnemyState.Die);
             return;
         }
 
         if (isDie) return;
-        Debug.LogError("IS DIE" + isDie + "TAKE DAMAGE");
+
+
+        var newTextEff = Instantiate(Utils.ins.textEffWhite);
+        newTextEff.transform.position = gameObject.transform.position;
+        newTextEff.SetValue("" + damage);
+        Debug.LogError("MONSTER GET DAMAGE" + damage);
+        AddTarget(dealer);
         _anim.SetTrigger("TakeDamage");
         curHP -= damage;
     }
 
 
-    GameObject basePos;
-    public void StopAttackPlayerAndWandering()
+
+
+    public List<GameObject> targetList;
+
+    public void CheckTargetIntervals()
     {
-        ChangeState(EnemyState.Idle);
-        Wandering2();
+        Transform tMin = null;
+        float minDist = Mathf.Infinity;
+        Vector3 currentPos = transform.position;
+        foreach (GameObject go in targetList)
+        {
+            float dist = Vector3.Distance(go.transform.position, currentPos);
+            if (dist < minDist)
+            {
+                tMin = go.transform;
+                minDist = dist;
+            }
+        }
+        if (tMin != null)
+            _target = tMin.gameObject;
     }
 
-    public GameObject startPos;
-    public void BackToStartPos()
+    public void AddTarget(GameObject go)
     {
-        ChangeState(EnemyState.Idle);
-        Debug.LogError("STOP ATTACK");
+        if (targetList.Contains(go) == false)
+            targetList.Add(go);
     }
+    public void RemoveTarget(GameObject go)
+    {
+        if (targetList.Contains(go))
+            targetList.Remove(go);
+    }
+
+
+
+
+
+
+
+    public Vector3 startPos;
+
 
 
 
@@ -239,8 +339,21 @@ public class EnemyBase : CreatureBase
     {
         Idle,
         Attack,
-        MoveToTarget,
+        MoveToPlayer,
         Die,
         BackToStartPos,
+        Wandering,
+        Watching,
     }
+
+
+
+    public enum EnemyMoveType
+    {
+        watcher,
+        group,
+        moveAround
+
+    }
+
 }

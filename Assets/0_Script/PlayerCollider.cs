@@ -13,25 +13,23 @@ public class PlayerCollider : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.LogError("TRIGGER COL");
 
         if (gameObject.name.Contains("#MeleeCheck"))
         {
-            if (other.gameObject.transform.parent.name.Contains("#_1_Enemy"))
+            if (other.gameObject.transform.name.Contains("#_1_Enemy") && other.gameObject.transform.name.Contains("#_Die") == false)
             {
                 parent.ChangeState(characterStateEnum.attackMelee, other.gameObject);
             }
 
             if (other.gameObject.transform.root.name.Contains("#_2_Pet"))
             {
-                Debug.LogError("PET");
                 other.gameObject.transform.root.GetComponent<PetBase>().isOwned = true;
             }
 
 
         }
 
-        Debug.LogError(gameObject.name);
+        Debug.LogWarning(gameObject.name + "___" + other.name);
 
 
         if (gameObject.name.Contains("#GroundCheck")) //expand
@@ -81,8 +79,10 @@ public class PlayerCollider : MonoBehaviour
     {
         if (gameObject.name.Contains("#RangeCheck"))
         {
-            if (other.gameObject.transform.parent.name.Contains("#_1_Enemy"))
+
+            if (other.gameObject.transform.name.Contains("#_1_Enemy") && other.gameObject.transform.name.Contains("#Die") == false)
             {
+                Debug.LogError("TRIGGER RANGE DETECT ENEMY");
                 parent.ChangeState(characterStateEnum.attackRange, other.gameObject);
                 if (parent.pet != null)
                     parent.pet._petTarget = other.gameObject;
@@ -115,12 +115,10 @@ public class PlayerCollider : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        Debug.LogError("CANCEL");
-        if (gameObject.name.Contains("#MeleeCheck"))
+        if (gameObject.name.Contains("#MeleeCheck") && gameObject.name.Contains("#_Die") == false)
         {
-            Debug.LogError("CANCEL_ MELEE CHECK");
 
-            if (other.gameObject.transform.parent.name.Contains("#_1_Enemy"))
+            if (other.gameObject.transform.name.Contains("#_1_Enemy"))
             {
                 parent.TargetOutRangeMelee();
 
@@ -131,8 +129,7 @@ public class PlayerCollider : MonoBehaviour
 
         if (gameObject.name.Contains("#RangeCheck"))
         {
-            Debug.LogError("TRIGGER RANGE EXIT ");
-            if (other.gameObject.transform.parent.name.Contains("#_1_Enemy"))
+            if (other.gameObject.transform.name.Contains("#_1_Enemy"))
             {
                 parent._targetRange = null;
                 parent._anim.SetBool("hasTarget", false);
