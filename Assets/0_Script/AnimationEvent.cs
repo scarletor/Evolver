@@ -1,12 +1,35 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Sirenix.OdinInspector;
 public class AnimationEvent : MonoBehaviour
 {
 
     public PlayerController parent;
     public PetBase parentPet;
+
+    public GameObject EnemySkeletonAttackSpecalParticle1, EnemySkeletonAttackSpecalParticle2;
+    public void EnemySkeletonAttackSpecal1()
+    {
+        EnemySkeletonAttackSpecalParticle1.gameObject.SetActive(true);
+    }
+
+    public void EnemySkeletonAttackSpecal2()
+    {
+        EnemySkeletonAttackSpecalParticle2.gameObject.SetActive(true);
+        EnemySkeletonAttackSpecalParticle1.gameObject.SetActive(false);
+
+    }
+
+    public string animName;
+    [Button]
+    public void TestAnim()
+    {
+        gameObject.GetComponent<Animator>().Play(animName);
+    }
+
+
+
     public void FinishAttackMeleePlayer()
     {
         parent.FinishAttackMeleeAnimEvent();
