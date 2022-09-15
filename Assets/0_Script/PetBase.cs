@@ -5,19 +5,39 @@ using Sirenix.OdinInspector;
 public class PetBase : CreatureBase
 {
     // Start is called before the first frame update
-
-
     public PetAttackType _petAttackType;
 
+    public GameObject _projectile, muzzle;
+    public GameObject myFollowPos;
+
+
     [Button]
-    void Start()
+    public void Start()
     {
         baseName = gameObject.name;
-        player = PlayerController.ins;
+        _player = PlayerController.ins;
         curHPBar.transform.parent.GetComponent<HPBar>().hpText.text = "" + curHP;
+
         SetupForScene();
+        SetupSelf();
     }
 
+    [Button]
+    private void SetupSelf()
+    {
+        _animator = gameObject.GetComponent<Animator>();
+        _player = PlayerController.ins;//fix later
+
+        if (_animator == null)
+        {
+            Debug.LogError("RESETUP");
+            Utils.ins.DelayCall(1, () =>
+            {
+                SetupSelf();
+            });
+
+        }
+    }
 
 
     public void SetupForScene()
@@ -41,13 +61,17 @@ public class PetBase : CreatureBase
         PetAttackMelee();
         PetAttackRange();
     }
+    [Button]
+    public void Test()
+    {
+        Debug.LogError(PlayerController.ins);
+    }
 
-
-    public PlayerController player;
+    public PlayerController _player;
     public GameObject _petTarget;
 
 
-    public float distanceFollow, speedLookAt;
+    public float distanceFollow = 2f, speedLookAt = 3f;
 
 
     public float distanceDisplay;
@@ -55,8 +79,8 @@ public class PetBase : CreatureBase
 
     public void FollowPlayer()
     {
-        distanceDisplay = Vector3.Distance(player.transform.position, transform.position);
-
+        distanceDisplay = Vector3.Distance(_player.transform.position, transform.position);
+        if (_player == null) _player = PlayerController.ins;
 
 
 
@@ -64,71 +88,82 @@ public class PetBase : CreatureBase
         {
             canFollowPlayer = true;
         }
+        if (Vector3.Distance(_player.transform.position, gameObject.transform.position) < distanceFollow)
+        {
+            canFollowPlayer = false;
+            ChangeState(PetStateEnum.idle);
+            Debug.LogError("11");
+        }
+
+        if(myFollowPos==null)
+        {
+            _player.petPosList.ForEach(pos => { 
+            
+            });
+        }
+
 
         if (canFollowPlayer)
         {
             if (_petTarget == null)
-                MoveTo(player.gameObject);
-            if (Vector3.Distance(player.transform.position, gameObject.transform.position) < distanceFollow * 0.6f)
-            {
-                canFollowPlayer = false;
-                ChangeState(PetStateEnum.idle);
-            }
+                MoveTo(_player.gameObject);
 
         }
     }
     public PetStateEnum petState;
-    public Animator _animation;
+    public Animator _animator;
     public void ChangeState(PetStateEnum state)
     {
         switch (state)
         {
             case PetStateEnum.move:
-                _animation.SetBool("Idle", false);
-                _animation.SetBool("Move", true);
-                _animation.SetBool("AttackLaser", false);
-                _animation.SetBool("petAttackRange", false);
+                _animator.SetBool("Idle", false);
+                _animator.SetBool("Move", true);
+                _animator.SetBool("AttackLaser", false);
+                _animator.SetBool("petAttackRange", false);
+                Debug.LogError("22");
 
                 break;
             case PetStateEnum.idle:
-                _animation.SetBool("petAttackRange", false);
-                _animation.SetBool("Idle", true);
-                _animation.SetBool("Move", false);
-                _animation.SetBool("AttackLaser", false);
+                _animator.SetBool("petAttackRange", false);
+                _animator.SetBool("Idle", true);
+                _animator.SetBool("Move", false);
+                _animator.SetBool("AttackLaser", false);
 
+                Debug.LogError("33");
 
                 break;
             case PetStateEnum.attackMelee:
-                _animation.SetTrigger("petAttack");
+                _animator.SetTrigger("petAttack");
 
                 break;
             case PetStateEnum.followPlayer:
 
-                _animation.SetBool("Idle", false);
-                _animation.SetBool("Move", true);
-                _animation.SetBool("AttackLaser", false);
+                _animator.SetBool("Idle", false);
+                _animator.SetBool("Move", true);
+                _animator.SetBool("AttackLaser", false);
 
                 break;
 
             case PetStateEnum.attackRange:
-                _animation.SetBool("petAttackRange", true);
-                _animation.SetBool("Move", false);
-                _animation.SetBool("Idle", false);
+                _animator.SetBool("petAttackRange", true);
+                _animator.SetBool("Move", false);
+                _animator.SetBool("Idle", false);
 
 
                 break;
             case PetStateEnum.attackLaser:
 
-                _animation.SetBool("Idle", false);
-                _animation.SetBool("Move", false);
-                _animation.SetBool("AttackLaser", true);
+                _animator.SetBool("Idle", false);
+                _animator.SetBool("Move", false);
+                _animator.SetBool("AttackLaser", true);
                 break;
             case PetStateEnum.die:
                 isDie = true;
-                _animation.SetBool("Idle", false);
-                _animation.SetBool("Move", false);
-                _animation.SetBool("AttackLaser", true);
-                _animation.SetBool("Die", true);
+                _animator.SetBool("Idle", false);
+                _animator.SetBool("Move", false);
+                _animator.SetBool("AttackLaser", true);
+                _animator.SetBool("Die", true);
                 curHPBar.transform.parent.gameObject.SetActive(false);
 
                 break;
@@ -138,7 +173,7 @@ public class PetBase : CreatureBase
         gameObject.name = baseName + "_" + state;
 
     }
-    public float rangeStopMoveToEnemy;
+    public float rangeStopMoveToEnemy = 2;
 
     public virtual void PetAttackMelee()
     {
@@ -172,18 +207,21 @@ public class PetBase : CreatureBase
 
     public bool CanPetAttack()
     {
-        _petTarget = player._targetRange;
-        if (_petTarget == null) return false;
+        _petTarget = _player._targetRange;
+        if (_petTarget == null)
+        {
+            return false;
+        }
         if (_petTarget.transform.root.GetComponent<EnemyBase>().isDie == true)
         {
             _petTarget = null;
-            ChangeState(PetStateEnum.idle);
+            if (petState == PetStateEnum.attackRange || petState == PetStateEnum.attackMelee) ChangeState(PetStateEnum.idle);
             return false;
         }
         return true;
     }
 
-    public float petAttackRange;
+    public float petAttackRange = 7;
     public void PetAttackRange()
     {
         if (_petAttackType != PetAttackType.ranger) return;
@@ -245,14 +283,14 @@ public class PetBase : CreatureBase
     public void FinishAttackPet()
     {
 
-        if (player._targetRange == null)
+        if (_player._targetRange == null)
         {
-            _animation.SetBool("hasTarget", false);
+            _animator.SetBool("hasTarget", false);
             return;
         }
         else
         {
-            _animation.SetBool("hasTarget", true);
+            _animator.SetBool("hasTarget", true);
         }
         if (petState == PetStateEnum.move) return;
         ChangeState(PetStateEnum.attackMelee);
@@ -265,7 +303,7 @@ public class PetBase : CreatureBase
     [Button]
     public void test()
     {
-        _animation.SetTrigger("petAttack");
+        _animator.SetTrigger("petAttack");
 
     }
 
@@ -311,7 +349,7 @@ public class PetBase : CreatureBase
 
     public bool isDie;
 
-    [SerializeField] private float _curHP, _maxHP;
+    [SerializeField] private float _curHP = 50, _maxHP = 50;
     public float curHP
     {
         get
@@ -362,7 +400,7 @@ public class PetBase : CreatureBase
         newTextEff.SetValue("" + damage);
 
 
-        _animation.SetTrigger("TakeDamage");
+        _animator.SetTrigger("TakeDamage");
         curHP -= damage;
     }
 

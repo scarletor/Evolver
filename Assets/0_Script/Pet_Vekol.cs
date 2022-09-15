@@ -107,8 +107,8 @@ public class Pet_Vekol : PetBase
 
         if (resetTime > 1f)
         {
-            target1.transform.GetComponent<EnemyBase>().TakeDamage(damage,gameObject);
-            Debug.LogError(damage);
+            target1.transform.GetComponent<EnemyBase>().TakeDamage(baseDamage,gameObject);
+            Debug.LogError(baseDamage);
             resetTime = 0;
         }
     }
@@ -119,7 +119,7 @@ public class Pet_Vekol : PetBase
     public override void PetAttackMelee()
     {
 
-        _petTarget = player._targetRange;
+        _petTarget = _player._targetRange;
         if (_petTarget == null) return;
         if (_petTarget.transform.root.GetComponent<EnemyBase>().isDie == true)
         {

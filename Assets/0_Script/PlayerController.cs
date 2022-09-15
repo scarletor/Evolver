@@ -11,6 +11,7 @@ public class PlayerController : CreatureBase
     private void Awake()
     {
         ins = this;
+        Debug.LogError("PLAYER");
     }
 
 
@@ -203,13 +204,13 @@ public class PlayerController : CreatureBase
         isAttackingMelee = true;
         sword.gameObject.SetActive(true);
         gun.gameObject.SetActive(false);
-        _targetRange.gameObject.transform.root.GetComponent<EnemyBase>().TakeDamage(meleeDamage,gameObject);
+        _targetRange.gameObject.transform.root.GetComponent<EnemyBase>().TakeDamage(baseDamage,gameObject);
 
 
 
         var newTextEff = Instantiate(Utils.ins.textEffWhite);
         newTextEff.transform.position = _targetRange.transform.position;
-        newTextEff.SetValue("" + meleeDamage);
+        newTextEff.SetValue("" + baseDamage);
 
 
 
@@ -391,6 +392,10 @@ public class PlayerController : CreatureBase
         }
 
     }
+
+
+    public List<GameObject> petPosList;
+
 
 
 

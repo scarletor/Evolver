@@ -1485,7 +1485,7 @@ GameObject:
   - component: {fileID: 4530003306004526970}
   - component: {fileID: 4530003305994672282}
   m_Layer: 0
-  m_Name: '#_2_Pet_Vekol'
+  m_Name: '#_2_Pet_Fungi'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

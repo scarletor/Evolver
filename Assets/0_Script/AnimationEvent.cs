@@ -73,7 +73,7 @@ public class AnimationEvent : MonoBehaviour
                 enemy.SetState(EnemyBase.EnemyState.BackToStartPos);
                 return;
             }
-            enemy._target.transform.root.GetComponent<PlayerController>().TakeDamage(enemy.damage);
+            enemy._target.transform.root.GetComponent<PlayerController>().TakeDamage(enemy.baseDamage);
         }
 
         if (enemy._target.transform.root.GetComponent<PetBase>() != null)
@@ -91,7 +91,7 @@ public class AnimationEvent : MonoBehaviour
             }
             Debug.LogError("BATLORD attack" +enemy.gameObject.name);
 
-            enemy._target.transform.root.GetComponent<PetBase>().TakeDamage(enemy.damage);
+            enemy._target.transform.root.GetComponent<PetBase>().TakeDamage(enemy.baseDamage);
         }
     }
 
@@ -111,7 +111,7 @@ public class AnimationEvent : MonoBehaviour
                 enemy.RemoveTarget(PlayerController.ins.gameObject);
                 return;
             }
-            enemy._target.transform.root.GetComponent<PlayerController>().TakeDamage(enemy.damage);
+            enemy._target.transform.root.GetComponent<PlayerController>().TakeDamage(enemy.baseDamage);
         }
 
         if (enemy._target.transform.root.GetComponent<PetBase>() != null)
@@ -122,7 +122,7 @@ public class AnimationEvent : MonoBehaviour
                 return;
             }
 
-            enemy._target.transform.root.GetComponent<PetBase>().TakeDamage(enemy.damage);
+            enemy._target.transform.root.GetComponent<PetBase>().TakeDamage(enemy.baseDamage);
         }
 
 

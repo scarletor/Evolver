@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Pet_Bite Attack
+  m_Name: '#_2_Pet_Bite Attack'
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0

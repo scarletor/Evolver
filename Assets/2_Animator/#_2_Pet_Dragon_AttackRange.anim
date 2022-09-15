@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Pet_Dragon_AttackRange
+  m_Name: '#_2_Pet_Dragon_AttackRange'
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0

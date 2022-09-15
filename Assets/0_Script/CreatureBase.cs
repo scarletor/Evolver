@@ -10,10 +10,10 @@ public class CreatureBase : MonoBehaviour
 
 
 
-    public float   damage, moveSpeed, attackSpeed,meleeDamage;
+    public float baseDamage = 3f, moveSpeed=2.5f;
 
 
-   
+
 
 
 
