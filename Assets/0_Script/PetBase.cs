@@ -7,22 +7,39 @@ public class PetBase : CreatureBase
     // Start is called before the first frame update
 
 
+    public PetAttackType _petAttackType;
+
     [Button]
     void Start()
     {
         baseName = gameObject.name;
         player = PlayerController.ins;
-        Debug.LogError("RUN ME 2");
-
+        curHPBar.transform.parent.GetComponent<HPBar>().hpText.text = "" + curHP;
+        SetupForScene();
     }
+
+
+
+    public void SetupForScene()
+    {
+        if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "Lab")
+        {
+            curHPBar.transform.parent.gameObject.SetActive(false);
+            Destroy(this);
+        }
+    }
+
+
     string baseName;
     public bool isOwned;
     // Update is called once per frame
-    void FixedUpdate()
+    public void FixedUpdate()
     {
+        if (isDie) return;
         if (isOwned == false) return;
         FollowPlayer();
-        PetAttack();
+        PetAttackMelee();
+        PetAttackRange();
     }
 
 
@@ -36,7 +53,7 @@ public class PetBase : CreatureBase
     public float distanceDisplay;
     public bool canFollowPlayer;
 
-    public override void FollowPlayer()
+    public void FollowPlayer()
     {
         distanceDisplay = Vector3.Distance(player.transform.position, transform.position);
 
@@ -52,33 +69,29 @@ public class PetBase : CreatureBase
         {
             if (_petTarget == null)
                 MoveTo(player.gameObject);
-            if (Vector3.Distance(player.transform.position, gameObject.transform.position) < 1)
+            if (Vector3.Distance(player.transform.position, gameObject.transform.position) < distanceFollow * 0.6f)
             {
                 canFollowPlayer = false;
-                SetState(PetStateEnum.idle);
+                ChangeState(PetStateEnum.idle);
             }
 
         }
     }
     public PetStateEnum petState;
     public Animator _animation;
-    public void SetState(PetStateEnum state)
+    public void ChangeState(PetStateEnum state)
     {
         switch (state)
         {
             case PetStateEnum.move:
-                _animation.SetTrigger("Move");
-                Debug.LogError("MOVE");
-
                 _animation.SetBool("Idle", false);
                 _animation.SetBool("Move", true);
                 _animation.SetBool("AttackLaser", false);
+                _animation.SetBool("petAttackRange", false);
 
                 break;
             case PetStateEnum.idle:
-                _animation.SetTrigger("Idle");
-
-
+                _animation.SetBool("petAttackRange", false);
                 _animation.SetBool("Idle", true);
                 _animation.SetBool("Move", false);
                 _animation.SetBool("AttackLaser", false);
@@ -87,7 +100,6 @@ public class PetBase : CreatureBase
                 break;
             case PetStateEnum.attackMelee:
                 _animation.SetTrigger("petAttack");
-                _animation.SetBool("hasTarget", true);
 
                 break;
             case PetStateEnum.followPlayer:
@@ -99,6 +111,9 @@ public class PetBase : CreatureBase
                 break;
 
             case PetStateEnum.attackRange:
+                _animation.SetBool("petAttackRange", true);
+                _animation.SetBool("Move", false);
+                _animation.SetBool("Idle", false);
 
 
                 break;
@@ -107,7 +122,14 @@ public class PetBase : CreatureBase
                 _animation.SetBool("Idle", false);
                 _animation.SetBool("Move", false);
                 _animation.SetBool("AttackLaser", true);
-
+                break;
+            case PetStateEnum.die:
+                isDie = true;
+                _animation.SetBool("Idle", false);
+                _animation.SetBool("Move", false);
+                _animation.SetBool("AttackLaser", true);
+                _animation.SetBool("Die", true);
+                curHPBar.transform.parent.gameObject.SetActive(false);
 
                 break;
         }
@@ -118,16 +140,14 @@ public class PetBase : CreatureBase
     }
     public float rangeStopMoveToEnemy;
 
-    public virtual void PetAttack()
+    public virtual void PetAttackMelee()
     {
-        _petTarget = player._targetRange;
-        if (_petTarget == null) return;
-        if (_petTarget.transform.root.GetComponent<EnemyBase>().isDie == true)
-        {
-            _petTarget = null;
-            SetState(PetStateEnum.idle);
-            return;
-        }
+        if (_petAttackType != PetAttackType.melee) return;
+        if (CanPetAttack() == false) return;
+
+
+
+
 
 
         if (Vector3.Distance(_petTarget.transform.position, gameObject.transform.position) < rangeStopMoveToEnemy)
@@ -136,26 +156,82 @@ public class PetBase : CreatureBase
 
             if (gameObject.name.Contains("Vekol"))
             {
-                SetState(PetStateEnum.attackRange);
+                ChangeState(PetStateEnum.attackRange);
             }
             else
             {
-                SetState(PetStateEnum.attackMelee);
+                ChangeState(PetStateEnum.attackMelee);
             }
         }
         else
         {
             MoveTo(_petTarget);
-
         }
 
     }
 
+    public bool CanPetAttack()
+    {
+        _petTarget = player._targetRange;
+        if (_petTarget == null) return false;
+        if (_petTarget.transform.root.GetComponent<EnemyBase>().isDie == true)
+        {
+            _petTarget = null;
+            ChangeState(PetStateEnum.idle);
+            return false;
+        }
+        return true;
+    }
+
+    public float petAttackRange;
+    public void PetAttackRange()
+    {
+        if (_petAttackType != PetAttackType.ranger) return;
+        if (CanPetAttack() == false) return;
+
+
+
+
+
+        if (Vector3.Distance(_petTarget.transform.position, gameObject.transform.position) < petAttackRange)
+        {
+            transform.LookAt(_petTarget.transform);
+            ChangeState(PetStateEnum.attackRange);
+        }
+        else
+        {
+            MoveTo(_petTarget);
+        }
+    }
+
+
+
+    public GameObject muzzlePos;
+    public void OnPetPlayAttackRangeAnim()
+    {
+        if (CanPetAttack() == false) return;
+        var newBullet = Instantiate(Utils.ins.yellowBullet);
+        newBullet.transform.position = muzzlePos.transform.position;
+
+        var posLook = _petTarget.transform.position;
+        posLook.y = 1.2f;
+        newBullet.transform.LookAt(posLook + new Vector3(Random.Range(-.2f, .2f), Random.Range(-.2f, -.2f)));
+        newBullet.GetComponent<BulletBase>().owner = gameObject;
+
+
+        var newMuzzle = Instantiate(Utils.ins.yellowMuzzle);
+        newMuzzle.transform.position = newBullet.transform.position;
+        newMuzzle.transform.rotation = newBullet.transform.rotation;
+    }
+
+
+
+
+
 
     public void MoveTo(GameObject target)
     {
-        Debug.LogError("PET MOVE");
-        SetState(PetStateEnum.move);
+        ChangeState(PetStateEnum.move);
         transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
 
         //slowly lookat
@@ -179,7 +255,7 @@ public class PetBase : CreatureBase
             _animation.SetBool("hasTarget", true);
         }
         if (petState == PetStateEnum.move) return;
-        SetState(PetStateEnum.attackMelee);
+        ChangeState(PetStateEnum.attackMelee);
 
     }
 
@@ -220,6 +296,103 @@ public class PetBase : CreatureBase
         attackRange,
         followPlayer,
         attackLaser,
+        die
+    }
+
+
+
+
+
+
+
+
+
+
+
+    public bool isDie;
+
+    [SerializeField] private float _curHP, _maxHP;
+    public float curHP
+    {
+        get
+        {
+            return _curHP;
+        }
+        set
+        {
+            _curHP = value;
+            UpdateHealthBar();
+        }
 
     }
+
+    public GameObject curHPBar;
+    public void UpdateHealthBar()
+    {
+        if (curHP <= 0)
+        {
+
+            curHPBar.transform.localScale = new Vector3(0, 0.5f, 1);
+            curHPBar.transform.parent.GetComponent<HPBar>().hpText.text = "" + 0;
+            ChangeState(PetStateEnum.die);
+            return;
+        }
+
+        var scale = -100f;
+        if (curHP != 0) scale = _curHP / _maxHP;
+
+        curHPBar.transform.localScale = new Vector3(scale, 1.5f, 1);
+        curHPBar.transform.parent.GetComponent<HPBar>().hpText.text = "" + curHP;
+    }
+    public void TakeDamage(float damage)
+    {
+        if (curHP <= 0)
+        {
+            isDie = true;
+            curHPBar.transform.localScale = new Vector3(0, 1.5f, 1);
+            ChangeState(PetStateEnum.die);
+            return;
+        }
+
+        if (isDie) return;
+
+
+        var newTextEff = Instantiate(Utils.ins.textEffRed);
+        newTextEff.transform.position = transform.position;
+        newTextEff.SetValue("" + damage);
+
+
+        _animation.SetTrigger("TakeDamage");
+        curHP -= damage;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
+public enum PetAttackType
+{
+    melee,
+    ranger,
+    laser
 }

@@ -9,6 +9,9 @@ using System;
 public class Utils : MonoBehaviour
 {
     public static Utils ins;
+    public GameObject gold;
+    public TextFloatingEff  textEffRed,textEffWhite;
+    public GameObject yellowBullet,yellowMuzzle,yellowImpact;
 
     public void Awake()
     {

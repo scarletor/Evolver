@@ -111,6 +111,13 @@ public class UIManager : MonoBehaviour
 
 
 
+    public void QuitDungeon()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Play");
+    }
+
+
+
 
 
 }

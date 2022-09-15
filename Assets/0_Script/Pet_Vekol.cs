@@ -6,8 +6,9 @@ public class Pet_Vekol : PetBase
 {
 
     // Update is called once per frame
-    void Update()
+    new void FixedUpdate()
     {
+        base.FixedUpdate();
         BeamControl();
     }
 
@@ -15,7 +16,6 @@ public class Pet_Vekol : PetBase
 
 
     public List<RaycastHit> asd;
-    RaycastHit[] hits;
 
 
     public LineRenderer beam1, beam2;
@@ -31,18 +31,24 @@ public class Pet_Vekol : PetBase
             muzzle1.gameObject.SetActive(false);
             impact1.gameObject.SetActive(false);
             beam1.gameObject.SetActive(false);
-            Debug.LogError("NO TARGET");
+            Debug.LogWarning("NO TARGET");
             return;
         }
-        if (target1.transform.parent.GetComponent<EnemyBase>().isDie)
+        if (target1.transform.GetComponent<EnemyBase>().isDie)
         {
             muzzle1.gameObject.SetActive(false);
             impact1.gameObject.SetActive(false);
             beam1.gameObject.SetActive(false);
-            Debug.LogError("NO TARGET");
+            Debug.LogWarning("NO TARGET");
             return;
         }
-
+        if (isDie||isOwned==false)
+        {
+            muzzle1.gameObject.SetActive(false);
+            impact1.gameObject.SetActive(false);
+            beam1.gameObject.SetActive(false);
+            return;
+        }
 
 
 
@@ -87,12 +93,30 @@ public class Pet_Vekol : PetBase
         float distance = Vector3.Distance(start1.transform.position, target1.transform.position);
         beam1.sharedMaterial.mainTextureScale = new Vector2(distance / 3/*length of texture scale*/, 1);
         beam1.sharedMaterial.mainTextureOffset -= new Vector2(Time.deltaTime * textureSpeed, 0);
+
+        BeamDamageEnemy();
     }
 
 
 
 
-    public override void PetAttack()
+    public float resetTime,attackSpeedLaser;
+    public void BeamDamageEnemy()
+    {
+        resetTime += Time.deltaTime;
+
+        if (resetTime > 1f)
+        {
+            target1.transform.GetComponent<EnemyBase>().TakeDamage(damage,gameObject);
+            Debug.LogError(damage);
+            resetTime = 0;
+        }
+    }
+
+
+
+
+    public override void PetAttackMelee()
     {
 
         _petTarget = player._targetRange;
@@ -105,7 +129,7 @@ public class Pet_Vekol : PetBase
         if (isOwned == false) return;
 
         transform.LookAt(_petTarget.transform);
-        SetState(PetStateEnum.attackLaser);
+        ChangeState(PetStateEnum.attackLaser);
 
     }
 

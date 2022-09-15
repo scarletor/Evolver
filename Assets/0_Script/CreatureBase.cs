@@ -10,7 +10,7 @@ public class CreatureBase : MonoBehaviour
 
 
 
-    public int   damage, moveSpeed, attackSpeed;
+    public float   damage, moveSpeed, attackSpeed,meleeDamage;
 
 
    
@@ -18,60 +18,6 @@ public class CreatureBase : MonoBehaviour
 
 
 
-    public virtual void MoveToPosition(GameObject pos)
-    {
-
-    }
-
-    public virtual void WanderingAround()
-    {
-
-    }
-
-
-    public virtual void AttackMelee()
-    {
-
-    }
-
-    public virtual void AttackRange()
-    {
-
-    }
-
-    public virtual void Die()
-    {
-
-    }
-
-
-    public virtual void Idle()
-    {
-
-    }
-
-
-
-    public virtual void ClearMe()
-    {
-
-    }
-
-
-    public virtual void InitMe()
-    {
-
-    }
-
-
-
-
-    //pet
-
-    public virtual void FollowPlayer()
-    {
-
-    }
 
 
 

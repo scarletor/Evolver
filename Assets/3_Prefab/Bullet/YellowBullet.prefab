@@ -76,9 +76,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8087709a9f60d64f973afeac27dcbb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 6
-  damage: 0
+  speed: 8
+  damage: 2
   impactParticle: {fileID: 5709848764791906551, guid: 2a575d5cf887a044b9012c4f7cc05e83, type: 3}
+  textEff: {fileID: 0}
 --- !u!1 &865849009606779726
 GameObject:
   m_ObjectHideFlags: 0
