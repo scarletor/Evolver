@@ -46,12 +46,6 @@ public class AnimationEvent : MonoBehaviour
     }
 
 
-    public void FinishAttackPet()
-    {
-        parentPet.FinishAttackPet();
-    }
-
-
 
     public EnemyBase enemy;
     public void EnemyBatLordTakeDamage()

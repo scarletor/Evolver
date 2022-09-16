@@ -134,8 +134,11 @@ public class PetBase : CreatureBase
 
                 break;
             case PetStateEnum.attackMelee:
-                _animator.SetTrigger("petAttack");
-
+                _animator.SetBool("petAttackMelee",true);
+                _animator.SetBool("petAttackRange", false);
+                _animator.SetBool("Idle", false);
+                _animator.SetBool("Move", false);
+                _animator.SetBool("AttackLaser", false);
                 break;
             case PetStateEnum.followPlayer:
 
@@ -280,7 +283,7 @@ public class PetBase : CreatureBase
 
 
     [Button]
-    public void FinishAttackPet()
+    public void OnPetAttackMeleeAnimationEvent()
     {
 
         if (_player._targetRange == null)
@@ -294,7 +297,7 @@ public class PetBase : CreatureBase
         }
         if (petState == PetStateEnum.move) return;
         ChangeState(PetStateEnum.attackMelee);
-
+        _player._targetRange.GetComponent<EnemyBase>().TakeDamage(baseDamage, gameObject);
     }
 
 
