@@ -8,18 +8,6 @@ public class AnimationEvent : MonoBehaviour
     public PlayerController parent;
     public PetBase parentPet;
 
-    public GameObject EnemySkeletonAttackSpecalParticle1, EnemySkeletonAttackSpecalParticle2;
-    public void EnemySkeletonAttackSpecal1()
-    {
-        EnemySkeletonAttackSpecalParticle1.gameObject.SetActive(true);
-    }
-
-    public void EnemySkeletonAttackSpecal2()
-    {
-        EnemySkeletonAttackSpecalParticle2.gameObject.SetActive(true);
-        EnemySkeletonAttackSpecalParticle1.gameObject.SetActive(false);
-
-    }
 
     public string animName;
     [Button]
@@ -122,6 +110,41 @@ public class AnimationEvent : MonoBehaviour
 
 
     }
+
+
+    public GameObject EnemySkeletonAttackSpecalParticle1, EnemySkeletonAttackSpecalParticle2,invisibleBullet;
+    [Button]
+    public void EnemySkeletonAttackSpecal1()
+    {
+        EnemySkeletonAttackSpecalParticle1.gameObject.SetActive(true);
+
+
+
+
+        //var posLook = _targetRange.transform.position;
+        //posLook.y = 1.2f;
+        //newBullet.transform.LookAt(posLook + new Vector3(Random.Range(-.2f, .2f), Random.Range(-.2f, -.2f)));
+
+    }
+
+    public void EnemySkeletonAttackSpecal2()
+    {
+        EnemySkeletonAttackSpecalParticle1.gameObject.SetActive(false);
+        EnemySkeletonAttackSpecalParticle2.gameObject.SetActive(true);
+
+        var newInviBullet = Instantiate(invisibleBullet);
+        newInviBullet.transform.position = gameObject.transform.position;
+        newInviBullet.transform.rotation = gameObject.transform.rotation;
+
+    }
+
+    public void EnemySkeletonSpecialAttack_Finish()
+    {
+        EnemySkeletonAttackSpecalParticle1.gameObject.SetActive(false);
+        EnemySkeletonAttackSpecalParticle2.gameObject.SetActive(false);
+        enemy.SetState(EnemyBase.EnemyState.Idle);
+    }
+
 
     public void PetDragonAttackRangeFinish()
     {
