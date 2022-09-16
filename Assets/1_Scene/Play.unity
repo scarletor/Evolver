@@ -277,7 +277,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3826281789200122343, guid: d38dfa2e0a60344408e5d41e3a34e27f, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3894885064439933418, guid: d38dfa2e0a60344408e5d41e3a34e27f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -4477,10 +4477,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parent: {fileID: 0}
   parentPet: {fileID: 0}
-  EnemySkeletonAttackSpecalParticle1: {fileID: 0}
-  EnemySkeletonAttackSpecalParticle2: {fileID: 0}
   animName: 
   enemy: {fileID: 192023753}
+  EnemySkeletonAttackSpecalParticle1: {fileID: 0}
+  EnemySkeletonAttackSpecalParticle2: {fileID: 0}
+  invisibleBullet: {fileID: 0}
 --- !u!136 &17007542
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -5197,6 +5198,7 @@ MonoBehaviour:
   rigged: {fileID: 269566108}
   isFlying: 1
   distanceStopMove: 2
+  timeToSpecialAttack: 0
   _target: {fileID: 0}
   posToMove: {fileID: 0}
   _anim: {fileID: 269566107}
@@ -7582,6 +7584,7 @@ MonoBehaviour:
   rigged: {fileID: 110947610}
   isFlying: 1
   distanceStopMove: 2
+  timeToSpecialAttack: 0
   _target: {fileID: 0}
   posToMove: {fileID: 0}
   _anim: {fileID: 17007538}
@@ -8648,7 +8651,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &228798432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8697,10 +8700,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parent: {fileID: 0}
   parentPet: {fileID: 228798432}
-  EnemySkeletonAttackSpecalParticle1: {fileID: 0}
-  EnemySkeletonAttackSpecalParticle2: {fileID: 0}
   animName: 
   enemy: {fileID: 0}
+  EnemySkeletonAttackSpecalParticle1: {fileID: 0}
+  EnemySkeletonAttackSpecalParticle2: {fileID: 0}
+  invisibleBullet: {fileID: 0}
 --- !u!95 &228798434
 Animator:
   serializedVersion: 4
@@ -9734,7 +9738,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8530477259693051037, guid: 1d2465e625f23fd4594038dc128f9bc9, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d2465e625f23fd4594038dc128f9bc9, type: 3}
@@ -13660,10 +13664,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parent: {fileID: 0}
   parentPet: {fileID: 0}
-  EnemySkeletonAttackSpecalParticle1: {fileID: 0}
-  EnemySkeletonAttackSpecalParticle2: {fileID: 0}
   animName: 
   enemy: {fileID: 58473850}
+  EnemySkeletonAttackSpecalParticle1: {fileID: 0}
+  EnemySkeletonAttackSpecalParticle2: {fileID: 0}
+  invisibleBullet: {fileID: 0}
 --- !u!114 &269566110
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17049,10 +17054,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parent: {fileID: 591779361}
   parentPet: {fileID: 0}
-  EnemySkeletonAttackSpecalParticle1: {fileID: 0}
-  EnemySkeletonAttackSpecalParticle2: {fileID: 0}
   animName: 
   enemy: {fileID: 0}
+  EnemySkeletonAttackSpecalParticle1: {fileID: 0}
+  EnemySkeletonAttackSpecalParticle2: {fileID: 0}
+  invisibleBullet: {fileID: 0}
 --- !u!95 &402907178
 Animator:
   serializedVersion: 4
@@ -17877,7 +17883,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &418358875
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22067,10 +22073,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parent: {fileID: 0}
   parentPet: {fileID: 0}
-  EnemySkeletonAttackSpecalParticle1: {fileID: 0}
-  EnemySkeletonAttackSpecalParticle2: {fileID: 0}
   animName: 
   enemy: {fileID: 675821495}
+  EnemySkeletonAttackSpecalParticle1: {fileID: 0}
+  EnemySkeletonAttackSpecalParticle2: {fileID: 0}
+  invisibleBullet: {fileID: 0}
 --- !u!136 &439957586
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -26005,10 +26012,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parent: {fileID: 591779361}
   parentPet: {fileID: 0}
-  EnemySkeletonAttackSpecalParticle1: {fileID: 0}
-  EnemySkeletonAttackSpecalParticle2: {fileID: 0}
   animName: 
   enemy: {fileID: 0}
+  EnemySkeletonAttackSpecalParticle1: {fileID: 0}
+  EnemySkeletonAttackSpecalParticle2: {fileID: 0}
+  invisibleBullet: {fileID: 0}
 --- !u!54 &594715165
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -27680,7 +27688,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3826281789200122343, guid: d38dfa2e0a60344408e5d41e3a34e27f, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3894885064439933418, guid: d38dfa2e0a60344408e5d41e3a34e27f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -27925,6 +27933,7 @@ MonoBehaviour:
   rigged: {fileID: 439957581}
   isFlying: 0
   distanceStopMove: 2
+  timeToSpecialAttack: 0
   _target: {fileID: 0}
   posToMove: {fileID: 0}
   _anim: {fileID: 439957583}
@@ -29508,7 +29517,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3826281789200122343, guid: d38dfa2e0a60344408e5d41e3a34e27f, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3894885064439933418, guid: d38dfa2e0a60344408e5d41e3a34e27f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -37273,10 +37282,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parent: {fileID: 0}
   parentPet: {fileID: 0}
-  EnemySkeletonAttackSpecalParticle1: {fileID: 0}
-  EnemySkeletonAttackSpecalParticle2: {fileID: 0}
   animName: 
   enemy: {fileID: 1524416539}
+  EnemySkeletonAttackSpecalParticle1: {fileID: 0}
+  EnemySkeletonAttackSpecalParticle2: {fileID: 0}
+  invisibleBullet: {fileID: 0}
 --- !u!114 &875457140
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39664,6 +39674,7 @@ MonoBehaviour:
   rigged: {fileID: 1714551437}
   isFlying: 1
   distanceStopMove: 2
+  timeToSpecialAttack: 0
   _target: {fileID: 0}
   posToMove: {fileID: 0}
   _anim: {fileID: 1714551436}
@@ -40610,6 +40621,7 @@ MonoBehaviour:
   rigged: {fileID: 1425423327}
   isFlying: 1
   distanceStopMove: 2
+  timeToSpecialAttack: 0
   _target: {fileID: 0}
   posToMove: {fileID: 0}
   _anim: {fileID: 1425423326}
@@ -43710,7 +43722,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4558253575625511845, guid: 91b5d5ead6cb5f045bb0139cedb0e524, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4558253575625511847, guid: 91b5d5ead6cb5f045bb0139cedb0e524, type: 3}
       propertyPath: m_Name
@@ -43806,10 +43818,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parent: {fileID: 0}
   parentPet: {fileID: 1193346943}
-  EnemySkeletonAttackSpecalParticle1: {fileID: 0}
-  EnemySkeletonAttackSpecalParticle2: {fileID: 0}
   animName: 
   enemy: {fileID: 0}
+  EnemySkeletonAttackSpecalParticle1: {fileID: 0}
+  EnemySkeletonAttackSpecalParticle2: {fileID: 0}
+  invisibleBullet: {fileID: 0}
 --- !u!114 &1193346943
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45880,7 +45893,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1255265672
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47964,7 +47977,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8530477259693051037, guid: 1d2465e625f23fd4594038dc128f9bc9, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d2465e625f23fd4594038dc128f9bc9, type: 3}
@@ -48412,6 +48425,7 @@ MonoBehaviour:
   rigged: {fileID: 0}
   isFlying: 0
   distanceStopMove: 0
+  timeToSpecialAttack: 0
   _target: {fileID: 0}
   posToMove: {fileID: 1256754889}
   _anim: {fileID: 0}
@@ -53366,10 +53380,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parent: {fileID: 0}
   parentPet: {fileID: 0}
-  EnemySkeletonAttackSpecalParticle1: {fileID: 0}
-  EnemySkeletonAttackSpecalParticle2: {fileID: 0}
   animName: 
   enemy: {fileID: 1033422325}
+  EnemySkeletonAttackSpecalParticle1: {fileID: 0}
+  EnemySkeletonAttackSpecalParticle2: {fileID: 0}
+  invisibleBullet: {fileID: 0}
 --- !u!114 &1425423329
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -55297,6 +55312,7 @@ MonoBehaviour:
   rigged: {fileID: 875457138}
   isFlying: 1
   distanceStopMove: 2
+  timeToSpecialAttack: 0
   _target: {fileID: 0}
   posToMove: {fileID: 0}
   _anim: {fileID: 875457137}
@@ -57205,6 +57221,7 @@ MonoBehaviour:
   rigged: {fileID: 2084462618}
   isFlying: 1
   distanceStopMove: 2
+  timeToSpecialAttack: 0
   _target: {fileID: 0}
   posToMove: {fileID: 0}
   _anim: {fileID: 2084462617}
@@ -62974,10 +62991,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parent: {fileID: 0}
   parentPet: {fileID: 0}
-  EnemySkeletonAttackSpecalParticle1: {fileID: 0}
-  EnemySkeletonAttackSpecalParticle2: {fileID: 0}
   animName: 
   enemy: {fileID: 957171705}
+  EnemySkeletonAttackSpecalParticle1: {fileID: 0}
+  EnemySkeletonAttackSpecalParticle2: {fileID: 0}
+  invisibleBullet: {fileID: 0}
 --- !u!114 &1714551439
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67609,7 +67627,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8530477259693051037, guid: 1d2465e625f23fd4594038dc128f9bc9, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d2465e625f23fd4594038dc128f9bc9, type: 3}
@@ -67853,7 +67871,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1909519382
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67902,10 +67920,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parent: {fileID: 0}
   parentPet: {fileID: 1909519382}
-  EnemySkeletonAttackSpecalParticle1: {fileID: 0}
-  EnemySkeletonAttackSpecalParticle2: {fileID: 0}
   animName: 
   enemy: {fileID: 0}
+  EnemySkeletonAttackSpecalParticle1: {fileID: 0}
+  EnemySkeletonAttackSpecalParticle2: {fileID: 0}
+  invisibleBullet: {fileID: 0}
 --- !u!95 &1909519384
 Animator:
   serializedVersion: 4
@@ -69840,7 +69859,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1991299322
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69889,10 +69908,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parent: {fileID: 0}
   parentPet: {fileID: 1991299322}
-  EnemySkeletonAttackSpecalParticle1: {fileID: 0}
-  EnemySkeletonAttackSpecalParticle2: {fileID: 0}
   animName: 
   enemy: {fileID: 0}
+  EnemySkeletonAttackSpecalParticle1: {fileID: 0}
+  EnemySkeletonAttackSpecalParticle2: {fileID: 0}
+  invisibleBullet: {fileID: 0}
 --- !u!95 &1991299324
 Animator:
   serializedVersion: 4
@@ -75339,10 +75359,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parent: {fileID: 0}
   parentPet: {fileID: 0}
-  EnemySkeletonAttackSpecalParticle1: {fileID: 0}
-  EnemySkeletonAttackSpecalParticle2: {fileID: 0}
   animName: 
   enemy: {fileID: 1603818734}
+  EnemySkeletonAttackSpecalParticle1: {fileID: 0}
+  EnemySkeletonAttackSpecalParticle2: {fileID: 0}
+  invisibleBullet: {fileID: 0}
 --- !u!114 &2084462620
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -77802,10 +77823,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parent: {fileID: 0}
   parentPet: {fileID: 1773808598179060976}
-  EnemySkeletonAttackSpecalParticle1: {fileID: 0}
-  EnemySkeletonAttackSpecalParticle2: {fileID: 0}
   animName: 
   enemy: {fileID: 0}
+  EnemySkeletonAttackSpecalParticle1: {fileID: 0}
+  EnemySkeletonAttackSpecalParticle2: {fileID: 0}
+  invisibleBullet: {fileID: 0}
 --- !u!1 &1773808598179060979
 GameObject:
   m_ObjectHideFlags: 0
@@ -77825,7 +77847,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!95 &1773808598179060990
 Animator:
   serializedVersion: 4
@@ -79927,7 +79949,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &5662055450295704978
 MonoBehaviour:
   m_ObjectHideFlags: 0

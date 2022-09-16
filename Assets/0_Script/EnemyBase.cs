@@ -62,7 +62,7 @@ public class EnemyBase : CreatureBase
         // special attack
         if (timeToSpecialAttack == 0)
         {
-            timeToSpecialAttack = Random.Range(10, 11);
+            timeToSpecialAttack = Random.Range(8, 10);
         }
 
         if (Time.timeSinceLevelLoad % timeToSpecialAttack <= .1f && _state != EnemyState.SpecialAttack)
@@ -176,11 +176,15 @@ public class EnemyBase : CreatureBase
                 _anim.SetBool(IdleStr, false);
                 _anim.SetBool("Move", false);
                 _anim.SetBool("TakeDamage", false);
+                _anim.SetBool("SpecialAttack", false);
+
                 break;
             case EnemyState.MoveToPlayer:
                 _anim.SetBool(AttackStr, false);
                 _anim.SetBool(IdleStr, false);
                 _anim.SetBool("Move", true);
+                _anim.SetBool("SpecialAttack", false);
+
                 break;
             case EnemyState.Die:
                 isDie = true;

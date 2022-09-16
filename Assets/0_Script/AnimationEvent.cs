@@ -71,7 +71,7 @@ public class AnimationEvent : MonoBehaviour
 
                 return;
             }
-            Debug.LogError("BATLORD attack" +enemy.gameObject.name);
+            Debug.LogError("BATLORD attack" + enemy.gameObject.name);
 
             enemy._target.transform.root.GetComponent<PetBase>().TakeDamage(enemy.baseDamage);
         }
@@ -80,7 +80,7 @@ public class AnimationEvent : MonoBehaviour
 
     public void EnemySkeletonAttack()
     {
-     
+
 
 
         if (enemy._target == null) return;
@@ -88,8 +88,8 @@ public class AnimationEvent : MonoBehaviour
         {
             if (enemy._target.transform.root.GetComponent<PlayerController>().isDie == true)
             {
-                if(enemy.targetList.Count==0)
-                enemy.SetState(EnemyBase.EnemyState.BackToStartPos);
+                if (enemy.targetList.Count == 0)
+                    enemy.SetState(EnemyBase.EnemyState.BackToStartPos);
                 enemy.RemoveTarget(PlayerController.ins.gameObject);
                 return;
             }
@@ -112,7 +112,7 @@ public class AnimationEvent : MonoBehaviour
     }
 
 
-    public GameObject EnemySkeletonAttackSpecalParticle1, EnemySkeletonAttackSpecalParticle2,invisibleBullet;
+    public GameObject EnemySkeletonAttackSpecalParticle1, EnemySkeletonAttackSpecalParticle2, invisibleBullet;
     [Button]
     public void EnemySkeletonAttackSpecal1()
     {
@@ -140,9 +140,29 @@ public class AnimationEvent : MonoBehaviour
 
     public void EnemySkeletonSpecialAttack_Finish()
     {
-        EnemySkeletonAttackSpecalParticle1.gameObject.SetActive(false);
-        EnemySkeletonAttackSpecalParticle2.gameObject.SetActive(false);
-        enemy.SetState(EnemyBase.EnemyState.Idle);
+
+        var rd = Random.Range(1, 4);
+        if (rd == 1) enemy._anim.CrossFade("Idle1", .5f);
+        if (rd == 2) enemy._anim.CrossFade("Victory", .5f);
+        if (rd == 3) enemy._anim.CrossFade("Taunting", .5f);
+
+
+        Utils.ins.DelayCall(2, () =>
+        {
+            enemy._anim.CrossFade("Move", .1f);
+            enemy.SetState(EnemyBase.EnemyState.Idle);
+
+            //enemy._anim.CrossFade("Idle", .5f);
+            //enemy._anim.SetBool("Idle", true);
+            //enemy._anim.SetBool("Attack", false);
+            //enemy._anim.SetBool("SpecialAttack", false);
+
+            //Utils.ins.DelayCall(.5f, () =>
+            // {
+            //     enemy.SetState(EnemyBase.EnemyState.Idle);
+            // });
+        });
+
     }
 
 
