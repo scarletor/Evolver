@@ -8,12 +8,13 @@ public class CameraFollow : MonoBehaviour
     private void Awake()
     {
         ins = this;
+        basePos = transform.position;
     }
-
+    public Vector3 basePos;
     // Update is called once per frame
     void LateUpdate()
     {
-        Vector3 smoothPos = Vector3.SmoothDamp(transform.position, PlayerController.ins.gameObject.transform.position + new Vector3(0, 4, 0), ref velocity, smoothSpeed);
+        Vector3 smoothPos = Vector3.SmoothDamp(transform.position, PlayerController.ins.gameObject.transform.position + basePos, ref velocity, smoothSpeed);
         transform.position = smoothPos;
     }
 

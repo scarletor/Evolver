@@ -92,7 +92,6 @@ public class PetBase : CreatureBase
         {
             canFollowPlayer = false;
             ChangeState(PetStateEnum.idle);
-            Debug.LogError("11");
         }
 
         if(myFollowPos==null)
@@ -121,7 +120,6 @@ public class PetBase : CreatureBase
                 _animator.SetBool("Move", true);
                 _animator.SetBool("AttackLaser", false);
                 _animator.SetBool("petAttackRange", false);
-                Debug.LogError("22");
 
                 break;
             case PetStateEnum.idle:
@@ -130,7 +128,6 @@ public class PetBase : CreatureBase
                 _animator.SetBool("Move", false);
                 _animator.SetBool("AttackLaser", false);
 
-                Debug.LogError("33");
 
                 break;
             case PetStateEnum.attackMelee:
