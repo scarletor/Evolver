@@ -11,7 +11,6 @@ public class PlayerController : CreatureBase
     private void Awake()
     {
         ins = this;
-        Debug.LogError("PLAYER");
     }
 
 
@@ -147,8 +146,6 @@ public class PlayerController : CreatureBase
             case characterStateEnum.die:
                 _anim.SetBool("isDie", true);
                 _anim.SetTrigger("die");
-                Rebird();
-                isDie = true;
                 break;
             case characterStateEnum.fly:
                 break;
@@ -166,11 +163,10 @@ public class PlayerController : CreatureBase
 
     public void Rebird()
     {
-        Utils.ins.DelayCall(3, () =>
+        Utils.ins.DelayCall(7, () =>
         {
             isDie = false;
-            _curHP = _maxHP;
-            UpdateHealthBar();
+            curHP = _maxHP;
             _anim.SetBool("isDie", false);
             _anim.Play("Idle");
             ChangeState(characterStateEnum.idle);
@@ -188,7 +184,7 @@ public class PlayerController : CreatureBase
 
 
 
-    public GameObject sword, gun, _targetMelee, _targetRange;
+    public GameObject sword, bow,arrowRange, _targetMelee, _targetRange;
     public bool isAttackingMelee;
     public void AttackMelee()
     {
@@ -203,7 +199,8 @@ public class PlayerController : CreatureBase
 
         isAttackingMelee = true;
         sword.gameObject.SetActive(true);
-        gun.gameObject.SetActive(false);
+        bow.gameObject.SetActive(false);
+        arrowRange.gameObject.SetActive(false);
         _targetRange.gameObject.transform.root.GetComponent<EnemyBase>().TakeDamage(baseDamage,gameObject);
 
 
@@ -259,8 +256,10 @@ public class PlayerController : CreatureBase
         }
 
 
-        gun.gameObject.SetActive(true);
+        bow.gameObject.SetActive(true);
+        arrowRange.gameObject.SetActive(true);
         sword.gameObject.SetActive(false);
+
         _anim.Play("meleeLayer_NoAnim");
         _anim.SetBool("attackRange", true);
 
@@ -327,6 +326,7 @@ public class PlayerController : CreatureBase
         set
         {
             _curHP = value;
+            if (_curHP <= 0)PlayerDie();
             UpdateHealthBar();
         }
 
@@ -337,10 +337,8 @@ public class PlayerController : CreatureBase
     {
         if (curHP <= 0)
         {
-
             curHPBar.transform.localScale = new Vector3(0, 0.5f, 1);
             curHPBar.transform.parent.GetComponent<HPBar>().hpText.text = "" + 0;
-            ChangeState(characterStateEnum.die);
             return;
         }
 
@@ -352,15 +350,7 @@ public class PlayerController : CreatureBase
     }
     public void TakeDamage(float damage)
     {
-        if (curHP <= 0)
-        {
-            isDie = true;
-            curHPBar.transform.localScale = new Vector3(0, 1.5f, 1);
-
-            ChangeState(characterStateEnum.die);
-            return;
-        }
-
+       
         if (isDie) return;
 
         var newTextEff = Instantiate(Utils.ins.textEffRed);
@@ -371,7 +361,14 @@ public class PlayerController : CreatureBase
         curHP -= damage;
     }
 
-
+    public void PlayerDie()
+    {
+        Debug.LogError("DIe");
+        Rebird();
+        ChangeState(characterStateEnum.die);
+        isDie = true;
+        EventController.ins.OnPlayerDieActions();
+    }
 
 
     public void SelfRegenarate()

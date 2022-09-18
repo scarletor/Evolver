@@ -11,17 +11,17 @@ public class Enemy_Skeleton : EnemyBase
 
 
 
-    private void Start()
+    private new void Start()
     {
         base.Start();
-        SetState(EnemyState.Watching);
 
     }
 
 
     // Update is called once per frame
-    void FixedUpdate()
+    public new void FixedUpdate()
     {
+        base.FixedUpdate();
         Watching();
     }
 
@@ -29,7 +29,6 @@ public class Enemy_Skeleton : EnemyBase
 
     public bool canMove = true;
 
-    public EnemyMoveType moveType;
     public GameObject posToMoveWatching, posWatching1, posWatching2, curPosWatching;
     public List<GameObject> watchingPos, watchingPosTemp;
     public float rotateSpeed;
@@ -40,10 +39,9 @@ public class Enemy_Skeleton : EnemyBase
     public void Watching()
     {
         if (isDie) { return; };
-        if (moveType != EnemyMoveType.watcher) return;
+        if (_enemyMoveType == EnemyMoveType.foundPlayer) return;
         if (canMove == false) return;
         if (_target != null) return;
-        if (_state != EnemyState.Watching) return;
         if (canContinue == false) return;
 
 

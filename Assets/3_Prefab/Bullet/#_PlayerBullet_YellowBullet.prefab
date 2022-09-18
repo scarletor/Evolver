@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6038503049842770682}
   - component: {fileID: -9028959510798147574}
   m_Layer: 6
-  m_Name: YellowBullet
+  m_Name: '#_PlayerBullet_YellowBullet'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

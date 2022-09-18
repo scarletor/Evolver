@@ -40,7 +40,6 @@ public class EnemyBase : CreatureBase
     {
 
         if (_target == null) return;
-
         if (isDie == true) return;
 
         if (_target.transform.root.GetComponent<PlayerController>() != null)
@@ -48,16 +47,17 @@ public class EnemyBase : CreatureBase
             {
                 _target = null;
                 RemoveTarget(PlayerController.ins.gameObject);
-                if (targetList.Count == 0)
-                    SetState(EnemyState.BackToStartPos);
 
                 if (GetComponent<Enemy_Skeleton>() != null)
                     GetComponent<Enemy_Skeleton>().canMove = true;
+
+                if (targetList.Count == 0)
+                    SetState(EnemyState.BackToStartPos);
                 return;
             }
 
 
-
+        Debug.LogError("1");
 
         // special attack
         if (timeToSpecialAttack == 0)
@@ -71,10 +71,13 @@ public class EnemyBase : CreatureBase
             SetState(EnemyState.SpecialAttack);
             Debug.LogError("SPECIAL ATTACK");
         }
+        Debug.LogError("1");
+
         if (_state == EnemyState.SpecialAttack) return;
 
 
 
+        Debug.LogError("1");
 
 
 
@@ -197,11 +200,14 @@ public class EnemyBase : CreatureBase
                 newGold.transform.position = new Vector3(newGold.transform.position.x, 0, newGold.transform.position.z);
                 break;
             case EnemyState.BackToStartPos:
-                return;
-                _anim.SetBool(IdleStr, false);
-                _anim.SetBool("Move", true);
-                _anim.SetBool(AttackStr, false);
-                MoveToPosition(startPos);
+
+                Utils.ins.DelayCall(3, () =>
+                {
+                    _anim.SetBool(IdleStr, false);
+                    _anim.SetBool("Move", true);
+                    _anim.SetBool(AttackStr, false);
+                    MoveToPosition(startPos);
+                });
                 break;
             case EnemyState.SpecialAttack:
                 _anim.SetBool(AttackStr, false);
@@ -217,32 +223,33 @@ public class EnemyBase : CreatureBase
 
     }
 
+    public EnemyMoveType _enemyMoveType;
     public GameObject watchingPosList;
     public void FoundPlayer()
     {
         _anim.CrossFade("Move", .1f);
         _target = PlayerController.ins.gameObject;
-
+        _enemyMoveType = EnemyMoveType.foundPlayer;
     }
 
     public void MoveToPosition(Vector3 pos)
     {
-        //slowly lookat noupdate
+        //slowly lookat NO_update
         GameObject temp = new GameObject();
         temp.transform.position = pos;
         var _direction = (temp.transform.position - transform.position).normalized;
         var rot = Quaternion.LookRotation(_direction);
         transform.DORotateQuaternion(rot, 1);
 
-        //move to pos noupdate
+        //move to pos NO_update
         var distance = Vector3.Distance(transform.position, startPos);
         var time = distance / moveSpeed;
         transform.DOMove(pos, time).OnComplete(() =>
         {
-            //if (gameObject.name.Contains("Skeleton"))
-            //SetState(EnemyState.Watching);
+            if (gameObject.name.Contains("Skeleton"))
+                _enemyMoveType = EnemyMoveType.watcher;
 
-        });
+        }).SetEase(Ease.Linear);
         _target = null;
     }
 
@@ -359,8 +366,18 @@ public class EnemyBase : CreatureBase
 
 
 
+    public void ComeBack()
+    {
 
+        Debug.LogError("Back");
 
+    }
+
+    [Button]
+    public void AddEvent()
+    {
+        EventController.ins.playerDieActions.Add(ComeBack);
+    }
 
 
 
@@ -379,6 +396,7 @@ public class EnemyBase : CreatureBase
 
     public enum EnemyMoveType
     {
+        foundPlayer,
         watcher,
         group,
         moveAround

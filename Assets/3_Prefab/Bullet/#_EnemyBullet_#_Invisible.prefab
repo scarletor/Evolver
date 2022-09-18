@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -8063080265016030}
   - component: {fileID: 2885993957524059220}
   m_Layer: 10
-  m_Name: '#_EnemyBullet_Invisible'
+  m_Name: '#_EnemyBullet_#_Invisible'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -68,7 +68,6 @@ MonoBehaviour:
   damage: 100
   impactParticle: {fileID: 5709848764791906551, guid: 2a575d5cf887a044b9012c4f7cc05e83, type: 3}
   owner: {fileID: 0}
-  textEff: {fileID: 0}
 --- !u!114 &-8063080265016030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4856,7 +4855,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5914827279414089667
 Transform:
   m_ObjectHideFlags: 0
