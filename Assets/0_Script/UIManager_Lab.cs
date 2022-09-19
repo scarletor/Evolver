@@ -145,7 +145,7 @@ public class UIManager_Lab : MonoBehaviour
     public void Back()
     {
 
-        SceneManager.LoadScene("Play");
+        SceneManager.LoadScene("Dungeon");
 
 
     }

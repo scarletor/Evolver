@@ -35,7 +35,7 @@ public class BulletBase : MonoBehaviour
                     var newMuzzle = Instantiate(impactParticle);
                     newMuzzle.transform.position = gameObject.transform.position;
                 }
-                other.gameObject.transform.root.GetComponent<EnemyBase>().TakeDamage(damage, owner);
+                other.gameObject.transform.root.GetComponent<EnemyBase>().TakeDamage(damage, owner,gameObject);
 
                 var enemyTarget = other.gameObject.transform.root.GetComponent<EnemyBase>()._target;
                 if (enemyTarget == null)
@@ -44,9 +44,6 @@ public class BulletBase : MonoBehaviour
                 }
 
 
-                var newTextEff = Instantiate(Utils.ins.textEffWhite);
-                newTextEff.transform.position = transform.position;
-                newTextEff.SetValue("" + damage);
 
                 Destroy(this.gameObject);
 

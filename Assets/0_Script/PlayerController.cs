@@ -16,9 +16,23 @@ public class PlayerController : CreatureBase
 
     private void Start()
     {
-        UpdateHealthBar();
         InvokeRepeating("SelfRegenarate", 1, 1);
+        SetupSelf();
     }
+
+    public void SetupSelf()
+    {
+
+        UpdateHealthBar();
+
+        //bow 
+        var id = PlayerData.ins.GetCurBow();
+        ChangeWeapons(id);
+    }
+
+
+
+
     public PetBase pet;
 
     private void LateUpdate()
@@ -184,7 +198,7 @@ public class PlayerController : CreatureBase
 
 
 
-    public GameObject sword, bow,arrowRange, _targetMelee, _targetRange;
+    public GameObject sword, bow, arrowRange, _targetMelee, _targetRange;
     public bool isAttackingMelee;
     public void AttackMelee()
     {
@@ -194,14 +208,14 @@ public class PlayerController : CreatureBase
             _targetMelee = null;
             TargetDie();
             return;
-        } 
+        }
         _anim.SetTrigger("attackMelee");
 
         isAttackingMelee = true;
         sword.gameObject.SetActive(true);
         bow.gameObject.SetActive(false);
         arrowRange.gameObject.SetActive(false);
-        _targetRange.gameObject.transform.root.GetComponent<EnemyBase>().TakeDamage(baseDamage,gameObject);
+        _targetRange.gameObject.transform.root.GetComponent<EnemyBase>().TakeDamage(baseDamage, gameObject,_targetMelee);
 
 
 
@@ -241,7 +255,7 @@ public class PlayerController : CreatureBase
         _anim.Play("meleeLayer_NoAnim");
 
     }
- 
+
 
 
     public GameObject yellowMuzzle, yellowBullet, yellowImpact, muzzlePos, arrow;
@@ -281,6 +295,7 @@ public class PlayerController : CreatureBase
         var newBullet = Instantiate(yellowBullet);
         newBullet.transform.position = muzzlePos.transform.position;
         newBullet.GetComponent<BulletBase>().owner = gameObject;
+        newBullet.GetComponent<BulletBase>().damage = baseDamage;
 
 
         var posLook = _targetRange.transform.position;
@@ -326,7 +341,7 @@ public class PlayerController : CreatureBase
         set
         {
             _curHP = value;
-            if (_curHP <= 0)PlayerDie();
+            if (_curHP <= 0) PlayerDie();
             UpdateHealthBar();
         }
 
@@ -350,7 +365,7 @@ public class PlayerController : CreatureBase
     }
     public void TakeDamage(float damage)
     {
-       
+
         if (isDie) return;
 
         var newTextEff = Instantiate(Utils.ins.textEffRed);
@@ -392,6 +407,20 @@ public class PlayerController : CreatureBase
 
 
     public List<GameObject> petPosList;
+
+
+
+
+    public List<GameObject> allBows;
+    public void ChangeWeapons(int weaponId)
+    {
+        allBows.ForEach(bow => { bow.SetActive(false); });
+        allBows[weaponId].SetActive(true);
+        baseDamage = PlayerData.ins._bowData[weaponId].damage;
+        Debug.LogError("BOW " + weaponId);
+    }
+
+
 
 
 

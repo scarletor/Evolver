@@ -119,5 +119,39 @@ public class UIManager : MonoBehaviour
 
 
 
+    public GameObject ChangeItemUI;
+    public void OnClickChangeItemBtn()
+    {
+        ChangeItemUI.gameObject.SetActive(true);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public GameObject portalIn, portalOut;
+    public GameObject portalInUI, portalOutUI;
+    public void OnClickOpenPortal()
+    {
+        PlayerController.ins.gameObject.transform.position = portalOut.transform.position;
+    }
+    public void OnClickBackPortal()
+    {
+        PlayerController.ins.gameObject.transform.position = portalIn.transform.position;
+    }
+
+
+
+
+
+
 
 }

@@ -107,7 +107,7 @@ public class Pet_Vekol : PetBase
 
         if (resetTime > 1f)
         {
-            target1.transform.GetComponent<EnemyBase>().TakeDamage(baseDamage,gameObject);
+            target1.transform.GetComponent<EnemyBase>().TakeDamage(baseDamage,gameObject,gameObject);
             Debug.LogError(baseDamage);
             resetTime = 0;
         }

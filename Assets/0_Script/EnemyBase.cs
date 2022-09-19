@@ -57,12 +57,13 @@ public class EnemyBase : CreatureBase
             }
 
 
+
         Debug.LogError("1");
 
         // special attack
         if (timeToSpecialAttack == 0)
         {
-            timeToSpecialAttack = Random.Range(8, 10);
+            timeToSpecialAttack = Random.Range(10, 12);
         }
 
         if (Time.timeSinceLevelLoad % timeToSpecialAttack <= .1f && _state != EnemyState.SpecialAttack)
@@ -157,8 +158,8 @@ public class EnemyBase : CreatureBase
 
 
 
-
-    public GameObject wanderingPosList;
+   
+    public GameObject wanderingPosList,groundToUnlock;
 
     public bool isDie;
     public EnemyState _state;
@@ -190,6 +191,7 @@ public class EnemyBase : CreatureBase
 
                 break;
             case EnemyState.Die:
+                groundToUnlock.gameObject.SetActive(true);
                 isDie = true;
                 _anim.SetBool(DieStr, true);
                 curHPBar.transform.parent.gameObject.SetActive(false);
@@ -244,12 +246,12 @@ public class EnemyBase : CreatureBase
         //move to pos NO_update
         var distance = Vector3.Distance(transform.position, startPos);
         var time = distance / moveSpeed;
-        transform.DOMove(pos, time).OnComplete(() =>
-        {
-            if (gameObject.name.Contains("Skeleton"))
-                _enemyMoveType = EnemyMoveType.watcher;
+        transform.DOMove(pos, time * 0.5f).OnComplete(() =>
+          {
+              if (gameObject.name.Contains("Skeleton"))
+                  _enemyMoveType = EnemyMoveType.watcher;
 
-        }).SetEase(Ease.Linear);
+          }).SetEase(Ease.Linear);
         _target = null;
     }
 
@@ -299,14 +301,14 @@ public class EnemyBase : CreatureBase
         curHPBar.transform.parent.GetComponent<HPBar>().hpText.text = "" + curHP;
         curHPBar.transform.localScale = new Vector3(scale, 1.5f, 1);
     }
-    public void TakeDamage(float damage, GameObject dealer)
+    public void TakeDamage(float damage, GameObject dealer,GameObject textEffPos)
     {
         if (curHP <= 0)
         {
-            isDie = true;
-            curHPBar.transform.localScale = new Vector3(0, 1.5f, 1);
 
+            curHPBar.transform.localScale = new Vector3(0, 1.5f, 1);
             SetState(EnemyState.Die);
+            isDie = true;
             return;
         }
 
@@ -314,7 +316,7 @@ public class EnemyBase : CreatureBase
 
 
         var newTextEff = Instantiate(Utils.ins.textEffWhite);
-        newTextEff.transform.position = gameObject.transform.position;
+        newTextEff.transform.position = textEffPos.transform.position;
         newTextEff.SetValue("" + damage);
         Debug.LogError("MONSTER GET DAMAGE" + damage);
         AddTarget(dealer);

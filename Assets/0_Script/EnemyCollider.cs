@@ -9,7 +9,7 @@ public class EnemyCollider : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (enemy.isDie) return;
-        if (other.gameObject.name.Contains("#PlayerCheck"))
+        if (other.gameObject.name.Contains("#_PlayerCheck"))
         {
             Debug.LogError("PLAYER TOUCH ME");
             enemy.FoundPlayer();

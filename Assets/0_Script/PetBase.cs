@@ -27,6 +27,8 @@ public class PetBase : CreatureBase
     {
         _animator = gameObject.GetComponent<Animator>();
         _player = PlayerController.ins;//fix later
+        
+
 
         if (_animator == null)
         {
@@ -294,7 +296,7 @@ public class PetBase : CreatureBase
         }
         if (petState == PetStateEnum.move) return;
         ChangeState(PetStateEnum.attackMelee);
-        _player._targetRange.GetComponent<EnemyBase>().TakeDamage(baseDamage, gameObject);
+        _player._targetRange.GetComponent<EnemyBase>().TakeDamage(baseDamage, gameObject,gameObject);
     }
 
 

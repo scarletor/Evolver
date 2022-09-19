@@ -12,9 +12,16 @@ public class ExpandGround : MonoBehaviour
 
 
 
+    private void OnEnable()
+    {
+        ExpandMe();
+    }
 
-
-
+    public void ExpandMe()
+    {
+        transform.localScale = Vector3.zero;
+        transform.DOScale(new Vector3(1, 0.01f, 1), 1);
+    }
 
 
 

@@ -34,7 +34,7 @@ public class ColliderRefer : MonoBehaviour
 
         if (gameObject.name.Contains("#GroundCheck")) //expand
         {
-            Debug.LogError(gameObject.name);
+            Debug.LogError(other.gameObject.name);
             if (other.gameObject.name.Contains("#_ExpandCollider"))//expand
             {
                 other.transform.parent.gameObject.GetComponent<ExpandGround>().Expand(other.transform.parent.gameObject);
@@ -58,13 +58,17 @@ public class ColliderRefer : MonoBehaviour
                 UIManager.ins.ShowLabOpenUI();
             }
 
-
+            if (other.gameObject.name.Contains("#_5_GroundObject_PortalIn"))//lab
+            {
+                UIManager.ins.portalInUI.gameObject.SetActive(true);
+            }
+            if (other.gameObject.name.Contains("#_5_GroundObject_PortalOut"))//lab
+            {
+                UIManager.ins.portalOutUI.gameObject.SetActive(true);
+            }
 
 
         }
-
-
-
 
 
 
@@ -150,6 +154,21 @@ public class ColliderRefer : MonoBehaviour
             {
                 UIManager.ins.CloseLabOpenUI();
             }
+
+
+            if (other.gameObject.name.Contains("#_5_GroundObject_PortalIn"))//lab
+            {
+                UIManager.ins.portalInUI.gameObject.SetActive(false);
+            }
+            if (other.gameObject.name.Contains("#_5_GroundObject_PortalOut"))//lab
+            {
+                UIManager.ins.portalOutUI.gameObject.SetActive(false);
+            }
+
+
+
+
+
         }
     }
 
