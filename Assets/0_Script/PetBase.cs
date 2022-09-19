@@ -128,7 +128,6 @@ public class PetBase : CreatureBase
                 _animator.SetBool("petAttackRange", false);
                 _animator.SetBool("Idle", true);
                 _animator.SetBool("Move", false);
-                _animator.SetBool("AttackLaser", false);
 
 
                 break;
@@ -137,13 +136,11 @@ public class PetBase : CreatureBase
                 _animator.SetBool("petAttackRange", false);
                 _animator.SetBool("Idle", false);
                 _animator.SetBool("Move", false);
-                _animator.SetBool("AttackLaser", false);
                 break;
             case PetStateEnum.followPlayer:
 
                 _animator.SetBool("Idle", false);
                 _animator.SetBool("Move", true);
-                _animator.SetBool("AttackLaser", false);
 
                 break;
 

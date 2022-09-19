@@ -5,6 +5,8 @@ using UnityEngine.UI;
 using TMPro;
 using DG.Tweening;
 using Sirenix.OdinInspector;
+using UnityEngine.SceneManagement;
+
 public class UIManager : MonoBehaviour
 {
 
@@ -57,7 +59,7 @@ public class UIManager : MonoBehaviour
 
     public void Reload()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Play");
+        Scene scene = SceneManager.GetActiveScene(); SceneManager.LoadScene(scene.name);
     }
 
 
