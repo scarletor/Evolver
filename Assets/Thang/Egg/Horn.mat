@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Wing
+  m_Name: Horn
   m_Shader: {fileID: 4800000, guid: 6f90c93b3efbfb44184dc392e54f5b07, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -41,11 +41,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _LightMap:
-        m_Texture: {fileID: 2800000, guid: ee600c16d1287584480bacd666478626, type: 3}
+        m_Texture: {fileID: 2800000, guid: 6b0c9290ced213147a5b80cd217b015e, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: ee600c16d1287584480bacd666478626, type: 3}
+        m_Texture: {fileID: 2800000, guid: 6b0c9290ced213147a5b80cd217b015e, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -71,7 +71,7 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _LightAttenuation: 0.8
+    - _LightAttenuation: 1
     - _LightIntesity: 1
     - _LightMapAttenuation: 0
     - _LightTonesColor1Range: 1
