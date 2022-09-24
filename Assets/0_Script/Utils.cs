@@ -27,7 +27,7 @@ public class Utils : MonoBehaviour
 
     }
 
-    public void DelayCall(float dl, System.Action cd)
+    public void DelayCall(float dl, System.Action cd,GameObject ob=null)
     {
         StartCoroutine(DelayCallIE(cd, dl));
         IEnumerator DelayCallIE(System.Action cd2, float dl2)

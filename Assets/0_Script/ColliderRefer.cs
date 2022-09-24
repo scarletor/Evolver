@@ -16,11 +16,7 @@ public class ColliderRefer : MonoBehaviour
 
         if (gameObject.name.Contains("#MeleeCheck"))
         {
-            if (other.gameObject.transform.name.Contains("#_1_Enemy") && other.gameObject.transform.name.Contains("#_Die") == false)
-            {
-                parent.ChangeState(characterStateEnum.attackMelee, other.gameObject);
-            }
-
+          
             if (other.gameObject.transform.root.name.Contains("#_2_Pet"))
             {
                 other.gameObject.transform.root.GetComponent<PetBase>().isOwned = true;
@@ -81,13 +77,11 @@ public class ColliderRefer : MonoBehaviour
 
     public void OnTriggerStay(Collider other)
     {
-        if (gameObject.name.Contains("#RangeCheck"))
+        if (gameObject.name.Contains("#_RangeCheck"))
         {
-
-            if (other.gameObject.transform.name.Contains("#_1_Enemy") && other.gameObject.transform.name.Contains("#Die") == false)
+            if (other.gameObject.transform.name.Contains("#_1_Enemy") && other.gameObject.transform.name.Contains("#_Die") == false)
             {
-                Debug.LogError("TRIGGER RANGE DETECT ENEMY");
-                parent.ChangeState(characterStateEnum.attackRange, other.gameObject);
+                parent._targetRange = other.gameObject;
                 if (parent.pet != null)
                     parent.pet._petTarget = other.gameObject;
             }
@@ -124,20 +118,17 @@ public class ColliderRefer : MonoBehaviour
 
             if (other.gameObject.transform.name.Contains("#_1_Enemy"))
             {
-                parent.TargetOutRangeMelee();
 
             }
 
         }
 
 
-        if (gameObject.name.Contains("#RangeCheck"))
+        if (gameObject.name.Contains("#_RangeCheck"))
         {
             if (other.gameObject.transform.name.Contains("#_1_Enemy"))
             {
                 parent._targetRange = null;
-                parent._anim.SetBool("hasTarget", false);
-
             }
         }
 

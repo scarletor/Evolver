@@ -14,8 +14,6 @@ public class EnemyBase : CreatureBase
 
     string baseName;
     // Update is called once per frame
-    public GameObject rigged;
-    public bool isFlying;
     public void Start()
     {
         curHPBar.transform.parent.GetComponent<HPBar>().hpText.text = "" + curHP;
@@ -35,40 +33,26 @@ public class EnemyBase : CreatureBase
     {
         MoveToPlayerAndAttack();
     }
-    public float distanceStopMove, timeToSpecialAttack = 0;
+
+    public float distanceStopMove=1.2f, timeCountTospecialAttack = 0;
+
     public void MoveToPlayerAndAttack()
     {
 
-        if (_target == null) return;
-        if (isDie == true) return;
-
-        if (_target.transform.root.GetComponent<PlayerController>() != null)
-            if (_target.transform.root.GetComponent<PlayerController>().isDie == true)
-            {
-                _target = null;
-                RemoveTarget(PlayerController.ins.gameObject);
-
-                if (GetComponent<Enemy_Skeleton>() != null)
-                    GetComponent<Enemy_Skeleton>().canMove = true;
-
-                if (targetList.Count == 0)
-                    SetState(EnemyState.BackToStartPos);
-                return;
-            }
-
+        if (CanAttack() == false) return;
 
 
         Debug.LogError("1");
 
         // special attack
-        if (timeToSpecialAttack == 0)
+        if (timeCountTospecialAttack == 0)
         {
-            timeToSpecialAttack = Random.Range(10, 12);
+            timeCountTospecialAttack = Random.Range(10, 12);
         }
 
-        if (Time.timeSinceLevelLoad % timeToSpecialAttack <= .1f && _state != EnemyState.SpecialAttack)
+        if (Time.timeSinceLevelLoad % timeCountTospecialAttack <= .1f && _state != EnemyState.SpecialAttack)
         {
-            timeToSpecialAttack = 0;
+            timeCountTospecialAttack = 0;
             SetState(EnemyState.SpecialAttack);
             Debug.LogError("SPECIAL ATTACK");
         }
@@ -85,7 +69,6 @@ public class EnemyBase : CreatureBase
         if (Vector3.Distance(gameObject.transform.position, _target.transform.position) > distanceStopMove)  //move to player
         {
             var posLook = _target.transform.position;
-            if (isFlying) posLook.y = 1.2f;
             gameObject.transform.LookAt(posLook);
             transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
             SetState(EnemyState.MoveToPlayer);
@@ -100,12 +83,38 @@ public class EnemyBase : CreatureBase
     }
 
 
+    public bool CanAttack()
+    {
+
+        if (_target == null) return false;
+        if (isDie == true) return false;
+
+        if (_target.transform.root.GetComponent<PlayerController>() != null)
+            if (_target.transform.root.GetComponent<PlayerController>().isDie == true)
+            {
+                _target = null;
+                RemoveTarget(PlayerController.ins.gameObject);
+
+                if (GetComponent<Enemy_Skeleton>() != null)
+                    GetComponent<Enemy_Skeleton>().canMove = true;
+
+                if (targetList.Count == 0)
+                    SetState(EnemyState.BackToStartPos);
+                return false;
+            }
+
+
+        return true;
+    }
+
+
 
 
     public GameObject _target;
 
     float basePosY;
     public GameObject posToMove;
+    [GUIColor(1, 1, 0, 1)]//yellow
     public Animator _anim;
     public float rdMove1, rdMove2, rdTime1, rdTime2;
     [Button]
@@ -130,36 +139,15 @@ public class EnemyBase : CreatureBase
         Vector3 dir = pos - transform.position;
         gameObject.transform.rotation = Quaternion.LookRotation(dir);
     }
-    public GameObject font;
 
 
 
-    [Button]
-    public void Wandering2()
-    {
-
-        if (_target)
-            if (_target.transform.root.gameObject.GetComponent<PlayerController>().isDie == false) return;
-        if (isDie) return;
-
-        var delay = 0.5f;
-        var rot = Random.RandomRange(0, 360);
-        transform.DORotate(new Vector3(0, rot, 0), delay);
-
-        Utils.ins.DelayCall(delay, () =>
-        {
-            if (_target) return;
-            transform.DOMove(font.transform.position, 2);
-            SetState(EnemyState.Idle);
-        });
-
-
-    }
 
 
 
-   
-    public GameObject wanderingPosList,groundToUnlock;
+
+    [GUIColor(1, 1, 0, .5f)]//yellow
+    public GameObject groundToUnlock;
 
     public bool isDie;
     public EnemyState _state;
@@ -191,7 +179,7 @@ public class EnemyBase : CreatureBase
 
                 break;
             case EnemyState.Die:
-                groundToUnlock.gameObject.SetActive(true);
+                if (groundToUnlock != null) groundToUnlock.gameObject.SetActive(true);
                 isDie = true;
                 _anim.SetBool(DieStr, true);
                 curHPBar.transform.parent.gameObject.SetActive(false);
@@ -215,10 +203,9 @@ public class EnemyBase : CreatureBase
                 _anim.SetBool(AttackStr, false);
                 _anim.SetBool("Move", false);
                 _anim.SetBool("SpecialAttack", true);
-
-
-
                 break;
+
+
         }
         _state = state;
         name = baseName + "_#_" + state;
@@ -226,7 +213,6 @@ public class EnemyBase : CreatureBase
     }
 
     public EnemyMoveType _enemyMoveType;
-    public GameObject watchingPosList;
     public void FoundPlayer()
     {
         _anim.CrossFade("Move", .1f);
@@ -267,7 +253,7 @@ public class EnemyBase : CreatureBase
 
 
 
-    [SerializeField] private float _curHP, _maxHP;
+    [SerializeField] private float _curHP = 50, _maxHP = 50;
     public float curHP
     {
         get
@@ -282,7 +268,7 @@ public class EnemyBase : CreatureBase
 
     }
 
-
+    [GUIColor(1, 1, 0, .5f)]//yellow
     public GameObject curHPBar;
     public void UpdateHealthBar()
     {
@@ -301,7 +287,7 @@ public class EnemyBase : CreatureBase
         curHPBar.transform.parent.GetComponent<HPBar>().hpText.text = "" + curHP;
         curHPBar.transform.localScale = new Vector3(scale, 1.5f, 1);
     }
-    public void TakeDamage(float damage, GameObject dealer,GameObject textEffPos)
+    public void TakeDamage(float damage, GameObject dealer, GameObject textEffPos)
     {
         if (curHP <= 0)
         {

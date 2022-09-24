@@ -21,9 +21,8 @@ public class Enemy_Spider : EnemyBase
     public bool canMove;
 
 
-    public Animator _anim;
     public GameObject pos1, pos2, pos3, pos;
-    public float moveSpeed, rotateSpeed;
+    public float  rotateSpeed;
     public float distanceStopPos;
     public void Wandering3()
     {

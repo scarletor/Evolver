@@ -10,14 +10,16 @@ public class BulletBase : MonoBehaviour
 
 
 
-
-
     public float speed, damage;
     public GameObject impactParticle, owner;
-
+    public float lifeTime;
     private void FixedUpdate()
     {
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
+
+
+        lifeTime +=Time.fixedDeltaTime;
+        if (lifeTime >= 10) Destroy(gameObject);
     }
 
 
@@ -35,7 +37,7 @@ public class BulletBase : MonoBehaviour
                     var newMuzzle = Instantiate(impactParticle);
                     newMuzzle.transform.position = gameObject.transform.position;
                 }
-                other.gameObject.transform.root.GetComponent<EnemyBase>().TakeDamage(damage, owner,gameObject);
+                other.gameObject.transform.root.GetComponent<EnemyBase>().TakeDamage(damage, owner, gameObject);
 
                 var enemyTarget = other.gameObject.transform.root.GetComponent<EnemyBase>()._target;
                 if (enemyTarget == null)
@@ -58,10 +60,8 @@ public class BulletBase : MonoBehaviour
 
         if (gameObject.name.Contains("#_EnemyBullet"))
         {
-            Debug.LogError('1');
             if (gameObject.transform.name.Contains("#_Invisible"))
             {
-                Debug.LogError('1');
 
                 if (other.gameObject.name.Contains("#_PlayerCheck"))
                 {
@@ -76,6 +76,18 @@ public class BulletBase : MonoBehaviour
                     Debug.LogError("PET GET BULLET FIRED");
                     other.GetComponent<ColliderRefer>().pet.TakeDamage(damage);
                 }
+
+            }
+
+
+            if (gameObject.transform.name.Contains("#_FrostMage") && other.gameObject.name.Contains("#_PlayerCheck"))
+            {
+                other.GetComponent<ColliderRefer>().parent.TakeDamage(damage);
+
+
+                var newImpact = Instantiate(impactParticle);
+                newImpact.transform.position = transform.position;
+                Destroy(gameObject);
 
             }
 

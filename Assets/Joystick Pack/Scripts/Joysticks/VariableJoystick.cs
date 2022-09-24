@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-
+using Sirenix.OdinInspector;
 public class VariableJoystick : Joystick
 {
     public float MoveThreshold { get { return moveThreshold; } set { moveThreshold = Mathf.Abs(value); } }
@@ -15,7 +15,7 @@ public class VariableJoystick : Joystick
     public void SetMode(JoystickType joystickType)
     {
         this.joystickType = joystickType;
-        if(joystickType == JoystickType.Fixed)
+        if (joystickType == JoystickType.Fixed)
         {
             background.anchoredPosition = fixedPosition;
             background.gameObject.SetActive(true);
@@ -29,12 +29,38 @@ public class VariableJoystick : Joystick
         base.Start();
         fixedPosition = background.anchoredPosition;
         SetMode(joystickType);
+
+
+        Utils.ins.DelayCall(1, () =>
+        {
+            Debug.LogError("BEM");
+            background.anchoredPosition = ScreenPointToAnchoredPosition(new Vector2(500, 500));//fix bug
+            background.gameObject.SetActive(true);
+            background.gameObject.SetActive(false);
+
+
+        });
     }
+
+    [SerializeField]
+    public PointerEventData data;
+
+    [Button]
+    public void Test()
+    {
+        background.anchoredPosition = ScreenPointToAnchoredPosition(new Vector2(500, 500));
+        background.gameObject.SetActive(true);
+    }
+
+
+
 
     public override void OnPointerDown(PointerEventData eventData)
     {
-        if(joystickType != JoystickType.Fixed)
+        data = eventData;
+        if (joystickType != JoystickType.Fixed)
         {
+            Debug.LogError(eventData.position);
             background.anchoredPosition = ScreenPointToAnchoredPosition(eventData.position);
             background.gameObject.SetActive(true);
         }
@@ -43,7 +69,7 @@ public class VariableJoystick : Joystick
 
     public override void OnPointerUp(PointerEventData eventData)
     {
-        if(joystickType != JoystickType.Fixed)
+        if (joystickType != JoystickType.Fixed)
             background.gameObject.SetActive(false);
 
         base.OnPointerUp(eventData);

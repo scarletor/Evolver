@@ -18,9 +18,9 @@ public class AnimationEvent : MonoBehaviour
 
 
 
-    public void FinishAttackMeleePlayer()
+    public void StartAttackRangeAnim()
     {
-        parent.FinishAttackMeleeAnimEvent();
+        parent.FireBulletIntervals();
     }
 
     public void FinishAttackRangePlayer()
@@ -28,10 +28,6 @@ public class AnimationEvent : MonoBehaviour
         parent.FinishAttackRange();
     }
 
-    public void StartAttackRangeAnim()
-    {
-        parent.FireBulletIntervals();
-    }
 
 
 
