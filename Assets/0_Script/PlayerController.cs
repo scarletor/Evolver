@@ -35,7 +35,7 @@ public class PlayerController : CreatureBase
 
     public PetBase pet;
 
-    private void LateUpdate()
+    private void FixedUpdate()
     {
         if (isDie) return;
         MoveByJoyStick();
@@ -46,9 +46,8 @@ public class PlayerController : CreatureBase
     public VariableJoystick _joystick;
     public Rigidbody _rigid;
     public bool canMove;
-    public float speedMove;
     public Animator _anim;
-    public playerStateEnum _playerState;
+    public playerStateEnum _playerState; 
     public void MoveByJoyStick()
     {
 
@@ -64,7 +63,7 @@ public class PlayerController : CreatureBase
             SetState(playerStateEnum.move);
             dir.z = dir.y;
             dir.y = 0;
-            dir = dir * speedMove * Time.fixedDeltaTime;
+            dir = dir * moveSpeed * Time.fixedDeltaTime;
 
 
             //gameObject.transform.position += dir;

@@ -120,7 +120,6 @@ public class PetBase : CreatureBase
             case PetStateEnum.move:
                 _animator.SetBool("Idle", false);
                 _animator.SetBool("Move", true);
-                _animator.SetBool("AttackLaser", false);
                 _animator.SetBool("petAttackRange", false);
 
                 break;
@@ -155,13 +154,11 @@ public class PetBase : CreatureBase
 
                 _animator.SetBool("Idle", false);
                 _animator.SetBool("Move", false);
-                _animator.SetBool("AttackLaser", true);
                 break;
             case PetStateEnum.die:
                 isDie = true;
                 _animator.SetBool("Idle", false);
                 _animator.SetBool("Move", false);
-                _animator.SetBool("AttackLaser", true);
                 _animator.SetBool("Die", true);
                 curHPBar.transform.parent.gameObject.SetActive(false);
 

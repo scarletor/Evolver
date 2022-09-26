@@ -25,7 +25,7 @@ public class PlayerData : MonoBehaviour
 
     void Start()
     {
-
+        SetupSelf();
         Parse();
     }
 
@@ -36,9 +36,9 @@ public class PlayerData : MonoBehaviour
     [Button]
     public void Parse()
     {
-        string[] w = wordAsset.text.Split(new char[] { '\n', '\r' }, System.StringSplitOptions.RemoveEmptyEntries);
+        //string[] w = wordAsset.text.Split(new char[] { '\n', '\r' }, System.StringSplitOptions.RemoveEmptyEntries);
 
-        allWords = new HashSet<string>(w);
+        //allWords = new HashSet<string>(w);
 
 
         string[] lines = wordAsset.text.Split('\n'); // line separator, i.e. newline
@@ -73,6 +73,158 @@ public class PlayerData : MonoBehaviour
     }
 
 
+
+
+
+    public bool IsPetUnlocked(int id)
+    {
+        return PlayerPrefs.GetString("PetUnlocked_" + id) == "" + 1;
+    }
+
+
+    [LabelText("Pet_____________________")]
+    public string pet;
+    [TableList]
+    public List<PetData> _petList;
+    [Button]
+    public void GetAllPet()
+    {
+
+        Debug.LogError("G");
+        int count = 0;
+        StartCoroutine(GetData());
+        Debug.LogError("G");
+
+        IEnumerator GetData()
+        {
+
+            while (true)
+            {
+                yield return null;
+                Debug.LogError("G");
+
+                if (PlayerPrefs.GetString("Pet_Owned_" + count) == "") yield break;
+                Debug.LogError("G");
+
+                var data = PlayerPrefs.GetString("Pet_Owned_" + count);
+
+                PetData pet = new PetData();
+                pet.name = data.Split("_")[0];
+                pet.level = int.Parse(data.Split("_")[1]);
+                pet.type = data.Split("_")[2];
+                pet.exp = int.Parse(data.Split("_")[3]);
+                pet.taking = data.Split("_")[4] == "" + 0;
+                _petList.Add(pet);
+                Debug.LogError("GET PET__" + count + "__" + data);
+                count++;
+            }
+        }
+
+    }
+
+    [Button]
+    public void SavePet(string keyChain)
+    {
+        int count = 0;
+        StartCoroutine(SavePetIE());
+        IEnumerator SavePetIE()
+        {
+            while (true)
+            {
+
+                yield return null;
+                if (PlayerPrefs.GetString("Pet_Owned_" + count) != "")
+                {
+                    count++;
+                    continue;
+                }
+
+                PlayerPrefs.SetString("Pet_Owned_" + count, keyChain);
+
+                Debug.LogError("loop to " + count);
+                yield break;
+            }
+        }
+    }
+
+
+
+    [LabelText("Egg_____________________")]
+    public string egg;
+
+
+    [Button]
+    public void SaveEgg(string keyChain)
+    {
+        int count = 0;
+        StartCoroutine(SaveEggIE());
+        IEnumerator SaveEggIE()
+        {
+            while (true)
+            {
+
+                yield return null;
+                if (PlayerPrefs.GetString("Egg_Owned_" + count) != "")
+                {
+                    count++;
+                    continue;
+                }
+
+                PlayerPrefs.SetString("Egg_Owned_" + count, keyChain);
+
+                Debug.LogError("loop to " + count);
+                yield break;
+            }
+        }
+    }
+
+
+
+
+
+    [TableList]
+    public List<EggData> _EggList;
+    [Button]
+    public void GetAllEgg()
+    {
+
+        Debug.LogError("G");
+        int count = 0;
+        StartCoroutine(GetData());
+        Debug.LogError("G");
+
+        IEnumerator GetData()
+        {
+
+            while (true)
+            {
+                yield return null;
+                Debug.LogError("G");
+
+                if (PlayerPrefs.GetString("Egg_Owned_" + count) == "") yield break;
+                Debug.LogError("G");
+
+                var data = PlayerPrefs.GetString("Egg_Owned_" + count);
+
+                EggData egg = new EggData();
+                egg.type = data.Split("_")[0];
+                egg.hatchedDate = data.Split("_")[1];
+
+                _EggList.Add(egg);
+                Debug.LogError("GET Egg" + count + "__" + data);
+                count++;
+            }
+        }
+
+    }
+
+    public void SetupSelf()
+    {
+        GetAllEgg();
+        GetAllPet();
+    }
+
+
 }
 [Serializable]
 public class BowData
@@ -81,4 +233,22 @@ public class BowData
     public string name;
     public int damage;
 
+}
+
+[Serializable]
+public class PetData
+{
+    public string name;
+    public int level;
+    public string type;// fire frost thunder
+    public float exp;
+    public bool taking;
+
+}
+
+[Serializable]
+public class EggData
+{
+    public string type;
+    public string hatchedDate;  //hatching, hatched,
 }

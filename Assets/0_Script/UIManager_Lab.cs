@@ -4,12 +4,20 @@ using UnityEngine;
 using Sirenix.OdinInspector;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
+
 public class UIManager_Lab : MonoBehaviour
 {
-    // Start is called before the first frame update
+
+    public static UIManager_Lab ins;
+    private void Awake()
+    {
+        ins = this;
+    }
     void Start()
     {
-
+        Setup();
     }
 
     // Update is called once per frame
@@ -68,7 +76,8 @@ public class UIManager_Lab : MonoBehaviour
 
                         Utils.ins.DelayCall(3, () =>
                         {
-                            drone1.transform.DORotate(Vector3.zero, 1).SetEase(Ease.Linear).OnComplete(()=> {
+                            drone1.transform.DORotate(Vector3.zero, 1).SetEase(Ease.Linear).OnComplete(() =>
+                            {
                                 drone1.transform.DOMove(drone1PosStart.transform.position, 1);
                             });
                         });
@@ -98,7 +107,8 @@ public class UIManager_Lab : MonoBehaviour
 
                         Utils.ins.DelayCall(3, () =>
                         {
-                            drone2.transform.DORotate(Vector3.zero, 1).SetEase(Ease.Linear).OnComplete(()=> {
+                            drone2.transform.DORotate(Vector3.zero, 1).SetEase(Ease.Linear).OnComplete(() =>
+                            {
                                 drone2.transform.DOMove(drone2PosStart.transform.position, 1);
                             });
                         });
@@ -145,8 +155,117 @@ public class UIManager_Lab : MonoBehaviour
     public void Back()
     {
 
-        SceneManager.LoadScene("Dungeon");
+        SceneManager.LoadScene("Play");
 
 
     }
+
+
+
+    public GameObject eggScrollView, petScrollView, eggTabBtn, petTabBtn, eggGrBtn, petGrBtn, eggContent, petContent;
+
+    public void OnClickEggTab()
+    {
+
+        eggScrollView.gameObject.SetActive(true);
+        eggTabBtn.GetComponent<Button>().image.color = Color.white;
+        eggGrBtn.gameObject.SetActive(true);
+
+        petScrollView.gameObject.SetActive(false);
+        petTabBtn.GetComponent<Button>().image.color = Color.gray;
+        petGrBtn.gameObject.SetActive(false);
+
+
+
+
+    }
+
+
+
+    public void OnClickPetTab()
+    {
+
+        eggScrollView.gameObject.SetActive(false);
+        eggTabBtn.GetComponent<Button>().image.color = Color.gray;
+        eggGrBtn.gameObject.SetActive(false);
+
+        petScrollView.gameObject.SetActive(true);
+        petTabBtn.GetComponent<Button>().image.color = Color.white;
+        petGrBtn.gameObject.SetActive(true);
+
+
+    }
+
+    public Sprite eggFireSprite, eggThunderSprite, eggFrostSprite;
+    public GameObject selector;
+    public MeshRenderer eggDemo;
+    public Material eggDemoFrost, eggDemoFire, eggDemoThunder;
+    public void OnSelectEgg(string element)
+    {
+
+
+        var curEgg = EventSystem.current.currentSelectedGameObject.GetComponent<EggDataSelectUIBtn>()._eggData;
+
+        if (curEgg.type == "fire") eggDemo.material = eggDemoFire;
+        if (curEgg.type == "thunder") eggDemo.material = eggDemoThunder;
+        if (curEgg.type == "frost") eggDemo.material = eggDemoFrost;
+
+
+    }
+
+
+    public void OnClickHatchEgg()
+    {
+
+    }
+
+    public void OnClickOpenEgg()
+    {
+
+    }
+
+    public void OnClickInjectEgg(string element)
+    {
+    }
+
+
+    public GameObject petBtnPref, eggBtnPref;
+
+    public void OnClickSelectPetBtn()
+    {
+        var curGo = EventSystem.current.currentSelectedGameObject;
+        selector.transform.position = curGo.transform.position;
+        var petData = curGo.GetComponent<PetDataSelectBtn>()._petData;
+    }
+
+
+    public void OnClickSelectEggBtn()
+    {
+        selector.transform.position = EventSystem.current.currentSelectedGameObject.transform.position;
+    }
+
+    [Button]
+    public void Setup()
+    {
+        Utils.ins.DelayCall(2,() =>
+        {
+            PlayerData.ins._EggList.ForEach(eggData =>
+            {
+                var newEggBtn = Instantiate(eggBtnPref);
+                newEggBtn.GetComponent<EggDataSelectUIBtn>()._eggData = eggData;
+                newEggBtn.GetComponent<EggDataSelectUIBtn>().SetupSelf();
+                newEggBtn.transform.parent = eggContent.transform;
+            });
+
+        });
+    }
+
+
+
+
+
+
+
+
+
 }

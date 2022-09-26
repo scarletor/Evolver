@@ -22,7 +22,23 @@ public class UIManager : MonoBehaviour
     {
         RefreshText();
         gold = 6;
-        tileUnlocked = 1;
+    }
+
+
+
+    // FPS
+    public TextMeshProUGUI fpsText;
+    float _hudRefreshRate = .3f;
+    float _timer;
+
+    private void Update()
+    {
+        if (Time.unscaledTime > _timer)
+        {
+            int fps = (int)(1f / Time.unscaledDeltaTime);
+            fpsText.text = "FPS: " + fps;
+            _timer = Time.unscaledTime + _hudRefreshRate;
+        }
     }
 
 
@@ -31,16 +47,17 @@ public class UIManager : MonoBehaviour
     public void RefreshText()
     {
         UpdateGold();
-        UpdateTileUnlocked();
     }
 
     public TextMeshProUGUI textGold, textTileUnlocked;
     int _gold, _tileUnlocked;
 
-    public int tileUnlocked 
+    public int tileUnlocked
     {
         get { return _tileUnlocked; }
-        set { _tileUnlocked = value;
+        set
+        {
+            _tileUnlocked = value;
             RefreshText();
         }
     }
@@ -66,13 +83,10 @@ public class UIManager : MonoBehaviour
 
     public void UpdateGold()
     {
-        textGold.text = "Gold: " + _gold;
+        textGold.text = "" + _gold;
     }
-    public void UpdateTileUnlocked()
-    {
-        textTileUnlocked.text = "TileUnlock: " + _tileUnlocked;
 
-    }
+
 
 
 
@@ -149,6 +163,10 @@ public class UIManager : MonoBehaviour
     {
         PlayerController.ins.gameObject.transform.position = portalIn.transform.position;
     }
+
+
+
+
 
 
 
