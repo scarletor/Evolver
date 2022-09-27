@@ -25,7 +25,7 @@ public class Refer : MonoBehaviour
     {
         for (int i = 0; i < 5; i++)
         {
-            var offset = Random.Range(-.1f, .1f);
+            var offset = Random.Range(-.3f, .3f);
             var newGold = Instantiate(gold);
             newGold.transform.position = new Vector3(pos.transform.position.x + offset, pos.transform.position.y + offset, pos.transform.position.z + offset);
 

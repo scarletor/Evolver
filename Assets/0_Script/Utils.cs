@@ -98,24 +98,7 @@ public class Utils : MonoBehaviour
     }
 
 
-    public int avgFrameRate;
-    public Text display_Text;
-    private float currentFPS;
-    [Button]
-    public void UpdateFPS()
-    {
-        currentFPS = (int)(1f / Time.unscaledDeltaTime);
-        avgFrameRate = (int)currentFPS;
-        display_Text.text = avgFrameRate.ToString() + " FPS";
-    }
-    private void Start()
-    {
-        if (display_Text == null) return;
-        if (display_Text.gameObject.activeInHierarchy == false) return;
-        InvokeRepeating("UpdateFPS", 1, 1);
-    }
-
-
+   
     [Button]
     public void IncreaseNumEff(Text text,int value)
     {
@@ -129,4 +112,21 @@ public class Utils : MonoBehaviour
                text.text = "" + curValue;
            });
     }
+
+
+
+
+    public GameObject spawnPos;
+    public void SpawnGold()
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            var offset = UnityEngine.Random.Range(-.3f, .3f);
+            var newGold = Instantiate(gold);
+            newGold.transform.position = new Vector3(spawnPos.transform.position.x + offset, spawnPos.transform.position.y + offset, spawnPos.transform.position.z + offset);
+
+        }
+    }
+
+
 }

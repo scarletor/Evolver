@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/1_Scene/Lab.unity
     guid: cab57f9c80c3b0e48986b35790781296
+  - enabled: 1
+    path: Assets/1_Scene/Shared.unity
+    guid: 1964bcbedfe199b47abee88eac4e8771
   m_configObjects: {}
