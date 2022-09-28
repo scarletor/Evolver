@@ -8,7 +8,12 @@ public class CameraFollow : MonoBehaviour
     private void Awake()
     {
         ins = this;
-        basePos = transform.position;
+    }
+
+    private void Start()
+    {
+        basePos = transform.position- PlayerController.ins.gameObject.transform.position;
+        
     }
     public Vector3 basePos;
     // Update is called once per frame

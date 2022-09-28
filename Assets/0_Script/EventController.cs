@@ -43,9 +43,9 @@ public class EventController : SerializedMonoBehaviour
 
     public void OnPlayerDieActions()
     {
-        playerDieActions.ForEach(action => {
-            action.Invoke();
-        });
+        //playerDieActions.ForEach(action => {
+        //    action.Invoke();
+        //});
     }
   
 

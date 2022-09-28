@@ -10,8 +10,10 @@ public class Utils : MonoBehaviour
 {
     public static Utils ins;
     public GameObject gold;
-    public TextFloatingEff  textEffRed,textEffWhite;
-    public GameObject yellowBullet,yellowMuzzle,yellowImpact;
+    public TextFloatingEff textEffRed, textEffWhite;
+    public GameObject yellowBullet, yellowMuzzle, yellowImpact;
+    float timeHatch = 3600;
+
 
     public void Awake()
     {
@@ -27,7 +29,7 @@ public class Utils : MonoBehaviour
 
     }
 
-    public void DelayCall(float dl, System.Action cd)
+    public void DelayCall(float dl, System.Action cd, GameObject ob = null)
     {
         StartCoroutine(DelayCallIE(cd, dl));
         IEnumerator DelayCallIE(System.Action cd2, float dl2)
@@ -98,26 +100,9 @@ public class Utils : MonoBehaviour
     }
 
 
-    public int avgFrameRate;
-    public Text display_Text;
-    private float currentFPS;
-    [Button]
-    public void UpdateFPS()
-    {
-        currentFPS = (int)(1f / Time.unscaledDeltaTime);
-        avgFrameRate = (int)currentFPS;
-        display_Text.text = avgFrameRate.ToString() + " FPS";
-    }
-    private void Start()
-    {
-        if (display_Text == null) return;
-        if (display_Text.gameObject.activeInHierarchy == false) return;
-        InvokeRepeating("UpdateFPS", 1, 1);
-    }
-
 
     [Button]
-    public void IncreaseNumEff(Text text,int value)
+    public void IncreaseNumEff(Text text, int value)
     {
         var curValue = Int32.Parse(text.text);
 
@@ -129,4 +114,36 @@ public class Utils : MonoBehaviour
                text.text = "" + curValue;
            });
     }
+
+
+
+
+    public void SpawnGold(GameObject spawnPos)
+    {
+        var rd = UnityEngine.Random.Range(8, 13);
+        for (int i = 0; i < rd; i++)
+        {
+            var offset = UnityEngine.Random.Range(-1f, 1f);
+            var newGold = Instantiate(gold);
+            newGold.transform.position = new Vector3(spawnPos.transform.position.x + offset, spawnPos.transform.position.y + offset, spawnPos.transform.position.z + offset);
+
+        }
+    }
+
+    [Button]
+    public TimeSpan GetTimeLeft(string timeHatchString)
+    {
+        var _timeHatch = DateTime.Parse(timeHatchString);
+        //var minus = (DateTime.Now - _timeHatch.AddSeconds(this.timeHatch));
+        var timeSpan = DateTime.Now - DateTime.Now.AddSeconds(3600);
+
+
+        var minus = timeHatch - (DateTime.Now - _timeHatch).TotalSeconds;
+
+        return TimeSpan.FromSeconds(minus);
+
+    }
+
+
+
 }

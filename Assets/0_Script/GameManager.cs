@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,7 +10,9 @@ public class GameManager : MonoBehaviour
     {
         Application.targetFrameRate = 60;
 
-        //Physics.IgnoreCollision(collision.collider, collider);
+        SceneManager.LoadScene("Shared", LoadSceneMode.Additive);
+
+        Debug.LogError("LOAD");
     }
 
     // Update is called once per frame
@@ -17,4 +20,8 @@ public class GameManager : MonoBehaviour
     {
 
     }
+
+
+
+    public GameObject ground, water;
 }

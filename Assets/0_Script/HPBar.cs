@@ -18,10 +18,15 @@ public class HPBar : MonoBehaviour
     void LateUpdate()
     {
         transform.rotation = Camera.main.transform.rotation;
-        if(player)
-        transform.position = Vector3.Lerp(transform.position, player.gameObject.transform.position + basePos, Time.deltaTime * speed);
-    }
+        if (player)
+            //transform.position = Vector3.Lerp(transform.position, player.gameObject.transform.position + basePos, Time.fixedDeltaTime * speed);
 
+            transform.position = Vector3.SmoothDamp(transform.position, PlayerController.ins.gameObject.transform.position + basePos, ref velocity, speed);
+
+
+
+    }
+    Vector3 velocity = Vector3.zero;
 
 
 

@@ -5,7 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
     path: Assets/1_Scene/Play.unity
     guid: 71667f3de463e25499ace675db37e88d
   - enabled: 1
@@ -14,7 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/1_Scene/Lab.unity
     guid: cab57f9c80c3b0e48986b35790781296
-  - enabled: 0
-    path: Assets/1_Scene/New Scene 1.unity
-    guid: 9224d144d8d0de64c8de4e2e750c7b56
+  - enabled: 1
+    path: Assets/1_Scene/Shared.unity
+    guid: 1964bcbedfe199b47abee88eac4e8771
   m_configObjects: {}

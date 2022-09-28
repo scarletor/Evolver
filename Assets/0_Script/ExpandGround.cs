@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using TMPro;
+using Sirenix.OdinInspector;
 public class ExpandGround : MonoBehaviour
 {
 
@@ -12,57 +13,69 @@ public class ExpandGround : MonoBehaviour
 
 
 
-    private void OnEnable()
-    {
-        ExpandMe();
-    }
-
-    public void ExpandMe()
-    {
-        transform.localScale = Vector3.zero;
-        transform.DOScale(new Vector3(1, 0.01f, 1), 1);
-    }
-
-
-
-    public GameObject expandGround;
-    public int tileToExpand, goldToExpand;
-
-
-    public void Expand(GameObject expandSign)
-    {
-        if (UIManager.ins.tileUnlocked >= tileToExpand && expandType == ExpandGroundEnum.tile)
-        {
-            expandGround.gameObject.SetActive(true);
-            expandGround.transform.localScale = Vector3.zero;
-            expandGround.transform.DOScale(1, 1);
-            UIManager.ins.tileUnlocked++;
-            UIManager.ins.tileUnlocked -= tileToExpand;
-            expandSign.SetActive(false);
-        }
-
-        if (UIManager.ins.gold >= goldToExpand && expandType == ExpandGroundEnum.gold)
-        {
-            expandGround.gameObject.SetActive(true);
-            expandGround.transform.localScale = Vector3.zero;
-            expandGround.transform.DOScale(1, 1);
-            UIManager.ins.tileUnlocked++;
-            UIManager.ins.gold -= goldToExpand;
-            expandSign.SetActive(false);
-        }
-
-
-
-    }
-
-    public TextMeshPro text;
-    public ExpandGroundEnum expandType;
     private void Start()
     {
-        if (expandType == ExpandGroundEnum.gold) text.text = "" + goldToExpand;
-        if (expandType == ExpandGroundEnum.tile) text.text = "" + tileToExpand;
+        Setup();
     }
 
+    public void Setup()
+    {
+        baseScale = groundToExpand.transform.localScale;
+        groundToExpand.gameObject.SetActive(false);
+        groundToExpand.transform.DOMoveY(-20, .1f);
+        text.text = "" + goldToExpand;
+    }
+
+
+
+    public GameObject groundToExpand;
+    public int tileToExpand, goldToExpand;
+
+    [Button]
+    public void Expand()
+    {
+        //if (UIManager.ins.gold >= goldToExpand)
+        //{
+        //    groundToExpand.gameObject.SetActive(true);
+        //    groundToExpand.transform.DOLocalMoveY(-5, 2).SetEase(Ease.OutBack).OnComplete(() =>
+        //    {
+        //        EnableEnemy();
+        //    });
+        //    UIManager.ins.gold -= goldToExpand;
+        //    gameObject.SetActive(false);
+        //}
+
+        groundToExpand.gameObject.SetActive(true);
+        groundToExpand.transform.DOLocalMoveY(-5, 2).SetEase(Ease.OutBack).OnComplete(() =>
+        {
+            EnableEnemy();
+        });
+        UIManager.ins.gold -= goldToExpand;
+        gameObject.SetActive(false);
+
+    }
+    Vector3 baseScale;
+    public TextMeshPro text;
+
+
+    public void EnableEnemy()
+    {
+        Debug.LogError(1);
+        foreach (Transform child in groundToExpand.transform)
+        {
+            Debug.LogError(1);
+
+            if (child.gameObject.name.Contains("Enemy"))
+            {
+                Debug.LogError(1);
+                child.GetComponent<EnemyBase>().enabled = true;
+                child.GetComponent<CapsuleCollider>().enabled = true;
+                child.GetComponent<Animator>().enabled = true;
+
+
+            }
+        }
+    }
 
 
 }

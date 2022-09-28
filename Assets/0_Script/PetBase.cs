@@ -120,7 +120,6 @@ public class PetBase : CreatureBase
             case PetStateEnum.move:
                 _animator.SetBool("Idle", false);
                 _animator.SetBool("Move", true);
-                _animator.SetBool("AttackLaser", false);
                 _animator.SetBool("petAttackRange", false);
 
                 break;
@@ -155,16 +154,13 @@ public class PetBase : CreatureBase
 
                 _animator.SetBool("Idle", false);
                 _animator.SetBool("Move", false);
-                _animator.SetBool("AttackLaser", true);
                 break;
             case PetStateEnum.die:
                 isDie = true;
                 _animator.SetBool("Idle", false);
                 _animator.SetBool("Move", false);
-                _animator.SetBool("AttackLaser", true);
                 _animator.SetBool("Die", true);
-                curHPBar.transform.parent.gameObject.SetActive(false);
-
+                Die();
                 break;
         }
 
@@ -174,6 +170,12 @@ public class PetBase : CreatureBase
     }
     public float rangeStopMoveToEnemy = 2;
 
+    public GameObject colliderCheck;
+    public void Die()
+    {
+        curHPBar.transform.parent.gameObject.SetActive(false);
+        colliderCheck.GetComponent<BoxCollider>().enabled = false;
+    }
     public virtual void PetAttackMelee()
     {
         if (_petAttackType != PetAttackType.melee) return;
@@ -211,7 +213,7 @@ public class PetBase : CreatureBase
         {
             return false;
         }
-        if (_petTarget.transform.root.GetComponent<EnemyBase>().isDie == true)
+        if (_petTarget.GetComponent<EnemyBase>().isDie == true)
         {
             _petTarget = null;
             if (petState == PetStateEnum.attackRange || petState == PetStateEnum.attackMelee) ChangeState(PetStateEnum.idle);

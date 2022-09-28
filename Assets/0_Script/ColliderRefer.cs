@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using DG.Tweening;
 public class ColliderRefer : MonoBehaviour
 {
 
@@ -16,10 +16,6 @@ public class ColliderRefer : MonoBehaviour
 
         if (gameObject.name.Contains("#MeleeCheck"))
         {
-            if (other.gameObject.transform.name.Contains("#_1_Enemy") && other.gameObject.transform.name.Contains("#_Die") == false)
-            {
-                parent.ChangeState(characterStateEnum.attackMelee, other.gameObject);
-            }
 
             if (other.gameObject.transform.root.name.Contains("#_2_Pet"))
             {
@@ -29,26 +25,25 @@ public class ColliderRefer : MonoBehaviour
 
         }
 
-        Debug.LogWarning(gameObject.name + "___" + other.name);
+
+
+        if (gameObject.name.Contains("#_GoldCheck")) // check gold
+        {
+            if (other.gameObject.name.Contains("#_4_Gold"))//gold
+            {
+                other.gameObject.GetComponent<Gold>().StartMoveToPlayer(gameObject);
+                UIManager.ins.gold++;
+            }
+        }
+
 
 
         if (gameObject.name.Contains("#GroundCheck")) //expand
         {
-            Debug.LogError(other.gameObject.name);
             if (other.gameObject.name.Contains("#_ExpandCollider"))//expand
             {
-                other.transform.parent.gameObject.GetComponent<ExpandGround>().Expand(other.transform.parent.gameObject);
-
-                Debug.LogError(gameObject.name);
+                other.transform.parent.gameObject.GetComponent<ExpandGround>().Expand();
             }
-
-            if (other.gameObject.name.Contains("#_4"))//gold
-            {
-                other.gameObject.SetActive(false);
-                UIManager.ins.gold++;
-            }
-
-
             if (other.gameObject.name.Contains("#_5_GroundObject_Dungeon"))//dungeon
             {
                 UIManager.ins.ShowGoDungeonPanel();
@@ -81,13 +76,11 @@ public class ColliderRefer : MonoBehaviour
 
     public void OnTriggerStay(Collider other)
     {
-        if (gameObject.name.Contains("#RangeCheck"))
+        if (gameObject.name.Contains("#_RangeCheck"))
         {
-
-            if (other.gameObject.transform.name.Contains("#_1_Enemy") && other.gameObject.transform.name.Contains("#Die") == false)
+            if (other.gameObject.transform.name.Contains("#_1_Enemy") && other.gameObject.transform.name.Contains("#_Die") == false)
             {
-                Debug.LogError("TRIGGER RANGE DETECT ENEMY");
-                parent.ChangeState(characterStateEnum.attackRange, other.gameObject);
+                parent._targetRange = other.gameObject;
                 if (parent.pet != null)
                     parent.pet._petTarget = other.gameObject;
             }
@@ -124,20 +117,17 @@ public class ColliderRefer : MonoBehaviour
 
             if (other.gameObject.transform.name.Contains("#_1_Enemy"))
             {
-                parent.TargetOutRangeMelee();
 
             }
 
         }
 
 
-        if (gameObject.name.Contains("#RangeCheck"))
+        if (gameObject.name.Contains("#_RangeCheck"))
         {
             if (other.gameObject.transform.name.Contains("#_1_Enemy"))
             {
                 parent._targetRange = null;
-                parent._anim.SetBool("hasTarget", false);
-
             }
         }
 

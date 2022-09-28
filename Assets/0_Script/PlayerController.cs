@@ -13,7 +13,7 @@ public class PlayerController : CreatureBase
         ins = this;
     }
 
-
+    string baseName;
     private void Start()
     {
         InvokeRepeating("SelfRegenarate", 1, 1);
@@ -24,7 +24,7 @@ public class PlayerController : CreatureBase
     {
 
         UpdateHealthBar();
-
+        baseName = name;
         //bow 
         var id = PlayerData.ins.GetCurBow();
         ChangeWeapons(id);
@@ -35,7 +35,7 @@ public class PlayerController : CreatureBase
 
     public PetBase pet;
 
-    private void LateUpdate()
+    private void FixedUpdate()
     {
         if (isDie) return;
         MoveByJoyStick();
@@ -46,9 +46,8 @@ public class PlayerController : CreatureBase
     public VariableJoystick _joystick;
     public Rigidbody _rigid;
     public bool canMove;
-    public float speedMove;
     public Animator _anim;
-    public characterStateEnum _playerState;
+    public playerStateEnum _playerState; 
     public void MoveByJoyStick()
     {
 
@@ -61,10 +60,10 @@ public class PlayerController : CreatureBase
         Vector3 dir = _joystick.Direction;
         if (dir != Vector3.zero)
         {
-            ChangeState(characterStateEnum.move);
+            SetState(playerStateEnum.move);
             dir.z = dir.y;
             dir.y = 0;
-            dir = dir * speedMove * Time.fixedDeltaTime;
+            dir = dir * moveSpeed * Time.fixedDeltaTime;
 
 
             //gameObject.transform.position += dir;
@@ -72,12 +71,10 @@ public class PlayerController : CreatureBase
 
 
             Vector3 forward = dir;
-            Debug.DrawRay(transform.position, forward, Color.green);
 
 
             Vector3 forward2 = Quaternion.Euler(0, CameraFollow.ins.transform.localEulerAngles.y, 0) * forward;
 
-            Debug.DrawRay(transform.position, forward2, Color.red);
 
             gameObject.transform.position += forward2;
             gameObject.transform.rotation = Quaternion.LookRotation(forward2);
@@ -86,13 +83,19 @@ public class PlayerController : CreatureBase
         }
         else
         {
-            ChangeState(characterStateEnum.idle);
+            if (_targetRange)
+            {
+                SetState(playerStateEnum.attackRange, _targetRange);
+            }
+            else
+            {
+                SetState(playerStateEnum.idle);
+            }
+
         }
 
+
     }
-
-
-
 
 
 
@@ -122,7 +125,7 @@ public class PlayerController : CreatureBase
 
         if (Input.GetKey(KeyCode.S))
         {
-            ChangeState(characterStateEnum.attackRange);
+            SetState(playerStateEnum.attackRange);
         }
 
 
@@ -130,47 +133,52 @@ public class PlayerController : CreatureBase
 
 
     [Button]
-    public void ChangeState(characterStateEnum state, GameObject target = null)
+    public void SetState(playerStateEnum state, GameObject target = null)
     {
         if (isDie) return;
         switch (state)
         {
 
-            case characterStateEnum.move:
-                _anim.SetBool("isMoving", true);
+            case playerStateEnum.move:
+                _anim.SetBool("Move", true);
+                _anim.SetBool("Idle", false);
+                _anim.SetBool("AttackRange", false);
+
                 break;
-            case characterStateEnum.idle:
-                _anim.SetBool("isMoving", false);
-                _anim.SetBool("hasTarget", false);
+            case playerStateEnum.idle:
+                _anim.SetBool("Move", false);
                 _anim.SetBool("Idle", true);
-                _anim.SetBool("attackRange", false);
+                _anim.SetBool("AttackRange", false);
 
                 break;
-            case characterStateEnum.attackRange:
+            case playerStateEnum.attackRange:
+                if (target == null) return;
                 _targetRange = target;
-                _anim.SetBool("hasTarget", true);
+                if (_targetRange.transform.GetComponent<EnemyBase>().isDie)
+                {
+                    _targetRange = null;
+                    return;
+                }
+
+                FaceToTarget(_targetRange);
+                _anim.SetBool("Move", false);
+                _anim.SetBool("Idle", false);
                 _anim.SetBool("AttackRange", true);
+                arrowRange.gameObject.SetActive(true);
 
 
 
-                AttackRange();
 
 
                 break;
-            case characterStateEnum.die:
-                _anim.SetBool("isDie", true);
-                _anim.SetTrigger("die");
+            case playerStateEnum.die:
+                _anim.SetTrigger("Die");
                 break;
-            case characterStateEnum.fly:
+            case playerStateEnum.fly:
                 break;
 
-            case characterStateEnum.attackMelee:
-                _targetMelee = target;
-                AttackMelee();
-
-                break;
         }
-
+        name = baseName + "_#_" + state;
         _playerState = state;
     }
 
@@ -183,7 +191,7 @@ public class PlayerController : CreatureBase
             curHP = _maxHP;
             _anim.SetBool("isDie", false);
             _anim.Play("Idle");
-            ChangeState(characterStateEnum.idle);
+            SetState(playerStateEnum.idle);
         });
     }
 
@@ -198,47 +206,38 @@ public class PlayerController : CreatureBase
 
 
 
-    public GameObject sword, bow, arrowRange, _targetMelee, _targetRange;
-    public bool isAttackingMelee;
-    public void AttackMelee()
-    {
-        if (_targetMelee == null) return;
-        if (_targetMelee.GetComponent<EnemyBase>().isDie == true)
-        {
-            _targetMelee = null;
-            TargetDie();
-            return;
-        }
-        _anim.SetTrigger("attackMelee");
+    public GameObject arrowRange;
+    [GUIColor(1, 0, 1, 1)]//yellow
 
-        isAttackingMelee = true;
-        sword.gameObject.SetActive(true);
-        bow.gameObject.SetActive(false);
-        arrowRange.gameObject.SetActive(false);
-        _targetRange.gameObject.transform.root.GetComponent<EnemyBase>().TakeDamage(baseDamage, gameObject,_targetMelee);
+    public GameObject _targetRange;
+    //public void AttackMelee()
+    //{
+    //    if (_targetMelee == null) return;
+    //    if (_targetMelee.GetComponent<EnemyBase>().isDie == true)
+    //    {
+    //        _targetMelee = null;
+    //        TargetDie();
+    //        return;
+    //    }
+    //    _anim.SetTrigger("attackMelee");
 
-
-
-        var newTextEff = Instantiate(Utils.ins.textEffWhite);
-        newTextEff.transform.position = _targetRange.transform.position;
-        newTextEff.SetValue("" + baseDamage);
+    //    isAttackingMelee = true;
+    //    sword.gameObject.SetActive(true);
+    //    bow.gameObject.SetActive(false);
+    //    arrowRange.gameObject.SetActive(false);
+    //    _targetRange.gameObject.transform.root.GetComponent<EnemyBase>().TakeDamage(baseDamage, gameObject,_targetMelee);
 
 
 
+    //    var newTextEff = Instantiate(Utils.ins.textEffWhite);
+    //    newTextEff.transform.position = _targetRange.transform.position;
+    //    newTextEff.SetValue("" + baseDamage);
 
-    }
 
-    public void FinishAttackMeleeAnimEvent()
-    {
-        AttackMelee();
-    }
 
-    public void TargetOutRangeMelee()
-    {
-        _targetMelee = null;
-        isAttackingMelee = false;
 
-    }
+    //}
+
     public void FaceToTarget(GameObject target)
     {
         var pos = target.transform.position;
@@ -246,48 +245,14 @@ public class PlayerController : CreatureBase
         transform.LookAt(pos);
     }
 
-    public void TargetDie()
-    {
-        Debug.LogError("TARGET DIE");
-        _anim.SetBool("attackRange", false);
-        _anim.SetBool("isMoving", false);
-        _anim.SetBool("hasTarget", false);
-        _anim.Play("meleeLayer_NoAnim");
-
-    }
-
 
 
     public GameObject yellowMuzzle, yellowBullet, yellowImpact, muzzlePos, arrow;
-    public void AttackRange()
-    {
-        if (isAttackingMelee == true) return;
-        if (_targetRange == null) return;
-        if (_targetRange.transform.GetComponent<EnemyBase>().isDie)
-        {
-            TargetDie();
-            return;
-        }
-
-
-        bow.gameObject.SetActive(true);
-        arrowRange.gameObject.SetActive(true);
-        sword.gameObject.SetActive(false);
-
-        _anim.Play("meleeLayer_NoAnim");
-        _anim.SetBool("attackRange", true);
-
-        if (_anim.GetBool("isMoving") == false)
-            FaceToTarget(_targetRange);
-
-
-    }
 
 
 
     public void FireBulletIntervals()
     {
-        if (isAttackingMelee == true) return;
         if (_targetRange == null) return;
         if (_targetRange.transform.GetComponent<EnemyBase>().isDie) return;
 
@@ -313,17 +278,22 @@ public class PlayerController : CreatureBase
         if (_targetRange.gameObject.GetComponent<EnemyBase>().isDie)
         {
             _targetRange = null;
-            ChangeState(characterStateEnum.idle);
+            SetState(playerStateEnum.idle);
             return false;
         }
         return true;
     }
+
+
+
+
+
     public void FinishAttackRange()
     {
         if (CanAttackTarget() == false) return;
 
 
-        ChangeState(characterStateEnum.attackRange);
+        SetState(playerStateEnum.attackRange);
         arrow.SetActive(false);
     }
 
@@ -372,7 +342,6 @@ public class PlayerController : CreatureBase
         newTextEff.transform.position = transform.position;
         newTextEff.SetValue("" + damage);
 
-        _anim.SetTrigger("TakeDamage");
         curHP -= damage;
     }
 
@@ -380,7 +349,7 @@ public class PlayerController : CreatureBase
     {
         Debug.LogError("DIe");
         Rebird();
-        ChangeState(characterStateEnum.die);
+        SetState(playerStateEnum.die);
         isDie = true;
         EventController.ins.OnPlayerDieActions();
     }
@@ -427,12 +396,11 @@ public class PlayerController : CreatureBase
 
 
 }
-public enum characterStateEnum
+public enum playerStateEnum
 {
     move,
     idle,
     attackRange,
     die,
     fly,
-    attackMelee
 }
