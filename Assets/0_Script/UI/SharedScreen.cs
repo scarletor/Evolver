@@ -5,6 +5,22 @@ using UnityEngine.UI;
 using TMPro;
 public class SharedScreen : MonoBehaviour
 {
+
+    public static SharedScreen ins;
+
+    private void Awake()
+    {
+        ins = this;
+    }
+
+
+    public TextMeshProUGUI textGold;
+    
+
+
+
+
+
     // Start is called before the first frame update
     void Start()
     {

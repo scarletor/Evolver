@@ -19554,7 +19554,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 13
-  damage: 10
+  damage: 50
   impactParticle: {fileID: 1902166611432716938, guid: 998853d1289389543809bf531df2c09d, type: 3}
   owner: {fileID: 0}
   lifeTime: 0

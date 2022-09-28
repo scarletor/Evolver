@@ -42,7 +42,7 @@ public class ColliderRefer : MonoBehaviour
         {
             if (other.gameObject.name.Contains("#_ExpandCollider"))//expand
             {
-                other.transform.parent.gameObject.GetComponent<ExpandGround>().Expand(other.transform.parent.gameObject);
+                other.transform.parent.gameObject.GetComponent<ExpandGround>().Expand();
             }
             if (other.gameObject.name.Contains("#_5_GroundObject_Dungeon"))//dungeon
             {

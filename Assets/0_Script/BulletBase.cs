@@ -32,17 +32,18 @@ public class BulletBase : MonoBehaviour
 
             if (other.transform.name.Contains("#_1_Enemy"))
             {
+                var enemy = other.gameObject.GetComponent<EnemyBase>();
                 if (impactParticle)
                 {
                     var newMuzzle = Instantiate(impactParticle);
                     newMuzzle.transform.position = gameObject.transform.position;
                 }
-                other.gameObject.transform.root.GetComponent<EnemyBase>().TakeDamage(damage, owner, gameObject);
+                enemy.TakeDamage(damage, owner, gameObject);
 
-                var enemyTarget = other.gameObject.transform.root.GetComponent<EnemyBase>()._target;
+                var enemyTarget = enemy._target;
                 if (enemyTarget == null)
                 {
-                    other.gameObject.transform.root.GetComponent<EnemyBase>().FoundPlayer();
+                    enemy.FoundPlayer();
                 }
 
 
@@ -58,9 +59,9 @@ public class BulletBase : MonoBehaviour
 
 
 
-        if (gameObject.name.Contains("#_EnemyBullet"))
+        if (gameObject.name.Contains("#_EnemyBullet"))  // enemy
         {
-            if (gameObject.transform.name.Contains("#_Invisible"))
+            if (gameObject.transform.name.Contains("#_Invisible"))  // enemy skeleton special attack
             {
 
                 if (other.gameObject.name.Contains("#_PlayerCheck"))
@@ -74,12 +75,12 @@ public class BulletBase : MonoBehaviour
                 if (other.transform.name.Contains("#_Pet"))
                 {
                     Debug.LogError("PET GET BULLET FIRED");
-                    other.GetComponent<ColliderRefer>().pet.TakeDamage(damage);
+                    other.gameObject.transform.parent.GetComponent<PetBase>().TakeDamage(damage);
                 }
 
             }
 
-
+            // enemy  frost mage 
             if (gameObject.transform.name.Contains("#_FrostMage") && other.gameObject.name.Contains("#_PlayerCheck"))
             {
                 other.GetComponent<ColliderRefer>().parent.TakeDamage(damage);
@@ -91,6 +92,17 @@ public class BulletBase : MonoBehaviour
 
             }
 
+
+            if (gameObject.transform.name.Contains("#_FrostMage") && other.gameObject.name.Contains("#_Pet"))
+            {
+                other.gameObject.transform.parent.GetComponent<PetBase>().TakeDamage(damage);
+
+
+                var newImpact = Instantiate(impactParticle);
+                newImpact.transform.position = transform.position;
+                Destroy(gameObject);
+
+            }
 
 
         }

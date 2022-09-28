@@ -138,7 +138,7 @@ public class Enemy_Mage : EnemyBase
 
     [GUIColor(1, 1, 0, 1f)]//yellow
     public float attackRange = 4;
-    public float timeSpecialAttack1, timeSpecialAttack2;
+    public float  timeSpecialAttack2;
     public void MoveToPlayerAndAttackRange()
     {
         if (CanAttack() == false) return;

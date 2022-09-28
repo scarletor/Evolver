@@ -172,8 +172,7 @@ public class PlayerController : CreatureBase
 
                 break;
             case playerStateEnum.die:
-                _anim.SetBool("isDie", true);
-                _anim.SetTrigger("die");
+                _anim.SetTrigger("Die");
                 break;
             case playerStateEnum.fly:
                 break;
@@ -343,7 +342,6 @@ public class PlayerController : CreatureBase
         newTextEff.transform.position = transform.position;
         newTextEff.SetValue("" + damage);
 
-        _anim.SetTrigger("TakeDamage");
         curHP -= damage;
     }
 

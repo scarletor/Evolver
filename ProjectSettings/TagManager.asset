@@ -17,8 +17,8 @@ TagManager:
   - Ground
   - EnemyCollider
   - EnemyBulletCollider
-  - 
-  - 
+  - ObstacleCollider
+  - PetCollider
   - 
   - 
   - 
