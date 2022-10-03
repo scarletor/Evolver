@@ -138,7 +138,7 @@ public class Enemy_Mage : EnemyBase
 
     [GUIColor(1, 1, 0, 1f)]//yellow
     public float attackRange = 4;
-    public float  timeSpecialAttack2;
+    public float  timeSpecialAttack2,timeCountSpecialAttacK_Mage;
     public void MoveToPlayerAndAttackRange()
     {
         if (CanAttack() == false) return;
@@ -147,16 +147,11 @@ public class Enemy_Mage : EnemyBase
 
 
         // special attack
-        if (timeCountTospecialAttack == 0)
-        {
-            timeCountTospecialAttack = timeSpecialAttack2;
-        }
 
 
         // call once
-        if (Time.timeSinceLevelLoad % timeCountTospecialAttack <= .1f && _state != EnemyState.SpecialAttack)
+        if (Time.timeSinceLevelLoad % timeCountSpecialAttacK_Mage <= .1f && _state != EnemyState.SpecialAttack)
         {
-            timeCountTospecialAttack = 0;
             SetState(EnemyState.SpecialAttack);//charge
 
         }
@@ -177,7 +172,7 @@ public class Enemy_Mage : EnemyBase
         }
         else //attack
         {
-
+            if(CanAttack())
             SetState(EnemyState.Attack);
 
         }
@@ -222,7 +217,9 @@ public class Enemy_Mage : EnemyBase
         _frostCharge.GetComponent<BulletBase>().enabled = true;
         _frostCharge.GetComponent<CapsuleCollider>().enabled = true;
 
-
+        _anim.SetBool("Attack", false);
+        _anim.SetBool("Move", false);
+        _anim.SetBool("SpecialAttack", false);
 
         // finish special attack2
 

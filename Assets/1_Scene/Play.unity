@@ -10023,6 +10023,10 @@ PrefabInstance:
       propertyPath: watchingPos.Array.data[2]
       value: 
       objectReference: {fileID: 1544576946}
+    - target: {fileID: 1868649122763470173, guid: 1382796d879a7cd46bf4aa4118e84676, type: 3}
+      propertyPath: timeCountSpecialAttacK_Mage
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 1868649123791712069, guid: 1382796d879a7cd46bf4aa4118e84676, type: 3}
       propertyPath: enemy
       value: 
@@ -46404,7 +46408,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh1980996
+  m_Name: pb_Mesh32040
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -106646,6 +106650,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4959490421825927435, guid: af9b7a42e5f63bd40997a8d45927ee8e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4959490421836666960, guid: af9b7a42e5f63bd40997a8d45927ee8e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4959490423151044706, guid: af9b7a42e5f63bd40997a8d45927ee8e, type: 3}
       propertyPath: m_Pivot.x
       value: 0
