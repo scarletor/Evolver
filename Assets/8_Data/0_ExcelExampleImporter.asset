@@ -1,0 +1,87 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80e14a72067f1ad408ec8d661bc560ce, type: 3}
+  m_Name: 0_ExcelExampleImporter
+  m_EditorClassIdentifier: 
+  templatePath: QuickSheet/ExcelPlugin/Templates
+  scriptFilePath: QuickSheet/Example/Data/Runtime
+  editorScriptFilePath: QuickSheet/Example/Data/Editor
+  sheetName: 1_EnemyData.xlsx
+  workSheetName: Data_Enemy_Spider
+  columnHeaderList:
+  - type: 0
+    name: Level
+    isEnable: 0
+    isArray: 0
+  - type: 0
+    name: Name
+    isEnable: 0
+    isArray: 0
+  - type: 0
+    name: Skin
+    isEnable: 0
+    isArray: 0
+  - type: 0
+    name: NormalDamage
+    isEnable: 0
+    isArray: 0
+  - type: 0
+    name: SkillDamage
+    isEnable: 0
+    isArray: 0
+  - type: 0
+    name: CastSkillEverySecond
+    isEnable: 0
+    isArray: 0
+  - type: 0
+    name: HP
+    isEnable: 0
+    isArray: 0
+  - type: 0
+    name: AttackSpeed
+    isEnable: 0
+    isArray: 0
+  - type: 0
+    name: MoveSpeed
+    isEnable: 0
+    isArray: 0
+  - type: 0
+    name: DropGoldMin
+    isEnable: 0
+    isArray: 0
+  - type: 0
+    name: DropGoldMax
+    isEnable: 0
+    isArray: 0
+  - type: 0
+    name: DropItemName
+    isEnable: 0
+    isArray: 0
+  - type: 0
+    name: DropItemChance
+    isEnable: 0
+    isArray: 0
+  - type: 0
+    name: DropItemFirstOnly
+    isEnable: 0
+    isArray: 0
+  - type: 0
+    name: ChaseDistance
+    isEnable: 0
+    isArray: 0
+  excelFilePath: Assets/8_Data/1_EnemyData.xlsx
+  SheetNames:
+  - Data_Enemy_Skeleton
+  - Data_Enemy_Mage
+  - Data_Enemy_Spider
+  - Data_Enemy_Bat
+  currentSelectedSheet: 2
