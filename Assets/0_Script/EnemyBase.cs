@@ -5,11 +5,11 @@ using DG.Tweening;
 using Sirenix.OdinInspector;
 public class EnemyBase : CreatureBase
 {
-    public int myLevel;
+    public int myLevel = 1;
     public GameObject dropItemPref;
     public string dropItemName;
-    public int dropGoldMin,dropGoldMax;
-    public float skillDamage,dropItemChance;
+    public int dropGoldMin, dropGoldMax;
+    public float skillDamage, dropItemChance;
 
     // Start is called before the first frame update
 
@@ -36,7 +36,7 @@ public class EnemyBase : CreatureBase
     }
 
 
-   
+
 
 
     public void FixedUpdate()
