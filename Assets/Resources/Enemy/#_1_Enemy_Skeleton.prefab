@@ -45116,9 +45116,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseDamage: 3
   moveSpeed: 2
-  myData: {fileID: 11400000, guid: 845dce8acee9e4447a73d32916623925, type: 2}
+  attackSpeed: 0
+  myLevel: 1
+  dropItemPref: {fileID: 0}
+  dropItemName: 
+  dropGoldMin: 0
+  dropGoldMax: 0
+  skillDamage: 0
+  dropItemChance: 0
   distanceStopMove: 1.2
-  timeCountTospecialAttack: 0
+  timeToSkillAttack: 0
   _target: {fileID: 0}
   posToMove: {fileID: 0}
   _anim: {fileID: 8597856154876935993}
@@ -45135,6 +45142,7 @@ MonoBehaviour:
   curHPBar: {fileID: 8597856154568503726}
   targetList: []
   startPos: {x: 0, y: 0, z: 0}
+  myData: {fileID: 11400000, guid: 845dce8acee9e4447a73d32916623925, type: 2}
   canMove: 1
   posToMoveWatching: {fileID: 0}
   posWatching1: {fileID: 0}
