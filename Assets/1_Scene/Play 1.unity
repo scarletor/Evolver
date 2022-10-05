@@ -351,7 +351,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseDamage: 33
   moveSpeed: 5
-  attackSpeed: 0
   _petAttackType: 0
   _projectile: {fileID: 0}
   muzzle: {fileID: 0}
@@ -9483,7 +9482,7 @@ Transform:
   - {fileID: 143731842}
   - {fileID: 221811423}
   m_Father: {fileID: 0}
-  m_RootOrder: 33
+  m_RootOrder: 34
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &39920166
 GameObject:
@@ -9838,16 +9837,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseDamage: 3
   moveSpeed: 2
-  attackSpeed: 0
-  myLevel: 1
-  dropItemPref: {fileID: 0}
-  dropItemName: 
-  dropGoldMin: 0
-  dropGoldMax: 0
-  skillDamage: 0
-  dropItemChance: 0
   distanceStopMove: 2
-  timeToSkillAttack: 0
+  timeCountTospecialAttack: 0
   _target: {fileID: 0}
   posToMove: {fileID: 0}
   _anim: {fileID: 269566107}
@@ -9882,7 +9873,7 @@ Transform:
   - {fileID: 921555854}
   - {fileID: 1074655071}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: -175.956, z: 0}
 --- !u!1 &71179661
 GameObject:
@@ -10317,7 +10308,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh234894
+  m_Name: pb_Mesh56696
   serializedVersion: 10
   m_SubMeshes: []
   m_Shapes:
@@ -11374,7 +11365,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh233140
+  m_Name: pb_Mesh54940
   serializedVersion: 10
   m_SubMeshes: []
   m_Shapes:
@@ -12108,16 +12099,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseDamage: 3
   moveSpeed: 1
-  attackSpeed: 0
-  myLevel: 1
-  dropItemPref: {fileID: 0}
-  dropItemName: 
-  dropGoldMin: 0
-  dropGoldMax: 0
-  skillDamage: 0
-  dropItemChance: 0
   distanceStopMove: 2
-  timeToSkillAttack: 0
+  timeCountTospecialAttack: 0
   _target: {fileID: 0}
   posToMove: {fileID: 0}
   _anim: {fileID: 17007538}
@@ -12152,7 +12135,7 @@ Transform:
   - {fileID: 838270581}
   - {fileID: 1973302042}
   m_Father: {fileID: 0}
-  m_RootOrder: 44
+  m_RootOrder: 45
   m_LocalEulerAnglesHint: {x: 0, y: -175.956, z: 0}
 --- !u!54 &192023755
 Rigidbody:
@@ -12474,7 +12457,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 43
+  m_RootOrder: 44
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &213427827
 GameObject:
@@ -17629,7 +17612,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseDamage: 3
   moveSpeed: 3
-  attackSpeed: 0
   _petAttackType: 1
   _projectile: {fileID: 0}
   muzzle: {fileID: 0}
@@ -17710,7 +17692,7 @@ Transform:
   - {fileID: 1355530464}
   - {fileID: 816311741}
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &233092507
 GameObject:
@@ -17936,7 +17918,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh234976
+  m_Name: pb_Mesh56778
   serializedVersion: 10
   m_SubMeshes: []
   m_Shapes:
@@ -18923,7 +18905,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseDamage: 3
   moveSpeed: 2.5
-  attackSpeed: 0
   _petAttackType: 0
   _projectile: {fileID: 0}
   muzzle: {fileID: 0}
@@ -18982,7 +18963,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh233524
+  m_Name: pb_Mesh55324
   serializedVersion: 10
   m_SubMeshes: []
   m_Shapes:
@@ -23967,7 +23948,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh235180
+  m_Name: pb_Mesh56982
   serializedVersion: 10
   m_SubMeshes: []
   m_Shapes:
@@ -26150,7 +26131,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh233210
+  m_Name: pb_Mesh55010
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -26567,7 +26548,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseDamage: 3
   moveSpeed: 2.5
-  attackSpeed: 0
   _petAttackType: 1
   _projectile: {fileID: 0}
   muzzle: {fileID: 0}
@@ -26631,7 +26611,7 @@ Transform:
   - {fileID: 2085615040}
   - {fileID: 953727224}
   m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &424490553
 GameObject:
@@ -26666,7 +26646,7 @@ Transform:
   - {fileID: 365614209}
   - {fileID: 1880930338}
   m_Father: {fileID: 0}
-  m_RootOrder: 34
+  m_RootOrder: 35
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &424490556
 MonoBehaviour:
@@ -31083,7 +31063,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &463210521
 GameObject:
@@ -31307,7 +31287,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 55
+  m_RootOrder: 57
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &471720939 stripped
 GameObject:
@@ -31423,7 +31403,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &476590447
 MonoBehaviour:
@@ -31766,7 +31746,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh233858
+  m_Name: pb_Mesh55660
   serializedVersion: 10
   m_SubMeshes: []
   m_Shapes:
@@ -32733,7 +32713,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh235804
+  m_Name: pb_Mesh57606
   serializedVersion: 10
   m_SubMeshes: []
   m_Shapes:
@@ -33015,7 +32995,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh233402
+  m_Name: pb_Mesh55202
   serializedVersion: 10
   m_SubMeshes: []
   m_Shapes:
@@ -33201,7 +33181,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh235074
+  m_Name: pb_Mesh56876
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -33489,7 +33469,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 48.2, y: 0, z: 0}
 --- !u!1 &554883229
 GameObject:
@@ -34029,7 +34009,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh235560
+  m_Name: pb_Mesh57362
   serializedVersion: 10
   m_SubMeshes: []
   m_Shapes:
@@ -34240,7 +34220,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseDamage: 3
   moveSpeed: 3
-  attackSpeed: 0
   _petAttackType: 2
   _projectile: {fileID: 0}
   muzzle: {fileID: 0}
@@ -34289,7 +34268,7 @@ Transform:
   - {fileID: 1097238573}
   - {fileID: 374541325}
   m_Father: {fileID: 0}
-  m_RootOrder: 60
+  m_RootOrder: 61
   m_LocalEulerAnglesHint: {x: 0, y: 147.74, z: 0}
 --- !u!1001 &602452795
 PrefabInstance:
@@ -35145,7 +35124,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh233928
+  m_Name: pb_Mesh55730
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -35638,7 +35617,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseDamage: 33
   moveSpeed: 5
-  attackSpeed: 0
   _petAttackType: 0
   _projectile: {fileID: 0}
   muzzle: {fileID: 0}
@@ -35713,16 +35691,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseDamage: 3
   moveSpeed: 1
-  attackSpeed: 0
-  myLevel: 1
-  dropItemPref: {fileID: 0}
-  dropItemName: 
-  dropGoldMin: 0
-  dropGoldMax: 0
-  skillDamage: 0
-  dropItemChance: 0
   distanceStopMove: 2
-  timeToSkillAttack: 0
+  timeCountTospecialAttack: 0
   _target: {fileID: 0}
   posToMove: {fileID: 0}
   _anim: {fileID: 439957583}
@@ -38914,7 +38884,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseDamage: 33
   moveSpeed: 5
-  attackSpeed: 0
   _petAttackType: 0
   _projectile: {fileID: 0}
   muzzle: {fileID: 0}
@@ -38942,7 +38911,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh234016
+  m_Name: pb_Mesh55818
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -39190,7 +39159,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh232970
+  m_Name: pb_Mesh54770
   serializedVersion: 10
   m_SubMeshes: []
   m_Shapes:
@@ -39344,7 +39313,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh235460
+  m_Name: pb_Mesh57262
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -46239,7 +46208,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh233872
+  m_Name: pb_Mesh55674
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -46542,7 +46511,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 28
+  m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &911714922
 PrefabInstance:
@@ -47526,16 +47495,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseDamage: 3
   moveSpeed: 2
-  attackSpeed: 0
-  myLevel: 1
-  dropItemPref: {fileID: 0}
-  dropItemName: 
-  dropGoldMin: 0
-  dropGoldMax: 0
-  skillDamage: 0
-  dropItemChance: 0
   distanceStopMove: 2
-  timeToSkillAttack: 0
+  timeCountTospecialAttack: 0
   _target: {fileID: 0}
   posToMove: {fileID: 0}
   _anim: {fileID: 1714551436}
@@ -48132,16 +48093,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseDamage: 3
   moveSpeed: 2
-  attackSpeed: 0
-  myLevel: 1
-  dropItemPref: {fileID: 0}
-  dropItemName: 
-  dropGoldMin: 0
-  dropGoldMax: 0
-  skillDamage: 0
-  dropItemChance: 0
   distanceStopMove: 2
-  timeToSkillAttack: 0
+  timeCountTospecialAttack: 0
   _target: {fileID: 0}
   posToMove: {fileID: 0}
   _anim: {fileID: 1425423326}
@@ -48176,7 +48129,7 @@ Transform:
   - {fileID: 922275355}
   - {fileID: 283018690}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: -175.956, z: 0}
 --- !u!1 &1035025610
 GameObject:
@@ -48210,6 +48163,67 @@ Transform:
   m_Father: {fileID: 1326765997}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0.0000014414826, y: -0.0000070910974, z: 4.4969015}
+--- !u!1001 &1037170951
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 5a0559ef416cdcc449118faa95e73b4c, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5a0559ef416cdcc449118faa95e73b4c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.30749848
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5a0559ef416cdcc449118faa95e73b4c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.24999934
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5a0559ef416cdcc449118faa95e73b4c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -14.376499
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5a0559ef416cdcc449118faa95e73b4c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5a0559ef416cdcc449118faa95e73b4c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5a0559ef416cdcc449118faa95e73b4c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5a0559ef416cdcc449118faa95e73b4c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5a0559ef416cdcc449118faa95e73b4c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5a0559ef416cdcc449118faa95e73b4c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5a0559ef416cdcc449118faa95e73b4c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6125896694323781559, guid: 5a0559ef416cdcc449118faa95e73b4c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3f8dc2b09aca62a4ba9031defae03774, type: 2}
+    - target: {fileID: 919132149155446097, guid: 5a0559ef416cdcc449118faa95e73b4c, type: 3}
+      propertyPath: m_Name
+      value: Angel
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5a0559ef416cdcc449118faa95e73b4c, type: 3}
 --- !u!1001 &1041987371
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -50079,8 +50093,69 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 39
+  m_RootOrder: 40
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!1001 &1084178782
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 100000, guid: 99e29cecf057f3c44af5f80efbbe7863, type: 3}
+      propertyPath: m_Name
+      value: Fledgling
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 99e29cecf057f3c44af5f80efbbe7863, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 99e29cecf057f3c44af5f80efbbe7863, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.26226282
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 99e29cecf057f3c44af5f80efbbe7863, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.24999905
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 99e29cecf057f3c44af5f80efbbe7863, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -15.193127
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 99e29cecf057f3c44af5f80efbbe7863, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 99e29cecf057f3c44af5f80efbbe7863, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 99e29cecf057f3c44af5f80efbbe7863, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 99e29cecf057f3c44af5f80efbbe7863, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 99e29cecf057f3c44af5f80efbbe7863, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 99e29cecf057f3c44af5f80efbbe7863, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 99e29cecf057f3c44af5f80efbbe7863, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 13700000, guid: 99e29cecf057f3c44af5f80efbbe7863, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d20b94e1255fe6b4d9bbd52a6b153ad4, type: 2}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 99e29cecf057f3c44af5f80efbbe7863, type: 3}
 --- !u!1 &1086569407
 GameObject:
   m_ObjectHideFlags: 0
@@ -50741,7 +50816,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh234408
+  m_Name: pb_Mesh56210
   serializedVersion: 10
   m_SubMeshes: []
   m_Shapes:
@@ -51214,7 +51289,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1182303531
 MonoBehaviour:
@@ -51386,7 +51461,7 @@ MonoBehaviour:
   - Advanced
   enableShadows: 0
   shadowCaster: {fileID: 0}
-  currentCam: {fileID: 0}
+  currentCam: {fileID: 1314743562}
   material: {fileID: 2100000, guid: b56c186fcd781b54eafcd22192812439, type: 2}
   isMobileAdvanced: 1
   isMobilePlatform: 0
@@ -51681,7 +51756,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseDamage: 3
   moveSpeed: 3
-  attackSpeed: 0
   _petAttackType: 0
   _projectile: {fileID: 0}
   muzzle: {fileID: 0}
@@ -51978,7 +52052,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 24
+  m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1203012858
 GameObject:
@@ -53123,7 +53197,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: 3d6511602016a4f03b37203fff6a8892, type: 3}
       propertyPath: m_RootOrder
-      value: 57
+      value: 58
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: 3d6511602016a4f03b37203fff6a8892, type: 3}
       propertyPath: m_LocalScale.x
@@ -53215,7 +53289,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseDamage: 3
   moveSpeed: 2.5
-  attackSpeed: 0
   _petAttackType: 1
   _projectile: {fileID: 0}
   muzzle: {fileID: 0}
@@ -53279,7 +53352,7 @@ Transform:
   - {fileID: 468561568}
   - {fileID: 1311234897}
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1256754889
 GameObject:
@@ -54169,7 +54242,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 53
+  m_RootOrder: 54
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1314500617
 GameObject:
@@ -54304,7 +54377,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 40, y: 0, z: 0}
 --- !u!1 &1323318215
 GameObject:
@@ -54938,7 +55011,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseDamage: 3
   moveSpeed: 2.5
-  attackSpeed: 0
   _petAttackType: 0
   _projectile: {fileID: 0}
   muzzle: {fileID: 0}
@@ -55201,7 +55273,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh233914
+  m_Name: pb_Mesh55716
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -55516,16 +55588,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseDamage: 3
   moveSpeed: 0
-  attackSpeed: 0
-  myLevel: 1
-  dropItemPref: {fileID: 0}
-  dropItemName: 
-  dropGoldMin: 0
-  dropGoldMax: 0
-  skillDamage: 0
-  dropItemChance: 0
   distanceStopMove: 0
-  timeToSkillAttack: 0
+  timeCountTospecialAttack: 0
   _target: {fileID: 0}
   posToMove: {fileID: 1256754889}
   _anim: {fileID: 0}
@@ -56149,7 +56213,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh235420
+  m_Name: pb_Mesh57222
   serializedVersion: 10
   m_SubMeshes: []
   m_Shapes:
@@ -56427,7 +56491,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh233886
+  m_Name: pb_Mesh55688
   serializedVersion: 10
   m_SubMeshes: []
   m_Shapes:
@@ -61672,7 +61736,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh233026
+  m_Name: pb_Mesh54826
   serializedVersion: 10
   m_SubMeshes: []
   m_Shapes:
@@ -61911,7 +61975,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 37
+  m_RootOrder: 38
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1508154083
 GameObject:
@@ -62469,16 +62533,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseDamage: 3
   moveSpeed: 2
-  attackSpeed: 0
-  myLevel: 1
-  dropItemPref: {fileID: 0}
-  dropItemName: 
-  dropGoldMin: 0
-  dropGoldMax: 0
-  skillDamage: 0
-  dropItemChance: 0
   distanceStopMove: 2
-  timeToSkillAttack: 0
+  timeCountTospecialAttack: 0
   _target: {fileID: 0}
   posToMove: {fileID: 0}
   _anim: {fileID: 875457137}
@@ -62513,7 +62569,7 @@ Transform:
   - {fileID: 417156535}
   - {fileID: 270185403}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: -175.956, z: 0}
 --- !u!1 &1525918096
 GameObject:
@@ -63212,7 +63268,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseDamage: 3
   moveSpeed: 3
-  attackSpeed: 0
   _petAttackType: 2
   _projectile: {fileID: 0}
   muzzle: {fileID: 0}
@@ -63261,7 +63316,7 @@ Transform:
   - {fileID: 1622769468}
   - {fileID: 805150570}
   m_Father: {fileID: 0}
-  m_RootOrder: 63
+  m_RootOrder: 65
   m_LocalEulerAnglesHint: {x: 0, y: 147.74, z: 0}
 --- !u!1 &1526808634
 GameObject:
@@ -63451,7 +63506,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 47
+  m_RootOrder: 48
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1547543021
 PrefabInstance:
@@ -63466,7 +63521,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8906398499973350432, guid: 4ebc706391d9db44b87e48f91d31a18a, type: 3}
       propertyPath: m_RootOrder
-      value: 56
+      value: 57
       objectReference: {fileID: 0}
     - target: {fileID: 8906398499973350432, guid: 4ebc706391d9db44b87e48f91d31a18a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -63718,7 +63773,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh233900
+  m_Name: pb_Mesh55702
   serializedVersion: 10
   m_SubMeshes: []
   m_Shapes:
@@ -63904,7 +63959,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh234144
+  m_Name: pb_Mesh55946
   serializedVersion: 10
   m_SubMeshes: []
   m_Shapes:
@@ -64783,16 +64838,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseDamage: 3
   moveSpeed: 2
-  attackSpeed: 0
-  myLevel: 1
-  dropItemPref: {fileID: 0}
-  dropItemName: 
-  dropGoldMin: 0
-  dropGoldMax: 0
-  skillDamage: 0
-  dropItemChance: 0
   distanceStopMove: 2
-  timeToSkillAttack: 0
+  timeCountTospecialAttack: 0
   _target: {fileID: 0}
   posToMove: {fileID: 0}
   _anim: {fileID: 2084462617}
@@ -64827,7 +64874,7 @@ Transform:
   - {fileID: 1801663757}
   - {fileID: 1618478342}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: -175.956, z: 0}
 --- !u!1 &1606006356
 GameObject:
@@ -65004,7 +65051,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh235288
+  m_Name: pb_Mesh57090
   serializedVersion: 10
   m_SubMeshes: []
   m_Shapes:
@@ -66335,7 +66382,7 @@ Transform:
   - {fileID: 750293083}
   - {fileID: 519943511}
   m_Father: {fileID: 0}
-  m_RootOrder: 22
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1702817088
 GameObject:
@@ -70553,7 +70600,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 49
+  m_RootOrder: 50
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1721713164
 GameObject:
@@ -71275,7 +71322,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh234350
+  m_Name: pb_Mesh56152
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -72796,7 +72843,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh234130
+  m_Name: pb_Mesh55932
   serializedVersion: 10
   m_SubMeshes: []
   m_Shapes:
@@ -75154,7 +75201,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseDamage: 3
   moveSpeed: 2.5
-  attackSpeed: 0
   _petAttackType: 0
   _projectile: {fileID: 0}
   muzzle: {fileID: 0}
@@ -75360,7 +75406,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh235046
+  m_Name: pb_Mesh56848
   serializedVersion: 10
   m_SubMeshes: []
   m_Shapes:
@@ -75541,7 +75587,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseDamage: 3
   moveSpeed: 3
-  attackSpeed: 0
   _petAttackType: 1
   _projectile: {fileID: 0}
   muzzle: {fileID: 0}
@@ -75622,7 +75667,7 @@ Transform:
   - {fileID: 2081952693}
   - {fileID: 800009803}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1916374525
 GameObject:
@@ -76572,7 +76617,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 51
+  m_RootOrder: 52
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1990200647
 GameObject:
@@ -76638,7 +76683,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseDamage: 3
   moveSpeed: 3
-  attackSpeed: 0
   _petAttackType: 1
   _projectile: {fileID: 0}
   muzzle: {fileID: 0}
@@ -76720,7 +76764,7 @@ Transform:
   - {fileID: 122504774}
   - {fileID: 614419572}
   m_Father: {fileID: 0}
-  m_RootOrder: 38
+  m_RootOrder: 39
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1996458375
 PrefabInstance:
@@ -76986,7 +77030,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh233680
+  m_Name: pb_Mesh55480
   serializedVersion: 10
   m_SubMeshes: []
   m_Shapes:
@@ -77385,7 +77429,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 136.64, y: 2235.4, z: 2906}
 --- !u!1 &2031205433
 GameObject:
@@ -77675,7 +77719,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 45
+  m_RootOrder: 46
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2057443428
 GameObject:
@@ -82371,7 +82415,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh233348
+  m_Name: pb_Mesh55148
   serializedVersion: 10
   m_SubMeshes: []
   m_Shapes:
@@ -82642,7 +82686,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 45, y: -52.666, z: 0}
 --- !u!1 &2112812527
 GameObject:
@@ -84369,7 +84413,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseDamage: 3
   moveSpeed: 3
-  attackSpeed: 0
   _petAttackType: 1
   _projectile: {fileID: 0}
   muzzle: {fileID: 0}
@@ -84469,7 +84512,7 @@ Transform:
   - {fileID: 1773808599060164337}
   - {fileID: 1773808599439267101}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &1773808598179060992
 MonoBehaviour:
@@ -84485,7 +84528,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseDamage: 3
   moveSpeed: 3
-  attackSpeed: 0
   _petAttackType: 0
   _projectile: {fileID: 0}
   muzzle: {fileID: 0}
@@ -86031,7 +86073,7 @@ Transform:
   - {fileID: 2886081204594223696}
   - {fileID: 2886081204594185408}
   m_Father: {fileID: 0}
-  m_RootOrder: 35
+  m_RootOrder: 36
   m_LocalEulerAnglesHint: {x: -173.727, y: 0, z: 0}
 --- !u!4 &2886081204594185408
 Transform:
@@ -105923,7 +105965,7 @@ Transform:
   - {fileID: 708591926}
   - {fileID: 503562722}
   m_Father: {fileID: 0}
-  m_RootOrder: 40
+  m_RootOrder: 41
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5092776062451363279
 GameObject:
@@ -106099,7 +106141,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseDamage: 3
   moveSpeed: 2.5
-  attackSpeed: 0
   _petAttackType: 1
   _projectile: {fileID: 0}
   muzzle: {fileID: 0}
