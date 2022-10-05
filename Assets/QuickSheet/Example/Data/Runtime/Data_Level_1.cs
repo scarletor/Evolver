@@ -10,7 +10,7 @@ using System.Collections.Generic;
 /// can be serialized onto an asset data file.
 /// 
 [System.Serializable]
-public class Enemy : ScriptableObject 
+public class Data_Level_1 : ScriptableObject 
 {	
     [HideInInspector] [SerializeField] 
     public string SheetName = "";
@@ -19,7 +19,7 @@ public class Enemy : ScriptableObject
     public string WorksheetName = "";
     
     // Note: initialize in OnEnable() not here.
-    public EnemyData[] dataArray;
+    public Data_Level_1Data[] dataArray;
     
     void OnEnable()
     {		
@@ -32,7 +32,7 @@ public class Enemy : ScriptableObject
         //    because OnEnable is called whenever Unity builds.
         // 		
         if (dataArray == null)
-            dataArray = new EnemyData[0];
+            dataArray = new Data_Level_1Data[0];
 
     }
     

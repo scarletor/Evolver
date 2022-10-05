@@ -286,12 +286,7 @@ public class PetBase : CreatureBase
 
         if (_player._targetRange == null)
         {
-            _animator.SetBool("hasTarget", false);
             return;
-        }
-        else
-        {
-            _animator.SetBool("hasTarget", true);
         }
         if (petState == PetStateEnum.move) return;
         ChangeState(PetStateEnum.attackMelee);
@@ -401,7 +396,6 @@ public class PetBase : CreatureBase
         newTextEff.SetValue("" + damage);
 
 
-        _animator.SetTrigger("TakeDamage");
         curHP -= damage;
     }
 

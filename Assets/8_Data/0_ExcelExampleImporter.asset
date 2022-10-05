@@ -15,73 +15,46 @@ MonoBehaviour:
   templatePath: QuickSheet/ExcelPlugin/Templates
   scriptFilePath: QuickSheet/Example/Data/Runtime
   editorScriptFilePath: QuickSheet/Example/Data/Editor
-  sheetName: 1_EnemyData.xlsx
-  workSheetName: Data_Enemy_Spider
+  sheetName: 2_LevelData.xlsx
+  workSheetName: Data_Level_1
   columnHeaderList:
   - type: 0
-    name: Level
+    name: GroundName
     isEnable: 0
     isArray: 0
   - type: 0
-    name: Name
+    name: Enemy1_Name
     isEnable: 0
     isArray: 0
   - type: 0
-    name: Skin
+    name: Enemy1_Level
     isEnable: 0
     isArray: 0
   - type: 0
-    name: NormalDamage
+    name: Enemy2_Name
     isEnable: 0
     isArray: 0
   - type: 0
-    name: SkillDamage
+    name: Enemy2_Level
     isEnable: 0
     isArray: 0
   - type: 0
-    name: CastSkillEverySecond
+    name: EnemyRespawnTime
     isEnable: 0
     isArray: 0
   - type: 0
-    name: HP
+    name: OneTimeDrop_ItemName
     isEnable: 0
     isArray: 0
   - type: 0
-    name: AttackSpeed
+    name: HasRegen
     isEnable: 0
     isArray: 0
   - type: 0
-    name: MoveSpeed
+    name: EnableHouseChilldIndex
     isEnable: 0
     isArray: 0
-  - type: 0
-    name: DropGoldMin
-    isEnable: 0
-    isArray: 0
-  - type: 0
-    name: DropGoldMax
-    isEnable: 0
-    isArray: 0
-  - type: 0
-    name: DropItemName
-    isEnable: 0
-    isArray: 0
-  - type: 0
-    name: DropItemChance
-    isEnable: 0
-    isArray: 0
-  - type: 0
-    name: DropItemFirstOnly
-    isEnable: 0
-    isArray: 0
-  - type: 0
-    name: ChaseDistance
-    isEnable: 0
-    isArray: 0
-  excelFilePath: Assets/8_Data/1_EnemyData.xlsx
+  excelFilePath: Assets/8_Data/2_LevelData.xlsx
   SheetNames:
-  - Data_Enemy_Skeleton
-  - Data_Enemy_Mage
-  - Data_Enemy_Spider
-  - Data_Enemy_Bat
-  currentSelectedSheet: 2
+  - Data_Level_1
+  currentSelectedSheet: 0

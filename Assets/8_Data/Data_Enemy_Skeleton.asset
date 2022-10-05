@@ -28,7 +28,7 @@ MonoBehaviour:
     dropgoldmax: 
     dropitemname: x
     dropitemchance: x
-    dropitemfirstonly: 0
+    dropitemfirstonly: x
     chasedistance: x
   - level: 1
     name: Skeleton
@@ -38,12 +38,12 @@ MonoBehaviour:
     castskilleverysecond: 13
     hp: 50
     attackspeed: 1
-    movespeed: 
+    movespeed: 1
     dropgoldmin: 4
-    dropgoldmax: 
+    dropgoldmax: 7
     dropitemname: 
     dropitemchance: 
-    dropitemfirstonly: 0
+    dropitemfirstonly: 
     chasedistance: 
   - level: 2
     name: Skeleton
@@ -53,12 +53,12 @@ MonoBehaviour:
     castskilleverysecond: 15
     hp: 60
     attackspeed: 1
-    movespeed: 
+    movespeed: 1
     dropgoldmin: 5
-    dropgoldmax: 
+    dropgoldmax: 7
     dropitemname: 
     dropitemchance: 
-    dropitemfirstonly: 0
+    dropitemfirstonly: 
     chasedistance: 
   - level: 3
     name: Skeleton
@@ -68,12 +68,12 @@ MonoBehaviour:
     castskilleverysecond: 16
     hp: 70
     attackspeed: 1
-    movespeed: 
+    movespeed: 1
     dropgoldmin: 6
-    dropgoldmax: 
+    dropgoldmax: 7
     dropitemname: 
     dropitemchance: 
-    dropitemfirstonly: 0
+    dropitemfirstonly: 
     chasedistance: 
   - level: 4
     name: Skeleton
@@ -83,12 +83,12 @@ MonoBehaviour:
     castskilleverysecond: 20
     hp: 100
     attackspeed: 1
-    movespeed: 
+    movespeed: 1
     dropgoldmin: 7
-    dropgoldmax: 
+    dropgoldmax: 7
     dropitemname: 
     dropitemchance: 
-    dropitemfirstonly: 0
+    dropitemfirstonly: 
     chasedistance: 
   - level: 5
     name: Skeleton
@@ -98,12 +98,12 @@ MonoBehaviour:
     castskilleverysecond: 30
     hp: 11
     attackspeed: 1
-    movespeed: 
+    movespeed: 1
     dropgoldmin: 8
-    dropgoldmax: 
+    dropgoldmax: 7
     dropitemname: 
     dropitemchance: 
-    dropitemfirstonly: 0
+    dropitemfirstonly: 
     chasedistance: 
   - level: 6
     name: Skeleton
@@ -113,12 +113,12 @@ MonoBehaviour:
     castskilleverysecond: 40
     hp: 11
     attackspeed: 1
-    movespeed: 
+    movespeed: 1
     dropgoldmin: 9
-    dropgoldmax: 
+    dropgoldmax: 7
     dropitemname: 
     dropitemchance: 
-    dropitemfirstonly: 0
+    dropitemfirstonly: 
     chasedistance: 
   - level: 7
     name: Skeleton
@@ -128,12 +128,12 @@ MonoBehaviour:
     castskilleverysecond: 50
     hp: 11
     attackspeed: 1
-    movespeed: 
+    movespeed: 1
     dropgoldmin: 1
-    dropgoldmax: 
+    dropgoldmax: 7
     dropitemname: 
     dropitemchance: 
-    dropitemfirstonly: 0
+    dropitemfirstonly: 
     chasedistance: 
   - level: 8
     name: Skeleton
@@ -143,12 +143,12 @@ MonoBehaviour:
     castskilleverysecond: 60
     hp: 11
     attackspeed: 1
-    movespeed: 
+    movespeed: 1
     dropgoldmin: 3
-    dropgoldmax: 
+    dropgoldmax: 7
     dropitemname: 
     dropitemchance: 
-    dropitemfirstonly: 0
+    dropitemfirstonly: 
     chasedistance: 
   - level: 9
     name: Skeleton
@@ -158,10 +158,10 @@ MonoBehaviour:
     castskilleverysecond: 70
     hp: 11
     attackspeed: 1
-    movespeed: 
+    movespeed: 1
     dropgoldmin: 4
-    dropgoldmax: 
+    dropgoldmax: 7
     dropitemname: 
     dropitemchance: 
-    dropitemfirstonly: 0
+    dropitemfirstonly: 
     chasedistance: 

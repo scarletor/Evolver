@@ -29,13 +29,15 @@ public class EnemyBase : CreatureBase
         rb.centerOfMass = Vector3.zero;
         rb.inertiaTensorRotation = Quaternion.identity;
         startPos = transform.position;
-        baseName = name;
 
 
         InvokeRepeating("CheckTargetIntervals", 1, .3f);
     }
 
-
+    private void Awake()
+    {
+        baseName = name;
+    }
 
 
 
@@ -52,7 +54,6 @@ public class EnemyBase : CreatureBase
         if (CanAttack() == false) return;
 
 
-        Debug.LogError("1");
 
         // special attack
         if (timeToSkillAttack == 0)

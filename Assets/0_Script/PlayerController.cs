@@ -47,7 +47,7 @@ public class PlayerController : CreatureBase
     public Rigidbody _rigid;
     public bool canMove;
     public Animator _anim;
-    public playerStateEnum _playerState; 
+    public playerStateEnum _playerState;
     public void MoveByJoyStick()
     {
 
@@ -74,10 +74,12 @@ public class PlayerController : CreatureBase
 
 
             Vector3 forward2 = Quaternion.Euler(0, CameraFollow.ins.transform.localEulerAngles.y, 0) * forward;
+            if (forward2 != Vector3.zero)
+            {
+                gameObject.transform.position += forward2;
+                gameObject.transform.rotation = Quaternion.LookRotation(forward2);
+            }
 
-
-            gameObject.transform.position += forward2;
-            gameObject.transform.rotation = Quaternion.LookRotation(forward2);
 
 
         }
