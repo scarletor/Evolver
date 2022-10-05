@@ -16,11 +16,11 @@ MonoBehaviour:
   WorksheetName: Data_Level_1
   dataArray:
   - groundname: Ground_#_19
-    enemy1_name: '#_1_Enemy_Mage'
+    enemy1_name: '#_1_Enemy_Bat Lord'
     enemy1_level: 1
     enemy2_name: '#_1_Enemy_Skeleton'
     enemy2_level: 3
     enemyrespawntime: 6
-    onetimedrop_itemname: 
+    onetimedrop_itemname: ItemConsumable_EggFire
     hasregen: 
     enablehousechilldindex: 

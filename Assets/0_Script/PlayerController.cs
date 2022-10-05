@@ -191,7 +191,6 @@ public class PlayerController : CreatureBase
         {
             isDie = false;
             curHP = _maxHP;
-            _anim.SetBool("isDie", false);
             _anim.Play("Idle");
             SetState(playerStateEnum.idle);
         });

@@ -324,7 +324,6 @@ public class EnemyBase : CreatureBase
         var newTextEff = Instantiate(Utils.ins.textEffWhite);
         newTextEff.transform.position = textEffPos.transform.position;
         newTextEff.SetValue("" + damage);
-        Debug.LogError("MONSTER GET DAMAGE" + damage);
         AddTarget(dealer);
         _anim.SetTrigger("TakeDamage");
         curHP -= damage;

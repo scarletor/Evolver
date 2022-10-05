@@ -60,11 +60,8 @@ public class ExpandGround : MonoBehaviour
 
     public void EnableEnemy()
     {
-        Debug.LogError(1);
         foreach (Transform child in groundToExpand.transform)
         {
-            Debug.LogError(1);
-
             if (child.gameObject.name.Contains("Enemy"))
             {
                 Debug.LogError(1);

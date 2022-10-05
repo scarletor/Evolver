@@ -2142,7 +2142,7 @@ Transform:
   m_GameObject: {fileID: 1868261870758327113}
   m_LocalRotation: {x: 0, y: 0.9847622, z: -0, w: -0.1739064}
   m_LocalPosition: {x: -11.13, y: 0, z: 0.51}
-  m_LocalScale: {x: 1, y: 0.033333335, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1873456190137397373}
@@ -2219,10 +2219,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10d41e91f9932724e92d2acb59d68552, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseDamage: 3
+  baseDamage: 33
   moveSpeed: 2.5
+  attackSpeed: 0
+  myLevel: 1
+  dropItemPref: {fileID: 0}
+  dropItemName: 
+  dropGoldMin: 0
+  dropGoldMax: 0
+  skillDamage: 0
+  dropItemChance: 0
   distanceStopMove: 1.2
-  timeCountTospecialAttack: 0
+  timeToSkillAttack: 0
   _target: {fileID: 0}
   posToMove: {fileID: 0}
   _anim: {fileID: 1781978178958433787}
@@ -2234,8 +2242,8 @@ MonoBehaviour:
   isDie: 0
   _state: 0
   _enemyMoveType: 1
-  _curHP: 50
-  _maxHP: 50
+  _curHP: 700
+  _maxHP: 700
   curHPBar: {fileID: 1868649123852273388}
   targetList: []
   startPos: {x: 0, y: 0, z: 0}
@@ -2255,8 +2263,8 @@ MonoBehaviour:
   distanceStopPos: 1
   delayRotate: 1
   attackRange: 8
-  timeSpecialAttack1: 4
-  timeSpecialAttack2: 8
+  timeSpecialAttack2: 10
+  timeCountSpecialAttacK_Mage: 0
   muzzlePos: {fileID: 1868649123109526675}
   frostCharge: {fileID: 3486212028198148136, guid: 8f4a0290f56122c42b2c9c0edadd56c9, type: 3}
   frostBigProjectile: {fileID: 3486212028198148136, guid: 0979e0cf562553e41b75385a189196a0, type: 3}
@@ -22195,7 +22203,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 930789ed2ac24c84980eb85066482307, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 0}
+  enemy: {fileID: 1868649122763470173}
 --- !u!1 &1868649123852273388
 GameObject:
   m_ObjectHideFlags: 0

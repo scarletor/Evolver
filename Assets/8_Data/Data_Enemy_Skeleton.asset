@@ -41,8 +41,8 @@ MonoBehaviour:
     movespeed: 1
     dropgoldmin: 4
     dropgoldmax: 7
-    dropitemname: 
-    dropitemchance: 
+    dropitemname: ItemDrop_Chest_Silver
+    dropitemchance: 1
     dropitemfirstonly: 
     chasedistance: 
   - level: 2
