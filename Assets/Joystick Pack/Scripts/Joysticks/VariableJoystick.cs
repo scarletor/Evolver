@@ -33,7 +33,6 @@ public class VariableJoystick : Joystick
 
         Utils.ins.DelayCall(1, () =>
         {
-            Debug.LogError("BEM");
             background.anchoredPosition = ScreenPointToAnchoredPosition(new Vector2(500, 500));//fix bug
             background.gameObject.SetActive(true);
             background.gameObject.SetActive(false);
@@ -60,7 +59,6 @@ public class VariableJoystick : Joystick
         data = eventData;
         if (joystickType != JoystickType.Fixed)
         {
-            Debug.LogError(eventData.position);
             background.anchoredPosition = ScreenPointToAnchoredPosition(eventData.position);
             background.gameObject.SetActive(true);
         }

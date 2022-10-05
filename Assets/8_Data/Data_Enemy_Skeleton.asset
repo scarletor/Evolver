@@ -14,4 +14,154 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SheetName: Assets/8_Data/1_EnemyData.xlsx
   WorksheetName: Data_Enemy_Skeleton
-  dataArray: []
+  dataArray:
+  - level: 0
+    name: Skeleton
+    skin: xx
+    normaldamage: xx
+    skilldamage: x
+    castskilleverysecond: xx
+    hp: x
+    attackspeed: x
+    movespeed: x
+    dropgoldmin: x
+    dropgoldmax: 
+    dropitemname: x
+    dropitemchance: x
+    dropitemfirstonly: 0
+    chasedistance: x
+  - level: 1
+    name: Skeleton
+    skin: 1
+    normaldamage: 10
+    skilldamage: 30
+    castskilleverysecond: 13
+    hp: 50
+    attackspeed: 1
+    movespeed: 
+    dropgoldmin: 4
+    dropgoldmax: 
+    dropitemname: 
+    dropitemchance: 
+    dropitemfirstonly: 0
+    chasedistance: 
+  - level: 2
+    name: Skeleton
+    skin: 1
+    normaldamage: 15
+    skilldamage: 50
+    castskilleverysecond: 15
+    hp: 60
+    attackspeed: 1
+    movespeed: 
+    dropgoldmin: 5
+    dropgoldmax: 
+    dropitemname: 
+    dropitemchance: 
+    dropitemfirstonly: 0
+    chasedistance: 
+  - level: 3
+    name: Skeleton
+    skin: 1
+    normaldamage: 20
+    skilldamage: 60
+    castskilleverysecond: 16
+    hp: 70
+    attackspeed: 1
+    movespeed: 
+    dropgoldmin: 6
+    dropgoldmax: 
+    dropitemname: 
+    dropitemchance: 
+    dropitemfirstonly: 0
+    chasedistance: 
+  - level: 4
+    name: Skeleton
+    skin: 2
+    normaldamage: 25
+    skilldamage: 111
+    castskilleverysecond: 20
+    hp: 100
+    attackspeed: 1
+    movespeed: 
+    dropgoldmin: 7
+    dropgoldmax: 
+    dropitemname: 
+    dropitemchance: 
+    dropitemfirstonly: 0
+    chasedistance: 
+  - level: 5
+    name: Skeleton
+    skin: 2
+    normaldamage: 30
+    skilldamage: 11
+    castskilleverysecond: 30
+    hp: 11
+    attackspeed: 1
+    movespeed: 
+    dropgoldmin: 8
+    dropgoldmax: 
+    dropitemname: 
+    dropitemchance: 
+    dropitemfirstonly: 0
+    chasedistance: 
+  - level: 6
+    name: Skeleton
+    skin: 2
+    normaldamage: 35
+    skilldamage: 1
+    castskilleverysecond: 40
+    hp: 11
+    attackspeed: 1
+    movespeed: 
+    dropgoldmin: 9
+    dropgoldmax: 
+    dropitemname: 
+    dropitemchance: 
+    dropitemfirstonly: 0
+    chasedistance: 
+  - level: 7
+    name: Skeleton
+    skin: 3
+    normaldamage: 40
+    skilldamage: 1
+    castskilleverysecond: 50
+    hp: 11
+    attackspeed: 1
+    movespeed: 
+    dropgoldmin: 1
+    dropgoldmax: 
+    dropitemname: 
+    dropitemchance: 
+    dropitemfirstonly: 0
+    chasedistance: 
+  - level: 8
+    name: Skeleton
+    skin: 3
+    normaldamage: 45
+    skilldamage: 1
+    castskilleverysecond: 60
+    hp: 11
+    attackspeed: 1
+    movespeed: 
+    dropgoldmin: 3
+    dropgoldmax: 
+    dropitemname: 
+    dropitemchance: 
+    dropitemfirstonly: 0
+    chasedistance: 
+  - level: 9
+    name: Skeleton
+    skin: 3
+    normaldamage: 50
+    skilldamage: 1
+    castskilleverysecond: 70
+    hp: 11
+    attackspeed: 1
+    movespeed: 
+    dropgoldmin: 4
+    dropgoldmax: 
+    dropitemname: 
+    dropitemchance: 
+    dropitemfirstonly: 0
+    chasedistance: 

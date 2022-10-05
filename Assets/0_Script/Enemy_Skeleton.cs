@@ -5,18 +5,40 @@ using DG.Tweening;
 public class Enemy_Skeleton : EnemyBase
 {
 
-
-
+    public Data_Enemy_Skeleton myData;
 
 
 
 
     private new void Start()
     {
+        SetupSelf();
         base.Start();
-
     }
 
+
+    public void SetupSelf()
+    {
+
+
+        SetupDataScriptableObject();
+    }
+
+    public void SetupDataScriptableObject()
+    {
+        curHP = int.Parse(myData.dataArray[myLevel].HP);
+        baseDamage = int.Parse(myData.dataArray[myLevel].Normaldamage);
+        skillDamage = int.Parse(myData.dataArray[myLevel].Skilldamage);
+        timeToSkillAttack = int.Parse(myData.dataArray[myLevel].Castskilleverysecond);
+        attackSpeed = int.Parse(myData.dataArray[myLevel].Attackspeed);
+        moveSpeed = int.Parse(myData.dataArray[myLevel].Movespeed);
+        dropGoldMin = int.Parse(myData.dataArray[myLevel].Dropgoldmin);
+        dropGoldMax = int.Parse(myData.dataArray[myLevel].Dropgoldmax);
+        dropItemName = myData.dataArray[myLevel].Dropitemname;
+        dropItemChance = int.Parse(myData.dataArray[myLevel].Dropitemchance);
+        //dropItemPref = null;
+
+    }
 
     // Update is called once per frame
     public new void FixedUpdate()
