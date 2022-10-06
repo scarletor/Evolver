@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Fire Cat Meow
+  m_Name: Ice Cat Lightning
   m_Shader: {fileID: 4800000, guid: 6f90c93b3efbfb44184dc392e54f5b07, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords:
@@ -42,11 +42,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _LightMap:
-        m_Texture: {fileID: 2800000, guid: 23c6d0a1707113f47ad6c0bf360fc777, type: 3}
+        m_Texture: {fileID: 2800000, guid: 0bb030d171889354cbeab120aaa2fa4d, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 23c6d0a1707113f47ad6c0bf360fc777, type: 3}
+        m_Texture: {fileID: 2800000, guid: 0bb030d171889354cbeab120aaa2fa4d, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -72,9 +72,9 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0
     - _GlossyReflections: 1
-    - _LightAttenuation: 10
+    - _LightAttenuation: 1
     - _LightIntesity: 1
-    - _LightMapAttenuation: 0
+    - _LightMapAttenuation: 0.25
     - _LightTonesColor1Range: 1
     - _LightTonesColor2Range: 1
     - _Metallic: 0
