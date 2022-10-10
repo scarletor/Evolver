@@ -26,8 +26,6 @@ public class PlayerData : MonoBehaviour
     void Start()
     {
         SetupSelf();
-        ParsePetData();
-        ParseBowData();
     }
 
     [TableList]

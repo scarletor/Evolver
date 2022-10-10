@@ -77,12 +77,28 @@ public class UIManager : MonoBehaviour
     public int countCur;
     public void Reload()
     {
-        testDisable.ForEach(go => { go.SetActive(false); });
-        testDisable[countCur].SetActive(true);
-        countCur++;
+        //testDisable.ForEach(go => { go.SetActive(false); });
+        //testDisable[countCur].SetActive(true);
+        //countCur++;
+        //if (countCur >= testDisable.Count) countCur = 0;
 
-        if (countCur >= testDisable.Count) countCur = 0;
+
+
+        if (testTry == 1)
+        {
+            testTry = 0;
+        }
+        else
+        {
+            testTry = 1;
+        }
+
     }
+
+    public int testTry = 1;
+
+
+
 
 
 

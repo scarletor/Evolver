@@ -3,21 +3,131 @@ using System.Collections.Generic;
 using UnityEngine;
 using Sirenix.OdinInspector;
 using DG.Tweening;
+using System;
 public class Enemy_Mage : EnemyBase
 {
 
-
+    public Data_Enemy_Mage myData;
     public GameObject muzzle, projectile;
 
 
-
+     
 
 
     private new void Start()
     {
+        SetupSelf();
         base.Start();
 
     }
+    public void SetupSelf()
+    {
+        SetupDataScriptableObject();
+    }
+
+    public void SetupDataScriptableObject()
+    {
+        dropItemName = myData.dataArray[myLevel].Dropitemname;
+        try
+        {
+            curHP = int.Parse(myData.dataArray[myLevel].HP);
+        }
+        catch (Exception e)
+        {
+            Debug.LogError("ParseError: " + e);
+            curHP = 1;
+        }
+        try
+        {
+            baseDamage = int.Parse(myData.dataArray[myLevel].Normaldamage);
+        }
+        catch (Exception e)
+        {
+            Debug.LogError("ParseError: " + e);
+            baseDamage = 1;
+        }
+
+        try
+        {
+            skillDamage = int.Parse(myData.dataArray[myLevel].Skilldamage);
+        }
+        catch (Exception e)
+        {
+            Debug.LogError("ParseError: " + e);
+            skillDamage = 1;
+        }
+
+
+        try
+        {
+            base.timeToSkillAttack = int.Parse(myData.dataArray[myLevel].Castskilleverysecond);
+        }
+        catch (Exception e)
+        {
+            Debug.LogError("ParseError: " + e);
+            base.timeToSkillAttack = 1;
+        }
+
+
+        try
+        {
+            attackSpeed = int.Parse(myData.dataArray[myLevel].Attackspeed);
+        }
+        catch (Exception e)
+        {
+            Debug.LogError("ParseError: " + e);
+            attackSpeed = 1;
+        }
+
+
+
+        try
+        {
+            moveSpeed = int.Parse(myData.dataArray[myLevel].Movespeed);
+        }
+        catch (Exception e)
+        {
+            Debug.LogError("ParseError: " + e);
+            moveSpeed = 1;
+        }
+
+        try
+        {
+            dropGoldMin = int.Parse(myData.dataArray[myLevel].Dropgoldmin);
+        }
+        catch (Exception e)
+        {
+            Debug.LogError("ParseError: " + e);
+            dropGoldMin = 1;
+        }
+
+        try
+        {
+            dropGoldMax = int.Parse(myData.dataArray[myLevel].Dropgoldmax);
+        }
+        catch (Exception e)
+        {
+            Debug.LogError("ParseError: " + e);
+            dropGoldMax = 1;
+        }
+
+
+
+
+        try
+        {
+            dropItemChance = int.Parse(myData.dataArray[myLevel].Dropitemchance);
+        }
+        catch (Exception e)
+        {
+            Debug.LogError("ParseError: " + e);
+            dropItemChance = 1;
+        }
+        //dropItemPref = null;
+
+    }
+
+
 
 
     // Update is called once per frame
@@ -61,7 +171,7 @@ public class Enemy_Mage : EnemyBase
         {
             watchingPosTemp = new List<GameObject>(watchingPos);
             watchingPosTemp.Remove(curPosWatching);
-            posToMoveWatching = watchingPosTemp[Random.Range(0, watchingPosTemp.Count)];
+            posToMoveWatching = watchingPosTemp[UnityEngine.Random.Range(0, watchingPosTemp.Count)];
             curPosWatching = posToMoveWatching;
         }
 
@@ -88,7 +198,7 @@ public class Enemy_Mage : EnemyBase
 
             Debug.LogError("111");
 
-            var rd = Random.Range(1, 4);
+            var rd =UnityEngine.Random.Range(1, 4);
             if (rd == 1) _anim.SetTrigger("Idle1");
             if (rd == 2) _anim.SetTrigger("Idle2");
             if (rd == 3) _anim.SetTrigger("Idle3");
@@ -147,16 +257,11 @@ public class Enemy_Mage : EnemyBase
 
 
         // special attack
-        if (timeCountTospecialAttack == 0)
-        {
-            timeCountTospecialAttack = timeSpecialAttack2;
-        }
 
 
         // call once
-        if (Time.timeSinceLevelLoad % timeCountTospecialAttack <= .1f && _state != EnemyState.SpecialAttack)
+        if (Time.timeSinceLevelLoad % timeToSkillAttack <= .1f && _state != EnemyState.SpecialAttack)
         {
-            timeCountTospecialAttack = 0;
             SetState(EnemyState.SpecialAttack);//charge
 
         }
@@ -177,7 +282,7 @@ public class Enemy_Mage : EnemyBase
         }
         else //attack
         {
-
+            if(CanAttack())
             SetState(EnemyState.Attack);
 
         }
@@ -222,13 +327,15 @@ public class Enemy_Mage : EnemyBase
         _frostCharge.GetComponent<BulletBase>().enabled = true;
         _frostCharge.GetComponent<CapsuleCollider>().enabled = true;
 
-
+        _anim.SetBool("Attack", false);
+        _anim.SetBool("Move", false);
+        _anim.SetBool("SpecialAttack", false);
 
         // finish special attack2
 
         Utils.ins.DelayCall(.5f, () =>
         {
-            var rd = Random.Range(1, 4);
+            var rd =UnityEngine.Random.Range(1, 4);
             if (rd == 1) _anim.SetTrigger("Idle1");
             if (rd == 2) _anim.SetTrigger("Idle2");
             if (rd == 3) _anim.SetTrigger("Idle3");

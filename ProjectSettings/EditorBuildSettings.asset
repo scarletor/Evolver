@@ -8,12 +8,15 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/1_Scene/Play.unity
     guid: 71667f3de463e25499ace675db37e88d
-  - enabled: 1
+  - enabled: 0
     path: Assets/1_Scene/Dungeon.unity
     guid: 53f3fda1eab7e8f469346a2e1791982c
   - enabled: 0
     path: Assets/1_Scene/Lab.unity
     guid: cab57f9c80c3b0e48986b35790781296
+  - enabled: 1
+    path: Assets/1_Scene/PlayCombine.unity
+    guid: 00320c2b2c8ece544831d9b63d00fc72
   - enabled: 1
     path: Assets/1_Scene/Shared.unity
     guid: 1964bcbedfe199b47abee88eac4e8771

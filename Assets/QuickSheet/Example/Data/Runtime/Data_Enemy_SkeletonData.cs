@@ -61,8 +61,8 @@ public class Data_Enemy_SkeletonData
   public string Dropitemchance { get {return dropitemchance; } set { this.dropitemchance = value;} }
   
   [SerializeField]
-  bool dropitemfirstonly;
-  public bool Dropitemfirstonly { get {return dropitemfirstonly; } set { this.dropitemfirstonly = value;} }
+  string dropitemfirstonly;
+  public string Dropitemfirstonly { get {return dropitemfirstonly; } set { this.dropitemfirstonly = value;} }
   
   [SerializeField]
   string chasedistance;

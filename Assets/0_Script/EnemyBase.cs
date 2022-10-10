@@ -5,6 +5,12 @@ using DG.Tweening;
 using Sirenix.OdinInspector;
 public class EnemyBase : CreatureBase
 {
+    public int myLevel = 1;
+    public GameObject dropItemPref;
+    public string dropItemName;
+    public int dropGoldMin, dropGoldMax;
+    public float skillDamage, dropItemChance;
+
     // Start is called before the first frame update
 
     const string TakeDamageStr = "TakeDamage";
@@ -16,15 +22,21 @@ public class EnemyBase : CreatureBase
     // Update is called once per frame
     public void Start()
     {
+
+
         curHPBar.transform.parent.GetComponent<HPBar>().hpText.text = "" + curHP;
         Rigidbody rb = gameObject.GetComponent<Rigidbody>();
         rb.centerOfMass = Vector3.zero;
         rb.inertiaTensorRotation = Quaternion.identity;
         startPos = transform.position;
-        baseName = name;
 
 
         InvokeRepeating("CheckTargetIntervals", 1, .3f);
+    }
+
+    private void Awake()
+    {
+        baseName = name;
     }
 
 
@@ -34,7 +46,7 @@ public class EnemyBase : CreatureBase
         MoveToPlayerAndAttack();
     }
 
-    public float distanceStopMove = 1.2f, timeCountTospecialAttack = 0;
+    public float distanceStopMove = 1.2f, timeToSkillAttack = 0;
 
     public void MoveToPlayerAndAttack()
     {
@@ -42,17 +54,16 @@ public class EnemyBase : CreatureBase
         if (CanAttack() == false) return;
 
 
-        Debug.LogError("1");
 
         // special attack
-        if (timeCountTospecialAttack == 0)
+        if (timeToSkillAttack == 0)
         {
-            timeCountTospecialAttack = Random.Range(10, 12);
+            timeToSkillAttack = Random.Range(10, 12);
         }
 
-        if (Time.timeSinceLevelLoad % timeCountTospecialAttack <= .1f && _state != EnemyState.SpecialAttack)
+        if (Time.timeSinceLevelLoad % timeToSkillAttack <= .1f && _state != EnemyState.SpecialAttack)
         {
-            timeCountTospecialAttack = 0;
+            timeToSkillAttack = 0;
             SetState(EnemyState.SpecialAttack);
             Debug.LogError("SPECIAL ATTACK");
         }
@@ -313,7 +324,6 @@ public class EnemyBase : CreatureBase
         var newTextEff = Instantiate(Utils.ins.textEffWhite);
         newTextEff.transform.position = textEffPos.transform.position;
         newTextEff.SetValue("" + damage);
-        Debug.LogError("MONSTER GET DAMAGE" + damage);
         AddTarget(dealer);
         _anim.SetTrigger("TakeDamage");
         curHP -= damage;

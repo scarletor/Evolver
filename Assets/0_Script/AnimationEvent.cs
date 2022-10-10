@@ -23,6 +23,8 @@ public class AnimationEvent : MonoBehaviour
         parent.FireBulletIntervals();
     }
 
+
+
     public void FinishAttackRangePlayer()
     {
         parent.FinishAttackRange();

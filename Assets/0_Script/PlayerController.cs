@@ -37,17 +37,51 @@ public class PlayerController : CreatureBase
 
     private void FixedUpdate()
     {
+        gameObject.transform.position += new Vector3(0.1f, 0, 0.1f)*moveSpeed*Time.deltaTime;
         if (isDie) return;
         MoveByJoyStick();
         ListenInput();
     }
+    //private void Update()
+    //{
+    //    MoveByPlayerController();
+    //}
 
-    public GameObject camera;
+
+
+    public CharacterController _characterController;
+    //public void MoveByPlayerController()
+    //{
+    //    Vector3 dir = _joystick.Direction;
+    //    dir = dir * moveSpeed * Time.fixedDeltaTime;
+
+    //    Vector3 forward2 = Quaternion.Euler(0, CameraFollow.ins.transform.localEulerAngles.y, 0) * dir;
+
+    //    _characterController.Move(forward2);
+    //}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     public VariableJoystick _joystick;
     public Rigidbody _rigid;
     public bool canMove;
     public Animator _anim;
-    public playerStateEnum _playerState; 
+    public playerStateEnum _playerState;
     public void MoveByJoyStick()
     {
 
@@ -72,12 +106,13 @@ public class PlayerController : CreatureBase
 
             Vector3 forward = dir;
 
-
             Vector3 forward2 = Quaternion.Euler(0, CameraFollow.ins.transform.localEulerAngles.y, 0) * forward;
+            if (forward2 != Vector3.zero)
+            {
+                gameObject.transform.position += forward2;
+                gameObject.transform.rotation = Quaternion.LookRotation(forward2);
+            }
 
-
-            gameObject.transform.position += forward2;
-            gameObject.transform.rotation = Quaternion.LookRotation(forward2);
 
 
         }
@@ -189,7 +224,6 @@ public class PlayerController : CreatureBase
         {
             isDie = false;
             curHP = _maxHP;
-            _anim.SetBool("isDie", false);
             _anim.Play("Idle");
             SetState(playerStateEnum.idle);
         });
