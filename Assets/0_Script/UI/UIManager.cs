@@ -72,11 +72,16 @@ public class UIManager : MonoBehaviour
     }
 
 
+    public List<GameObject> testDisable;
 
-
+    public int countCur;
     public void Reload()
     {
-        Scene scene = SceneManager.GetActiveScene(); SceneManager.LoadScene(scene.name);
+        testDisable.ForEach(go => { go.SetActive(false); });
+        testDisable[countCur].SetActive(true);
+        countCur++;
+
+        if (countCur >= testDisable.Count) countCur = 0;
     }
 
 

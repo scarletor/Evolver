@@ -35,14 +35,14 @@ MonoBehaviour:
     skin: 1
     normaldamage: 10
     skilldamage: 30
-    castskilleverysecond: 13
-    hp: 50
+    castskilleverysecond: 8
+    hp: 1000
     attackspeed: 1
-    movespeed: 1
+    movespeed: 3
     dropgoldmin: 4
     dropgoldmax: 7
     dropitemname: ItemDrop_Chest_Silver
-    dropitemchance: 1
+    dropitemchance: 7
     dropitemfirstonly: 
     chasedistance: 
   - level: 2
@@ -57,7 +57,7 @@ MonoBehaviour:
     dropgoldmin: 5
     dropgoldmax: 7
     dropitemname: 
-    dropitemchance: 
+    dropitemchance: 7
     dropitemfirstonly: 
     chasedistance: 
   - level: 3
@@ -72,7 +72,7 @@ MonoBehaviour:
     dropgoldmin: 6
     dropgoldmax: 7
     dropitemname: 
-    dropitemchance: 
+    dropitemchance: 7
     dropitemfirstonly: 
     chasedistance: 
   - level: 4
@@ -87,7 +87,7 @@ MonoBehaviour:
     dropgoldmin: 7
     dropgoldmax: 7
     dropitemname: 
-    dropitemchance: 
+    dropitemchance: 7
     dropitemfirstonly: 
     chasedistance: 
   - level: 5
@@ -102,7 +102,7 @@ MonoBehaviour:
     dropgoldmin: 8
     dropgoldmax: 7
     dropitemname: 
-    dropitemchance: 
+    dropitemchance: 7
     dropitemfirstonly: 
     chasedistance: 
   - level: 6
@@ -117,7 +117,7 @@ MonoBehaviour:
     dropgoldmin: 9
     dropgoldmax: 7
     dropitemname: 
-    dropitemchance: 
+    dropitemchance: 7
     dropitemfirstonly: 
     chasedistance: 
   - level: 7
@@ -132,7 +132,7 @@ MonoBehaviour:
     dropgoldmin: 1
     dropgoldmax: 7
     dropitemname: 
-    dropitemchance: 
+    dropitemchance: 7
     dropitemfirstonly: 
     chasedistance: 
   - level: 8
@@ -147,7 +147,7 @@ MonoBehaviour:
     dropgoldmin: 3
     dropgoldmax: 7
     dropitemname: 
-    dropitemchance: 
+    dropitemchance: 7
     dropitemfirstonly: 
     chasedistance: 
   - level: 9

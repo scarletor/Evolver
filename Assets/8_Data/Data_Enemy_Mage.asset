@@ -41,10 +41,10 @@ MonoBehaviour:
     movespeed: 
     dropgoldmin: 4
     dropgoldmax: 
-    dropitemname: 
-    dropitemchance: 
+    dropitemname: 1
+    dropitemchance: 1
     dropitemfirstonly: 0
-    chasedistance: 
+    chasedistance: 1
   - level: 2
     name: Mage
     skin: 1
@@ -56,10 +56,10 @@ MonoBehaviour:
     movespeed: 
     dropgoldmin: 5
     dropgoldmax: 
-    dropitemname: 
-    dropitemchance: 
+    dropitemname: 1
+    dropitemchance: 1
     dropitemfirstonly: 0
-    chasedistance: 
+    chasedistance: 1
   - level: 3
     name: Mage
     skin: 1
@@ -71,10 +71,10 @@ MonoBehaviour:
     movespeed: 
     dropgoldmin: 6
     dropgoldmax: 
-    dropitemname: 
-    dropitemchance: 
+    dropitemname: 1
+    dropitemchance: 1
     dropitemfirstonly: 0
-    chasedistance: 
+    chasedistance: 1
   - level: 4
     name: Mage
     skin: 2
@@ -86,10 +86,10 @@ MonoBehaviour:
     movespeed: 
     dropgoldmin: 7
     dropgoldmax: 
-    dropitemname: 
-    dropitemchance: 
+    dropitemname: 1
+    dropitemchance: 1
     dropitemfirstonly: 0
-    chasedistance: 
+    chasedistance: 1
   - level: 5
     name: Mage
     skin: 2
@@ -101,10 +101,10 @@ MonoBehaviour:
     movespeed: 
     dropgoldmin: 8
     dropgoldmax: 
-    dropitemname: 
-    dropitemchance: 
+    dropitemname: 1
+    dropitemchance: 1
     dropitemfirstonly: 0
-    chasedistance: 
+    chasedistance: 1
   - level: 6
     name: Mage
     skin: 2
@@ -116,10 +116,10 @@ MonoBehaviour:
     movespeed: 
     dropgoldmin: 9
     dropgoldmax: 
-    dropitemname: 
-    dropitemchance: 
+    dropitemname: 1
+    dropitemchance: 1
     dropitemfirstonly: 0
-    chasedistance: 
+    chasedistance: 1
   - level: 7
     name: Mage
     skin: 3
@@ -131,10 +131,10 @@ MonoBehaviour:
     movespeed: 
     dropgoldmin: 1
     dropgoldmax: 
-    dropitemname: 
-    dropitemchance: 
+    dropitemname: 11
+    dropitemchance: 11
     dropitemfirstonly: 0
-    chasedistance: 
+    chasedistance: 11
   - level: 8
     name: Mage
     skin: 3
@@ -146,10 +146,10 @@ MonoBehaviour:
     movespeed: 
     dropgoldmin: 3
     dropgoldmax: 
-    dropitemname: 
-    dropitemchance: 
+    dropitemname: 1
+    dropitemchance: 1
     dropitemfirstonly: 0
-    chasedistance: 
+    chasedistance: 1
   - level: 9
     name: Mage
     skin: 3
@@ -161,7 +161,7 @@ MonoBehaviour:
     movespeed: 
     dropgoldmin: 4
     dropgoldmax: 
-    dropitemname: 
-    dropitemchance: 
+    dropitemname: 1
+    dropitemchance: 1
     dropitemfirstonly: 0
-    chasedistance: 
+    chasedistance: 1

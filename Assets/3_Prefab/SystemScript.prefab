@@ -1,5 +1,49 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1566006644
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1566006646}
+  - component: {fileID: 1566006645}
+  m_Layer: 0
+  m_Name: showfps
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1566006646
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1566006644}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -7.6635795, y: -6.127809, z: 12.169659}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1238955169714383844}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1566006645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1566006644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa0448b93b647b04f8406f564d72182c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &405806039425792887
 GameObject:
   m_ObjectHideFlags: 0
@@ -44,8 +88,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea50b6e903f66834891e413f80754119, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wordAsset: {fileID: 0}
-  _bowData: []
+  bowDataCSV: {fileID: 4900000, guid: 57f0a757de2aa854bb85863ae986dca9, type: 3}
+  _bowData:
+  - id: 0
+    name: 
+    damage: 0
+  - id: 0
+    name: 
+    damage: 0
+  - id: 0
+    name: 
+    damage: 0
+  - id: 0
+    name: 
+    damage: 0
+  - id: 0
+    name: 
+    damage: 0
+  - id: 0
+    name: 
+    damage: 0
+  - id: 0
+    name: 
+    damage: 0
+  - id: 0
+    name: 
+    damage: 0
+  pet: 
+  _petList: []
+  egg: 
+  _EggList: []
+  petDataCSV: {fileID: 4900000, guid: 0d8ae1b7652556e40af44a539a2788e1, type: 3}
+  petDataRef: []
 --- !u!1 &1238955169688109555
 GameObject:
   m_ObjectHideFlags: 0
@@ -104,7 +178,10 @@ MonoBehaviour:
       Data: 0|MS.Internal.Xml.XPath.ClonableStack`1[[System.Action, mscorlib]], System.Xml
     - Name: 
       Entry: 12
-      Data: 0
+      Data: 1
+    - Name: 
+      Entry: 6
+      Data: 
     - Name: 
       Entry: 13
       Data: 
@@ -144,6 +221,7 @@ Transform:
   - {fileID: 1238955169734039282}
   - {fileID: 1238955169981301559}
   - {fileID: 3716821861450983857}
+  - {fileID: 1566006646}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -197,8 +275,6 @@ MonoBehaviour:
   yellowBullet: {fileID: 432253210148797840, guid: affa2b1ffba874c4290d475b3595c3ec, type: 3}
   yellowMuzzle: {fileID: 4002931723181146788, guid: d6e4e12a00acc494bb6df63396362ea1, type: 3}
   yellowImpact: {fileID: 5709848764791906551, guid: 2a575d5cf887a044b9012c4f7cc05e83, type: 3}
-  avgFrameRate: 0
-  display_Text: {fileID: 0}
 --- !u!1 &1238955169981301556
 GameObject:
   m_ObjectHideFlags: 0
@@ -243,6 +319,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec915f1535f693040a235c6fbd2375d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ground: {fileID: 0}
+  water: {fileID: 0}
 --- !u!1 &1238955170523630766
 GameObject:
   m_ObjectHideFlags: 0
