@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: PBRMaskTint01
+  m_Name: PBRMaskTint01 1
   m_Shader: {fileID: 4800000, guid: 922da79bd35034c44b59a85a78fd94e4, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
