@@ -44154,6 +44154,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SystemScript
       objectReference: {fileID: 0}
+    - target: {fileID: 1238955169714383845, guid: 3a9cb80aa1b99c2429166dc0c2ad4e05, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1238955170523630752, guid: 3a9cb80aa1b99c2429166dc0c2ad4e05, type: 3}
       propertyPath: pos
       value: 
