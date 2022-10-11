@@ -16,7 +16,7 @@ MonoBehaviour:
   scriptFilePath: QuickSheet/Example/Data/Runtime
   editorScriptFilePath: QuickSheet/Example/Data/Editor
   sheetName: 2_LevelData.xlsx
-  workSheetName: Data_Level_1
+  workSheetName: Data_Level_2
   columnHeaderList:
   - type: 0
     name: GroundName
@@ -50,11 +50,8 @@ MonoBehaviour:
     name: HasRegen
     isEnable: 0
     isArray: 0
-  - type: 0
-    name: EnableHouseChilldIndex
-    isEnable: 0
-    isArray: 0
   excelFilePath: Assets/8_Data/2_LevelData.xlsx
   SheetNames:
   - Data_Level_1
-  currentSelectedSheet: 0
+  - Data_Level_2
+  currentSelectedSheet: 1

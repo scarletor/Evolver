@@ -15,12 +15,107 @@ MonoBehaviour:
   SheetName: Assets/8_Data/2_LevelData.xlsx
   WorksheetName: Data_Level_1
   dataArray:
-  - groundname: Ground_#_19
-    enemy1_name: '#_1_Enemy_Bat Lord'
+  - groundname: '#_7_Ground_Green0'
+    enemy1_name: '#_104_Creature_WolfPup_Fire'
     enemy1_level: 1
-    enemy2_name: '#_1_Enemy_Skeleton'
+    enemy2_name: '#_105_Creature_Sprout_Normal'
     enemy2_level: 3
     enemyrespawntime: 6
     onetimedrop_itemname: ItemConsumable_EggFire
+    hasregen: 0
+  - groundname: '#_7_Ground_Green1'
+    enemy1_name: '#_108_Creature_Wolf_Normal'
+    enemy1_level: 1
+    enemy2_name: '#_104_Creature_WolfPup_Ice'
+    enemy2_level: 
+    enemyrespawntime: 
+    onetimedrop_itemname: 
     hasregen: 
-    enablehousechilldindex: 
+  - groundname: '#_7_Ground_Green2'
+    enemy1_name: '#_103_Creature_MushRoom_Ice'
+    enemy1_level: 1
+    enemy2_name: '#_110_Creature_Bumble_Thunder'
+    enemy2_level: 
+    enemyrespawntime: 
+    onetimedrop_itemname: 
+    hasregen: 
+  - groundname: '#_7_Ground_Green3'
+    enemy1_name: '#_102_Creature_Fledgling_Ice'
+    enemy1_level: 1
+    enemy2_name: '#_105_Creature_Sprout_Fire'
+    enemy2_level: 
+    enemyrespawntime: 
+    onetimedrop_itemname: 
+    hasregen: 
+  - groundname: '#_7_Ground_Green4'
+    enemy1_name: '#_102_Creature_Fledgling_Ice'
+    enemy1_level: 1
+    enemy2_name: '#_103_Creature_MushRoom_Ice'
+    enemy2_level: 
+    enemyrespawntime: 
+    onetimedrop_itemname: 
+    hasregen: 
+  - groundname: '#_7_Ground_Green5'
+    enemy1_name: '#_108_Creature_Wolf_Ice'
+    enemy1_level: 1
+    enemy2_name: '#_104_Creature_WolfPup_Ice'
+    enemy2_level: 
+    enemyrespawntime: 
+    onetimedrop_itemname: 
+    hasregen: 
+  - groundname: '#_7_Ground_Green6'
+    enemy1_name: '#_105_Creature_Sprout_Fire'
+    enemy1_level: 1
+    enemy2_name: '#_104_Creature_WolfPup_Ice'
+    enemy2_level: 
+    enemyrespawntime: 
+    onetimedrop_itemname: 
+    hasregen: 
+  - groundname: '#_7_Ground_Green7'
+    enemy1_name: '#_109_Creature_Bee_Normal'
+    enemy1_level: 1
+    enemy2_name: '#_108_Creature_Wolf_Ice'
+    enemy2_level: 
+    enemyrespawntime: 
+    onetimedrop_itemname: 
+    hasregen: 
+  - groundname: '#_7_Ground_Green8'
+    enemy1_name: '#_110_Creature_Bumble_Thunder'
+    enemy1_level: 1
+    enemy2_name: '#_110_Creature_Bumble_Thunder'
+    enemy2_level: 
+    enemyrespawntime: 
+    onetimedrop_itemname: 
+    hasregen: 
+  - groundname: '#_7_Ground_Green9'
+    enemy1_name: '#_113_Creature_Cactus_Fire'
+    enemy1_level: 1
+    enemy2_name: '#_108_Creature_Wolf_Normal'
+    enemy2_level: 
+    enemyrespawntime: 
+    onetimedrop_itemname: 
+    hasregen: 
+  - groundname: '#_7_Ground_Green10'
+    enemy1_name: '#_106_Creature_Fungi_Fire'
+    enemy1_level: 1
+    enemy2_name: '#_111_Creature_Angel_Normal'
+    enemy2_level: 
+    enemyrespawntime: 
+    onetimedrop_itemname: 
+    hasregen: 
+  - groundname: '#_7_Ground_Green11'
+    enemy1_name: '#_111_Creature_Angel_Normal'
+    enemy1_level: 1
+    enemy2_name: '#_113_Creature_Cactus_Fire'
+    enemy2_level: 
+    enemyrespawntime: 
+    onetimedrop_itemname: 
+    hasregen: 
+  - groundname: '#_7_Ground_Green12'
+    enemy1_name: '#_108_Creature_Wolf_Normal'
+    enemy1_level: 1
+    enemy2_name: '#_108_Creature_Wolf_Ice'
+    enemy2_level: 
+    enemyrespawntime: 
+    onetimedrop_itemname: 
+    hasregen: 

@@ -6,7 +6,7 @@ using System.Collections;
 /// !!! DO NOT CHANGE Tabs to Spaces !!!
 /// 
 [System.Serializable]
-public class Data_Level_1Data
+public class Data_Level_2Data
 {
   [SerializeField]
   string groundname;
