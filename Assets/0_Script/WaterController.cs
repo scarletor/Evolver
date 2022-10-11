@@ -18,7 +18,7 @@ public class WaterController : MonoBehaviour
 
 
 
-
+    public float offset1, offset2;
 
 
 
@@ -26,7 +26,7 @@ public class WaterController : MonoBehaviour
 
     public void RandomMoveX()
     {
-        gameObject.transform.DOMoveX(Random.Range(-10, 10f), 4).OnComplete(() => { RandomMoveX(); });
+        gameObject.transform.DOMoveX(Random.Range(-offset1, offset2), 4).OnComplete(() => { RandomMoveX(); });
     }
 
     public void RandomMoveZ()
@@ -36,7 +36,7 @@ public class WaterController : MonoBehaviour
 
     public void RandomMoveY()
     {
-        gameObject.transform.DOMoveY(Random.Range(-1f, -2f), 2).OnComplete(() => { RandomMoveY(); });
+        gameObject.transform.DOMoveY(Random.Range(offset1, offset2), 2).OnComplete(() => { RandomMoveY(); });
     }
 
 }

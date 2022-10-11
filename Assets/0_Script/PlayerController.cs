@@ -28,6 +28,7 @@ public class PlayerController : CreatureBase
         //bow 
         var id = PlayerData.ins.GetCurBow();
         ChangeWeapons(id);
+        _characterController.detectCollisions = false;
     }
 
 
@@ -37,28 +38,50 @@ public class PlayerController : CreatureBase
 
     private void FixedUpdate()
     {
-        gameObject.transform.position += new Vector3(0.1f, 0, 0.1f)*moveSpeed*Time.deltaTime;
         if (isDie) return;
-        MoveByJoyStick();
+        //MoveByJoyStick();
         ListenInput();
     }
-    //private void Update()
-    //{
-    //    MoveByPlayerController();
-    //}
+    private void Update()
+    {
+        MoveByPlayerController();
+    }
 
 
 
     public CharacterController _characterController;
-    //public void MoveByPlayerController()
-    //{
-    //    Vector3 dir = _joystick.Direction;
-    //    dir = dir * moveSpeed * Time.fixedDeltaTime;
+    public void MoveByPlayerController()
+    {
 
-    //    Vector3 forward2 = Quaternion.Euler(0, CameraFollow.ins.transform.localEulerAngles.y, 0) * dir;
+        //Vector3 forward2 = new Vector3(0.1f, 0, 0.1f) * moveSpeed * Time.deltaTime;
+        Vector3 dir = _joystick.Direction;
 
-    //    _characterController.Move(forward2);
-    //}
+        if (dir != Vector3.zero)
+        {
+            dir.z = dir.y;
+            dir.y = 0;
+            Vector3 forward2 = dir * moveSpeed * Time.deltaTime;
+
+
+            gameObject.transform.rotation = Quaternion.LookRotation(dir);
+
+
+            SetState(playerStateEnum.move);
+
+            _characterController.Move(forward2);
+        }
+        else
+        {
+            if (_targetRange)
+            {
+                SetState(playerStateEnum.attackRange, _targetRange);
+            }
+            else
+            {
+                SetState(playerStateEnum.idle);
+            }
+        }
+    }
 
 
 
@@ -105,7 +128,6 @@ public class PlayerController : CreatureBase
 
 
             Vector3 forward = dir;
-
             Vector3 forward2 = Quaternion.Euler(0, CameraFollow.ins.transform.localEulerAngles.y, 0) * forward;
             if (forward2 != Vector3.zero)
             {

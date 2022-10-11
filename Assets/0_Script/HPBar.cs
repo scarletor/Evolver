@@ -21,12 +21,10 @@ public class HPBar : MonoBehaviour
         if (player)
             //transform.position = Vector3.Lerp(transform.position, player.gameObject.transform.position + basePos, Time.fixedDeltaTime * speed);
 
-            transform.position = Vector3.SmoothDamp(transform.position, PlayerController.ins.gameObject.transform.position + basePos, ref velocity, speed);
-
-
+            //transform.position = Vector3.SmoothDamp(transform.position, PlayerController.ins.gameObject.transform.position + basePos, ref velocity, speed);
+            transform.position = PlayerController.ins.gameObject.transform.position + basePos;
 
     }
-    Vector3 velocity = Vector3.zero;
 
 
 
