@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Cat Lightning
+  m_Name: normal Cat Lightning
   m_Shader: {fileID: 4800000, guid: 6f90c93b3efbfb44184dc392e54f5b07, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords:
