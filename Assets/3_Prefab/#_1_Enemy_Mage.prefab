@@ -2247,7 +2247,6 @@ MonoBehaviour:
   curHPBar: {fileID: 1868649123852273388}
   targetList: []
   startPos: {x: 0, y: 0, z: 0}
-  myData: {fileID: 0}
   muzzle: {fileID: 3575330168180415213, guid: cda9a01432e44a0408eebd647fe82cf9, type: 3}
   projectile: {fileID: 3486212028198148136, guid: 1f2a66066891b5c448cf40602346ec72, type: 3}
   canMove: 1
@@ -2265,6 +2264,7 @@ MonoBehaviour:
   delayRotate: 1
   attackRange: 8
   timeSpecialAttack2: 10
+  timeCountSpecialAttacK_Mage: 0
   muzzlePos: {fileID: 1868649123109526675}
   frostCharge: {fileID: 3486212028198148136, guid: 8f4a0290f56122c42b2c9c0edadd56c9, type: 3}
   frostBigProjectile: {fileID: 3486212028198148136, guid: 0979e0cf562553e41b75385a189196a0, type: 3}

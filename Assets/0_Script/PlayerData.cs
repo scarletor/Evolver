@@ -66,7 +66,7 @@ public class PlayerData : MonoBehaviour
     }
 
 
-    public int GetCurBow()
+    public int GetCurSet()
     {
         return PlayerPrefs.GetInt(playerBow);
     }
@@ -193,10 +193,11 @@ public class PlayerData : MonoBehaviour
 
     public string GetEggHatchDate(int eggOwnId)
     {
-        var key = PlayerPrefs.GetString("Egg_Owned_" + eggOwnId);
-        EggData eggData = new EggData();
-        eggData.SetDataByKey(key);
-        return eggData.startHatchDate;
+        //var key = PlayerPrefs.GetString("Egg_Owned_" + eggOwnId);
+        //EggData eggData = new EggData();
+        //eggData.SetDataByKey(key);
+        //return eggData.startHatchDate;
+        return null;
     }
 
 
@@ -232,40 +233,41 @@ public class PlayerData : MonoBehaviour
     public void GetAllEgg()
     {
 
-        Debug.LogError("G");
-        int count = 0;
-        StartCoroutine(GetData());
-        Debug.LogError("G");
+        //Debug.LogError("G");
+        //int count = 0;
+        //StartCoroutine(GetData());
+        //Debug.LogError("G");
 
-        IEnumerator GetData()
-        {
+        //IEnumerator GetData()
+        //{
 
-            while (true)
-            {
-                yield return null;
-                Debug.LogError("G");
+        //    while (true)
+        //    {
+        //        yield return null;
+        //        Debug.LogError("G");
 
-                if (PlayerPrefs.GetString("Egg_Owned_" + count) == "") yield break;
-                Debug.LogError("G");
+        //        if (PlayerPrefs.GetString("Egg_Owned_" + count) == "") yield break;
+        //        Debug.LogError("G");
 
-                var data = PlayerPrefs.GetString("Egg_Owned_" + count);
+        //        var data = PlayerPrefs.GetString("Egg_Owned_" + count);
 
-                EggData egg = new EggData();
-                egg.ownedID = count;
-                egg.type = data.Split("_")[0];
-                if (data.Split("_").Length > 1)
-                    egg.startHatchDate = data.Split("_")[1];
+        //        EggData egg = new EggData();
+        //        egg.ownedID = count;
+        //        egg.type = data.Split("_")[0];
+        //        if (data.Split("_").Length > 1)
+        //            egg.startHatchDate = data.Split("_")[1];
 
-                _EggList.Add(egg);
-                Debug.LogError("GET Egg" + count + "__" + data);
-                count++;
-            }
-        }
+        //        _EggList.Add(egg);
+        //        Debug.LogError("GET Egg" + count + "__" + data);
+        //        count++;
+        //    }
+        //}
 
     }
 
     public void SetupSelf()
     {
+        LoadData();
         GetAllEgg();
         GetAllPet();
     }
@@ -315,6 +317,28 @@ public class PlayerData : MonoBehaviour
 
 
 
+    public UserDataJson _userDataJson;
+
+    public UserDataJson _userDataJsonToLoad;
+
+    public List<EggData> _eggData;
+    [Button]
+    public void SaveData()
+    {
+        string saveJson = JsonUtility.ToJson(_userDataJson);
+        PlayerPrefs.SetString("Save", saveJson);
+        PlayerPrefs.Save();
+    }
+    [Button]
+    public void LoadData()
+    {
+        string loadedJson = PlayerPrefs.GetString("Save");
+        _userDataJsonToLoad = JsonUtility.FromJson<UserDataJson>(loadedJson);
+
+    }
+
+
+    public List<PetData> curPetList;
 
 
 }
@@ -345,19 +369,28 @@ public class PetData
 [Serializable]
 public class EggData
 {
-    public int ownedID;  // use to save data
-    public string type;
-    public string startHatchDate = "";  //hatching, hatched,
+    //public int ownedID;  // use to save data
+    //public string type;
+    //public string startHatchDate = "";  //hatching, hatched,
 
 
 
-    public void SetDataByKey(string keyData)
-    {
-        type = keyData.Split("_")[0];
-        if (keyData.Split("_").Length > 1)
-            startHatchDate = keyData.Split("_")[1];
+    //public void SetDataByKey(string keyData)
+    //{
+    //    type = keyData.Split("_")[0];
+    //    if (keyData.Split("_").Length > 1)
+    //        startHatchDate = keyData.Split("_")[1];
 
-    }
+    //}
+
+
+    public string eggType;
+}
+
+[Serializable]
+public class UserDataJson
+{
+    public List<PetData> pet;
 }
 
 

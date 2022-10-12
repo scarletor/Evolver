@@ -15,43 +15,72 @@ MonoBehaviour:
   templatePath: QuickSheet/ExcelPlugin/Templates
   scriptFilePath: QuickSheet/Example/Data/Runtime
   editorScriptFilePath: QuickSheet/Example/Data/Editor
-  sheetName: 2_LevelData.xlsx
-  workSheetName: Data_Level_2
+  sheetName: 1_EnemyData.xlsx
+  workSheetName: Data_Enemy_MushRoom
   columnHeaderList:
   - type: 0
-    name: GroundName
+    name: Level
     isEnable: 0
     isArray: 0
   - type: 0
-    name: Enemy1_Name
+    name: Skin
     isEnable: 0
     isArray: 0
   - type: 0
-    name: Enemy1_Level
+    name: NormalDamage
     isEnable: 0
     isArray: 0
   - type: 0
-    name: Enemy2_Name
+    name: SkillDamage
     isEnable: 0
     isArray: 0
   - type: 0
-    name: Enemy2_Level
+    name: CastSkillEverySecond
     isEnable: 0
     isArray: 0
   - type: 0
-    name: EnemyRespawnTime
+    name: HP
     isEnable: 0
     isArray: 0
   - type: 0
-    name: OneTimeDrop_ItemName
+    name: AttackSpeed
     isEnable: 0
     isArray: 0
   - type: 0
-    name: HasRegen
+    name: MoveSpeed
     isEnable: 0
     isArray: 0
-  excelFilePath: Assets/8_Data/2_LevelData.xlsx
+  - type: 0
+    name: DropGoldMin
+    isEnable: 0
+    isArray: 0
+  - type: 0
+    name: DropGoldMax
+    isEnable: 0
+    isArray: 0
+  - type: 0
+    name: DropItemName
+    isEnable: 0
+    isArray: 0
+  - type: 0
+    name: DropItemChance
+    isEnable: 0
+    isArray: 0
+  - type: 0
+    name: DropItemFirstOnly
+    isEnable: 0
+    isArray: 0
+  - type: 0
+    name: Exp
+    isEnable: 0
+    isArray: 0
+  excelFilePath: Assets/8_Data/1_EnemyData.xlsx
   SheetNames:
-  - Data_Level_1
-  - Data_Level_2
-  currentSelectedSheet: 1
+  - Data_Enemy_Bunny
+  - Data_Enemy_Fledgling
+  - Data_Enemy_MushRoom
+  - Data_Enemy_Skeleton
+  - Data_Enemy_Mage
+  - Data_Enemy_Spider
+  - Data_Enemy_Bat
+  currentSelectedSheet: 2

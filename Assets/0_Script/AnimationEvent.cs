@@ -169,4 +169,19 @@ public class AnimationEvent : MonoBehaviour
         parentPet.OnPetPlayAttackRangeAnim();
     }
 
+
+
+
+    public void OnFinishAttackMelee()
+    {
+        if (enemy != null) enemy.OnFinishAnimationEvent();
+        if (enemy == null) parentPet.OnPetAttackMeleeAnimationEvent();
+    }
+
+    public void OnFinishAttackRange()
+    {
+        if (enemy != null) enemy.OnAttackRangeAnimationEvent();
+        //if (enemy == null) parentPet.on();
+    }
+
 }

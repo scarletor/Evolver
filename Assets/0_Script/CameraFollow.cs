@@ -27,8 +27,6 @@ public class CameraFollow : MonoBehaviour
 
     Vector3 velocity = Vector3.zero;
     public float smoothSpeed;
-    public Vector3 offset;
-
 
 
 

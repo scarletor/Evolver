@@ -10,12 +10,11 @@ public class EnemyBase : CreatureBase
     public string dropItemName;
     public int dropGoldMin, dropGoldMax;
     public float skillDamage, dropItemChance;
-
+    public int exp;
     // Start is called before the first frame update
 
     const string TakeDamageStr = "TakeDamage";
     const string IdleStr = "Idle";
-    const string AttackStr = "Attack";
     const string DieStr = "Die";
 
     string baseName;
@@ -29,10 +28,21 @@ public class EnemyBase : CreatureBase
         rb.centerOfMass = Vector3.zero;
         rb.inertiaTensorRotation = Quaternion.identity;
         startPos = transform.position;
-
-
         InvokeRepeating("CheckTargetIntervals", 1, .3f);
+
     }
+
+
+
+
+
+
+
+
+
+
+
+
 
     private void Awake()
     {
@@ -46,7 +56,7 @@ public class EnemyBase : CreatureBase
         MoveToPlayerAndAttack();
     }
 
-    public float distanceStopMove = 1.2f, timeToSkillAttack = 0;
+    public float attackRange = 2f, timeToSkillAttack = 0;
 
     public void MoveToPlayerAndAttack()
     {
@@ -56,23 +66,25 @@ public class EnemyBase : CreatureBase
 
 
         // special attack
-        if (timeToSkillAttack == 0)
-        {
-            timeToSkillAttack = Random.Range(10, 12);
-        }
+        //if (timeToSkillAttack == 0)
+        //{
+        //    timeToSkillAttack = Random.Range(10, 12);
+        //}
 
-        if (Time.timeSinceLevelLoad % timeToSkillAttack <= .1f && _state != EnemyState.SpecialAttack)
-        {
-            timeToSkillAttack = 0;
-            SetState(EnemyState.SpecialAttack);
-            Debug.LogError("SPECIAL ATTACK");
-        }
+        //if (Time.timeSinceLevelLoad % timeToSkillAttack <= .1f && _state != EnemyState.SpecialAttack)
+        //{
+        //    timeToSkillAttack = 0;
+        //    SetState(EnemyState.SpecialAttack);
+        //    Debug.LogError("SPECIAL ATTACK");
+        //}
 
-        if (_state == EnemyState.SpecialAttack) return;
+        //if (_state == EnemyState.SpecialAttack) return;
+
+        //end special attack
 
 
 
-        if (Vector3.Distance(gameObject.transform.position, _target.transform.position) > distanceStopMove)  //move to player
+        if (Vector3.Distance(gameObject.transform.position, _target.transform.position) > attackRange)  //move to player
         {
             var posLook = _target.transform.position;
             gameObject.transform.LookAt(posLook);
@@ -81,6 +93,8 @@ public class EnemyBase : CreatureBase
         }
         else //attack
         {
+            var posLook = _target.transform.position;
+            gameObject.transform.LookAt(posLook);
             SetState(EnemyState.Attack);
 
         }
@@ -180,12 +194,15 @@ public class EnemyBase : CreatureBase
         {
             case EnemyState.Idle:
                 _anim.SetBool(IdleStr, true);
-                _anim.SetBool(AttackStr, false);
+                _anim.SetBool("AttackMelee", false);
+                _anim.SetBool("AttackRange", false);
                 _anim.SetBool("SpecialAttack", false);
+                _anim.SetBool("Move", false);
 
                 break;
             case EnemyState.Attack:
-                _anim.SetBool(AttackStr, true);
+                _anim.SetBool("AttackMelee", true);
+                _anim.SetBool("AttackRange", true);
                 _anim.SetBool(IdleStr, false);
                 _anim.SetBool("Move", false);
                 _anim.SetBool("TakeDamage", false);
@@ -193,7 +210,8 @@ public class EnemyBase : CreatureBase
 
                 break;
             case EnemyState.MoveToPlayer:
-                _anim.SetBool(AttackStr, false);
+                _anim.SetBool("AttackMelee", false);
+                _anim.SetBool("AttackRange", false);
                 _anim.SetBool(IdleStr, false);
                 _anim.SetBool("Move", true);
                 _anim.SetBool("SpecialAttack", false);
@@ -210,18 +228,23 @@ public class EnemyBase : CreatureBase
 
                 break;
             case EnemyState.BackToStartPos:
-
+                _anim.SetBool(IdleStr, true);
+                _anim.SetBool("Move", false);
+                _anim.SetBool("AttackMelee", false);
+                _anim.SetBool("AttackRange", false);
                 Utils.ins.DelayCall(3, () =>
                 {
                     if (isDie) return;
                     _anim.SetBool(IdleStr, false);
                     _anim.SetBool("Move", true);
-                    _anim.SetBool(AttackStr, false);
+                    _anim.SetBool("AttackMelee", false);
+                    _anim.SetBool("AttackRange", false);
                     MoveToPosition(startPos);
                 });
                 break;
             case EnemyState.SpecialAttack:
-                _anim.SetBool(AttackStr, false);
+                _anim.SetBool("AttackMelee", false);
+                _anim.SetBool("AttackRange", false);
                 _anim.SetBool("Move", false);
                 _anim.SetBool("SpecialAttack", true);
                 break;
@@ -257,6 +280,11 @@ public class EnemyBase : CreatureBase
           {
               _enemyMoveType = EnemyMoveType.watcher;
 
+              _anim.SetBool(IdleStr, true);
+              _anim.SetBool("AttackMelee", false);
+              _anim.SetBool("AttackRange", false);
+              _anim.SetBool("SpecialAttack", false);
+              _anim.SetBool("Move", false);
           }).SetEase(Ease.Linear);
         _target = null;
     }
@@ -410,4 +438,64 @@ public class EnemyBase : CreatureBase
 
     }
 
+
+
+
+
+
+    [GUIColor(1, 1, 0, 1f)]//yellow
+
+    public GameObject muzzlePos,muzzle,projectile;
+    public void OnAttackRangeAnimationEvent()
+    {
+        var newMuzzle = Instantiate(muzzle);
+        newMuzzle.transform.position = muzzlePos.transform.position;
+        newMuzzle.transform.rotation = muzzlePos.transform.rotation;
+
+
+        var newProjectile = Instantiate(projectile);
+        newProjectile.transform.position = muzzlePos.transform.position;
+        newProjectile.transform.rotation = muzzlePos.transform.rotation;
+    }
+
+
+
+
+
+
+    public void OnFinishAnimationEvent()
+    {
+        if (_target == null && targetList.Count == 0)
+        {
+            Debug.LogError("ALL DIE");
+            SetState(EnemyState.BackToStartPos);
+            return;
+        }
+
+        if (_target.transform.root.GetComponent<PlayerController>() != null)
+        {
+            if (_target.transform.root.GetComponent<PlayerController>().isDie == true)
+            {
+                Debug.LogError("PLAYER DIE");
+                SetState(EnemyState.BackToStartPos);
+                return;
+            }
+            _target.transform.root.GetComponent<PlayerController>().TakeDamage(baseDamage);
+        }
+
+        if (_target.transform.root.GetComponent<PetBase>() != null)
+        {
+
+            if (_target.transform.root.GetComponent<PetBase>().isDie == true)
+            {
+                Debug.LogError("PET DIE");
+
+                targetList.Remove(_target);
+                return;
+            }
+            Debug.LogError("BATLORD attack" + gameObject.name);
+
+            _target.transform.root.GetComponent<PetBase>().TakeDamage(baseDamage);
+        }
+    }
 }

@@ -18,13 +18,21 @@ public class UIManager_Lab : MonoBehaviour
     }
     void Start()
     {
-        Setup();
+        //Setup();
+        SetupSeft();
     }
 
-    // Update is called once per frame
-    void Update()
+    public GameObject eggBtnContainer, eggBtnPrefab, eggDemoFly, eggDemoBeast, eggDemoPlant;
+    public void SetupSeft()
     {
-
+        PlayerData.ins._eggData.ForEach(data =>
+        {
+            var newBtn = Instantiate(eggBtnPrefab);
+            newBtn.transform.SetParent(eggBtnContainer.transform, false);
+            newBtn.GetComponent<EggSelectBtn>()._eggData.eggType = data.eggType;
+            newBtn.GetComponent<EggSelectBtn>().SetupSelf();
+            newBtn.GetComponent<Button>().onClick.AddListener(() => { OnClickSelectEggBtn(newBtn.GetComponent<EggSelectBtn>()._eggData); });
+        });
     }
 
 
@@ -123,33 +131,35 @@ public class UIManager_Lab : MonoBehaviour
     public GameObject curEggSelecting;
     public void ChangeElementCurrentEgg(string element)
     {
-        var eggData = curEggSelecting.GetComponent<EggDataSelectUIBtn>();
-        eggData._eggData.type = element;
-        eggData.SetupSelf();
+        //var eggData = curEggSelecting.GetComponent<EggDataSelectUIBtn>();
+        //eggData._eggData.type = element;
+        //eggData.SetupSelf();
 
 
-        PlayerData.ins.ChangeEggDataElement(element, eggData._eggData.ownedID);
-        if (element == "fire")
-        {
-            eggDemoMesh.material = eggDemoFire;
-            btnInjectFire.gameObject.SetActive(false);
-            btnInjectFrost.gameObject.SetActive(true);
-            btnInjectThunder.gameObject.SetActive(true);
-        }
-        if (element == "frost")
-        {
-            eggDemoMesh.material = eggDemoFrost;
-            btnInjectFire.gameObject.SetActive(true);
-            btnInjectFrost.gameObject.SetActive(false);
-            btnInjectThunder.gameObject.SetActive(true);
-        }
-        if (element == "thunder")
-        {
-            eggDemoMesh.material = eggDemoThunder;
-            btnInjectFire.gameObject.SetActive(true);
-            btnInjectFrost.gameObject.SetActive(true);
-            btnInjectThunder.gameObject.SetActive(false);
-        }
+        //PlayerData.ins.ChangeEggDataElement(element, eggData._eggData.ownedID);
+        //if (element == "fire")
+        //{
+        //    eggDemoMesh.material = eggDemoFire;
+        //    btnInjectFire.gameObject.SetActive(false);
+        //    btnInjectFrost.gameObject.SetActive(true);
+        //    btnInjectThunder.gameObject.SetActive(true);
+        //}
+        //if (element == "frost")
+        //{
+        //    eggDemoMesh.material = eggDemoFrost;
+        //    btnInjectFire.gameObject.SetActive(true);
+        //    btnInjectFrost.gameObject.SetActive(false);
+        //    btnInjectThunder.gameObject.SetActive(true);
+        //}
+        //if (element == "thunder")
+        //{
+        //    eggDemoMesh.material = eggDemoThunder;
+        //    btnInjectFire.gameObject.SetActive(true);
+        //    btnInjectFrost.gameObject.SetActive(true);
+        //    btnInjectThunder.gameObject.SetActive(false);
+        //}
+
+
     }
 
 
@@ -241,13 +251,13 @@ public class UIManager_Lab : MonoBehaviour
 
     public void OnClickHatchEgg()
     {
-        var curEggID = curEggSelecting.GetComponent<EggDataSelectUIBtn>()._eggData.ownedID;
-        PlayerData.ins.ChangeEggDataHatchTime(curEggID);
-        curEggSelecting.GetComponent<EggDataSelectUIBtn>().SetupSelf();
-        btnInjectFire.transform.parent.gameObject.SetActive(false);
-        eggHatchBtn.gameObject.SetActive(false);
-        eggOpenBtn.gameObject.SetActive(true);
-        eggOpenBtn.GetComponent<Button>().interactable = false;
+        //var curEggID = curEggSelecting.GetComponent<EggDataSelectUIBtn>()._eggData.ownedID;
+        //PlayerData.ins.ChangeEggDataHatchTime(curEggID);
+        //curEggSelecting.GetComponent<EggDataSelectUIBtn>().SetupSelf();
+        //btnInjectFire.transform.parent.gameObject.SetActive(false);
+        //eggHatchBtn.gameObject.SetActive(false);
+        //eggOpenBtn.gameObject.SetActive(true);
+        //eggOpenBtn.GetComponent<Button>().interactable = false;
     }
 
 
@@ -263,28 +273,23 @@ public class UIManager_Lab : MonoBehaviour
         eggDemo.gameObject.SetActive(false);
     }
 
+    public GameObject modelContainer;
     public void OnClickInjectEgg(string element)
     {
-        if (element == "fire")
+
+        takePetUI.gameObject.SetActive(true);
+        foreach (Transform go in modelContainer.transform)
         {
-            InjectEgg(element);
-
+            go.gameObject.SetActive(false);
         }
-        if (element == "frost")
-        {
-            InjectEgg(element);
-
-        }
-        if (element == "thunder")
-        {
-            InjectEgg(element);
-        }
-
-
-
-
+        modelContainer.transform.GetChild(UnityEngine.Random.Range(0, 11)).gameObject.SetActive(true);
     }
 
+    public void OnClickTakePet()
+    {
+        takePetUI.gameObject.SetActive(false);
+
+    }
 
     public GameObject petBtnPref, eggBtnPref;
 
@@ -317,7 +322,7 @@ public class UIManager_Lab : MonoBehaviour
     public string currentTime;
     public GameObject eggDemo, petDemo, eggHatchBtn, eggOpenBtn;
     public TextMeshProUGUI textEggHatchTimeLeft;
-    public void OnClickSelectEggBtn()
+    public void OnClickSelectEggBtn(EggData _eggData)
     {
 
         var thisBtn = EventSystem.current.currentSelectedGameObject;
@@ -325,71 +330,30 @@ public class UIManager_Lab : MonoBehaviour
 
         selector.transform.position = thisBtn.transform.position;
         curEggSelecting = thisBtn;
-        eggDemo.gameObject.SetActive(true);
-        petDemo.gameObject.SetActive(false);
-        btnInjectFire.transform.parent.gameObject.SetActive(true);
 
+        eggDemoBeast.gameObject.SetActive(false);
+        eggDemoPlant.gameObject.SetActive(false);
+        eggDemoFly.gameObject.SetActive(false);
 
-        var eggData = thisBtn.GetComponent<EggDataSelectUIBtn>()._eggData;
-
-
-
-
-
-        if (eggData.type == "fire")
+        if (_eggData.eggType == "eggBeast")
         {
-            eggDemoMesh.material = eggDemoFire;
-            btnInjectFire.gameObject.SetActive(false);
-            btnInjectFrost.gameObject.SetActive(true);
-            btnInjectThunder.gameObject.SetActive(true);
+            eggDemoBeast.gameObject.SetActive(true);
         }
-        if (eggData.type == "frost")
+        if (_eggData.eggType == "eggFly")
         {
-            eggDemoMesh.material = eggDemoFrost;
-            btnInjectFire.gameObject.SetActive(true);
-            btnInjectFrost.gameObject.SetActive(false);
-            btnInjectThunder.gameObject.SetActive(true);
+            eggDemoFly.gameObject.SetActive(true);
+
         }
-        if (eggData.type == "thunder")
+        if (_eggData.eggType == "eggPlant")
         {
-            eggDemoMesh.material = eggDemoThunder;
-            btnInjectFire.gameObject.SetActive(true);
-            btnInjectFrost.gameObject.SetActive(true);
-            btnInjectThunder.gameObject.SetActive(false);
+            eggDemoPlant.gameObject.SetActive(true);
         }
 
 
-        var eggState = thisBtn.GetComponent<EggDataSelectUIBtn>().text.text;
 
-        if (eggState == "Can Open")
-        {
-            eggOpenBtn.gameObject.SetActive(true);
-            eggOpenBtn.GetComponent<Button>().interactable = true;
 
-            eggHatchBtn.gameObject.SetActive(false);
-            btnInjectFire.transform.parent.gameObject.SetActive(false);
-            _anim.Play("Shake");
-        }
-        else if (eggState == "Not hatched")
-        {
-            eggOpenBtn.gameObject.SetActive(false);
-            eggOpenBtn.GetComponent<Button>().interactable = false;
 
-            eggHatchBtn.gameObject.SetActive(true);
-            btnInjectFire.transform.parent.gameObject.SetActive(true);
-            _anim.Play("EggIdle");
 
-        }
-        else  // hatching time running
-        {
-            eggOpenBtn.gameObject.SetActive(true);
-            eggOpenBtn.GetComponent<Button>().interactable = false;
-
-            eggHatchBtn.gameObject.SetActive(false);
-            btnInjectFire.transform.parent.gameObject.SetActive(false);
-            _anim.Play("EggIdle");
-
-        }
 
     }
 
@@ -398,18 +362,18 @@ public class UIManager_Lab : MonoBehaviour
     [Button]
     public void Setup()
     {
-        Utils.ins.DelayCall(2, () =>
-         {
-             PlayerData.ins._EggList.ForEach(eggData =>
-             {
-                 var newEggBtn = Instantiate(eggBtnPref);
-                 newEggBtn.GetComponent<EggDataSelectUIBtn>()._eggData = eggData;
-                 newEggBtn.GetComponent<EggDataSelectUIBtn>().SetupSelf();
-                 newEggBtn.transform.SetParent(eggContent.transform, false);
-                 newEggBtn.GetComponent<Button>().onClick.AddListener(() => { OnClickSelectEggBtn(); });
-             });
+        //Utils.ins.DelayCall(2, () =>
+        // {
+        //     PlayerData.ins._EggList.ForEach(eggData =>
+        //     {
+        //         var newEggBtn = Instantiate(eggBtnPref);
+        //         newEggBtn.GetComponent<EggDataSelectUIBtn>()._eggData = eggData;
+        //         newEggBtn.GetComponent<EggDataSelectUIBtn>().SetupSelf();
+        //         newEggBtn.transform.SetParent(eggContent.transform, false);
+        //         newEggBtn.GetComponent<Button>().onClick.AddListener(() => { OnClickSelectEggBtn(); });
+        //     });
 
-         });
+        // });
     }
 
 
@@ -480,7 +444,7 @@ public class UIManager_Lab : MonoBehaviour
 
 
         takePetBtn.gameObject.SetActive(!petTaken.Contains(currentPetSelect));
-        leavePetBtn.gameObject.SetActive(petTaken.Contains(currentPetSelect));                   
+        leavePetBtn.gameObject.SetActive(petTaken.Contains(currentPetSelect));
     }
 
 
@@ -488,7 +452,7 @@ public class UIManager_Lab : MonoBehaviour
 
 
 
-   
+
 
 
 

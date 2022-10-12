@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     {
         Application.targetFrameRate = 60;
 
-        SceneManager.LoadScene("Shared", LoadSceneMode.Additive);
+        //SceneManager.LoadScene("Shared", LoadSceneMode.Additive);
 
         Debug.LogError("LOAD");
     }

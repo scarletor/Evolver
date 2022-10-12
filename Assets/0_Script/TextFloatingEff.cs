@@ -8,7 +8,7 @@ public class TextFloatingEff : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        transform.rotation = Camera.main.transform.rotation;
+        transform.rotation = CameraFollow.ins.transform.rotation;
 
 
 

@@ -13,6 +13,7 @@ public class ShowFps : MonoBehaviour
 
     void Start()
     {
+        Application.targetFrameRate = 60;
         m_FpsNextPeriod = Time.realtimeSinceStartup + fpsMeasurePeriod;
         guiStyle.fontSize = 30;
         guiStyle.normal.textColor = Color.white;

@@ -23,10 +23,10 @@ public class UI_ChangeWeapons : MonoBehaviour
     {
         InvokeRepeating("ChangeAnim", 4, 4);
         RefreshUI();
-       
+
     }
 
-    public List<GameObject> allBows;
+    public List<itemSet> setList;
     public List<GameObject> allBtn;
 
 
@@ -44,17 +44,50 @@ public class UI_ChangeWeapons : MonoBehaviour
 
 
 
-        allBows.ForEach(ob => { ob.gameObject.SetActive(false); });
-        allBows[id].gameObject.SetActive(true);
-
-        allBtn.ForEach(btn => {
-            btn.GetComponent<Button>().image.color = new Color(1, 0.7f, 1, 1);
+        setList.ForEach(set =>
+        {
+            set.itemList.ForEach(go => { go.gameObject.SetActive(false); });
         });
-        selectedBowBtn.GetComponent<Button>().image.color = Color.green;
+        setList[id].itemList.ForEach(go => { go.SetActive(true); });
+
+
+
+
+
+        allBtn.ForEach(btn =>
+        {
+            btn.transform.GetChild(1).gameObject.SetActive(true);
+            btn.transform.GetChild(2).gameObject.SetActive(false);
+        });
+        selectedBowBtn.transform.GetChild(2).gameObject.SetActive(true);
 
         PlayerData.ins.SetCurBow(id);
 
         PlayerController.ins.ChangeWeapons(id);
+
+
+        // allBtn.ForEach(btn =>
+        //{
+        //    //default btn
+        //    btn.transform.GetChild(1).gameObject.SetActive(false);
+        //    btn.transform.GetChild(2).gameObject.SetActive(false);
+
+        //});
+
+        //setList.ForEach(set =>
+        //{
+        //    set.itemList.ForEach(go => { go.gameObject.SetActive(false); });
+        //});
+
+
+
+        //var id = PlayerData.ins.GetCurSet();
+        //setList[id].itemList.ForEach(go => { go.SetActive(true); });
+
+
+        //allBtn[id].transform.GetChild(2).gameObject.SetActive(true);
+
+
     }
 
 
@@ -66,23 +99,23 @@ public class UI_ChangeWeapons : MonoBehaviour
     {
 
         var rd = Random.Range(1, 4);
-        if(rd==1)
+        if (rd == 1)
         {
-        _anim.SetBool("AttackRange", false);
-        _anim.SetBool("isMoving", false);
-        _anim.SetBool("Idle", true);
+            //_anim.SetBool("AttackRange", false);
+            _anim.SetBool("isMoving", false);
+            _anim.SetBool("Idle", true);
 
         }
 
         if (rd == 2)
         {
-            _anim.SetBool("AttackRange", false);
+            //_anim.SetBool("AttackRange", false);
             _anim.SetBool("isMoving", true);
             _anim.SetBool("Idle", false);
         }
         if (rd == 3)
         {
-            _anim.SetBool("AttackRange", true);
+            //_anim.SetBool("AttackRange", true);
             _anim.SetBool("isMoving", false);
             _anim.SetBool("Idle", false);
         }
@@ -93,21 +126,27 @@ public class UI_ChangeWeapons : MonoBehaviour
     [Button]
     public void RefreshUI()
     {
-        allBtn.ForEach(btn => {
-            btn.GetComponent<Button>().image.color = new Color(1,0.7f,1,1);
-        });
-
-        allBows.ForEach(bow =>
+        allBtn.ForEach(btn =>
         {
-            bow.gameObject.SetActive(false);
+            //default btn
+            btn.transform.GetChild(1).gameObject.SetActive(true);
+            btn.transform.GetChild(2).gameObject.SetActive(false);
+
         });
 
-        var id = PlayerData.ins.GetCurBow();
-        allBows[id].gameObject.SetActive(true);
-        allBtn[id].GetComponent<Button>().image.color = Color.green;
+        setList.ForEach(set =>
+        {
+            set.itemList.ForEach(go => { go.gameObject.SetActive(false); });
+        });
 
-        displayName.text = "name: " + PlayerData.ins._bowData[id].name;
-        damage.text = "damage: " + PlayerData.ins._bowData[id].damage + "";
+
+
+        var id = PlayerData.ins.GetCurSet();
+        setList[id].itemList.ForEach(go => { go.SetActive(true); });
+
+
+        allBtn[id].transform.GetChild(2).gameObject.SetActive(true);
+
 
         PlayerController.ins.ChangeWeapons(id);
 
@@ -126,5 +165,10 @@ public class UI_ChangeWeapons : MonoBehaviour
 
 
 
-
+}
+[System.Serializable]
+public class itemSet
+{
+    public int index;
+    public List<GameObject> itemList;
 }

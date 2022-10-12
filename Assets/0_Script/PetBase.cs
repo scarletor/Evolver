@@ -27,7 +27,7 @@ public class PetBase : CreatureBase
     {
         _animator = gameObject.GetComponent<Animator>();
         _player = PlayerController.ins;//fix later
-        
+
 
 
         if (_animator == null)
@@ -96,10 +96,11 @@ public class PetBase : CreatureBase
             ChangeState(PetStateEnum.idle);
         }
 
-        if(myFollowPos==null)
+        if (myFollowPos == null)
         {
-            _player.petPosList.ForEach(pos => { 
-            
+            _player.petPosList.ForEach(pos =>
+            {
+
             });
         }
 
@@ -131,7 +132,7 @@ public class PetBase : CreatureBase
 
                 break;
             case PetStateEnum.attackMelee:
-                _animator.SetBool("petAttackMelee",true);
+                _animator.SetBool("petAttackMelee", true);
                 _animator.SetBool("petAttackRange", false);
                 _animator.SetBool("Idle", false);
                 _animator.SetBool("Move", false);
@@ -213,6 +214,10 @@ public class PetBase : CreatureBase
         {
             return false;
         }
+        if (_petTarget.GetComponent<EnemyBase>() == null)
+        {
+            return false;
+        }
         if (_petTarget.GetComponent<EnemyBase>().isDie == true)
         {
             _petTarget = null;
@@ -243,8 +248,6 @@ public class PetBase : CreatureBase
         }
     }
 
-
-
     public GameObject muzzlePos;
     public void OnPetPlayAttackRangeAnim()
     {
@@ -253,9 +256,10 @@ public class PetBase : CreatureBase
         newBullet.transform.position = muzzlePos.transform.position;
 
         var posLook = _petTarget.transform.position;
-        posLook.y = 1.2f;
-        newBullet.transform.LookAt(posLook + new Vector3(Random.Range(-.2f, .2f), Random.Range(-.2f, -.2f)));
+        posLook.y = muzzlePos.transform.position.y;
+        newBullet.transform.LookAt(posLook);
         newBullet.GetComponent<BulletBase>().owner = gameObject;
+        newBullet.GetComponent<BulletBase>().damage = baseDamage;
 
 
         var newMuzzle = Instantiate(Utils.ins.yellowMuzzle);
@@ -283,14 +287,18 @@ public class PetBase : CreatureBase
     [Button]
     public void OnPetAttackMeleeAnimationEvent()
     {
-
         if (_player._targetRange == null)
         {
             return;
         }
         if (petState == PetStateEnum.move) return;
         ChangeState(PetStateEnum.attackMelee);
-        _player._targetRange.GetComponent<EnemyBase>().TakeDamage(baseDamage, gameObject,gameObject);
+        _player._targetRange.GetComponent<EnemyBase>().TakeDamage(baseDamage, gameObject, gameObject);
+
+
+
+
+
     }
 
 

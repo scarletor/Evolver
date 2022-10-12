@@ -121,10 +121,10 @@ public class Utils : MonoBehaviour
 
     public void SpawnGold(GameObject spawnPos)
     {
-        var rd = UnityEngine.Random.Range(8, 13);
+        var rd = UnityEngine.Random.Range(4, 8);
         for (int i = 0; i < rd; i++)
         {
-            var offset = UnityEngine.Random.Range(-1f, 1f);
+            var offset = UnityEngine.Random.Range(-1.5f, 1.5f);
             var newGold = Instantiate(gold);
             newGold.transform.position = new Vector3(spawnPos.transform.position.x + offset, spawnPos.transform.position.y + offset, spawnPos.transform.position.z + offset);
 

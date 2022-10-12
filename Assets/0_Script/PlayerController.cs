@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using Sirenix.OdinInspector;
 using DG.Tweening;
-
+using System;
 public class PlayerController : CreatureBase
 {
+
+
     [SerializeField]
     public static PlayerController ins;
     private void Awake()
@@ -26,7 +28,7 @@ public class PlayerController : CreatureBase
         UpdateHealthBar();
         baseName = name;
         //bow 
-        var id = PlayerData.ins.GetCurBow();
+        var id = PlayerData.ins.GetCurSet();
         ChangeWeapons(id);
         _characterController.detectCollisions = false;
     }
@@ -38,7 +40,6 @@ public class PlayerController : CreatureBase
 
     private void FixedUpdate()
     {
-        if (isDie) return;
         //MoveByJoyStick();
         ListenInput();
     }
@@ -53,7 +54,7 @@ public class PlayerController : CreatureBase
     public void MoveByPlayerController()
     {
 
-        //Vector3 forward2 = new Vector3(0.1f, 0, 0.1f) * moveSpeed * Time.deltaTime;
+        if (isDie) return;
         Vector3 dir = _joystick.Direction;
 
         if (dir != Vector3.zero)
@@ -72,7 +73,7 @@ public class PlayerController : CreatureBase
         }
         else
         {
-            if (_targetRange)
+            if (_targetRange != null)
             {
                 SetState(playerStateEnum.attackRange, _targetRange);
             }
@@ -297,7 +298,7 @@ public class PlayerController : CreatureBase
     public void FaceToTarget(GameObject target)
     {
         var pos = target.transform.position;
-        pos.y = 0;
+        pos.y = transform.position.y;
         transform.LookAt(pos);
     }
 
@@ -306,7 +307,7 @@ public class PlayerController : CreatureBase
     public GameObject yellowMuzzle, yellowBullet, yellowImpact, muzzlePos, arrow;
 
 
-
+    public GameObject cubeTest;
     public void FireBulletIntervals()
     {
         if (_targetRange == null) return;
@@ -320,8 +321,8 @@ public class PlayerController : CreatureBase
 
 
         var posLook = _targetRange.transform.position;
-        posLook.y = 1.2f;
-        newBullet.transform.LookAt(posLook + new Vector3(Random.Range(-.2f, .2f), Random.Range(-.2f, -.2f)));
+        posLook.y = muzzlePos.transform.position.y;
+        newBullet.transform.LookAt(posLook);
 
         //var newMuzzle = Instantiate(yellowMuzzle);
         //newMuzzle.transform.position = newBullet.transform.position;
@@ -460,3 +461,4 @@ public enum playerStateEnum
     die,
     fly,
 }
+

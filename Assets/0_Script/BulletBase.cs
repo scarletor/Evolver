@@ -30,7 +30,7 @@ public class BulletBase : MonoBehaviour
         if (gameObject.name.Contains("#_PlayerBullet"))
         {
 
-            if (other.transform.name.Contains("#_1_Enemy"))
+            if (other.transform.name.Contains("#_Enemy"))
             {
                 var enemy = other.gameObject.GetComponent<EnemyBase>();
                 if (impactParticle)
@@ -59,7 +59,7 @@ public class BulletBase : MonoBehaviour
 
 
 
-        if (gameObject.name.Contains("#_EnemyBullet"))  // enemy
+        if (gameObject.name.Contains("#_BulletEnemy"))  // enemy
         {
             if (gameObject.transform.name.Contains("#_Invisible"))  // enemy skeleton special attack
             {

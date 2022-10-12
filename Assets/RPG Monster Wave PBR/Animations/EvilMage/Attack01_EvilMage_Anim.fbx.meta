@@ -1,141 +1,401 @@
 fileFormatVersion: 2
 guid: 9078b40d437984148b9ac2b2ae1b8d01
 ModelImporter:
-  serializedVersion: 23
-  fileIDToRecycleName:
-    100000: //RootNode
-    100002: Back
-    100004: Beard01
-    100006: Beard02
-    100008: Beard03
-    100010: Beard04
-    100012: Body
-    100014: BottomEye_L
-    100016: BottomEye_R
-    100018: EvilMage
-    100020: EyeRoot_L
-    100022: EyeRoot_R
-    100024: FrontSkirt
-    100026: Hand_L
-    100028: Hand_R
-    100030: Head
-    100032: Index01_L
-    100034: Index01_R
-    100036: Index02_L
-    100038: Index02_R
-    100040: Index03_L
-    100042: Index03_R
-    100044: LeftSkirt
-    100046: LowerArm_L
-    100048: LowerArm_R
-    100050: Mid01_L
-    100052: Mid01_R
-    100054: Mid02_L
-    100056: Mid02_R
-    100058: Mid03_L
-    100060: Mid03_R
-    100062: Mustache01_L
-    100064: Mustache01_R
-    100066: Mustache02_L
-    100068: Mustache02_R
-    100070: Neck
-    100072: Nose01
-    100074: Nose02
-    100076: Pinky01_L
-    100078: Pinky01_R
-    100080: Pinky02_L
-    100082: Pinky02_R
-    100084: Pinky03_L
-    100086: Pinky03_R
-    100088: RearSkirt
-    100090: RightSkirt
-    100092: Spine01
-    100094: Spine02
-    100096: Spine03
-    100098: Staff
-    100100: Staff01
-    100102: Thumb01_L
-    100104: Thumb01_R
-    100106: Thumb02_L
-    100108: Thumb02_R
-    100110: Thumb03_L
-    100112: Thumb03_R
-    100114: UppderEye_L
-    100116: UppderEye_R
-    100118: UpperArm_L
-    100120: UpperArm_R
-    100122: WeaponPosition
-    400000: //RootNode
-    400002: Back
-    400004: Beard01
-    400006: Beard02
-    400008: Beard03
-    400010: Beard04
-    400012: Body
-    400014: BottomEye_L
-    400016: BottomEye_R
-    400018: EvilMage
-    400020: EyeRoot_L
-    400022: EyeRoot_R
-    400024: FrontSkirt
-    400026: Hand_L
-    400028: Hand_R
-    400030: Head
-    400032: Index01_L
-    400034: Index01_R
-    400036: Index02_L
-    400038: Index02_R
-    400040: Index03_L
-    400042: Index03_R
-    400044: LeftSkirt
-    400046: LowerArm_L
-    400048: LowerArm_R
-    400050: Mid01_L
-    400052: Mid01_R
-    400054: Mid02_L
-    400056: Mid02_R
-    400058: Mid03_L
-    400060: Mid03_R
-    400062: Mustache01_L
-    400064: Mustache01_R
-    400066: Mustache02_L
-    400068: Mustache02_R
-    400070: Neck
-    400072: Nose01
-    400074: Nose02
-    400076: Pinky01_L
-    400078: Pinky01_R
-    400080: Pinky02_L
-    400082: Pinky02_R
-    400084: Pinky03_L
-    400086: Pinky03_R
-    400088: RearSkirt
-    400090: RightSkirt
-    400092: Spine01
-    400094: Spine02
-    400096: Spine03
-    400098: Staff
-    400100: Staff01
-    400102: Thumb01_L
-    400104: Thumb01_R
-    400106: Thumb02_L
-    400108: Thumb02_R
-    400110: Thumb03_L
-    400112: Thumb03_R
-    400114: UppderEye_L
-    400116: UppderEye_R
-    400118: UpperArm_L
-    400120: UpperArm_R
-    400122: WeaponPosition
-    4300000: EvilMage
-    4300002: Staff
-    7400000: Attack01
-    9500000: //RootNode
-    13700000: EvilMage
-    13700002: Staff
+  serializedVersion: 21300
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: //RootNode
+  - first:
+      1: 100002
+    second: Back
+  - first:
+      1: 100004
+    second: Beard01
+  - first:
+      1: 100006
+    second: Beard02
+  - first:
+      1: 100008
+    second: Beard03
+  - first:
+      1: 100010
+    second: Beard04
+  - first:
+      1: 100012
+    second: Body
+  - first:
+      1: 100014
+    second: BottomEye_L
+  - first:
+      1: 100016
+    second: BottomEye_R
+  - first:
+      1: 100018
+    second: EvilMage
+  - first:
+      1: 100020
+    second: EyeRoot_L
+  - first:
+      1: 100022
+    second: EyeRoot_R
+  - first:
+      1: 100024
+    second: FrontSkirt
+  - first:
+      1: 100026
+    second: Hand_L
+  - first:
+      1: 100028
+    second: Hand_R
+  - first:
+      1: 100030
+    second: Head
+  - first:
+      1: 100032
+    second: Index01_L
+  - first:
+      1: 100034
+    second: Index01_R
+  - first:
+      1: 100036
+    second: Index02_L
+  - first:
+      1: 100038
+    second: Index02_R
+  - first:
+      1: 100040
+    second: Index03_L
+  - first:
+      1: 100042
+    second: Index03_R
+  - first:
+      1: 100044
+    second: LeftSkirt
+  - first:
+      1: 100046
+    second: LowerArm_L
+  - first:
+      1: 100048
+    second: LowerArm_R
+  - first:
+      1: 100050
+    second: Mid01_L
+  - first:
+      1: 100052
+    second: Mid01_R
+  - first:
+      1: 100054
+    second: Mid02_L
+  - first:
+      1: 100056
+    second: Mid02_R
+  - first:
+      1: 100058
+    second: Mid03_L
+  - first:
+      1: 100060
+    second: Mid03_R
+  - first:
+      1: 100062
+    second: Mustache01_L
+  - first:
+      1: 100064
+    second: Mustache01_R
+  - first:
+      1: 100066
+    second: Mustache02_L
+  - first:
+      1: 100068
+    second: Mustache02_R
+  - first:
+      1: 100070
+    second: Neck
+  - first:
+      1: 100072
+    second: Nose01
+  - first:
+      1: 100074
+    second: Nose02
+  - first:
+      1: 100076
+    second: Pinky01_L
+  - first:
+      1: 100078
+    second: Pinky01_R
+  - first:
+      1: 100080
+    second: Pinky02_L
+  - first:
+      1: 100082
+    second: Pinky02_R
+  - first:
+      1: 100084
+    second: Pinky03_L
+  - first:
+      1: 100086
+    second: Pinky03_R
+  - first:
+      1: 100088
+    second: RearSkirt
+  - first:
+      1: 100090
+    second: RightSkirt
+  - first:
+      1: 100092
+    second: Spine01
+  - first:
+      1: 100094
+    second: Spine02
+  - first:
+      1: 100096
+    second: Spine03
+  - first:
+      1: 100098
+    second: Staff
+  - first:
+      1: 100100
+    second: Staff01
+  - first:
+      1: 100102
+    second: Thumb01_L
+  - first:
+      1: 100104
+    second: Thumb01_R
+  - first:
+      1: 100106
+    second: Thumb02_L
+  - first:
+      1: 100108
+    second: Thumb02_R
+  - first:
+      1: 100110
+    second: Thumb03_L
+  - first:
+      1: 100112
+    second: Thumb03_R
+  - first:
+      1: 100114
+    second: UppderEye_L
+  - first:
+      1: 100116
+    second: UppderEye_R
+  - first:
+      1: 100118
+    second: UpperArm_L
+  - first:
+      1: 100120
+    second: UpperArm_R
+  - first:
+      1: 100122
+    second: WeaponPosition
+  - first:
+      4: 400000
+    second: //RootNode
+  - first:
+      4: 400002
+    second: Back
+  - first:
+      4: 400004
+    second: Beard01
+  - first:
+      4: 400006
+    second: Beard02
+  - first:
+      4: 400008
+    second: Beard03
+  - first:
+      4: 400010
+    second: Beard04
+  - first:
+      4: 400012
+    second: Body
+  - first:
+      4: 400014
+    second: BottomEye_L
+  - first:
+      4: 400016
+    second: BottomEye_R
+  - first:
+      4: 400018
+    second: EvilMage
+  - first:
+      4: 400020
+    second: EyeRoot_L
+  - first:
+      4: 400022
+    second: EyeRoot_R
+  - first:
+      4: 400024
+    second: FrontSkirt
+  - first:
+      4: 400026
+    second: Hand_L
+  - first:
+      4: 400028
+    second: Hand_R
+  - first:
+      4: 400030
+    second: Head
+  - first:
+      4: 400032
+    second: Index01_L
+  - first:
+      4: 400034
+    second: Index01_R
+  - first:
+      4: 400036
+    second: Index02_L
+  - first:
+      4: 400038
+    second: Index02_R
+  - first:
+      4: 400040
+    second: Index03_L
+  - first:
+      4: 400042
+    second: Index03_R
+  - first:
+      4: 400044
+    second: LeftSkirt
+  - first:
+      4: 400046
+    second: LowerArm_L
+  - first:
+      4: 400048
+    second: LowerArm_R
+  - first:
+      4: 400050
+    second: Mid01_L
+  - first:
+      4: 400052
+    second: Mid01_R
+  - first:
+      4: 400054
+    second: Mid02_L
+  - first:
+      4: 400056
+    second: Mid02_R
+  - first:
+      4: 400058
+    second: Mid03_L
+  - first:
+      4: 400060
+    second: Mid03_R
+  - first:
+      4: 400062
+    second: Mustache01_L
+  - first:
+      4: 400064
+    second: Mustache01_R
+  - first:
+      4: 400066
+    second: Mustache02_L
+  - first:
+      4: 400068
+    second: Mustache02_R
+  - first:
+      4: 400070
+    second: Neck
+  - first:
+      4: 400072
+    second: Nose01
+  - first:
+      4: 400074
+    second: Nose02
+  - first:
+      4: 400076
+    second: Pinky01_L
+  - first:
+      4: 400078
+    second: Pinky01_R
+  - first:
+      4: 400080
+    second: Pinky02_L
+  - first:
+      4: 400082
+    second: Pinky02_R
+  - first:
+      4: 400084
+    second: Pinky03_L
+  - first:
+      4: 400086
+    second: Pinky03_R
+  - first:
+      4: 400088
+    second: RearSkirt
+  - first:
+      4: 400090
+    second: RightSkirt
+  - first:
+      4: 400092
+    second: Spine01
+  - first:
+      4: 400094
+    second: Spine02
+  - first:
+      4: 400096
+    second: Spine03
+  - first:
+      4: 400098
+    second: Staff
+  - first:
+      4: 400100
+    second: Staff01
+  - first:
+      4: 400102
+    second: Thumb01_L
+  - first:
+      4: 400104
+    second: Thumb01_R
+  - first:
+      4: 400106
+    second: Thumb02_L
+  - first:
+      4: 400108
+    second: Thumb02_R
+  - first:
+      4: 400110
+    second: Thumb03_L
+  - first:
+      4: 400112
+    second: Thumb03_R
+  - first:
+      4: 400114
+    second: UppderEye_L
+  - first:
+      4: 400116
+    second: UppderEye_R
+  - first:
+      4: 400118
+    second: UpperArm_L
+  - first:
+      4: 400120
+    second: UpperArm_R
+  - first:
+      4: 400122
+    second: WeaponPosition
+  - first:
+      43: 4300000
+    second: EvilMage
+  - first:
+      43: 4300002
+    second: Staff
+  - first:
+      74: 7400000
+    second: Attack01
+  - first:
+      95: 9500000
+    second: //RootNode
+  - first:
+      137: 13700000
+    second: EvilMage
+  - first:
+      137: 13700002
+    second: Staff
   externalObjects: {}
   materials:
-    importMaterials: 0
+    materialImportMode: 0
     materialName: 0
     materialSearch: 1
     materialLocation: 0
@@ -144,8 +404,10 @@ ModelImporter:
     bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
     motionNodeName: 
-    rigImportErrors: 
+    rigImportErrors: "Invalid Avatar Rig Configuration. Missing or invalid transform:\n\tRequired
+      human bone 'LeftLowerLeg' not found\n"
     rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
@@ -164,6 +426,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Attack01
       takeName: Take 001
+      internalID: 0
       firstFrame: 0
       lastFrame: 24
       wrapMode: 0
@@ -320,25 +583,34 @@ ModelImporter:
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
     importVisibility: 0
     importBlendShapes: 1
     importCameras: 0
     importLights: 0
+    nodeNameCollisionStrategy: 0
+    fileIdsGeneration: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    bakeAxisConversion: 0
     preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
     indexFormat: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 0
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
     useFileScale: 1
-    previousCalculatedGlobalScale: 0.01
-    hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -347,12 +619,322 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
+  referencedClips: []
   importAnimation: 1
-  copyAvatar: 0
   humanDescription:
-    serializedVersion: 2
+    serializedVersion: 3
     human: []
-    skeleton: []
+    skeleton:
+    - name: Attack01_EvilMage_Anim(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: EvilMage
+      parentName: Attack01_EvilMage_Anim(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Staff
+      parentName: Attack01_EvilMage_Anim(Clone)
+      position: {x: -0, y: 1.242853, z: -0.96560603}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Body
+      parentName: Attack01_EvilMage_Anim(Clone)
+      position: {x: -0, y: 0.0719902, z: -0.038672157}
+      rotation: {x: 0.5356348, y: -0.46162254, z: 0.5356348, w: -0.46162254}
+      scale: {x: 1.0000002, y: 1.0000001, z: 1}
+    - name: Spine01
+      parentName: Body
+      position: {x: -0.30581403, y: 1.02140514e-16, z: 1.0103029e-16}
+      rotation: {x: -0, y: -0, z: -0.095350295, w: -0.9954438}
+      scale: {x: 1.0000004, y: 1.0000002, z: 1.0000005}
+    - name: Spine02
+      parentName: Spine01
+      position: {x: -0.31629688, y: -7.105427e-17, z: -8.881784e-18}
+      rotation: {x: -0.00000005364975, y: 0.00000006501639, z: 0.067331664, w: 0.9977307}
+      scale: {x: 1.0000006, y: 1.0000002, z: 1.0000004}
+    - name: Spine03
+      parentName: Spine02
+      position: {x: -0.35774884, y: 3.5527136e-17, z: -1.8873792e-17}
+      rotation: {x: 0.000000038214974, y: -0.0000000751335, z: 0.15140975, w: 0.98847115}
+      scale: {x: 1.0000002, y: 0.99999994, z: 1}
+    - name: Neck
+      parentName: Spine03
+      position: {x: -0.29092386, y: -1.4210854e-16, z: -4.5519144e-17}
+      rotation: {x: -0.97528684, y: 0.22094288, z: 0.000000015155331, w: -0.00000005954052}
+      scale: {x: 1.0000001, y: 1.000001, z: 1.0000004}
+    - name: Head
+      parentName: Neck
+      position: {x: -0.26390672, y: 7.105427e-16, z: -3.1086245e-17}
+      rotation: {x: -0.000000026083098, y: 0.00000002073392, z: 0.00000005960465, w: -1}
+      scale: {x: 0.99999994, y: 1.0000002, z: 1.0000001}
+    - name: EyeRoot_R
+      parentName: Head
+      position: {x: 0.0063137272, y: -0.1175625, z: -0.108390994}
+      rotation: {x: -0.81058216, y: -0.5699779, z: -0.051597267, w: -0.12417542}
+      scale: {x: 1.0000005, y: 0.9999996, z: 1}
+    - name: UppderEye_R
+      parentName: EyeRoot_R
+      position: {x: -0.13345566, y: 1.4210854e-16, z: 1.4210854e-16}
+      rotation: {x: 0.6208245, y: -0.49781957, z: 0.47246417, w: 0.37885392}
+      scale: {x: 0.99999994, y: 1.0000006, z: 0.99999934}
+    - name: BottomEye_R
+      parentName: EyeRoot_R
+      position: {x: -0.110403284, y: -0.058706846, z: 0.004201805}
+      rotation: {x: 0.6208245, y: -0.49781957, z: 0.47246417, w: 0.37885392}
+      scale: {x: 0.99999994, y: 1.0000006, z: 0.99999934}
+    - name: EyeRoot_L
+      parentName: Head
+      position: {x: 0.00631074, y: -0.117560096, z: 0.10839066}
+      rotation: {x: -0.81058186, y: -0.5699828, z: 0.051589206, w: 0.12415756}
+      scale: {x: 1.0000002, y: 0.99999994, z: 1.0000001}
+    - name: UppderEye_L
+      parentName: EyeRoot_L
+      position: {x: -0.13345656, y: -5.684342e-16, z: -7.105427e-17}
+      rotation: {x: -0.49780938, y: -0.62081736, z: -0.37886178, w: 0.4724779}
+      scale: {x: 1, y: 1.0000005, z: 0.99999934}
+    - name: BottomEye_L
+      parentName: EyeRoot_L
+      position: {x: -0.108726576, y: -0.058332585, z: -0.004203896}
+      rotation: {x: -0.49780938, y: -0.62081736, z: -0.37886178, w: 0.4724779}
+      scale: {x: 1, y: 1.0000005, z: 0.99999934}
+    - name: Nose01
+      parentName: Head
+      position: {x: -0.10118691, y: -0.14058498, z: 4.6202153e-17}
+      rotation: {x: 0.000000008396731, y: -0.000000051699867, z: -0.3151546, w: -0.94904035}
+      scale: {x: 1.0000001, y: 0.9999992, z: 0.9999998}
+    - name: Nose02
+      parentName: Nose01
+      position: {x: -0.14282167, y: 0, z: 7.135376e-17}
+      rotation: {x: 0.4008285, y: 0.5825259, z: -0.40082857, w: 0.5825261}
+      scale: {x: 1.0000001, y: 1.0000001, z: 1.0000011}
+    - name: Beard01
+      parentName: Head
+      position: {x: -0.20423847, y: -0.061473567, z: 1.2011466e-16}
+      rotation: {x: 0.00000001506521, y: -0.00000003262722, z: -0.24806939, w: -0.9687423}
+      scale: {x: 1.0000006, y: 1, z: 1.0000004}
+    - name: Beard02
+      parentName: Beard01
+      position: {x: -0.095019795, y: -1.4210854e-16, z: 1.7670105e-16}
+      rotation: {x: 0.00000001992307, y: 0.000000047532406, z: -0.42702287, w: 0.90424085}
+      scale: {x: 1.0000006, y: 0.99999934, z: 0.9999997}
+    - name: Beard03
+      parentName: Beard02
+      position: {x: -0.2914594, y: 1.4210854e-16, z: -1.2494633e-17}
+      rotation: {x: 0.000000009218029, y: 0.000000043742773, z: -0.18907315, w: -0.98196304}
+      scale: {x: 1.0000007, y: 0.99999994, z: 1.0000005}
+    - name: Beard04
+      parentName: Beard03
+      position: {x: -0.34110194, y: 1.4210854e-16, z: -9.110441e-18}
+      rotation: {x: -0.19661781, y: -0.6792212, z: 0.19661784, w: -0.67922115}
+      scale: {x: 1.0000004, y: 1.000001, z: 0.99999946}
+    - name: Mustache01_L
+      parentName: Head
+      position: {x: -0.17512377, y: -0.16302831, z: 0.046709683}
+      rotation: {x: -0.069160394, y: -0.38066658, z: 0.3458075, w: -0.85482574}
+      scale: {x: 0.9999997, y: 1.000001, z: 0.9999998}
+    - name: Mustache02_L
+      parentName: Mustache01_L
+      position: {x: -0.22610687, y: -7.105427e-17, z: -1.4210854e-16}
+      rotation: {x: 0.093896456, y: 0.38615552, z: 0.039549515, w: 0.91678965}
+      scale: {x: 1.0000005, y: 1.0000005, z: 0.99999946}
+    - name: Mustache01_R
+      parentName: Head
+      position: {x: -0.17512362, y: -0.16302894, z: -0.046709698}
+      rotation: {x: -0.06916047, y: -0.38066655, z: -0.34580767, w: 0.8548257}
+      scale: {x: 0.9999998, y: 1.0000008, z: 1}
+    - name: Mustache02_R
+      parentName: Mustache01_R
+      position: {x: -0.22610702, y: 0, z: -1.4210854e-16}
+      rotation: {x: -0.38615555, y: 0.0938963, z: 0.91678965, w: -0.039549693}
+      scale: {x: 1.0000007, y: 1.0000006, z: 0.99999994}
+    - name: Back
+      parentName: Spine03
+      position: {x: 0.029001318, y: 0.3532697, z: 1.8195009e-17}
+      rotation: {x: -0.28842315, y: -0.6456099, z: -0.28842312, w: 0.64560986}
+      scale: {x: 1.0000001, y: 1.0000007, z: 0.9999997}
+    - name: UpperArm_L
+      parentName: Spine03
+      position: {x: -0.017535686, y: 0.003231503, z: -0.3334492}
+      rotation: {x: -0.33806577, y: -0.63488954, z: -0.30061206, w: 0.626306}
+      scale: {x: 1.0000004, y: 1.000001, z: 0.9999998}
+    - name: LowerArm_L
+      parentName: UpperArm_L
+      position: {x: -0.39873835, y: 1.9539925e-16, z: 1.4210854e-16}
+      rotation: {x: 0.36444667, y: -0.004929273, z: 0.003400474, w: -0.931205}
+      scale: {x: 1.0000006, y: 1.0000002, z: 1.0000004}
+    - name: Hand_L
+      parentName: LowerArm_L
+      position: {x: -0.35836908, y: 5.684342e-16, z: -5.684342e-16}
+      rotation: {x: 0.12660933, y: 0.06287031, z: 0.19781187, w: 0.96999377}
+      scale: {x: 1, y: 1, z: 1.0000005}
+    - name: Index01_L
+      parentName: Hand_L
+      position: {x: -0.2825363, y: -5.684342e-16, z: 5.684342e-16}
+      rotation: {x: -0.9776896, y: 0.13272266, z: -0.09016187, w: -0.13556786}
+      scale: {x: 1.0000006, y: 1.0000008, z: 1.000001}
+    - name: Index02_L
+      parentName: Index01_L
+      position: {x: -0.09612543, y: 0, z: 2.842171e-16}
+      rotation: {x: 0.054131653, y: 0.034381364, z: -0.005360877, w: 0.99792737}
+      scale: {x: 1, y: 1.0000001, z: 0.99999994}
+    - name: Index03_L
+      parentName: Index02_L
+      position: {x: -0.087633595, y: -1.4210854e-16, z: -4.2632563e-16}
+      rotation: {x: -0.3261129, y: -0.70520014, z: -0.57141685, w: 0.26424605}
+      scale: {x: 1.0000001, y: 1, z: 0.99999994}
+    - name: Mid01_L
+      parentName: Hand_L
+      position: {x: -0.28176805, y: 0.10666194, z: -0.035969537}
+      rotation: {x: -0.9762278, y: 0.13533036, z: -0.09390246, w: -0.14088035}
+      scale: {x: 1.0000008, y: 1.0000007, z: 1.0000005}
+    - name: Mid02_L
+      parentName: Mid01_L
+      position: {x: -0.115896, y: 0, z: 0}
+      rotation: {x: 0.08807345, y: 0.030775469, z: -0.005355842, w: 0.99562407}
+      scale: {x: 1.0000004, y: 0.9999998, z: 1.0000008}
+    - name: Mid03_L
+      parentName: Mid02_L
+      position: {x: -0.08791798, y: 0, z: 1.4210854e-16}
+      rotation: {x: -0.3036172, y: -0.7325311, z: -0.5628433, w: 0.23328573}
+      scale: {x: 1.0000002, y: 1.0000002, z: 1.0000001}
+    - name: Pinky01_L
+      parentName: Hand_L
+      position: {x: -0.2593808, y: 0.20381737, z: -0.09341271}
+      rotation: {x: -0.97783786, y: 0.14057052, z: -0.10045862, w: -0.1182425}
+      scale: {x: 1.0000005, y: 1.0000006, z: 1.0000002}
+    - name: Pinky02_L
+      parentName: Pinky01_L
+      position: {x: -0.10518725, y: -1.4210854e-16, z: 0}
+      rotation: {x: 0.06968023, y: 0.033237405, z: -0.006411951, w: 0.9969949}
+      scale: {x: 1.0000002, y: 1, z: 1.0000007}
+    - name: Pinky03_L
+      parentName: Pinky02_L
+      position: {x: -0.087633595, y: 1.4210854e-16, z: -5.684342e-16}
+      rotation: {x: -0.33281726, y: -0.71969765, z: -0.5530457, w: 0.25575078}
+      scale: {x: 1.0000002, y: 1.0000002, z: 1.0000001}
+    - name: Thumb01_L
+      parentName: Hand_L
+      position: {x: -0.16546518, y: -0.13027413, z: -0.03855142}
+      rotation: {x: -0.9311718, y: -0.18854061, z: -0.2519102, w: -0.18415417}
+      scale: {x: 1.0000005, y: 1.0000015, z: 1.000001}
+    - name: Thumb02_L
+      parentName: Thumb01_L
+      position: {x: -0.09647881, y: -2.842171e-16, z: 0}
+      rotation: {x: 0.00062631065, y: 0.006091672, z: 0.034565847, w: 0.9993837}
+      scale: {x: 1.0000001, y: 0.9999996, z: 1}
+    - name: Thumb03_L
+      parentName: Thumb02_L
+      position: {x: -0.087633595, y: -2.842171e-16, z: -1.4210854e-16}
+      rotation: {x: 0.036686838, y: 0.07933272, z: 0.90417385, w: -0.4181268}
+      scale: {x: 1.0000001, y: 1.0000006, z: 0.9999998}
+    - name: UpperArm_R
+      parentName: Spine03
+      position: {x: -0.0175356, y: 0.003231404, z: 0.33344898}
+      rotation: {x: -0.338065, y: -0.6348899, z: 0.3006115, w: -0.62630635}
+      scale: {x: 1.0000004, y: 1.000001, z: 0.99999994}
+    - name: LowerArm_R
+      parentName: UpperArm_R
+      position: {x: -0.3987381, y: 1.0658141e-16, z: 4.2632563e-16}
+      rotation: {x: 0.36444652, y: -0.0049291253, z: -0.003400296, w: 0.93120515}
+      scale: {x: 1.0000002, y: 0.9999996, z: 0.99999994}
+    - name: Hand_R
+      parentName: LowerArm_R
+      position: {x: -0.35836926, y: -2.842171e-16, z: -2.842171e-16}
+      rotation: {x: -0.12660404, y: -0.06286875, z: 0.19781081, w: 0.9699947}
+      scale: {x: 1.0000001, y: 0.9999997, z: 1.0000002}
+    - name: Index01_R
+      parentName: Hand_R
+      position: {x: -0.2825359, y: 4.973799e-16, z: -1.4210854e-16}
+      rotation: {x: 0.97769046, y: -0.1327216, z: -0.09015871, w: -0.13556507}
+      scale: {x: 0.9999998, y: 1.0000002, z: 1.0000005}
+    - name: Index02_R
+      parentName: Index01_R
+      position: {x: -0.096125886, y: 2.842171e-16, z: -4.2632563e-16}
+      rotation: {x: -0.05413187, y: -0.034381982, z: -0.005358329, w: 0.99792737}
+      scale: {x: 1.0000005, y: 0.9999996, z: 1.0000008}
+    - name: Index03_R
+      parentName: Index02_R
+      position: {x: -0.08763286, y: -1.4210854e-16, z: 0}
+      rotation: {x: 0.7051995, y: -0.32611364, z: 0.26424727, w: 0.57141674}
+      scale: {x: 1, y: 1.0000006, z: 1.0000006}
+    - name: Mid01_R
+      parentName: Hand_R
+      position: {x: -0.28176832, y: 0.106661774, z: 0.03596803}
+      rotation: {x: 0.9762285, y: -0.13533005, z: -0.09390178, w: -0.14087659}
+      scale: {x: 0.9999998, y: 1.0000005, z: 1.0000005}
+    - name: Mid02_R
+      parentName: Mid01_R
+      position: {x: -0.115895405, y: 1.4210854e-16, z: -2.842171e-16}
+      rotation: {x: -0.08807364, y: -0.030773427, z: -0.0053552226, w: 0.9956242}
+      scale: {x: 1.0000011, y: 1.0000004, z: 1.0000011}
+    - name: Mid03_R
+      parentName: Mid02_R
+      position: {x: -0.08791877, y: 0, z: 4.2632563e-16}
+      rotation: {x: 0.7325317, y: -0.30361545, z: 0.23328707, w: 0.5628429}
+      scale: {x: 0.9999996, y: 1.0000005, z: 0.99999994}
+    - name: Pinky01_R
+      parentName: Hand_R
+      position: {x: -0.25938088, y: 0.203818, z: 0.093411}
+      rotation: {x: 0.9778385, y: -0.14056922, z: -0.100456774, w: -0.11823979}
+      scale: {x: 0.99999994, y: 1, z: 1.0000006}
+    - name: Pinky02_R
+      parentName: Pinky01_R
+      position: {x: -0.10518727, y: 1.4210854e-16, z: -2.842171e-16}
+      rotation: {x: -0.069679655, y: -0.033236228, z: -0.006412287, w: 0.996995}
+      scale: {x: 1, y: 1.0000001, z: 1}
+    - name: Pinky03_R
+      parentName: Pinky02_R
+      position: {x: -0.08763342, y: 7.105427e-17, z: 2.842171e-16}
+      rotation: {x: 0.7196962, y: -0.33281928, z: 0.25575164, w: 0.5530459}
+      scale: {x: 0.99999994, y: 1.000001, z: 1.0000005}
+    - name: Thumb01_R
+      parentName: Hand_R
+      position: {x: -0.16546473, y: -0.13027409, z: 0.038552232}
+      rotation: {x: 0.93117326, y: 0.18853973, z: -0.25190887, w: -0.18414974}
+      scale: {x: 0.99999946, y: 1.0000004, z: 1.0000007}
+    - name: Thumb02_R
+      parentName: Thumb01_R
+      position: {x: -0.096478544, y: 1.4210854e-16, z: -1.4210854e-16}
+      rotation: {x: -0.0006262806, y: -0.006091942, z: 0.03456831, w: 0.99938357}
+      scale: {x: 1.0000002, y: 1.0000005, z: 1.0000001}
+    - name: Thumb03_R
+      parentName: Thumb02_R
+      position: {x: -0.08763358, y: -1.4210854e-16, z: -1.4210854e-16}
+      rotation: {x: 0.07933217, y: -0.036687404, z: 0.418126, w: 0.9041743}
+      scale: {x: 1, y: 1.0000006, z: 1.0000002}
+    - name: WeaponPosition
+      parentName: Hand_R
+      position: {x: -2.842171e-16, y: 1.4210854e-16, z: -2.842171e-16}
+      rotation: {x: -0.37477136, y: -0.50638807, z: -0.7008254, w: 0.3346063}
+      scale: {x: 1.0000004, y: 1.0000006, z: 1.0000007}
+    - name: Staff01
+      parentName: WeaponPosition
+      position: {x: 0.14155963, y: -0.19570963, z: 0.013587131}
+      rotation: {x: 0.1384235, y: -0.6431798, z: 0.15844326, w: 0.7362435}
+      scale: {x: 0.99999994, y: 1, z: 1.0000005}
+    - name: FrontSkirt
+      parentName: Body
+      position: {x: 0.050376877, y: -0.44101667, z: 3.2183818e-17}
+      rotation: {x: -0.05233455, y: 0.7051675, z: -0.052334547, w: -0.7051675}
+      scale: {x: 0.9999999, y: 1, z: 0.9999999}
+    - name: RearSkirt
+      parentName: Body
+      position: {x: -0.06071747, y: 0.34466273, z: -1.804227e-17}
+      rotation: {x: -0.05233455, y: 0.7051675, z: -0.052334547, w: -0.7051675}
+      scale: {x: 0.9999999, y: 1, z: 0.9999999}
+    - name: LeftSkirt
+      parentName: Body
+      position: {x: 0.006535829, y: -0.004183233, z: -0.4030162}
+      rotation: {x: -0.05233455, y: 0.7051675, z: -0.052334547, w: -0.7051675}
+      scale: {x: 0.9999999, y: 1, z: 0.9999999}
+    - name: RightSkirt
+      parentName: Body
+      position: {x: 0.0065358337, y: -0.0041832766, z: 0.403016}
+      rotation: {x: -0.7051675, y: -0.05233455, z: -0.7051675, w: 0.052334543}
+      scale: {x: 1, y: 1, z: 1.0000001}
     armTwist: 0.5
     foreArmTwist: 0.5
     upperLegTwist: 0.5
@@ -360,13 +942,18 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
+    globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
-    hasExtraRoot: 0
+    hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
+  avatarSetup: 1
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
+  remapMaterialsIfMaterialImportModeIsNone: 1
   additionalBone: 0
   userData: 
   assetBundleName: 

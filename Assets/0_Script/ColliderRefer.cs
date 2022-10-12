@@ -9,9 +9,8 @@ public class ColliderRefer : MonoBehaviour
 
 
     public PlayerController parent;
-
-
-    private void OnTriggerEnter(Collider other)
+    // player check
+    private void OnTriggerEnter(Collider other)  // player check
     {
 
         if (gameObject.name.Contains("#MeleeCheck"))
@@ -65,20 +64,15 @@ public class ColliderRefer : MonoBehaviour
 
         }
 
-
-
-
-
-
     }
 
     public PetBase pet;
 
-    public void OnTriggerStay(Collider other)
+    public void OnTriggerStay(Collider other)  // Player Check Enemy
     {
         if (gameObject.name.Contains("#_RangeCheck"))
         {
-            if (other.gameObject.transform.name.Contains("#_1_Enemy") && other.gameObject.transform.name.Contains("#_Die") == false)
+            if (other.gameObject.transform.name.Contains("#_Enemy") && other.gameObject.transform.name.Contains("#_Die") == false)
             {
                 parent._targetRange = other.gameObject;
                 if (parent.pet != null)
@@ -115,7 +109,7 @@ public class ColliderRefer : MonoBehaviour
         if (gameObject.name.Contains("#MeleeCheck") && gameObject.name.Contains("#_Die") == false)
         {
 
-            if (other.gameObject.transform.name.Contains("#_1_Enemy"))
+            if (other.gameObject.transform.name.Contains("#_Enemy"))
             {
 
             }
@@ -125,7 +119,7 @@ public class ColliderRefer : MonoBehaviour
 
         if (gameObject.name.Contains("#_RangeCheck"))
         {
-            if (other.gameObject.transform.name.Contains("#_1_Enemy"))
+            if (other.gameObject.transform.name.Contains("#_Enemy"))
             {
                 parent._targetRange = null;
             }
