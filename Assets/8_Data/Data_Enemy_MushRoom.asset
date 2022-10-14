@@ -36,7 +36,7 @@ MonoBehaviour:
     castskilleverysecond: 13
     hp: 50
     attackspeed: 1
-    movespeed: 1
+    movespeed: 2.3
     dropgoldmin: 4
     dropgoldmax: 7
     dropitemname: ItemDrop_Chest_Silver
@@ -50,7 +50,7 @@ MonoBehaviour:
     castskilleverysecond: 15
     hp: 60
     attackspeed: 1
-    movespeed: 1
+    movespeed: 2.3
     dropgoldmin: 5
     dropgoldmax: 7
     dropitemname: 
@@ -64,7 +64,7 @@ MonoBehaviour:
     castskilleverysecond: 16
     hp: 70
     attackspeed: 1
-    movespeed: 1
+    movespeed: 2.3
     dropgoldmin: 6
     dropgoldmax: 7
     dropitemname: 
@@ -78,7 +78,7 @@ MonoBehaviour:
     castskilleverysecond: 20
     hp: 100
     attackspeed: 1
-    movespeed: 1
+    movespeed: 2.3
     dropgoldmin: 7
     dropgoldmax: 7
     dropitemname: 
@@ -92,7 +92,7 @@ MonoBehaviour:
     castskilleverysecond: 30
     hp: 11
     attackspeed: 1
-    movespeed: 1
+    movespeed: 2.3
     dropgoldmin: 8
     dropgoldmax: 7
     dropitemname: 
@@ -106,7 +106,7 @@ MonoBehaviour:
     castskilleverysecond: 40
     hp: 11
     attackspeed: 1
-    movespeed: 1
+    movespeed: 2.3
     dropgoldmin: 9
     dropgoldmax: 7
     dropitemname: 
@@ -120,7 +120,7 @@ MonoBehaviour:
     castskilleverysecond: 50
     hp: 11
     attackspeed: 1
-    movespeed: 1
+    movespeed: 2.3
     dropgoldmin: 1
     dropgoldmax: 7
     dropitemname: 
@@ -134,7 +134,7 @@ MonoBehaviour:
     castskilleverysecond: 60
     hp: 11
     attackspeed: 1
-    movespeed: 1
+    movespeed: 2.3
     dropgoldmin: 3
     dropgoldmax: 7
     dropitemname: 
@@ -148,7 +148,7 @@ MonoBehaviour:
     castskilleverysecond: 70
     hp: 11
     attackspeed: 1
-    movespeed: 1
+    movespeed: 2.3
     dropgoldmin: 4
     dropgoldmax: 7
     dropitemname: 

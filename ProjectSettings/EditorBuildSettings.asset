@@ -14,16 +14,16 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/1_Scene/Lab.unity
     guid: cab57f9c80c3b0e48986b35790781296
-  - enabled: 1
+  - enabled: 0
     path: Assets/1_Scene/PlayCombine.unity
     guid: 00320c2b2c8ece544831d9b63d00fc72
   - enabled: 1
     path: Assets/1_Scene/Shared.unity
     guid: 1964bcbedfe199b47abee88eac4e8771
   - enabled: 0
-    path: Assets/1_Scene/Test.unity
-    guid: 96e84736f86413d418ad85315ae67759
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/1_Scene/Test2.unity
-    guid: accea1d45c98c7a4e88951d2edea3611
+    path: 
+    guid: 00000000000000000000000000000000
   m_configObjects: {}

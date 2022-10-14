@@ -20,36 +20,47 @@ public class ExpandGround : MonoBehaviour
 
     public void Setup()
     {
-        baseScale = groundToExpand.transform.localScale;
-        groundToExpand.gameObject.SetActive(false);
-        groundToExpand.transform.DOMoveY(-20, .1f);
+        if (groundToExpand.Count != 0)
+            baseScale = groundToExpand[0].transform.localScale;
+
+        groundToExpand.ForEach(go =>
+        {
+            go.gameObject.SetActive(false);
+        });
+
+        groundToExpand.ForEach(go =>
+        {
+            go.transform.DOMoveY(-20, .1f);
+        });
+
         text.text = "" + goldToExpand;
     }
 
 
 
-    public GameObject groundToExpand;
-    public int tileToExpand, goldToExpand;
+    public List<GameObject> groundToExpand;
+    public int goldToExpand;
 
     [Button]
     public void Expand()
     {
         //if (UIManager.ins.gold >= goldToExpand)
-        //{
-        //    groundToExpand.gameObject.SetActive(true);
-        //    groundToExpand.transform.DOLocalMoveY(-5, 2).SetEase(Ease.OutBack).OnComplete(() =>
-        //    {
-        //        EnableEnemy();
-        //    });
-        //    UIManager.ins.gold -= goldToExpand;
-        //    gameObject.SetActive(false);
-        //}
-
-        groundToExpand.gameObject.SetActive(true);
-        groundToExpand.transform.DOLocalMoveY(-5, 2).SetEase(Ease.OutBack).OnComplete(() =>
+        if (true)
         {
-            EnableEnemy();
-        });
+            groundToExpand.ForEach(go =>
+            {
+                go.gameObject.SetActive(true);
+                go.transform.DOLocalMoveY(0, 2).SetEase(Ease.OutBack);
+            });
+
+
+            UIManager.ins.gold -= goldToExpand;
+            gameObject.SetActive(false);
+        }
+
+        groundToExpand.ForEach(go => { go.gameObject.SetActive(true); });
+
+
         UIManager.ins.gold -= goldToExpand;
         gameObject.SetActive(false);
 
@@ -58,21 +69,6 @@ public class ExpandGround : MonoBehaviour
     public TextMeshPro text;
 
 
-    public void EnableEnemy()
-    {
-        foreach (Transform child in groundToExpand.transform)
-        {
-            if (child.gameObject.name.Contains("Enemy"))
-            {
-                Debug.LogError(1);
-                child.GetComponent<EnemyBase>().enabled = true;
-                child.GetComponent<CapsuleCollider>().enabled = true;
-                child.GetComponent<Animator>().enabled = true;
-
-
-            }
-        }
-    }
 
 
 }

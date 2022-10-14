@@ -19,7 +19,7 @@ TagManager:
   - EnemyBulletCollider
   - ObstacleCollider
   - PetCollider
-  - 
+  - ExpandGround
   - 
   - 
   - 

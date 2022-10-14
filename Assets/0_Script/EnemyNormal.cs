@@ -322,8 +322,8 @@ public class EnemyNormal : EnemyBase
 
 
 
-
-
+        _maxHP = curHP;
+        UpdateHealthBar();
 
         //dropItemPref = null;
     }

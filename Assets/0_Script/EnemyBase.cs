@@ -232,6 +232,8 @@ public class EnemyBase : CreatureBase
                 _anim.SetBool("Move", false);
                 _anim.SetBool("AttackMelee", false);
                 _anim.SetBool("AttackRange", false);
+                _anim.SetBool("SpecialAttack", false);
+
                 Utils.ins.DelayCall(3, () =>
                 {
                     if (isDie) return;
@@ -239,6 +241,7 @@ public class EnemyBase : CreatureBase
                     _anim.SetBool("Move", true);
                     _anim.SetBool("AttackMelee", false);
                     _anim.SetBool("AttackRange", false);
+                    _anim.SetBool("SpecialAttack", false);
                     MoveToPosition(startPos);
                 });
                 break;
@@ -301,7 +304,7 @@ public class EnemyBase : CreatureBase
 
 
 
-    [SerializeField] private float _curHP = 50, _maxHP = 50;
+    [SerializeField] public float _curHP = 50, _maxHP = 50;
     public float curHP
     {
         get

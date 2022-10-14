@@ -9483,7 +9483,8 @@ MonoBehaviour:
   dropGoldMax: 0
   skillDamage: 0
   dropItemChance: 0
-  distanceStopMove: 2
+  exp: 0
+  attackRange: 2
   timeToSkillAttack: 0
   _target: {fileID: 0}
   posToMove: {fileID: 0}
@@ -9501,6 +9502,9 @@ MonoBehaviour:
   curHPBar: {fileID: 1153849964}
   targetList: []
   startPos: {x: 0, y: 0, z: 0}
+  muzzlePos: {fileID: 0}
+  muzzle: {fileID: 0}
+  projectile: {fileID: 0}
   rig: {fileID: 269566108}
   isWandering2: 1
 --- !u!4 &58473851
@@ -10951,7 +10955,8 @@ MonoBehaviour:
   dropGoldMax: 0
   skillDamage: 0
   dropItemChance: 0
-  distanceStopMove: 2
+  exp: 0
+  attackRange: 2
   timeToSkillAttack: 0
   _target: {fileID: 0}
   posToMove: {fileID: 0}
@@ -10969,6 +10974,9 @@ MonoBehaviour:
   curHPBar: {fileID: 311172586}
   targetList: []
   startPos: {x: 0, y: 0, z: 0}
+  muzzlePos: {fileID: 0}
+  muzzle: {fileID: 0}
+  projectile: {fileID: 0}
   rig: {fileID: 110947610}
   isWandering2: 1
 --- !u!4 &192023754
@@ -32657,7 +32665,8 @@ MonoBehaviour:
   dropGoldMax: 0
   skillDamage: 0
   dropItemChance: 0
-  distanceStopMove: 2
+  exp: 0
+  attackRange: 2
   timeToSkillAttack: 0
   _target: {fileID: 0}
   posToMove: {fileID: 0}
@@ -32675,6 +32684,9 @@ MonoBehaviour:
   curHPBar: {fileID: 1817448155}
   targetList: []
   startPos: {x: 0, y: 0, z: 0}
+  muzzlePos: {fileID: 0}
+  muzzle: {fileID: 0}
+  projectile: {fileID: 0}
   rig: {fileID: 1714551437}
   isWandering2: 1
 --- !u!4 &957171706
@@ -33086,7 +33098,8 @@ MonoBehaviour:
   dropGoldMax: 0
   skillDamage: 0
   dropItemChance: 0
-  distanceStopMove: 2
+  exp: 0
+  attackRange: 2
   timeToSkillAttack: 0
   _target: {fileID: 0}
   posToMove: {fileID: 0}
@@ -33104,6 +33117,9 @@ MonoBehaviour:
   curHPBar: {fileID: 168251071}
   targetList: []
   startPos: {x: 0, y: 0, z: 0}
+  muzzlePos: {fileID: 0}
+  muzzle: {fileID: 0}
+  projectile: {fileID: 0}
   rig: {fileID: 1425423327}
   isWandering2: 1
 --- !u!4 &1033422326
@@ -43131,7 +43147,8 @@ MonoBehaviour:
   dropGoldMax: 0
   skillDamage: 0
   dropItemChance: 0
-  distanceStopMove: 2
+  exp: 0
+  attackRange: 2
   timeToSkillAttack: 0
   _target: {fileID: 0}
   posToMove: {fileID: 0}
@@ -43149,6 +43166,9 @@ MonoBehaviour:
   curHPBar: {fileID: 216407469}
   targetList: []
   startPos: {x: 0, y: 0, z: 0}
+  muzzlePos: {fileID: 0}
+  muzzle: {fileID: 0}
+  projectile: {fileID: 0}
   rig: {fileID: 875457138}
   isWandering2: 1
 --- !u!4 &1524416540
@@ -44117,7 +44137,8 @@ MonoBehaviour:
   dropGoldMax: 0
   skillDamage: 0
   dropItemChance: 0
-  distanceStopMove: 2
+  exp: 0
+  attackRange: 2
   timeToSkillAttack: 0
   _target: {fileID: 0}
   posToMove: {fileID: 0}
@@ -44135,6 +44156,9 @@ MonoBehaviour:
   curHPBar: {fileID: 716715348}
   targetList: []
   startPos: {x: 0, y: 0, z: 0}
+  muzzlePos: {fileID: 0}
+  muzzle: {fileID: 0}
+  projectile: {fileID: 0}
   rig: {fileID: 2084462618}
   isWandering2: 1
 --- !u!4 &1603818735
@@ -49632,13 +49656,13 @@ MonoBehaviour:
     m_Mode: 0
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
-  waterShallowColor: {r: 0, g: 0.32048494, b: 0.5471698, a: 0.4745098}
-  depth: 14.3
-  waterColor: {r: 0, g: 0.36565208, b: 0.5566038, a: 0}
+  waterShallowColor: {r: 0, g: 0.01421146, b: 0.02426347, a: 0.43137255}
+  depth: 41
+  waterColor: {r: 0, g: 0.38925064, b: 0.5943396, a: 0}
   fresnelColor: {r: 0, g: 0, b: 0, a: 0}
   fresnel: 0
   rimColor: {r: 1, g: 1, b: 1, a: 1}
-  waveTint: -0.062
+  waveTint: 0
   transparency: 1
   glossiness: 1
   metallicness: 0
@@ -49666,12 +49690,12 @@ MonoBehaviour:
   foamSolverNames:
   - Normal map
   - Intersection texture
-  foamOpacity: -0.04
+  foamOpacity: -0.01
   foamTiling: 2.9199996
-  foamSize: 0
+  foamSize: 0.26
   foamDistortion: 0
-  foamSpeed: 0.527
-  waveFoam: 0
+  foamSpeed: 0.55
+  waveFoam: 0.31
   reflectionStrength: 1
   reflectionFresnel: 10
   showReflection: 0
@@ -49751,7 +49775,7 @@ MonoBehaviour:
   - Advanced
   enableShadows: 0
   shadowCaster: {fileID: 0}
-  currentCam: {fileID: 1314743562}
+  currentCam: {fileID: 0}
   material: {fileID: 2100000, guid: b56c186fcd781b54eafcd22192812439, type: 2}
   isMobileAdvanced: 1
   isMobilePlatform: 1
