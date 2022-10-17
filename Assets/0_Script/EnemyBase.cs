@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using Sirenix.OdinInspector;
+using System;
+
 public class EnemyBase : CreatureBase
 {
     public int myLevel = 1;
@@ -31,8 +33,6 @@ public class EnemyBase : CreatureBase
         InvokeRepeating("CheckTargetIntervals", 1, .3f);
 
     }
-
-
 
 
 
@@ -159,9 +159,9 @@ public class EnemyBase : CreatureBase
         if (_target == null) return;
         if (_target.transform.root.GetComponent<PlayerController>().isDie) return;
 
-        var rdX = Random.RandomRange(rdMove1, rdMove2);
-        var rdZ = Random.RandomRange(rdMove1, rdMove2);
-        var moveTime = Random.Range(rdTime1, rdTime2);
+        var rdX = UnityEngine.Random.Range(rdMove1, rdMove2);
+        var rdZ = UnityEngine.Random.Range(rdMove1, rdMove2);
+        var moveTime = UnityEngine.Random.Range(rdTime1, rdTime2);
         Vector3 posToMove = new Vector3(rdX, transform.position.y, rdZ);
 
         transform.DOMove(posToMove, moveTime);
@@ -233,6 +233,7 @@ public class EnemyBase : CreatureBase
                 _anim.SetBool("AttackMelee", false);
                 _anim.SetBool("AttackRange", false);
                 _anim.SetBool("SpecialAttack", false);
+                curHPBar.gameObject.SetActive(false);
 
                 Utils.ins.DelayCall(3, () =>
                 {
@@ -265,30 +266,41 @@ public class EnemyBase : CreatureBase
         _anim.CrossFade("Move", .1f);
         _target = PlayerController.ins.gameObject;
         _enemyMoveType = EnemyMoveType.foundPlayer;
+        movingTween.Kill();
     }
-
-    public void MoveToPosition(Vector3 pos)
+    Tween movingTween;
+    Vector3 tempLookAt;
+    public void MoveToPosition(Vector3 pos, Action cb = null)
     {
+        _anim.SetBool(IdleStr, false);
+        _anim.SetBool("AttackMelee", false);
+        _anim.SetBool("AttackRange", false);
+        _anim.SetBool("SpecialAttack", false);
+        _anim.SetBool("Move", true);
+
         //slowly lookat NO_update
-        GameObject temp = new GameObject();
-        temp.transform.position = pos;
-        var _direction = (temp.transform.position - transform.position).normalized;
+        var _direction = (pos - transform.position).normalized;
         var rot = Quaternion.LookRotation(_direction);
-        transform.DORotateQuaternion(rot, 1);
+
+        transform.DORotateQuaternion(rot, .3f);
 
         //move to pos NO_update
-        var distance = Vector3.Distance(transform.position, startPos);
-        var time = distance / moveSpeed;
-        transform.DOMove(pos, time * 0.5f).OnComplete(() =>
-          {
-              _enemyMoveType = EnemyMoveType.watcher;
+        var distance = Vector3.Distance(transform.position, pos);
+        var time = (distance / moveSpeed) * 2;
+        movingTween = transform.DOMove(pos, time * 0.5f).OnComplete(() =>
+            {
+                _enemyMoveType = EnemyMoveType.watcher;
+                _anim.SetBool(IdleStr, true);
+                _anim.SetBool("AttackMelee", false);
+                _anim.SetBool("AttackRange", false);
+                _anim.SetBool("SpecialAttack", false);
+                _anim.SetBool("Move", false);
 
-              _anim.SetBool(IdleStr, true);
-              _anim.SetBool("AttackMelee", false);
-              _anim.SetBool("AttackRange", false);
-              _anim.SetBool("SpecialAttack", false);
-              _anim.SetBool("Move", false);
-          }).SetEase(Ease.Linear);
+                Utils.ins.DelayCall(UnityEngine.Random.Range(2, 3), () =>
+               {
+                   if (cb != null) cb.Invoke();
+               });
+            }).SetEase(Ease.Linear);
         _target = null;
     }
 
@@ -325,8 +337,7 @@ public class EnemyBase : CreatureBase
     {
         if (curHP <= 0)
         {
-            curHPBar.transform.localScale = new Vector3(0, 1.5f, 1);
-            curHPBar.transform.parent.GetComponent<HPBar>().hpText.text = "" + curHP;
+            curHPBar.transform.localScale = new Vector3(0, curHPBar.transform.localScale.y, curHPBar.transform.localScale.z);
 
             SetState(EnemyState.Die);
             return;
@@ -336,14 +347,14 @@ public class EnemyBase : CreatureBase
         if (curHP != 0) scale = _curHP / _maxHP;
 
         curHPBar.transform.parent.GetComponent<HPBar>().hpText.text = "" + curHP;
-        curHPBar.transform.localScale = new Vector3(scale, 1.5f, 1);
+        curHPBar.transform.localScale = new Vector3(scale, curHPBar.transform.localScale.y, curHPBar.transform.localScale.z);
     }
     public void TakeDamage(float damage, GameObject dealer, GameObject textEffPos)
     {
+        curHPBar.transform.parent.gameObject.SetActive(true);
         if (curHP <= 0)
         {
-
-            curHPBar.transform.localScale = new Vector3(0, 1.5f, 1);
+            curHPBar.transform.localScale = new Vector3(0, curHPBar.transform.localScale.y, curHPBar.transform.localScale.z);
             SetState(EnemyState.Die);
             isDie = true;
             return;
@@ -448,7 +459,7 @@ public class EnemyBase : CreatureBase
 
     [GUIColor(1, 1, 0, 1f)]//yellow
 
-    public GameObject muzzlePos,muzzle,projectile;
+    public GameObject muzzlePos, muzzle, projectile;
     public void OnAttackRangeAnimationEvent()
     {
         var newMuzzle = Instantiate(muzzle);

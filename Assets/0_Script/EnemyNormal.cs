@@ -9,8 +9,11 @@ public class EnemyNormal : EnemyBase
 
     private new void Start()
     {
-        SetupDataScriptableObject();
+        try { SetupDataScriptableObject(); }
+        catch (Exception e) { Debug.LogError(e); };
+
         base.Start();
+        WanderingAround();
     }
 
 
@@ -331,12 +334,19 @@ public class EnemyNormal : EnemyBase
 
 
 
+    public void WanderingAround() //noupdate
+    {
+        if (isDie) { return; };
+        if (_enemyMoveType == EnemyMoveType.foundPlayer) return;
+        if (_target != null) return;
 
 
+        var posToMoveX = UnityEngine.Random.Range(-3.5f, 3.5f) + transform.parent.position.x;
+        var posToMoveZ = UnityEngine.Random.Range(-3.5f, 3.5f) + transform.parent.position.z;
+        MoveToPosition(new Vector3(posToMoveX, transform.position.y, posToMoveZ), () => { WanderingAround(); });
 
 
-
-
+    }
 
 
 

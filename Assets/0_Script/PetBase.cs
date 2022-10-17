@@ -374,7 +374,7 @@ public class PetBase : CreatureBase
         if (curHP <= 0)
         {
 
-            curHPBar.transform.localScale = new Vector3(0, 0.5f, 1);
+            curHPBar.transform.localScale = new Vector3(0, curHPBar.transform.localScale.y, curHPBar.transform.localScale.z);
             curHPBar.transform.parent.GetComponent<HPBar>().hpText.text = "" + 0;
             ChangeState(PetStateEnum.die);
             return;
@@ -383,7 +383,7 @@ public class PetBase : CreatureBase
         var scale = -100f;
         if (curHP != 0) scale = _curHP / _maxHP;
 
-        curHPBar.transform.localScale = new Vector3(scale, 1.5f, 1);
+        curHPBar.transform.localScale = new Vector3(scale, curHPBar.transform.localScale.y, curHPBar.transform.localScale.z);
         curHPBar.transform.parent.GetComponent<HPBar>().hpText.text = "" + curHP;
     }
     public void TakeDamage(float damage)
@@ -391,7 +391,7 @@ public class PetBase : CreatureBase
         if (curHP <= 0)
         {
             isDie = true;
-            curHPBar.transform.localScale = new Vector3(0, 1.5f, 1);
+            curHPBar.transform.localScale = new Vector3(0, curHPBar.transform.localScale.y, curHPBar.transform.localScale.z);
             ChangeState(PetStateEnum.die);
             return;
         }

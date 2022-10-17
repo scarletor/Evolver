@@ -7,7 +7,11 @@ using UnityEditor;
 
 public class GroundLoader : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public static GroundLoader ins;
+    private void Awake()
+    {
+        ins = this;
+    }
     void Start()
     {
         SetupSelf();
@@ -56,6 +60,38 @@ public class GroundLoader : MonoBehaviour
                     newMonster.GetComponent<EnemyBase>().myLevel = int.Parse(ground.Enemy2_Level);
 
                 }
+                if (ground.Enemy1_Name != "")
+                {
+                    var curGround = transform.Find(ground.Groundname);
+                    var newMonsterLoad = Resources.Load(creaturePath + ground.Enemy1_Name) as GameObject;
+                    var newMonster = Instantiate(newMonsterLoad);
+                    newMonster.transform.position = new Vector3(curGround.transform.position.x + UnityEngine.Random.Range(-offsetSpawn2Creature, offsetSpawn2Creature), 0.22f, curGround.transform.position.z + UnityEngine.Random.Range(-offsetSpawn2Creature, offsetSpawn2Creature));
+                    newMonster.transform.SetParent(curGround.transform);
+
+                    newMonster.GetComponent<EnemyBase>().myLevel = int.Parse(ground.Enemy1_Level);
+                }
+
+                if (ground.Enemy2_Name != "")
+                {
+                    var curGround = transform.Find(ground.Groundname);
+                    var newMonsterLoad = Resources.Load(creaturePath + ground.Enemy2_Name) as GameObject;
+                    var newMonster = Instantiate(newMonsterLoad);
+                    newMonster.transform.position = new Vector3(curGround.transform.position.x + UnityEngine.Random.Range(-offsetSpawn2Creature, offsetSpawn2Creature), 0.22f, curGround.transform.position.z + UnityEngine.Random.Range(-offsetSpawn2Creature, offsetSpawn2Creature));
+                    newMonster.transform.SetParent(curGround.transform);
+                    newMonster.GetComponent<EnemyBase>().myLevel = int.Parse(ground.Enemy2_Level);
+
+                }
+
+               
+
+
+
+
+
+
+
+
+
 
 
             });

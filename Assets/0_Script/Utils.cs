@@ -30,13 +30,15 @@ public class Utils : MonoBehaviour
 
     }
 
-    public void DelayCall(float dl, System.Action cd, GameObject ob = null)
+    public void DelayCall(float dl, System.Action cd)
     {
+
         StartCoroutine(DelayCallIE(cd, dl));
         IEnumerator DelayCallIE(System.Action cd2, float dl2)
         {
             yield return new WaitForSeconds(dl);
-            cd.Invoke();
+            if (cd != null)
+                cd.Invoke();
         }
     }
 
@@ -145,6 +147,43 @@ public class Utils : MonoBehaviour
 
     }
 
+    public List<GameObject> tileToRemove;
+    [Button]
+    public void RemoveGroundColliderFunc()
+    {
+        GameObject tileBlock = LevelDesign_BlockGround.ins.gameObject;
+        GameObject tileGround = GroundLoader.ins.gameObject;
+
+
+        foreach (Transform childBlock in tileBlock.transform)
+        {
+            var isFar = true;
+            foreach (Transform childGround in tileGround.transform)
+            {
+                if (Vector3.Distance(childBlock.position, childGround.position) < 7)
+                {
+                    tileToRemove.Add(childBlock.gameObject);
+                }
+
+                if (Vector3.Distance(childBlock.position, childGround.position) < 15)
+                {
+                    isFar = false;
+                }
+            }
+            if (isFar == true) tileToRemove.Add(childBlock.gameObject);
+        }
+        tileToRemove.ForEach(tile => { Destroy(tile); });
+
+
+
+        foreach (Transform childBlock1 in tileBlock.transform)
+        {
+            childBlock1.transform.position = new Vector3(childBlock1.transform.position.x, 0, childBlock1.transform.position.z);
+            Destroy(childBlock1.GetComponent<MeshRenderer>());
+            Destroy(childBlock1.GetComponent<MeshFilter>());
+        }
+
+    }
 
 
 }
@@ -175,6 +214,36 @@ public class RenameChildren : EditorWindow
             }
         }
     }
+
+
+
+
+
+    [MenuItem("Tools/Remove Ground Collider")]
+    public static void Run()
+    {
+        Utils.ins.RemoveGroundColliderFunc();
+    }
+
+
+
+
+
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #endif

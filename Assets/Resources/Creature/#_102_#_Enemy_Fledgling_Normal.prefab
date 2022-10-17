@@ -231,7 +231,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4020421537065821082
 Transform:
   m_ObjectHideFlags: 0
@@ -2153,7 +2153,7 @@ MonoBehaviour:
   groundToUnlock: {fileID: 0}
   isDie: 0
   _state: 0
-  _enemyMoveType: 0
+  _enemyMoveType: 1
   _curHP: 50
   _maxHP: 50
   curHPBar: {fileID: 4981483629487521197}

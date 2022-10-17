@@ -168,7 +168,7 @@ MonoBehaviour:
   groundToUnlock: {fileID: 0}
   isDie: 0
   _state: 0
-  _enemyMoveType: 0
+  _enemyMoveType: 1
   _curHP: 50
   _maxHP: 50
   curHPBar: {fileID: 4560662098841551280}
@@ -178,7 +178,6 @@ MonoBehaviour:
   muzzle: {fileID: 0}
   projectile: {fileID: 0}
   myData: {fileID: 11400000, guid: 44ea187d2662dc8448da94558559c84d, type: 2}
-  fled: {fileID: 11400000, guid: 75c459d1945e4914094ad8a6741330fd, type: 2}
 --- !u!1 &1746719893266144978
 GameObject:
   m_ObjectHideFlags: 0
@@ -694,7 +693,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5593500295229104007
 Transform:
   m_ObjectHideFlags: 0
