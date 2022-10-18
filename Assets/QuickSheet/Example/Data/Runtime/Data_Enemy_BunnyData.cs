@@ -13,6 +13,10 @@ public class Data_Enemy_BunnyData
   public string Level { get {return level; } set { this.level = value;} }
   
   [SerializeField]
+  string name;
+  public string Name { get {return name; } set { this.name = value;} }
+  
+  [SerializeField]
   string skin;
   public string Skin { get {return skin; } set { this.skin = value;} }
   
@@ -69,7 +73,7 @@ public class Data_Enemy_BunnyData
   public string Dropitemfirstonly { get {return dropitemfirstonly; } set { this.dropitemfirstonly = value;} }
   
   [SerializeField]
-  string exp;
-  public string Exp { get {return exp; } set { this.exp = value;} }
+  string chasedistance;
+  public string Chasedistance { get {return chasedistance; } set { this.chasedistance = value;} }
   
 }
