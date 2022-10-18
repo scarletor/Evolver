@@ -14466,18 +14466,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: '#_7_Ground_Green1'
       objectReference: {fileID: 0}
-    - target: {fileID: 1221612847383857533, guid: 6c5a0ecd787a8904db7826472bcd871a, type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1221612847383857533, guid: 6c5a0ecd787a8904db7826472bcd871a, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1221612847383857533, guid: 6c5a0ecd787a8904db7826472bcd871a, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
-      objectReference: {fileID: 0}
     - target: {fileID: 1999557299620680647, guid: 6c5a0ecd787a8904db7826472bcd871a, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -14521,26 +14509,6 @@ PrefabInstance:
     - target: {fileID: 1999557299620680647, guid: 6c5a0ecd787a8904db7826472bcd871a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4995720250154016622, guid: 6c5a0ecd787a8904db7826472bcd871a, type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 4995720250154016622, guid: 6c5a0ecd787a8904db7826472bcd871a, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
-      objectReference: {fileID: 0}
-    - target: {fileID: 8088329172200987803, guid: 6c5a0ecd787a8904db7826472bcd871a, type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8572997295127191948, guid: 6c5a0ecd787a8904db7826472bcd871a, type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 8572997295127191948, guid: 6c5a0ecd787a8904db7826472bcd871a, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c5a0ecd787a8904db7826472bcd871a, type: 3}
