@@ -34,7 +34,7 @@ MonoBehaviour:
   - groundname: '#_7_Ground_Green2'
     enemy1_name: '#_103_#_Enemy_MushRoom_Normal'
     enemy1_level: 1
-    enemy2_name: '#_101_#_Enemy_Bunny_Normal'
+    enemy2_name: '#_103_#_Enemy_MushRoom_Normal'
     enemy2_level: 1
     enemyrespawntime: 
     onetimedrop_itemname: 

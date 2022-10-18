@@ -15,10 +15,10 @@ public class ExpandGround : MonoBehaviour
 
     private void Start()
     {
-        Setup();
+        SetupSelf();
     }
 
-    public void Setup()
+    public void SetupSelf()
     {
         if (groundToExpand.Count != 0)
             baseScale = groundToExpand[0].transform.localScale;
@@ -26,6 +26,7 @@ public class ExpandGround : MonoBehaviour
         groundToExpand.ForEach(go =>
         {
             go.gameObject.SetActive(false);
+            go.gameObject.isStatic = false;
         });
 
         groundToExpand.ForEach(go =>
@@ -34,6 +35,9 @@ public class ExpandGround : MonoBehaviour
         });
 
         text.text = "" + goldToExpand;
+        gameObject.transform.Find("@_#_ExpandCollider").gameObject.layer = 13;
+
+
     }
 
 
@@ -62,8 +66,6 @@ public class ExpandGround : MonoBehaviour
 
 
         UIManager.ins.gold -= goldToExpand;
-        gameObject.SetActive(false);
-
     }
     Vector3 baseScale;
     public TextMeshPro text;

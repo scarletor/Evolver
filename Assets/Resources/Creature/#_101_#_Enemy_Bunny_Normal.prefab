@@ -63,7 +63,7 @@ Transform:
   - {fileID: 5490727289524761153}
   m_Father: {fileID: 2540607171982886958}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0.000114136965, y: -89.999596, z: -123.29154}
+  m_LocalEulerAnglesHint: {x: 3.3436563, y: -89.97722, z: -80.65416}
 --- !u!1 &1706199723787168314
 GameObject:
   m_ObjectHideFlags: 0
@@ -145,18 +145,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f14c9582f290474fa50e06fdedcdeb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseDamage: 3
-  moveSpeed: 2.5
+  baseDamage: 0
+  moveSpeed: 0
   attackSpeed: 0
-  myLevel: 1
+  myLevel: 0
   dropItemPref: {fileID: 0}
   dropItemName: 
   dropGoldMin: 0
   dropGoldMax: 0
   skillDamage: 0
   dropItemChance: 0
+  animSpeedMulti: 0
   exp: 0
-  attackRange: 2
+  attackRange: 0
   timeToSkillAttack: 0
   _target: {fileID: 0}
   posToMove: {fileID: 0}
@@ -169,8 +170,9 @@ MonoBehaviour:
   isDie: 0
   _state: 0
   _enemyMoveType: 1
-  _curHP: 50
-  _maxHP: 50
+  delayAttack: 0
+  _curHP: 0
+  _maxHP: 0
   curHPBar: {fileID: 4560662098841551280}
   targetList: []
   startPos: {x: 0, y: 0, z: 0}
@@ -334,7 +336,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2540607171982886958}
   - component: {fileID: 8476372734415491668}
-  - component: {fileID: 48030540}
   - component: {fileID: 892895642}
   m_Layer: 9
   m_Name: Model
@@ -381,25 +382,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &48030540
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2885079407845298836}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 658ffbcdddbdad649bd3075975300620, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  parent: {fileID: 0}
-  parentPet: {fileID: 0}
-  animName: 
-  enemy: {fileID: 378845882}
-  EnemySkeletonAttackSpecalParticle1: {fileID: 0}
-  EnemySkeletonAttackSpecalParticle2: {fileID: 0}
-  invisibleBullet: {fileID: 0}
 --- !u!114 &892895642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -618,7 +600,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6447343219282810757}
   m_LocalRotation: {x: 0.70641756, y: -0.031213425, z: 0.031213425, w: 0.70641756}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.03, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []

@@ -270,10 +270,20 @@ public class PlayerData : MonoBehaviour
         LoadData();
         GetAllEgg();
         GetAllPet();
+
     }
 
 
+    public int GetCurLevel()
+    {
+        if (PlayerPrefs.GetInt("Level") == 0) SetCurLevel(1);
+        return PlayerPrefs.GetInt("Level");
+    }
 
+    public void SetCurLevel(int level)
+    {
+        PlayerPrefs.SetInt("Level", level);
+    }
 
 
     public TextAsset petDataCSV;

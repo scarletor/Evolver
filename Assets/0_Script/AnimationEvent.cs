@@ -170,15 +170,27 @@ public class AnimationEvent : MonoBehaviour
     }
 
 
+    public void OnFinishAttackAnim()
+    {
+        if (enemy.attackRange > 2)
+        {
+            OnFinishAttackRange();
+        }
+        else
+        {
+            OnFinishAttackMelee();
+        }
 
 
-    public void OnFinishAttackMelee()
+    }
+
+    void OnFinishAttackMelee()
     {
         if (enemy != null) enemy.OnFinishAnimationEvent();
         if (enemy == null) parentPet.OnPetAttackMeleeAnimationEvent();
     }
 
-    public void OnFinishAttackRange()
+    void OnFinishAttackRange()
     {
         if (enemy != null) enemy.OnAttackRangeAnimationEvent();
         //if (enemy == null) parentPet.on();

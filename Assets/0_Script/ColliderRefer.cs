@@ -37,7 +37,7 @@ public class ColliderRefer : MonoBehaviour
 
 
 
-        if (gameObject.name.Contains("#GroundCheck")) //expand
+        if (gameObject.name.Contains("#_GroundCheck")) //expand
         {
             if (other.gameObject.name.Contains("#_ExpandCollider"))//expand
             {
@@ -128,7 +128,7 @@ public class ColliderRefer : MonoBehaviour
 
 
 
-        if (gameObject.name.Contains("#GroundCheck")) //expand
+        if (gameObject.name.Contains("#GroundCheck")) //unlock expand
         {
             if (other.gameObject.name.Contains("#_5_GroundObject_Dungeon"))//dungeon
             {

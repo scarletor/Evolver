@@ -21,6 +21,8 @@ MonoBehaviour:
     skilldamage: x
     castskilleverysecond: xx
     hp: x
+    attackrange: 
+    animspeedmulti: 
     attackspeed: x
     movespeed: x
     dropgoldmin: x
@@ -35,7 +37,9 @@ MonoBehaviour:
     skilldamage: 30
     castskilleverysecond: 13
     hp: 50
-    attackspeed: 1
+    attackrange: 6
+    animspeedmulti: 1
+    attackspeed: 3
     movespeed: 2.3
     dropgoldmin: 4
     dropgoldmax: 7
@@ -49,7 +53,9 @@ MonoBehaviour:
     skilldamage: 50
     castskilleverysecond: 15
     hp: 60
-    attackspeed: 1
+    attackrange: 6
+    animspeedmulti: 1
+    attackspeed: 3
     movespeed: 2.3
     dropgoldmin: 5
     dropgoldmax: 7
@@ -63,7 +69,9 @@ MonoBehaviour:
     skilldamage: 60
     castskilleverysecond: 16
     hp: 70
-    attackspeed: 1
+    attackrange: 6
+    animspeedmulti: 1
+    attackspeed: 3
     movespeed: 2.3
     dropgoldmin: 6
     dropgoldmax: 7
@@ -77,7 +85,9 @@ MonoBehaviour:
     skilldamage: 111
     castskilleverysecond: 20
     hp: 100
-    attackspeed: 1
+    attackrange: 6
+    animspeedmulti: 1
+    attackspeed: 3
     movespeed: 2.3
     dropgoldmin: 7
     dropgoldmax: 7
@@ -91,7 +101,9 @@ MonoBehaviour:
     skilldamage: 11
     castskilleverysecond: 30
     hp: 11
-    attackspeed: 1
+    attackrange: 6
+    animspeedmulti: 1
+    attackspeed: 3
     movespeed: 2.3
     dropgoldmin: 8
     dropgoldmax: 7
@@ -105,7 +117,9 @@ MonoBehaviour:
     skilldamage: 1
     castskilleverysecond: 40
     hp: 11
-    attackspeed: 1
+    attackrange: 6
+    animspeedmulti: 1
+    attackspeed: 3
     movespeed: 2.3
     dropgoldmin: 9
     dropgoldmax: 7
@@ -119,7 +133,9 @@ MonoBehaviour:
     skilldamage: 1
     castskilleverysecond: 50
     hp: 11
-    attackspeed: 1
+    attackrange: 6
+    animspeedmulti: 1
+    attackspeed: 3
     movespeed: 2.3
     dropgoldmin: 1
     dropgoldmax: 7
@@ -133,7 +149,9 @@ MonoBehaviour:
     skilldamage: 1
     castskilleverysecond: 60
     hp: 11
-    attackspeed: 1
+    attackrange: 6
+    animspeedmulti: 1
+    attackspeed: 3
     movespeed: 2.3
     dropgoldmin: 3
     dropgoldmax: 7
@@ -147,7 +165,9 @@ MonoBehaviour:
     skilldamage: 1
     castskilleverysecond: 70
     hp: 11
-    attackspeed: 1
+    attackrange: 6
+    animspeedmulti: 1
+    attackspeed: 3
     movespeed: 2.3
     dropgoldmin: 4
     dropgoldmax: 7

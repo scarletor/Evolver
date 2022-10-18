@@ -28,7 +28,7 @@ public class EnemyNormal : EnemyBase
             dropItemName = dataTemp.dataArray[myLevel].Dropitemname;
             try
             {
-                curHP = int.Parse(dataTemp.dataArray[myLevel].HP);
+                curHP = float.Parse(dataTemp.dataArray[myLevel].HP);
             }
             catch (Exception e)
             {
@@ -37,7 +37,7 @@ public class EnemyNormal : EnemyBase
             }
             try
             {
-                baseDamage = int.Parse(dataTemp.dataArray[myLevel].Normaldamage);
+                baseDamage = float.Parse(dataTemp.dataArray[myLevel].Normaldamage);
             }
             catch (Exception e)
             {
@@ -47,7 +47,7 @@ public class EnemyNormal : EnemyBase
 
             try
             {
-                skillDamage = int.Parse(dataTemp.dataArray[myLevel].Skilldamage);
+                skillDamage = float.Parse(dataTemp.dataArray[myLevel].Skilldamage);
             }
             catch (Exception e)
             {
@@ -58,7 +58,7 @@ public class EnemyNormal : EnemyBase
 
             try
             {
-                timeToSkillAttack = int.Parse(dataTemp.dataArray[myLevel].Castskilleverysecond);
+                timeToSkillAttack = float.Parse(dataTemp.dataArray[myLevel].Castskilleverysecond);
             }
             catch (Exception e)
             {
@@ -69,7 +69,7 @@ public class EnemyNormal : EnemyBase
 
             try
             {
-                attackSpeed = int.Parse(dataTemp.dataArray[myLevel].Attackspeed);
+                attackSpeed = float.Parse(dataTemp.dataArray[myLevel].Attackspeed);
             }
             catch (Exception e)
             {
@@ -81,7 +81,7 @@ public class EnemyNormal : EnemyBase
 
             try
             {
-                moveSpeed = int.Parse(dataTemp.dataArray[myLevel].Movespeed);
+                moveSpeed = float.Parse(dataTemp.dataArray[myLevel].Movespeed);
             }
             catch (Exception e)
             {
@@ -114,13 +114,35 @@ public class EnemyNormal : EnemyBase
 
             try
             {
-                dropItemChance = int.Parse(dataTemp.dataArray[myLevel].Dropitemchance);
+                dropItemChance = float.Parse(dataTemp.dataArray[myLevel].Dropitemchance);
             }
             catch (Exception e)
             {
                 Debug.LogError("ParseError: " + e);
                 dropItemChance = 1;
             }
+
+            try
+            {
+                attackRange = float.Parse(dataTemp.dataArray[myLevel].Attackrange);
+            }
+            catch (Exception e)
+            {
+                Debug.LogError("ParseError: " + e);
+                attackRange = 2;
+            }
+
+            try
+            {
+                animSpeedMulti = float.Parse(dataTemp.dataArray[myLevel].Animspeedmulti);
+            }
+            catch (Exception e)
+            {
+                Debug.LogError("ParseError: " + e);
+                animSpeedMulti = 1;
+            }
+
+
         }
         if (gameObject.name.Contains("Bunny"))
         {
@@ -128,7 +150,7 @@ public class EnemyNormal : EnemyBase
             dropItemName = dataTemp.dataArray[myLevel].Dropitemname;
             try
             {
-                curHP = int.Parse(dataTemp.dataArray[myLevel].HP);
+                curHP = float.Parse(dataTemp.dataArray[myLevel].HP);
             }
             catch (Exception e)
             {
@@ -137,7 +159,7 @@ public class EnemyNormal : EnemyBase
             }
             try
             {
-                baseDamage = int.Parse(dataTemp.dataArray[myLevel].Normaldamage);
+                baseDamage = float.Parse(dataTemp.dataArray[myLevel].Normaldamage);
             }
             catch (Exception e)
             {
@@ -147,7 +169,7 @@ public class EnemyNormal : EnemyBase
 
             try
             {
-                skillDamage = int.Parse(dataTemp.dataArray[myLevel].Skilldamage);
+                skillDamage = float.Parse(dataTemp.dataArray[myLevel].Skilldamage);
             }
             catch (Exception e)
             {
@@ -158,7 +180,7 @@ public class EnemyNormal : EnemyBase
 
             try
             {
-                timeToSkillAttack = int.Parse(dataTemp.dataArray[myLevel].Castskilleverysecond);
+                timeToSkillAttack = float.Parse(dataTemp.dataArray[myLevel].Castskilleverysecond);
             }
             catch (Exception e)
             {
@@ -169,7 +191,7 @@ public class EnemyNormal : EnemyBase
 
             try
             {
-                attackSpeed = int.Parse(dataTemp.dataArray[myLevel].Attackspeed);
+                attackSpeed = float.Parse(dataTemp.dataArray[myLevel].Attackspeed);
             }
             catch (Exception e)
             {
@@ -181,7 +203,7 @@ public class EnemyNormal : EnemyBase
 
             try
             {
-                moveSpeed = int.Parse(dataTemp.dataArray[myLevel].Movespeed);
+                moveSpeed = float.Parse(dataTemp.dataArray[myLevel].Movespeed);
             }
             catch (Exception e)
             {
@@ -214,21 +236,46 @@ public class EnemyNormal : EnemyBase
 
             try
             {
-                dropItemChance = int.Parse(dataTemp.dataArray[myLevel].Dropitemchance);
+                dropItemChance = float.Parse(dataTemp.dataArray[myLevel].Dropitemchance);
             }
             catch (Exception e)
             {
                 Debug.LogError("ParseError: " + e);
                 dropItemChance = 1;
             }
+
+
+            try
+            {
+                animSpeedMulti = float.Parse(dataTemp.dataArray[myLevel].Animspeedmulti);
+            }
+            catch (Exception e)
+            {
+                Debug.LogError("ParseError: " + e);
+                animSpeedMulti = 1;
+            }
+            try
+            {
+                attackRange = float.Parse(dataTemp.dataArray[myLevel].Attackrange);
+            }
+            catch (Exception e)
+            {
+                Debug.LogError("ParseError: " + e);
+                attackRange = 1;
+            }
+
+
         }
+            
+            
+            
         if (gameObject.name.Contains("MushRoom"))
         {
             var dataTemp = myData as Data_Enemy_MushRoom;
             dropItemName = dataTemp.dataArray[myLevel].Dropitemname;
             try
             {
-                curHP = int.Parse(dataTemp.dataArray[myLevel].HP);
+                curHP = float.Parse(dataTemp.dataArray[myLevel].HP);
             }
             catch (Exception e)
             {
@@ -237,7 +284,7 @@ public class EnemyNormal : EnemyBase
             }
             try
             {
-                baseDamage = int.Parse(dataTemp.dataArray[myLevel].Normaldamage);
+                baseDamage = float.Parse(dataTemp.dataArray[myLevel].Normaldamage);
             }
             catch (Exception e)
             {
@@ -247,7 +294,7 @@ public class EnemyNormal : EnemyBase
 
             try
             {
-                skillDamage = int.Parse(dataTemp.dataArray[myLevel].Skilldamage);
+                skillDamage = float.Parse(dataTemp.dataArray[myLevel].Skilldamage);
             }
             catch (Exception e)
             {
@@ -258,7 +305,7 @@ public class EnemyNormal : EnemyBase
 
             try
             {
-                timeToSkillAttack = int.Parse(dataTemp.dataArray[myLevel].Castskilleverysecond);
+                timeToSkillAttack = float.Parse(dataTemp.dataArray[myLevel].Castskilleverysecond);
             }
             catch (Exception e)
             {
@@ -269,7 +316,7 @@ public class EnemyNormal : EnemyBase
 
             try
             {
-                attackSpeed = int.Parse(dataTemp.dataArray[myLevel].Attackspeed);
+                attackSpeed = float.Parse(dataTemp.dataArray[myLevel].Attackspeed);
             }
             catch (Exception e)
             {
@@ -281,7 +328,7 @@ public class EnemyNormal : EnemyBase
 
             try
             {
-                moveSpeed = int.Parse(dataTemp.dataArray[myLevel].Movespeed);
+                moveSpeed = float.Parse(dataTemp.dataArray[myLevel].Movespeed);
             }
             catch (Exception e)
             {
@@ -321,6 +368,32 @@ public class EnemyNormal : EnemyBase
                 Debug.LogError("ParseError: " + e);
                 dropItemChance = 1;
             }
+
+            try
+            {
+                attackRange = float.Parse(dataTemp.dataArray[myLevel].Attackrange);
+            }
+            catch (Exception e)
+            {
+                Debug.LogError("ParseError: " + e);
+                attackRange = 2;
+            }
+
+
+
+
+            try
+            {
+                animSpeedMulti = float.Parse(dataTemp.dataArray[myLevel].Animspeedmulti);
+            }
+            catch (Exception e)
+            {
+                Debug.LogError("ParseError: " + e);
+                animSpeedMulti = 1;
+            }
+
+
+
         }
 
 
