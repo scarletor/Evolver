@@ -10,7 +10,7 @@ using UnityEditor;
 public class Utils : MonoBehaviour
 {
     public static Utils ins;
-    public GameObject gold;
+    public GameObject gold, goldGr;
     public TextFloatingEff textEffRed, textEffWhite;
     public GameObject yellowBullet, yellowMuzzle, yellowImpact;
     float timeHatch = 3600;
@@ -119,17 +119,32 @@ public class Utils : MonoBehaviour
     }
 
 
-
-
+    public int off1, off2;
+    public float off3;
+    [Button]
     public void SpawnGold(GameObject spawnPos)
     {
-        var rd = UnityEngine.Random.Range(4, 8);
-        for (int i = 0; i < rd; i++)
-        {
-            var offset = UnityEngine.Random.Range(-1.5f, 1.5f);
-            var newGold = Instantiate(gold);
-            newGold.transform.position = new Vector3(spawnPos.transform.position.x + offset, spawnPos.transform.position.y + offset, spawnPos.transform.position.z + offset);
 
+        StartCoroutine(Run());
+        IEnumerator Run()
+        {
+
+            var rd = UnityEngine.Random.Range(4, 8);
+            for (int i = 0; i < rd; i++)
+            {
+                yield return new WaitForSeconds(.03f);
+                var offset = UnityEngine.Random.Range(-1.5f, 1.5f);
+                var offset2 = UnityEngine.Random.Range(-1.5f, 1.5f);
+                var newGold = Instantiate(gold);
+                newGold.transform.position = spawnPos.transform.position;
+
+                newGold.transform.DOLocalJump(new Vector3(spawnPos.transform.position.x + offset, 5, spawnPos.transform.position.z + offset2), off1, off2, off3).SetEase(Ease.OutQuart);
+
+                //newGold.transform.position = spawnPos.transform.position;
+
+
+
+            }
         }
     }
 

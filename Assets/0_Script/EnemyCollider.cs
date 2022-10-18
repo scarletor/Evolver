@@ -13,7 +13,6 @@ public class EnemyCollider : MonoBehaviour
         {
             Debug.LogError("PLAYER TOUCH ME");
             enemy.FoundPlayer();
-            enemy._target = other.gameObject.transform.root.gameObject;
         }
     }
 

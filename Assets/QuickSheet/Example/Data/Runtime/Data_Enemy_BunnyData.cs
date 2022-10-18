@@ -33,6 +33,14 @@ public class Data_Enemy_BunnyData
   public string HP { get {return hp; } set { this.hp = value;} }
   
   [SerializeField]
+  string attackrange;
+  public string Attackrange { get {return attackrange; } set { this.attackrange = value;} }
+  
+  [SerializeField]
+  string animspeedmulti;
+  public string Animspeedmulti { get {return animspeedmulti; } set { this.animspeedmulti = value;} }
+  
+  [SerializeField]
   string attackspeed;
   public string Attackspeed { get {return attackspeed; } set { this.attackspeed = value;} }
   

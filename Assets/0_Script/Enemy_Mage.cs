@@ -8,7 +8,6 @@ public class Enemy_Mage : EnemyBase
 {
 
     public Data_Enemy_Mage myData;
-    public GameObject muzzle, projectile;
 
 
      
@@ -247,7 +246,6 @@ public class Enemy_Mage : EnemyBase
 
 
     [GUIColor(1, 1, 0, 1f)]//yellow
-    public float attackRange = 4;
     public float  timeSpecialAttack2;
     public void MoveToPlayerAndAttackRange()
     {
@@ -293,17 +291,17 @@ public class Enemy_Mage : EnemyBase
 
     [GUIColor(1, 1, 0, 1f)]//yellow
 
-    public GameObject muzzlePos;
+    public GameObject muzzlePosMage;
     public void OnAttackNormalAnimationEvent()
     {
         var newMuzzle = Instantiate(muzzle);
-        newMuzzle.transform.position = muzzlePos.transform.position;
-        newMuzzle.transform.rotation = muzzlePos.transform.rotation;
+        newMuzzle.transform.position = muzzlePosMage.transform.position;
+        newMuzzle.transform.rotation = muzzlePosMage.transform.rotation;
 
 
         var newProjectile = Instantiate(projectile);
-        newProjectile.transform.position = muzzlePos.transform.position;
-        newProjectile.transform.rotation = muzzlePos.transform.rotation;
+        newProjectile.transform.position = muzzlePosMage.transform.position;
+        newProjectile.transform.rotation = muzzlePosMage.transform.rotation;
     }
 
 
@@ -318,8 +316,8 @@ public class Enemy_Mage : EnemyBase
     public void OnAttackChargeAnimationEvent1()
     {
         _frostCharge = Instantiate(frostCharge);
-        _frostCharge.transform.position = muzzlePos.transform.position;
-        _frostCharge.transform.rotation = muzzlePos.transform.rotation;
+        _frostCharge.transform.position = muzzlePosMage.transform.position;
+        _frostCharge.transform.rotation = muzzlePosMage.transform.rotation;
     }
 
     public void OnAttackChargeAnimationEvent2()

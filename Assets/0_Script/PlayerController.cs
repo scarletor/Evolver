@@ -7,7 +7,8 @@ using System;
 public class PlayerController : CreatureBase
 {
 
-
+    public int level;
+    public float totalDamage,randomDamage,animSpeed,attackRange;
     [SerializeField]
     public static PlayerController ins;
     private void Awake()
@@ -31,8 +32,23 @@ public class PlayerController : CreatureBase
         var id = PlayerData.ins.GetCurSet();
         ChangeWeapons(id);
         _characterController.detectCollisions = false;
+        SetupDataScriptableObject();
     }
 
+
+    public Data_Player _data;
+    public void SetupDataScriptableObject()
+    {
+        var curLv = PlayerData.ins.GetCurLevel();
+        _curHP =float.Parse(_data.dataArray[curLv].HP);
+        _maxHP = float.Parse(_data.dataArray[curLv].HP);
+        moveSpeed = float.Parse(_data.dataArray[curLv].Movespeed);
+        baseDamage = float.Parse(_data.dataArray[curLv].Basedamage);
+        randomDamage = float.Parse(_data.dataArray[curLv].Randomdamage);
+        attackSpeed = float.Parse(_data.dataArray[curLv].Attackspeed);
+        attackRange = float.Parse(_data.dataArray[curLv].Attackrange);
+        animSpeed = float.Parse(_data.dataArray[curLv].Animspeed);
+    }
 
 
 
@@ -41,10 +57,11 @@ public class PlayerController : CreatureBase
     private void FixedUpdate()
     {
         //MoveByJoyStick();
-        ListenInput();
+        //ListenInput();
     }
     private void Update()
     {
+        delayAttack += Time.deltaTime;
         MoveByPlayerController();
     }
 
@@ -189,7 +206,7 @@ public class PlayerController : CreatureBase
 
     }
 
-
+    public float delayAttack;
     [Button]
     public void SetState(playerStateEnum state, GameObject target = null)
     {
@@ -210,6 +227,8 @@ public class PlayerController : CreatureBase
 
                 break;
             case playerStateEnum.attackRange:
+
+
                 if (target == null) return;
                 _targetRange = target;
                 if (_targetRange.transform.GetComponent<EnemyBase>().isDie)
@@ -218,11 +237,23 @@ public class PlayerController : CreatureBase
                     return;
                 }
 
-                FaceToTarget(_targetRange);
-                _anim.SetBool("Move", false);
-                _anim.SetBool("Idle", false);
-                _anim.SetBool("AttackRange", true);
-                arrowRange.gameObject.SetActive(true);
+
+                if (delayAttack > attackSpeed)
+                {
+                    FaceToTarget(_targetRange);
+                    _anim.SetBool("Move", false);
+                    _anim.SetBool("Idle", false);
+                    _anim.SetBool("AttackRange", true);
+                    arrowRange.gameObject.SetActive(true);
+                    delayAttack = 0;
+                }
+                else
+                {
+                    FaceToTarget(_targetRange);
+                    _anim.SetBool("Move", false);
+                    _anim.SetBool("Idle", true);
+                    _anim.SetBool("AttackRange", false);
+                }
 
 
 

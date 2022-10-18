@@ -91,6 +91,7 @@ MonoBehaviour:
   dropGoldMax: 0
   skillDamage: 0
   dropItemChance: 0
+  animSpeedMulti: 0
   exp: 0
   attackRange: 6
   timeToSkillAttack: 0
@@ -105,6 +106,7 @@ MonoBehaviour:
   isDie: 0
   _state: 0
   _enemyMoveType: 1
+  delayAttack: 0
   _curHP: 50
   _maxHP: 50
   curHPBar: {fileID: 4553711789555179887}
@@ -366,7 +368,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6413445563481077594}
   m_LocalRotation: {x: 0.70641756, y: -0.031213425, z: 0.031213425, w: 0.70641756}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.03, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []

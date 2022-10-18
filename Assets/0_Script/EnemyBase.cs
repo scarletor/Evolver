@@ -11,7 +11,7 @@ public class EnemyBase : CreatureBase
     public GameObject dropItemPref;
     public string dropItemName;
     public int dropGoldMin, dropGoldMax;
-    public float skillDamage, dropItemChance;
+    public float skillDamage, dropItemChance, animSpeedMulti;
     public int exp;
     // Start is called before the first frame update
 
@@ -53,6 +53,7 @@ public class EnemyBase : CreatureBase
 
     public void FixedUpdate()
     {
+        delayAttack += Time.deltaTime;
         MoveToPlayerAndAttack();
     }
 
@@ -201,13 +202,7 @@ public class EnemyBase : CreatureBase
 
                 break;
             case EnemyState.Attack:
-                _anim.SetBool("AttackMelee", true);
-                _anim.SetBool("AttackRange", true);
-                _anim.SetBool(IdleStr, false);
-                _anim.SetBool("Move", false);
-                _anim.SetBool("TakeDamage", false);
-                _anim.SetBool("SpecialAttack", false);
-
+                TriggerAttack();
                 break;
             case EnemyState.MoveToPlayer:
                 _anim.SetBool("AttackMelee", false);
@@ -261,13 +256,19 @@ public class EnemyBase : CreatureBase
     }
 
     public EnemyMoveType _enemyMoveType;
+    [Button]
     public void FoundPlayer()
     {
+        if (targetList.Count != 0) return;
         _anim.CrossFade("Move", .1f);
         _target = PlayerController.ins.gameObject;
         _enemyMoveType = EnemyMoveType.foundPlayer;
         movingTween.Kill();
+
+
     }
+
+
     Tween movingTween;
     Vector3 tempLookAt;
     public void MoveToPosition(Vector3 pos, Action cb = null)
@@ -307,8 +308,39 @@ public class EnemyBase : CreatureBase
 
 
 
+    public float delayAttack;
+    [Button]
+    public void TriggerAttack()
+    {
+        if (delayAttack > attackSpeed)
+        {
+            _anim.SetFloat("AnimSpeedMulti", animSpeedMulti);
 
 
+            _anim.SetBool("AttackMelee", true);
+            _anim.SetBool("AttackRange", true);
+            _anim.SetBool(IdleStr, false);
+            _anim.SetBool("Move", false);
+            _anim.SetBool("TakeDamage", false);
+            _anim.SetBool("SpecialAttack", false);
+            delayAttack = 0;
+        }
+        else
+        {
+            _anim.SetBool("AttackMelee", false);
+            _anim.SetBool("AttackRange", false);
+            _anim.SetBool(IdleStr, true);
+            _anim.SetBool("Move", false);
+            _anim.SetBool("TakeDamage", false);
+            _anim.SetBool("SpecialAttack", false);
+        }
+
+
+
+
+
+
+    }
 
 
 
@@ -344,7 +376,7 @@ public class EnemyBase : CreatureBase
         }
 
         var scale = -100f;
-        if (curHP != 0) scale = _curHP / _maxHP;
+        if (curHP != 0 && _maxHP != 0) scale = _curHP / _maxHP;
 
         curHPBar.transform.parent.GetComponent<HPBar>().hpText.text = "" + curHP;
         curHPBar.transform.localScale = new Vector3(scale, curHPBar.transform.localScale.y, curHPBar.transform.localScale.z);
@@ -471,6 +503,10 @@ public class EnemyBase : CreatureBase
         newProjectile.transform.position = muzzlePos.transform.position;
         newProjectile.transform.rotation = muzzlePos.transform.rotation;
     }
+
+
+
+
 
 
 

@@ -20,10 +20,7 @@ public class Data_Enemy_Fledgling : ScriptableObject
     
     // Note: initialize in OnEnable() not here.
     public Data_Enemy_FledglingData[] dataArray;
-
-
     
-
     void OnEnable()
     {		
 //#if UNITY_EDITOR
