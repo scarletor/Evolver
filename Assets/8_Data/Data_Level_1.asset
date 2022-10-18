@@ -56,58 +56,58 @@ MonoBehaviour:
     onetimedrop_itemname: 
     hasregen: 
   - groundname: '#_7_Ground_Green5'
-    enemy1_name: '#_103_#_Enemy_MushRoom_Normal'
-    enemy1_level: 1
-    enemy2_name: '#_101_#_Enemy_Bunny_Normal'
-    enemy2_level: 5
+    enemy1_name: 
+    enemy1_level: 
+    enemy2_name: 
+    enemy2_level: 
     enemyrespawntime: 
     onetimedrop_itemname: 
     hasregen: 
   - groundname: '#_7_Ground_Green6'
-    enemy1_name: '#_101_#_Enemy_Bunny_Normal'
-    enemy1_level: 1
-    enemy2_name: '#_103_#_Enemy_MushRoom_Normal'
-    enemy2_level: 1
+    enemy1_name: 
+    enemy1_level: 
+    enemy2_name: 
+    enemy2_level: 
     enemyrespawntime: 
     onetimedrop_itemname: 
     hasregen: 
   - groundname: '#_7_Ground_Green7'
-    enemy1_name: '#_102_#_Enemy_Fledgling_Normal'
-    enemy1_level: 4
-    enemy2_name: '#_102_#_Enemy_Fledgling_Normal'
-    enemy2_level: 1
+    enemy1_name: 
+    enemy1_level: 
+    enemy2_name: 
+    enemy2_level: 
     enemyrespawntime: 
     onetimedrop_itemname: 
     hasregen: 
   - groundname: '#_7_Ground_Green8'
-    enemy1_name: '#_103_#_Enemy_MushRoom_Normal'
-    enemy1_level: 5
-    enemy2_name: '#_101_#_Enemy_Bunny_Normal'
-    enemy2_level: 5
+    enemy1_name: 
+    enemy1_level: 
+    enemy2_name: 
+    enemy2_level: 
     enemyrespawntime: 
     onetimedrop_itemname: 
     hasregen: 
   - groundname: '#_7_Ground_Green9'
-    enemy1_name: '#_101_#_Enemy_Bunny_Normal'
-    enemy1_level: 3
-    enemy2_name: '#_103_#_Enemy_MushRoom_Normal'
-    enemy2_level: 3
+    enemy1_name: 
+    enemy1_level: 
+    enemy2_name: 
+    enemy2_level: 
     enemyrespawntime: 
     onetimedrop_itemname: 
     hasregen: 
   - groundname: '#_7_Ground_Green10'
-    enemy1_name: '#_102_#_Enemy_Fledgling_Normal'
-    enemy1_level: 4
-    enemy2_name: '#_102_#_Enemy_Fledgling_Normal'
-    enemy2_level: 4
+    enemy1_name: 
+    enemy1_level: 
+    enemy2_name: 
+    enemy2_level: 
     enemyrespawntime: 
     onetimedrop_itemname: 
     hasregen: 
   - groundname: '#_7_Ground_Green11'
-    enemy1_name: '#_103_#_Enemy_MushRoom_Normal'
-    enemy1_level: 5
-    enemy2_name: '#_101_#_Enemy_Bunny_Normal'
-    enemy2_level: 5
+    enemy1_name: 
+    enemy1_level: 
+    enemy2_name: 
+    enemy2_level: 
     enemyrespawntime: 
     onetimedrop_itemname: 
     hasregen: 
