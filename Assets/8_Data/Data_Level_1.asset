@@ -15,107 +15,115 @@ MonoBehaviour:
   SheetName: Assets/8_Data/2_LevelData.xlsx
   WorksheetName: Data_Level_1
   dataArray:
-  - groundname: '#_7_Ground_Green0'
+  - groundname: Level_1_Ground_0
+    enemy1_name: 
+    enemy1_level: 1
+    enemy2_name: 
+    enemy2_level: 1
+    enemyrespawntime: 6
+    onetimedrop_itemname: ItemConsumable_EggFire
+    hasregen: 0
+  - groundname: Level_1_Ground_1
+    enemy1_name: '#_101_#_Enemy_Bunny_Normal'
+    enemy1_level: 1
+    enemy2_name: 
+    enemy2_level: 
+    enemyrespawntime: 6
+    onetimedrop_itemname: 
+    hasregen: 
+  - groundname: Level_1_Ground_10
     enemy1_name: 
     enemy1_level: 
     enemy2_name: 
     enemy2_level: 
     enemyrespawntime: 6
-    onetimedrop_itemname: ItemConsumable_EggFire
-    hasregen: 0
-  - groundname: '#_7_Ground_Green1'
+    onetimedrop_itemname: 
+    hasregen: 
+  - groundname: Level_1_Ground_11
     enemy1_name: 
     enemy1_level: 
     enemy2_name: 
     enemy2_level: 
-    enemyrespawntime: 
+    enemyrespawntime: 6
     onetimedrop_itemname: 
     hasregen: 
-  - groundname: '#_7_Ground_Green2'
-    enemy1_name: '#_103_#_Enemy_MushRoom_Normal'
-    enemy1_level: 1
-    enemy2_name: '#_103_#_Enemy_MushRoom_Normal'
-    enemy2_level: 1
-    enemyrespawntime: 
-    onetimedrop_itemname: 
-    hasregen: 
-  - groundname: '#_7_Ground_Green3'
-    enemy1_name: '#_101_#_Enemy_Bunny_Normal'
-    enemy1_level: 1
-    enemy2_name: '#_103_#_Enemy_MushRoom_Normal'
-    enemy2_level: 1
-    enemyrespawntime: 
-    onetimedrop_itemname: 
-    hasregen: 
-  - groundname: '#_7_Ground_Green4'
-    enemy1_name: '#_102_#_Enemy_Fledgling_Normal'
-    enemy1_level: 1
-    enemy2_name: '#_102_#_Enemy_Fledgling_Normal'
-    enemy2_level: 1
-    enemyrespawntime: 
-    onetimedrop_itemname: 
-    hasregen: 
-  - groundname: '#_7_Ground_Green5'
+  - groundname: Level_1_Ground_12
     enemy1_name: 
     enemy1_level: 
     enemy2_name: 
     enemy2_level: 
-    enemyrespawntime: 
+    enemyrespawntime: 6
     onetimedrop_itemname: 
     hasregen: 
-  - groundname: '#_7_Ground_Green6'
+  - groundname: Level_1_Ground_13
     enemy1_name: 
     enemy1_level: 
     enemy2_name: 
     enemy2_level: 
-    enemyrespawntime: 
+    enemyrespawntime: 6
     onetimedrop_itemname: 
     hasregen: 
-  - groundname: '#_7_Ground_Green7'
+  - groundname: Level_1_Ground_19
     enemy1_name: 
     enemy1_level: 
     enemy2_name: 
     enemy2_level: 
-    enemyrespawntime: 
+    enemyrespawntime: 6
     onetimedrop_itemname: 
     hasregen: 
-  - groundname: '#_7_Ground_Green8'
+  - groundname: Level_1_Ground_14
     enemy1_name: 
     enemy1_level: 
     enemy2_name: 
     enemy2_level: 
-    enemyrespawntime: 
+    enemyrespawntime: 6
     onetimedrop_itemname: 
     hasregen: 
-  - groundname: '#_7_Ground_Green9'
+  - groundname: Level_1_Ground_9
     enemy1_name: 
     enemy1_level: 
     enemy2_name: 
     enemy2_level: 
-    enemyrespawntime: 
+    enemyrespawntime: 6
     onetimedrop_itemname: 
     hasregen: 
-  - groundname: '#_7_Ground_Green10'
+  - groundname: Level_1_Ground_15
     enemy1_name: 
     enemy1_level: 
     enemy2_name: 
     enemy2_level: 
-    enemyrespawntime: 
+    enemyrespawntime: 6
     onetimedrop_itemname: 
     hasregen: 
-  - groundname: '#_7_Ground_Green11'
+  - groundname: Level_1_Ground_3
     enemy1_name: 
     enemy1_level: 
     enemy2_name: 
     enemy2_level: 
-    enemyrespawntime: 
+    enemyrespawntime: 6
     onetimedrop_itemname: 
     hasregen: 
-  - groundname: '#_7_Ground_Green12'
+  - groundname: Level_1_Ground_4
     enemy1_name: 
     enemy1_level: 
     enemy2_name: 
     enemy2_level: 
-    enemyrespawntime: 
+    enemyrespawntime: 6
+    onetimedrop_itemname: 
+    hasregen: 
+  - groundname: Level_1_Ground_5
+    enemy1_name: 
+    enemy1_level: 
+    enemy2_name: 
+    enemy2_level: 
+    enemyrespawntime: 6
+    onetimedrop_itemname: 
+    hasregen: 
+  - groundname: Level_1_Ground_6
+    enemy1_name: 
+    enemy1_level: 
+    enemy2_name: 
+    enemy2_level: 
+    enemyrespawntime: 6
     onetimedrop_itemname: 
     hasregen: 

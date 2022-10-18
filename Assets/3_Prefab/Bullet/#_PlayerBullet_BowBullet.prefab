@@ -46,7 +46,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.15
+  m_Radius: 0.41
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &6038503049842770682
 Rigidbody:
@@ -79,7 +79,8 @@ MonoBehaviour:
   speed: 12
   damage: 12
   impactParticle: {fileID: 0}
-  textEff: {fileID: 1446896413864019894, guid: f1c6884aee0e35c418545ddff3e74645, type: 3}
+  owner: {fileID: 0}
+  lifeTime: 0
 --- !u!1001 &8635998398187837946
 PrefabInstance:
   m_ObjectHideFlags: 0

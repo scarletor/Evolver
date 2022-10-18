@@ -15,11 +15,31 @@ MonoBehaviour:
   templatePath: QuickSheet/ExcelPlugin/Templates
   scriptFilePath: QuickSheet/Example/Data/Runtime
   editorScriptFilePath: QuickSheet/Example/Data/Editor
-  sheetName: 0_PlayerData.xlsx
-  workSheetName: Data_Player
+  sheetName: 1_EnemyData.xlsx
+  workSheetName: Data_Enemy_Bunny
   columnHeaderList:
   - type: 0
     name: Level
+    isEnable: 0
+    isArray: 0
+  - type: 0
+    name: Name
+    isEnable: 0
+    isArray: 0
+  - type: 0
+    name: Skin
+    isEnable: 0
+    isArray: 0
+  - type: 0
+    name: NormalDamage
+    isEnable: 0
+    isArray: 0
+  - type: 0
+    name: SkillDamage
+    isEnable: 0
+    isArray: 0
+  - type: 0
+    name: CastSkillEverySecond
     isEnable: 0
     isArray: 0
   - type: 0
@@ -27,15 +47,11 @@ MonoBehaviour:
     isEnable: 0
     isArray: 0
   - type: 0
-    name: BaseDamage
+    name: AttackRange
     isEnable: 0
     isArray: 0
   - type: 0
-    name: RandomDamage
-    isEnable: 0
-    isArray: 0
-  - type: 0
-    name: AnimSpeed
+    name: AnimSpeedMulti
     isEnable: 0
     isArray: 0
   - type: 0
@@ -43,18 +59,45 @@ MonoBehaviour:
     isEnable: 0
     isArray: 0
   - type: 0
-    name: AttackRange
-    isEnable: 0
-    isArray: 0
-  - type: 0
     name: MoveSpeed
     isEnable: 0
     isArray: 0
   - type: 0
-    name: UpgradePrice
+    name: DropGoldMin
     isEnable: 0
     isArray: 0
-  excelFilePath: Assets/8_Data/0_PlayerData.xlsx
+  - type: 0
+    name: DropGoldMax
+    isEnable: 0
+    isArray: 0
+  - type: 0
+    name: DropItemName
+    isEnable: 0
+    isArray: 0
+  - type: 0
+    name: DropItemChance
+    isEnable: 0
+    isArray: 0
+  - type: 0
+    name: DropItemFirstOnly
+    isEnable: 0
+    isArray: 0
+  - type: 0
+    name: ChaseDistance
+    isEnable: 0
+    isArray: 0
+  excelFilePath: Assets/8_Data/1_EnemyData.xlsx
   SheetNames:
-  - Data_Player
+  - Data_Enemy_Bunny
+  - Data_Enemy_Rabbit
+  - Data_Enemy_WolfPup
+  - Data_Enemy_WolfCute
+  - Data_Enemy_CatMeow
+  - Data_Enemy_CatLightning
+  - Data_Enemy_Seed
+  - Data_Enemy_Sprout
+  - Data_Enemy_Fungi
+  - Data_Enemy_Mushroom
+  - Data_Enemy_Cacti
+  - Data_Enemy_CactusCute
   currentSelectedSheet: 0

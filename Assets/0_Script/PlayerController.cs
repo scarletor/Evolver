@@ -40,6 +40,9 @@ public class PlayerController : CreatureBase
     public void SetupDataScriptableObject()
     {
         var curLv = PlayerData.ins.GetCurLevel();
+		level=curLv;
+		
+		
         _curHP =float.Parse(_data.dataArray[curLv].HP);
         _maxHP = float.Parse(_data.dataArray[curLv].HP);
         moveSpeed = float.Parse(_data.dataArray[curLv].Movespeed);

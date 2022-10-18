@@ -16,6 +16,7 @@ MonoBehaviour:
   WorksheetName: Data_Enemy_Bunny
   dataArray:
   - level: 0
+    name: Bunny
     skin: xx
     normaldamage: xx
     skilldamage: x
@@ -30,148 +31,174 @@ MonoBehaviour:
     dropitemname: x
     dropitemchance: x
     dropitemfirstonly: x
-    exp: x
+    chasedistance: x
   - level: 1
+    name: Bunny
     skin: 1
-    normaldamage: 10
-    skilldamage: 30
-    castskilleverysecond: 13
-    hp: 50
-    attackrange: 2
-    animspeedmulti: 1
-    attackspeed: 1
-    movespeed: 2
-    dropgoldmin: 4
-    dropgoldmax: 7
-    dropitemname: ItemDrop_Chest_Silver
-    dropitemchance: 7
-    dropitemfirstonly: 1
-    exp: 
-  - level: 2
-    skin: 1
-    normaldamage: 15
-    skilldamage: 50
-    castskilleverysecond: 15
-    hp: 60
-    attackrange: 2
-    animspeedmulti: 1
-    attackspeed: 1
-    movespeed: 2
-    dropgoldmin: 5
-    dropgoldmax: 7
-    dropitemname: 
-    dropitemchance: 7
-    dropitemfirstonly: 1
-    exp: 
-  - level: 3
-    skin: 1
-    normaldamage: 20
-    skilldamage: 60
-    castskilleverysecond: 16
-    hp: 70
-    attackrange: 2
-    animspeedmulti: 1
-    attackspeed: 1
-    movespeed: 2
-    dropgoldmin: 6
-    dropgoldmax: 7
-    dropitemname: 
-    dropitemchance: 7
-    dropitemfirstonly: 1
-    exp: 
-  - level: 4
-    skin: 2
-    normaldamage: 25
-    skilldamage: 111
-    castskilleverysecond: 20
-    hp: 100
-    attackrange: 2
-    animspeedmulti: 1
-    attackspeed: 1
-    movespeed: 2
-    dropgoldmin: 7
-    dropgoldmax: 7
-    dropitemname: 
-    dropitemchance: 7
-    dropitemfirstonly: 1
-    exp: 
-  - level: 5
-    skin: 2
-    normaldamage: 30
-    skilldamage: 11
-    castskilleverysecond: 30
-    hp: 11
-    attackrange: 2
-    animspeedmulti: 1
-    attackspeed: 1
-    movespeed: 2
-    dropgoldmin: 8
-    dropgoldmax: 7
-    dropitemname: 
-    dropitemchance: 7
-    dropitemfirstonly: 1
-    exp: 
-  - level: 6
-    skin: 2
-    normaldamage: 35
-    skilldamage: 1
-    castskilleverysecond: 40
-    hp: 11
-    attackrange: 2
-    animspeedmulti: 1
-    attackspeed: 1
-    movespeed: 2
-    dropgoldmin: 9
-    dropgoldmax: 7
-    dropitemname: 
-    dropitemchance: 7
-    dropitemfirstonly: 1
-    exp: 
-  - level: 7
-    skin: 3
     normaldamage: 40
-    skilldamage: 1
-    castskilleverysecond: 50
-    hp: 11
+    skilldamage: 0
+    castskilleverysecond: 0
+    hp: 200
     attackrange: 2
     animspeedmulti: 1
-    attackspeed: 1
-    movespeed: 2
+    attackspeed: 2
+    movespeed: 3.5
     dropgoldmin: 1
-    dropgoldmax: 7
-    dropitemname: 
-    dropitemchance: 7
+    dropgoldmax: 
+    dropitemname: 1
+    dropitemchance: 5
     dropitemfirstonly: 1
-    exp: 
+    chasedistance: 
+  - level: 2
+    name: Bunny
+    skin: 1
+    normaldamage: 
+    skilldamage: 0
+    castskilleverysecond: 0
+    hp: 
+    attackrange: 2
+    animspeedmulti: 1
+    attackspeed: 
+    movespeed: 3.5
+    dropgoldmin: 
+    dropgoldmax: 
+    dropitemname: 1
+    dropitemchance: 5
+    dropitemfirstonly: 1
+    chasedistance: 
+  - level: 3
+    name: Bunny
+    skin: 1
+    normaldamage: 
+    skilldamage: 0
+    castskilleverysecond: 0
+    hp: 
+    attackrange: 2
+    animspeedmulti: 1
+    attackspeed: 
+    movespeed: 3.5
+    dropgoldmin: 
+    dropgoldmax: 
+    dropitemname: 11
+    dropitemchance: 5
+    dropitemfirstonly: 1
+    chasedistance: 
+  - level: 4
+    name: Bunny
+    skin: 1
+    normaldamage: 
+    skilldamage: 0
+    castskilleverysecond: 0
+    hp: 
+    attackrange: 2
+    animspeedmulti: 1
+    attackspeed: 
+    movespeed: 3.5
+    dropgoldmin: 
+    dropgoldmax: 
+    dropitemname: 1
+    dropitemchance: 5
+    dropitemfirstonly: 1
+    chasedistance: 
+  - level: 5
+    name: Bunny
+    skin: 1
+    normaldamage: 
+    skilldamage: 0
+    castskilleverysecond: 0
+    hp: 
+    attackrange: 2
+    animspeedmulti: 1
+    attackspeed: 
+    movespeed: 3.5
+    dropgoldmin: 
+    dropgoldmax: 
+    dropitemname: 1
+    dropitemchance: 5
+    dropitemfirstonly: 1
+    chasedistance: 
+  - level: 6
+    name: Bunny
+    skin: 1
+    normaldamage: 
+    skilldamage: 0
+    castskilleverysecond: 0
+    hp: 
+    attackrange: 2
+    animspeedmulti: 1
+    attackspeed: 
+    movespeed: 3.5
+    dropgoldmin: 
+    dropgoldmax: 
+    dropitemname: 1
+    dropitemchance: 5
+    dropitemfirstonly: 1
+    chasedistance: 
+  - level: 7
+    name: Bunny
+    skin: 1
+    normaldamage: 
+    skilldamage: 0
+    castskilleverysecond: 0
+    hp: 
+    attackrange: 2
+    animspeedmulti: 1
+    attackspeed: 
+    movespeed: 3.5
+    dropgoldmin: 
+    dropgoldmax: 
+    dropitemname: 1
+    dropitemchance: 5
+    dropitemfirstonly: 1
+    chasedistance: 
   - level: 8
-    skin: 3
-    normaldamage: 45
-    skilldamage: 1
-    castskilleverysecond: 60
-    hp: 11
+    name: Bunny
+    skin: 1
+    normaldamage: 
+    skilldamage: 0
+    castskilleverysecond: 0
+    hp: 
     attackrange: 2
     animspeedmulti: 1
-    attackspeed: 1
-    movespeed: 2
-    dropgoldmin: 3
-    dropgoldmax: 7
-    dropitemname: 
-    dropitemchance: 7
+    attackspeed: 
+    movespeed: 3.5
+    dropgoldmin: 
+    dropgoldmax: 
+    dropitemname: 1
+    dropitemchance: 5
     dropitemfirstonly: 1
-    exp: 
+    chasedistance: 
   - level: 9
-    skin: 3
-    normaldamage: 50
-    skilldamage: 1
-    castskilleverysecond: 70
-    hp: 11
+    name: Bunny
+    skin: 1
+    normaldamage: 
+    skilldamage: 0
+    castskilleverysecond: 0
+    hp: 
     attackrange: 2
     animspeedmulti: 1
-    attackspeed: 1
-    movespeed: 2
-    dropgoldmin: 4
-    dropgoldmax: 7
-    dropitemname: 
-    dropitemchance: 7
+    attackspeed: 
+    movespeed: 3.5
+    dropgoldmin: 
+    dropgoldmax: 
+    dropitemname: 1
+    dropitemchance: 5
     dropitemfirstonly: 1
-    exp: 
+    chasedistance: 
+  - level: 10
+    name: Bunny
+    skin: 1
+    normaldamage: 
+    skilldamage: 0
+    castskilleverysecond: 0
+    hp: 
+    attackrange: 2
+    animspeedmulti: 1
+    attackspeed: 
+    movespeed: 3.5
+    dropgoldmin: 
+    dropgoldmax: 
+    dropitemname: 1
+    dropitemchance: 5
+    dropitemfirstonly: 1
+    chasedistance: 
