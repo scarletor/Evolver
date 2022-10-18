@@ -25,11 +25,11 @@ MonoBehaviour:
     movespeed: x
     upgradeprice: x
   - level: 1
-    hp: 50
-    basedamage: 10
+    hp: 11111
+    basedamage: 1
     randomdamage: 1
-    animspeed: 2
-    attackspeed: 2
+    animspeed: 3
+    attackspeed: 0.1
     attackrange: 7
     movespeed: 3.5
     upgradeprice: 300
@@ -37,8 +37,8 @@ MonoBehaviour:
     hp: 60
     basedamage: 15
     randomdamage: 2
-    animspeed: 2
-    attackspeed: 2
+    animspeed: 3
+    attackspeed: 3
     attackrange: 7
     movespeed: 3.5
     upgradeprice: 500
@@ -46,8 +46,8 @@ MonoBehaviour:
     hp: 70
     basedamage: 20
     randomdamage: 3
-    animspeed: 2
-    attackspeed: 2
+    animspeed: 3
+    attackspeed: 3
     attackrange: 7
     movespeed: 3.5
     upgradeprice: 700
@@ -55,8 +55,8 @@ MonoBehaviour:
     hp: 100
     basedamage: 25
     randomdamage: 4
-    animspeed: 2
-    attackspeed: 2
+    animspeed: 0.5
+    attackspeed: 3
     attackrange: 7
     movespeed: 3.5
     upgradeprice: 3000

@@ -243,6 +243,7 @@ public class PlayerController : CreatureBase
 
                 if (delayAttack > attackSpeed)
                 {
+                    _anim.SetFloat("animSpeed", animSpeed);
                     FaceToTarget(_targetRange);
                     _anim.SetBool("Move", false);
                     _anim.SetBool("Idle", false);

@@ -132,7 +132,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1221612847383857533, guid: 6c5a0ecd787a8904db7826472bcd871a, type: 3}
       propertyPath: m_Name
-      value: '#_7_Ground_Green8'
+      value: Level_1_Ground_8
       objectReference: {fileID: 0}
     - target: {fileID: 1221612847383857533, guid: 6c5a0ecd787a8904db7826472bcd871a, type: 3}
       propertyPath: m_Layer
@@ -2637,7 +2637,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1221612847383857533, guid: 6c5a0ecd787a8904db7826472bcd871a, type: 3}
       propertyPath: m_Name
-      value: '#_7_Ground_Green0'
+      value: Level_1_Ground_0
       objectReference: {fileID: 0}
     - target: {fileID: 1221612847383857533, guid: 6c5a0ecd787a8904db7826472bcd871a, type: 3}
       propertyPath: m_Layer
@@ -3091,7 +3091,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1221612847383857533, guid: 6c5a0ecd787a8904db7826472bcd871a, type: 3}
       propertyPath: m_Name
-      value: '#_7_Ground_Green17'
+      value: Level_1_Ground_17
       objectReference: {fileID: 0}
     - target: {fileID: 1221612847383857533, guid: 6c5a0ecd787a8904db7826472bcd871a, type: 3}
       propertyPath: m_Layer
@@ -4997,7 +4997,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1221612847383857533, guid: 6c5a0ecd787a8904db7826472bcd871a, type: 3}
       propertyPath: m_Name
-      value: '#_7_Ground_Green12'
+      value: Level_1_Ground_12
       objectReference: {fileID: 0}
     - target: {fileID: 1221612847383857533, guid: 6c5a0ecd787a8904db7826472bcd871a, type: 3}
       propertyPath: m_Layer
@@ -6305,7 +6305,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1221612847383857533, guid: 6c5a0ecd787a8904db7826472bcd871a, type: 3}
       propertyPath: m_Name
-      value: '#_7_Ground_Green13'
+      value: Level_1_Ground_13
       objectReference: {fileID: 0}
     - target: {fileID: 1221612847383857533, guid: 6c5a0ecd787a8904db7826472bcd871a, type: 3}
       propertyPath: m_Layer
@@ -6436,7 +6436,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1221612847383857533, guid: 6c5a0ecd787a8904db7826472bcd871a, type: 3}
       propertyPath: m_Name
-      value: '#_7_Ground_Green11'
+      value: Level_1_Ground_11
       objectReference: {fileID: 0}
     - target: {fileID: 1221612847383857533, guid: 6c5a0ecd787a8904db7826472bcd871a, type: 3}
       propertyPath: m_Layer
@@ -8465,7 +8465,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1221612847383857533, guid: 6c5a0ecd787a8904db7826472bcd871a, type: 3}
       propertyPath: m_Name
-      value: '#_7_Ground_Green4'
+      value: Level_1_Ground_4
       objectReference: {fileID: 0}
     - target: {fileID: 1221612847383857533, guid: 6c5a0ecd787a8904db7826472bcd871a, type: 3}
       propertyPath: m_Layer
@@ -9816,7 +9816,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1221612847383857533, guid: 6c5a0ecd787a8904db7826472bcd871a, type: 3}
       propertyPath: m_Name
-      value: '#_7_Ground_Green3'
+      value: Level_1_Ground_3
       objectReference: {fileID: 0}
     - target: {fileID: 1221612847383857533, guid: 6c5a0ecd787a8904db7826472bcd871a, type: 3}
       propertyPath: m_Layer
@@ -9906,7 +9906,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1221612847383857533, guid: 6c5a0ecd787a8904db7826472bcd871a, type: 3}
       propertyPath: m_Name
-      value: '#_7_Ground_Green18'
+      value: Level_1_Ground_18
       objectReference: {fileID: 0}
     - target: {fileID: 1221612847383857533, guid: 6c5a0ecd787a8904db7826472bcd871a, type: 3}
       propertyPath: m_Layer
@@ -11284,7 +11284,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1221612847383857533, guid: 6c5a0ecd787a8904db7826472bcd871a, type: 3}
       propertyPath: m_Name
-      value: '#_7_Ground_Green19'
+      value: Level_1_Ground_19
       objectReference: {fileID: 0}
     - target: {fileID: 1221612847383857533, guid: 6c5a0ecd787a8904db7826472bcd871a, type: 3}
       propertyPath: m_Layer
@@ -11605,7 +11605,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1221612847383857533, guid: 6c5a0ecd787a8904db7826472bcd871a, type: 3}
       propertyPath: m_Name
-      value: '#_7_Ground_Green10'
+      value: Level_1_Ground_10
       objectReference: {fileID: 0}
     - target: {fileID: 1221612847383857533, guid: 6c5a0ecd787a8904db7826472bcd871a, type: 3}
       propertyPath: m_Layer
@@ -13133,7 +13133,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1221612847383857533, guid: 6c5a0ecd787a8904db7826472bcd871a, type: 3}
       propertyPath: m_Name
-      value: '#_7_Ground_Green5'
+      value: Level_1_Ground_5
       objectReference: {fileID: 0}
     - target: {fileID: 1221612847383857533, guid: 6c5a0ecd787a8904db7826472bcd871a, type: 3}
       propertyPath: m_Layer
@@ -14464,7 +14464,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1221612847383857533, guid: 6c5a0ecd787a8904db7826472bcd871a, type: 3}
       propertyPath: m_Name
-      value: '#_7_Ground_Green1'
+      value: Level_1_Ground_1
       objectReference: {fileID: 0}
     - target: {fileID: 1999557299620680647, guid: 6c5a0ecd787a8904db7826472bcd871a, type: 3}
       propertyPath: m_RootOrder
@@ -14634,7 +14634,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1221612847383857533, guid: 6c5a0ecd787a8904db7826472bcd871a, type: 3}
       propertyPath: m_Name
-      value: '#_7_Ground_Green6'
+      value: Level_1_Ground_6
       objectReference: {fileID: 0}
     - target: {fileID: 1221612847383857533, guid: 6c5a0ecd787a8904db7826472bcd871a, type: 3}
       propertyPath: m_Layer
@@ -14848,7 +14848,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1221612847383857533, guid: 6c5a0ecd787a8904db7826472bcd871a, type: 3}
       propertyPath: m_Name
-      value: '#_7_Ground_Green2'
+      value: Level_1_Ground_2
       objectReference: {fileID: 0}
     - target: {fileID: 1221612847383857533, guid: 6c5a0ecd787a8904db7826472bcd871a, type: 3}
       propertyPath: m_Layer
@@ -17283,7 +17283,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1221612847383857533, guid: 6c5a0ecd787a8904db7826472bcd871a, type: 3}
       propertyPath: m_Name
-      value: '#_7_Ground_Green16'
+      value: Level_1_Ground_16
       objectReference: {fileID: 0}
     - target: {fileID: 1221612847383857533, guid: 6c5a0ecd787a8904db7826472bcd871a, type: 3}
       propertyPath: m_Layer
@@ -17940,7 +17940,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1221612847383857533, guid: 6c5a0ecd787a8904db7826472bcd871a, type: 3}
       propertyPath: m_Name
-      value: '#_7_Ground_Green15'
+      value: Level_1_Ground_15
       objectReference: {fileID: 0}
     - target: {fileID: 1221612847383857533, guid: 6c5a0ecd787a8904db7826472bcd871a, type: 3}
       propertyPath: m_Layer
@@ -18796,7 +18796,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1221612847383857533, guid: 6c5a0ecd787a8904db7826472bcd871a, type: 3}
       propertyPath: m_Name
-      value: '#_7_Ground_Green14'
+      value: Level_1_Ground_14
       objectReference: {fileID: 0}
     - target: {fileID: 1221612847383857533, guid: 6c5a0ecd787a8904db7826472bcd871a, type: 3}
       propertyPath: m_Layer
@@ -19311,7 +19311,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1221612847383857533, guid: 6c5a0ecd787a8904db7826472bcd871a, type: 3}
       propertyPath: m_Name
-      value: '#_7_Ground_Green7'
+      value: Level_1_Ground_7
       objectReference: {fileID: 0}
     - target: {fileID: 1221612847383857533, guid: 6c5a0ecd787a8904db7826472bcd871a, type: 3}
       propertyPath: m_Layer
@@ -20917,7 +20917,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1221612847383857533, guid: 6c5a0ecd787a8904db7826472bcd871a, type: 3}
       propertyPath: m_Name
-      value: '#_7_Ground_Green9'
+      value: Level_1_Ground_9
       objectReference: {fileID: 0}
     - target: {fileID: 1221612847383857533, guid: 6c5a0ecd787a8904db7826472bcd871a, type: 3}
       propertyPath: m_Layer
@@ -24489,7 +24489,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2016b055cb027d6429f90655d6d3149c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textGold: {fileID: 0}
+  textGold: {fileID: 6202303899884628516}
   avgFrameRate: 0
   display_Text: {fileID: 826961371268776038}
 --- !u!222 &2504949416234096765
@@ -34096,7 +34096,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!222 &7207567973803900975
 CanvasRenderer:
   m_ObjectHideFlags: 0
