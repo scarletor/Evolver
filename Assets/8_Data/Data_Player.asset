@@ -25,7 +25,7 @@ MonoBehaviour:
     movespeed: x
     upgradeprice: x
   - level: 1
-    hp: 
+    hp: 100
     basedamage: 10
     randomdamage: 1
     animspeed: 3

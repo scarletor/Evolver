@@ -43,8 +43,8 @@ MonoBehaviour:
     animspeedmulti: 1
     attackspeed: 2
     movespeed: 3
-    dropgoldmin: 
-    dropgoldmax: 
+    dropgoldmin: 2
+    dropgoldmax: 4
     dropitemname: 3
     dropitemchance: 1
     dropitemfirstonly: 
@@ -58,10 +58,10 @@ MonoBehaviour:
     castskilleverysecond: 0
     attackrange: 2
     animspeedmulti: 1
-    attackspeed: 
+    attackspeed: 1.95
     movespeed: 3
     dropgoldmin: 1
-    dropgoldmax: 
+    dropgoldmax: 4
     dropitemname: 1
     dropitemchance: 1
     dropitemfirstonly: 
@@ -75,10 +75,10 @@ MonoBehaviour:
     castskilleverysecond: 0
     attackrange: 2
     animspeedmulti: 1
-    attackspeed: 
+    attackspeed: 1.9
     movespeed: 3
     dropgoldmin: 
-    dropgoldmax: 1
+    dropgoldmax: 4
     dropitemname: 1
     dropitemchance: 1
     dropitemfirstonly: 
@@ -92,10 +92,10 @@ MonoBehaviour:
     castskilleverysecond: 0
     attackrange: 2
     animspeedmulti: 1
-    attackspeed: 
+    attackspeed: 1.85
     movespeed: 3
     dropgoldmin: 
-    dropgoldmax: 1
+    dropgoldmax: 4
     dropitemname: 1
     dropitemchance: 1
     dropitemfirstonly: 
@@ -109,10 +109,10 @@ MonoBehaviour:
     castskilleverysecond: 0
     attackrange: 2
     animspeedmulti: 1
-    attackspeed: 
+    attackspeed: 1.8
     movespeed: 3
     dropgoldmin: 
-    dropgoldmax: 1
+    dropgoldmax: 4
     dropitemname: 1
     dropitemchance: 1
     dropitemfirstonly: 
@@ -126,10 +126,10 @@ MonoBehaviour:
     castskilleverysecond: 0
     attackrange: 2
     animspeedmulti: 1
-    attackspeed: 
+    attackspeed: 1.75
     movespeed: 3
     dropgoldmin: 
-    dropgoldmax: 1
+    dropgoldmax: 4
     dropitemname: 1
     dropitemchance: 1
     dropitemfirstonly: 
@@ -143,10 +143,10 @@ MonoBehaviour:
     castskilleverysecond: 0
     attackrange: 2
     animspeedmulti: 1
-    attackspeed: 
+    attackspeed: 1.7
     movespeed: 3
     dropgoldmin: 
-    dropgoldmax: 
+    dropgoldmax: 4
     dropitemname: 1
     dropitemchance: 1
     dropitemfirstonly: 
@@ -160,10 +160,10 @@ MonoBehaviour:
     castskilleverysecond: 0
     attackrange: 2
     animspeedmulti: 1
-    attackspeed: 
+    attackspeed: 1.65
     movespeed: 3
     dropgoldmin: 
-    dropgoldmax: 
+    dropgoldmax: 4
     dropitemname: 1
     dropitemchance: 1
     dropitemfirstonly: 
@@ -177,10 +177,10 @@ MonoBehaviour:
     castskilleverysecond: 0
     attackrange: 2
     animspeedmulti: 1
-    attackspeed: 
+    attackspeed: 1.6
     movespeed: 3
     dropgoldmin: 
-    dropgoldmax: 
+    dropgoldmax: 44
     dropitemname: 1
     dropitemchance: 1
     dropitemfirstonly: 
@@ -194,14 +194,31 @@ MonoBehaviour:
     castskilleverysecond: 0
     attackrange: 2
     animspeedmulti: 1
-    attackspeed: 
+    attackspeed: 1.55
     movespeed: 3
     dropgoldmin: 
-    dropgoldmax: 
+    dropgoldmax: 4
     dropitemname: 1
     dropitemchance: 1
     dropitemfirstonly: 
     chasedistance: 1
+  - level: 
+    name: 
+    hp: 
+    normaldamage: 
+    skin: 
+    skilldamage: 
+    castskilleverysecond: 
+    attackrange: 
+    animspeedmulti: 
+    attackspeed: 
+    movespeed: 
+    dropgoldmin: 
+    dropgoldmax: 
+    dropitemname: 
+    dropitemchance: 
+    dropitemfirstonly: 
+    chasedistance: 
   - level: 
     name: 
     hp: 
