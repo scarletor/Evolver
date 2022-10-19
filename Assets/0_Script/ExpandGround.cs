@@ -23,12 +23,17 @@ public class ExpandGround : MonoBehaviour
         if (groundToExpand.Count != 0)
             baseScale = groundToExpand[0].transform.localScale;
 
-        groundToExpand.ForEach(go =>
+        Utils.ins.DelayCall(0.01f, () =>
         {
-            go.gameObject.SetActive(false);
-            go.gameObject.isStatic = false;
-			 Debug.LogError(go);
+            groundToExpand.ForEach(go =>
+            {
+                go.gameObject.SetActive(false);
+                go.gameObject.isStatic = false;
+                Debug.LogError(go);
+            });
+
         });
+
 
         groundToExpand.ForEach(go =>
         {
