@@ -27,8 +27,8 @@ public class ExpandGround : MonoBehaviour
         {
             go.gameObject.SetActive(false);
             go.gameObject.isStatic = false;
-			 Debug.LogError(go);
-        });
+ Debug.LogError("    ");
+ });
 
         groundToExpand.ForEach(go =>
         {
