@@ -20,7 +20,7 @@ public class EnemyNormal : EnemyBase
     public ScriptableObject myData;
     public void SetupDataScriptableObject()
     {
-
+        dataTemp.dataArray[myLevel].Dropgoldmax;
 
         if (gameObject.name.Contains("Fledgling"))
         {
@@ -348,6 +348,7 @@ public class EnemyNormal : EnemyBase
 
             try
             {
+                Debug.LogError(dataTemp.dataArray[myLevel].Dropgoldmax);
                 dropGoldMax = int.Parse(dataTemp.dataArray[myLevel].Dropgoldmax);
             }
             catch (Exception e)

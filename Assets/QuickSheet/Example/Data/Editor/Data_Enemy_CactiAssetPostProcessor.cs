@@ -7,11 +7,11 @@ using UnityQuickSheet;
 ///
 /// !!! Machine generated code !!!
 ///
-public class Data_Enemy_MushroomAssetPostprocessor : AssetPostprocessor 
+public class Data_Enemy_CactiAssetPostprocessor : AssetPostprocessor 
 {
     private static readonly string filePath = "Assets/8_Data/1_EnemyData.xlsx";
-    private static readonly string assetFilePath = "Assets/8_Data/Data_Enemy_Mushroom.asset";
-    private static readonly string sheetName = "Data_Enemy_Mushroom";
+    private static readonly string assetFilePath = "Assets/8_Data/Data_Enemy_Cacti.asset";
+    private static readonly string sheetName = "Data_Enemy_Cacti";
     
     static void OnPostprocessAllAssets (string[] importedAssets, string[] deletedAssets, string[] movedAssets, string[] movedFromAssetPaths)
     {
@@ -20,16 +20,16 @@ public class Data_Enemy_MushroomAssetPostprocessor : AssetPostprocessor
             if (!filePath.Equals (asset))
                 continue;
                 
-            Data_Enemy_MushRoom data = (Data_Enemy_MushRoom)AssetDatabase.LoadAssetAtPath (assetFilePath, typeof(Data_Enemy_MushRoom));
+            Data_Enemy_Cacti data = (Data_Enemy_Cacti)AssetDatabase.LoadAssetAtPath (assetFilePath, typeof(Data_Enemy_Cacti));
             if (data == null) {
-                data = ScriptableObject.CreateInstance<Data_Enemy_MushRoom> ();
+                data = ScriptableObject.CreateInstance<Data_Enemy_Cacti> ();
                 data.SheetName = filePath;
                 data.WorksheetName = sheetName;
                 AssetDatabase.CreateAsset ((ScriptableObject)data, assetFilePath);
                 //data.hideFlags = HideFlags.NotEditable;
             }
             
-            //data.dataArray = new ExcelQuery(filePath, sheetName).Deserialize<Data_Enemy_MushroomData>().ToArray();		
+            //data.dataArray = new ExcelQuery(filePath, sheetName).Deserialize<Data_Enemy_CactiData>().ToArray();		
 
             //ScriptableObject obj = AssetDatabase.LoadAssetAtPath (assetFilePath, typeof(ScriptableObject)) as ScriptableObject;
             //EditorUtility.SetDirty (obj);
@@ -37,7 +37,7 @@ public class Data_Enemy_MushroomAssetPostprocessor : AssetPostprocessor
             ExcelQuery query = new ExcelQuery(filePath, sheetName);
             if (query != null && query.IsValid())
             {
-                data.dataArray = query.Deserialize<Data_Enemy_MushRoomData>().ToArray();
+                data.dataArray = query.Deserialize<Data_Enemy_CactiData>().ToArray();
                 ScriptableObject obj = AssetDatabase.LoadAssetAtPath (assetFilePath, typeof(ScriptableObject)) as ScriptableObject;
                 EditorUtility.SetDirty (obj);
             }

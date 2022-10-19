@@ -15,7 +15,7 @@ public class SharedScreen : MonoBehaviour
 
 
     public TextMeshProUGUI textGold;
-    
+
 
 
 
@@ -24,9 +24,15 @@ public class SharedScreen : MonoBehaviour
     void Start()
     {
         DontDestroyOnLoad(this);
+        UpdateTextGold();
     }
 
- 
+    public void UpdateTextGold()
+    {
+        textGold.text = PlayerData.ins.GetCurGold() + "";
+
+    }
+
 
 
 

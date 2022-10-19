@@ -349,6 +349,35 @@ public class PlayerData : MonoBehaviour
     public List<PetData> curPetList;
 
 
+
+
+
+
+
+
+
+
+
+    public int GetCurGold()
+    {
+        return PlayerPrefs.GetInt("CurGold");
+    }
+
+    public void SetMoreCurGold(int value)
+    {
+        var curGold = PlayerPrefs.GetInt("CurGold");
+        var addedGold = curGold + value;
+        PlayerPrefs.SetInt("CurGold",addedGold);
+
+        SharedScreen.ins.UpdateTextGold();
+
+    }
+
+
+
+
+
+
 }
 
 

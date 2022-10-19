@@ -6,7 +6,7 @@ using System.Collections;
 /// !!! DO NOT CHANGE Tabs to Spaces !!!
 /// 
 [System.Serializable]
-public class Data_Enemy_MushRoomData
+public class Data_Enemy_CactiData
 {
   [SerializeField]
   string level;
@@ -17,16 +17,16 @@ public class Data_Enemy_MushRoomData
   public string Name { get {return name; } set { this.name = value;} }
   
   [SerializeField]
+  string skin;
+  public string Skin { get {return skin; } set { this.skin = value;} }
+  
+  [SerializeField]
   string hp;
   public string HP { get {return hp; } set { this.hp = value;} }
   
   [SerializeField]
   string normaldamage;
   public string Normaldamage { get {return normaldamage; } set { this.normaldamage = value;} }
-  
-  [SerializeField]
-  string skin;
-  public string Skin { get {return skin; } set { this.skin = value;} }
   
   [SerializeField]
   string skilldamage;

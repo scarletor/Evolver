@@ -16,7 +16,7 @@ MonoBehaviour:
   scriptFilePath: QuickSheet/Example/Data/Runtime
   editorScriptFilePath: QuickSheet/Example/Data/Editor
   sheetName: 1_EnemyData.xlsx
-  workSheetName: Data_Enemy_Bunny
+  workSheetName: Data_Enemy_Cacti
   columnHeaderList:
   - type: 0
     name: Level
@@ -31,6 +31,10 @@ MonoBehaviour:
     isEnable: 0
     isArray: 0
   - type: 0
+    name: HP
+    isEnable: 0
+    isArray: 0
+  - type: 0
     name: NormalDamage
     isEnable: 0
     isArray: 0
@@ -40,10 +44,6 @@ MonoBehaviour:
     isArray: 0
   - type: 0
     name: CastSkillEverySecond
-    isEnable: 0
-    isArray: 0
-  - type: 0
-    name: HP
     isEnable: 0
     isArray: 0
   - type: 0
@@ -89,6 +89,7 @@ MonoBehaviour:
   excelFilePath: Assets/8_Data/1_EnemyData.xlsx
   SheetNames:
   - Data_Enemy_Bunny
+  - Data_Enemy_Mushroom
   - Data_Enemy_Rabbit
   - Data_Enemy_WolfPup
   - Data_Enemy_WolfCute
@@ -97,7 +98,6 @@ MonoBehaviour:
   - Data_Enemy_Seed
   - Data_Enemy_Sprout
   - Data_Enemy_Fungi
-  - Data_Enemy_Mushroom
   - Data_Enemy_Cacti
   - Data_Enemy_CactusCute
-  currentSelectedSheet: 0
+  currentSelectedSheet: 10

@@ -24,106 +24,106 @@ MonoBehaviour:
     onetimedrop_itemname: ItemConsumable_EggFire
     hasregen: 0
   - groundname: Level_1_Ground_1
-    enemy1_name: '#_101_#_Enemy_Bunny_Normal'
+    enemy1_name: 
     enemy1_level: 1
     enemy2_name: 
-    enemy2_level: 
+    enemy2_level: 1
     enemyrespawntime: 6
     onetimedrop_itemname: 
     hasregen: 
   - groundname: Level_1_Ground_10
-    enemy1_name: 
-    enemy1_level: 
-    enemy2_name: 
-    enemy2_level: 
+    enemy1_name: '#_103_#_Enemy_MushRoom_Normal'
+    enemy1_level: 1
+    enemy2_name: '#_103_#_Enemy_MushRoom_Normal'
+    enemy2_level: 1
     enemyrespawntime: 6
     onetimedrop_itemname: 
     hasregen: 
   - groundname: Level_1_Ground_11
-    enemy1_name: 
-    enemy1_level: 
-    enemy2_name: 
-    enemy2_level: 
+    enemy1_name: '#_103_#_Enemy_MushRoom_Normal'
+    enemy1_level: 1
+    enemy2_name: '#_103_#_Enemy_MushRoom_Normal'
+    enemy2_level: 1
     enemyrespawntime: 6
     onetimedrop_itemname: 
     hasregen: 
   - groundname: Level_1_Ground_12
-    enemy1_name: 
-    enemy1_level: 
-    enemy2_name: 
-    enemy2_level: 
+    enemy1_name: '#_103_#_Enemy_MushRoom_Normal'
+    enemy1_level: 1
+    enemy2_name: '#_103_#_Enemy_MushRoom_Normal'
+    enemy2_level: 1
     enemyrespawntime: 6
     onetimedrop_itemname: 
     hasregen: 
   - groundname: Level_1_Ground_13
-    enemy1_name: 
-    enemy1_level: 
-    enemy2_name: 
-    enemy2_level: 
+    enemy1_name: '#_103_#_Enemy_MushRoom_Normal'
+    enemy1_level: 1
+    enemy2_name: '#_103_#_Enemy_MushRoom_Normal'
+    enemy2_level: 1
     enemyrespawntime: 6
     onetimedrop_itemname: 
     hasregen: 
   - groundname: Level_1_Ground_19
-    enemy1_name: 
-    enemy1_level: 
-    enemy2_name: 
-    enemy2_level: 
+    enemy1_name: '#_103_#_Enemy_MushRoom_Normal'
+    enemy1_level: 1
+    enemy2_name: '#_103_#_Enemy_MushRoom_Normal'
+    enemy2_level: 1
     enemyrespawntime: 6
     onetimedrop_itemname: 
     hasregen: 
   - groundname: Level_1_Ground_14
-    enemy1_name: 
-    enemy1_level: 
-    enemy2_name: 
-    enemy2_level: 
+    enemy1_name: '#_103_#_Enemy_MushRoom_Normal'
+    enemy1_level: 1
+    enemy2_name: '#_103_#_Enemy_MushRoom_Normal'
+    enemy2_level: 1
     enemyrespawntime: 6
     onetimedrop_itemname: 
     hasregen: 
   - groundname: Level_1_Ground_9
-    enemy1_name: 
-    enemy1_level: 
-    enemy2_name: 
-    enemy2_level: 
+    enemy1_name: '#_103_#_Enemy_MushRoom_Normal'
+    enemy1_level: 1
+    enemy2_name: '#_103_#_Enemy_MushRoom_Normal'
+    enemy2_level: 1
     enemyrespawntime: 6
     onetimedrop_itemname: 
     hasregen: 
   - groundname: Level_1_Ground_15
-    enemy1_name: 
-    enemy1_level: 
-    enemy2_name: 
-    enemy2_level: 
+    enemy1_name: '#_103_#_Enemy_MushRoom_Normal'
+    enemy1_level: 1
+    enemy2_name: '#_103_#_Enemy_MushRoom_Normal'
+    enemy2_level: 1
     enemyrespawntime: 6
     onetimedrop_itemname: 
     hasregen: 
   - groundname: Level_1_Ground_3
-    enemy1_name: 
-    enemy1_level: 
-    enemy2_name: 
-    enemy2_level: 
+    enemy1_name: '#_103_#_Enemy_MushRoom_Normal'
+    enemy1_level: 1
+    enemy2_name: '#_103_#_Enemy_MushRoom_Normal'
+    enemy2_level: 1
     enemyrespawntime: 6
     onetimedrop_itemname: 
     hasregen: 
   - groundname: Level_1_Ground_4
-    enemy1_name: 
-    enemy1_level: 
-    enemy2_name: 
-    enemy2_level: 
+    enemy1_name: '#_103_#_Enemy_MushRoom_Normal'
+    enemy1_level: 1
+    enemy2_name: '#_103_#_Enemy_MushRoom_Normal'
+    enemy2_level: 1
     enemyrespawntime: 6
     onetimedrop_itemname: 
     hasregen: 
   - groundname: Level_1_Ground_5
-    enemy1_name: 
-    enemy1_level: 
-    enemy2_name: 
-    enemy2_level: 
+    enemy1_name: '#_103_#_Enemy_MushRoom_Normal'
+    enemy1_level: 1
+    enemy2_name: '#_103_#_Enemy_MushRoom_Normal'
+    enemy2_level: 1
     enemyrespawntime: 6
     onetimedrop_itemname: 
     hasregen: 
   - groundname: Level_1_Ground_6
-    enemy1_name: 
-    enemy1_level: 
-    enemy2_name: 
-    enemy2_level: 
+    enemy1_name: '#_103_#_Enemy_MushRoom_Normal'
+    enemy1_level: 1
+    enemy2_name: '#_103_#_Enemy_MushRoom_Normal'
+    enemy2_level: 1
     enemyrespawntime: 6
     onetimedrop_itemname: 
     hasregen: 
